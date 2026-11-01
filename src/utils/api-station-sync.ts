@@ -552,6 +552,28 @@ echo "Topology import finished. Run channel tests from the admin console to veri
 `;
 }
 
+// UTF-16 code units encode reversibly into URL-safe characters, including unusual URLs.
+function identitySuffix(value: string): string {
+  return Array.from({ length: value.length }, (_, i) => value.charCodeAt(i).toString(16).padStart(4, '0')).join('');
+}
+
+export function appendImportedStations(current: AiStationItem[], incoming: AiStationItem[]): AiStationItem[] {
+  const urls = new Set(current.map(s => s.apiBaseUrl.toLowerCase().replace(/\/+$/, '')));
+  const names = new Set(current.map(s => s.name.trim().toLowerCase()));
+  const ids = new Set(current.map(s => s.id));
+  const added: AiStationItem[] = [];
+  for (const station of incoming) {
+    const url = station.apiBaseUrl.toLowerCase().replace(/\/+$/, '');
+    const name = station.name.trim().toLowerCase();
+    if (urls.has(url) || names.has(name)) continue;
+    let id = station.id;
+    while (ids.has(id)) id += '-';
+    ids.add(id); urls.add(url); names.add(name);
+    added.push(id === station.id ? station : { ...station, id });
+  }
+  return [...added, ...current];
+}
+
 /**
  * Parses New API channel JSON (single channel object or array of channels from /api/channel/ or manual backup),
  * converting them into AiStationItem format for systematic import into mangoshare.
@@ -590,7 +612,7 @@ export function parseNewApiChannelsJson(rawJson: string): AiStationItem[] {
       cleanName.toLowerCase().replace(/[^a-z0-9_-]/g, '-').slice(0, 24) ||
       `channel-${index + 1}`
     ).replace(/^-+|-+$/g, '');
-    const id = `custom-${baseSlug}-${index + 1}`;
+    const id = `custom-${baseSlug}-${index + 1}-${identitySuffix(String(item.base_url || '').trim())}`;
 
     const rawBaseUrlInput = item.base_url == null ? '' : String(item.base_url).trim();
     if (!rawBaseUrlInput) {
@@ -759,9 +781,8 @@ export function mergePublicStations(
     return {
       ...preset,
       models: entry.models.size > 0 ? Array.from(entry.models) : preset.models,
-      // Backend channel status only says "enabled"; the real liveness signal
-      // is a measured response_time from the last channel test.
-      healthState: entry.latency > 0 ? ('online' as AiStationItem['healthState']) : preset.healthState,
+      // A historical response time does not establish current health.
+      healthState: preset.healthState,
       responseTime: entry.latency > 0 ? entry.latency : undefined,
       tags: Array.from(new Set([...preset.tags, `API站已接入`, `${entry.channelCount} 渠道`])),
     };
@@ -769,7 +790,8 @@ export function mergePublicStations(
 
   const presetOrigins = new Set(merged.map(presetOriginOf));
   const extras: AiStationItem[] = [];
-  for (const [origin, entry] of byOrigin) {
+  const usedIds = new Set(merged.map((station) => station.id));
+  for (const [origin, entry] of [...byOrigin].sort(([a], [b]) => a.localeCompare(b))) {
     if (presetOrigins.has(origin)) continue;
     // Slug from the full origin (not just hostname): distinct origins that
     // share a host (e.g. https://a.b and https://a.b/claude) must not collide.
@@ -781,8 +803,13 @@ export function mergePublicStations(
       .replace(/^-|-$/g, '')
       .slice(0, 60) || 'station';
     const category = channelCategory(entry.type);
+    const legacyId = `upstream-${hostSlug}`;
+    let id = legacyId;
+    if (usedIds.has(id)) id = `${legacyId}-${identitySuffix(origin)}`;
+    while (usedIds.has(id)) id += '-';
+    usedIds.add(id);
     extras.push({
-      id: `upstream-${hostSlug}`,
+      id,
       name: entry.name,
       category,
       portalUrl: origin,
@@ -790,7 +817,7 @@ export function mergePublicStations(
       models: Array.from(entry.models),
       authType: category === 'DirectKey' ? 'DirectKey' : 'Session',
       quotaDesc: `API 站已接入 · ${entry.channelCount} 渠道 · 优先级 1-10`,
-      healthState: entry.latency > 0 ? 'online' : 'degraded',
+      healthState: 'degraded',
       responseTime: entry.latency > 0 ? entry.latency : undefined,
       turnstile: false,
       tags: ['动态下发', category, entry.channelCount > 1 ? `${entry.channelCount} 渠道` : '单渠道'],

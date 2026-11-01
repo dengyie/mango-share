@@ -149,8 +149,8 @@ describe('verifyAccountSession', () => {
 });
 
 describe('checklist sync', () => {
-  it('fetchMyItems returns the items array (empty when absent)', async () => {
-    const fetchMock = vi.fn().mockResolvedValue(jsonResponse({ items: [
+  it('fetchMyItems returns the items array and rejects malformed responses', async () => {
+    const fetchMock = vi.fn().mockResolvedValue(jsonResponse({ tombstoneProtocol: 1, items: [
       { itemType: 'u-card', itemId: 'a', status: 'opened', updatedAt: 1 },
     ] }));
     vi.stubGlobal('fetch', fetchMock);
@@ -158,25 +158,33 @@ describe('checklist sync', () => {
     const items = await fetchMyItems(TOKEN);
     expect(items).toHaveLength(1);
     const [url, init] = fetchMock.mock.calls[0];
-    expect(url).toBe('/account-api/api/my/items');
+    expect(url).toBe('/account-api/api/my/items?includeDeleted=1');
     expect(init.headers.Authorization).toBe(`Bearer ${TOKEN}`);
 
     vi.stubGlobal('fetch', vi.fn().mockResolvedValue(jsonResponse({})));
-    expect(await fetchMyItems(TOKEN)).toEqual([]);
+    await expect(fetchMyItems(TOKEN)).rejects.toBeInstanceOf(AccountApiError);
   });
 
   it('putMyItems PUTs the payload with the bearer token', async () => {
     const authoritative = [{ itemType: 'perk', itemId: 'p1', status: 'wanted', updatedAt: 5 }];
-    const fetchMock = vi.fn().mockResolvedValue(jsonResponse({ items: authoritative }));
+    const fetchMock = vi.fn().mockResolvedValue(jsonResponse({ tombstoneProtocol: 1, items: authoritative }));
     vi.stubGlobal('fetch', fetchMock);
 
     const items = await putMyItems(TOKEN, [
       { itemType: 'perk', itemId: 'p1', status: 'wanted', updatedAt: 5 },
     ]);
     expect(items).toEqual(authoritative);
-    const [, init] = fetchMock.mock.calls[0];
+    const [, init] = fetchMock.mock.calls[1];
     expect(init.method).toBe('PUT');
     expect(init.headers.Authorization).toBe(`Bearer ${TOKEN}`);
     expect(JSON.parse(init.body).items[0].status).toBe('wanted');
   });
+});
+
+it('refuses an old server without tombstone capability before writing', async () => {
+  const fetchMock = vi.fn().mockResolvedValue(jsonResponse({ items: [] }));
+  vi.stubGlobal('fetch', fetchMock);
+  await expect(fetchMyItems(TOKEN)).rejects.toBeInstanceOf(AccountApiError);
+  await expect(putMyItems(TOKEN, [{ itemType: 'perk', itemId: 'x', status: '', updatedAt: 1 }])).rejects.toBeInstanceOf(AccountApiError);
+  expect(fetchMock.mock.calls.every(([, init]) => !init.method || init.method === 'GET')).toBe(true);
 });

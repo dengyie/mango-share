@@ -139,7 +139,7 @@ const GuestAuthPanel: React.FC = () => {
     try {
       await account.sendCode(email.trim(), mode === 'forgot' ? 'reset' : 'register');
       setCooldown(60);
-      setNotice('验证码已发送，请查收邮箱（10 分钟内有效）');
+      setNotice('请求已受理。如邮箱符合条件且邮件投递成功，请查收验证码（10 分钟内有效）；未收到请稍后重试。');
     } catch (err) {
       setNotice(null);
       setErrorMessage(accountApiErrorMessage(err, '验证码发送失败，请稍后重试'));

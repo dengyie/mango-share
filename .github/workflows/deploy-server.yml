@@ -78,12 +78,49 @@ jobs:
         run: |
           # /var/www/mangoshare-bin is deploy-writable and NOT the rsync
           # --delete webroot, so the binary survives frontend deploys.
-          rsync -az -e "ssh -F $HOME/.ssh/config" /tmp/mangoshare-account nl-target:/var/www/mangoshare-bin/mangoshare-account
-          ssh -F $HOME/.ssh/config nl-target '
-            sudo -n /usr/bin/systemctl restart mangoshare-account.service
-            sudo -n /usr/bin/systemctl is-active mangoshare-account.service
-          '
-          echo "Deployed $(git rev-parse --short HEAD) at $(date -u +%FT%TZ)"
+          # Stage separately: a failed transfer must not overwrite the live binary.
+          # Requires an existing readable binary and write access to this directory.
+          stage="/var/www/mangoshare-bin/.mangoshare-account-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          rsync -az -e "ssh -F $HOME/.ssh/config" /tmp/mangoshare-account "nl-target:$stage"
+          ssh -F "$HOME/.ssh/config" nl-target sh -s -- "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" <<'REMOTE'
+          set -eu
+          dir=/var/www/mangoshare-bin
+          live="$dir/mangoshare-account"
+          stage="$dir/.mangoshare-account-$1-$2"
+          backup="$dir/.mangoshare-account-backup-$1-$2"
+          test -f "$live" && test -r "$live" && test -f "$stage"
+          cp -p "$live" "$backup"
+          rollback() {
+            rc=$?
+            trap - EXIT
+            if [ "$rc" -ne 0 ]; then
+              echo "Deployment failed; attempting binary rollback (backup: $backup)" >&2
+              if cp -p "$backup" "$stage" && mv -f "$stage" "$live" && sudo -n /usr/bin/systemctl restart mangoshare-account.service; then
+                echo "Previous binary restored and restart requested; verify service and data manually." >&2
+              else
+                echo "Rollback failed; manual recovery required, backup retained at $backup" >&2
+              fi
+            fi
+            exit "$rc"
+          }
+          trap rollback EXIT
+          mv -f "$stage" "$live"
+          sudo -n /usr/bin/systemctl restart mangoshare-account.service
+          # Probe the documented local listener, not the CDN: public network
+          # failures alone must not trigger a potentially destructive rollback.
+          healthy=0
+          for i in $(seq 1 15); do
+            body=$(curl -fsS --connect-timeout 5 --max-time 8 http://127.0.0.1:8090/api/health) || body=''
+            if [ "$body" = '{"status":"ok"}' ]; then healthy=1; break; fi
+            echo "local health attempt $i failed" >&2
+            [ "$i" -eq 15 ] || sleep 15
+          done
+          [ "$healthy" -eq 1 ]
+          sudo -n /usr/bin/systemctl is-active mangoshare-account.service
+          trap - EXIT
+          rm -f "$backup"
+          REMOTE
+          echo "Origin deployment passed; checking public route next."
 
       - name: Verify production
         run: |
@@ -93,7 +130,7 @@ jobs:
           # failing the deploy on a blip.
           body=""
           for i in $(seq 1 15); do
-            body=$(curl -sf -m 8 https://share.mangoqwq.com/account-api/api/health || true)
+            body=$(curl -fsS --connect-timeout 5 --max-time 8 https://share.mangoqwq.com/account-api/api/health || true)
             [ "$body" = '{"status":"ok"}' ] && break
             echo "attempt $i: not healthy yet (${body:-no response}); retrying in 15s"
             sleep 15

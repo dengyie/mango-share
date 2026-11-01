@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PerkItem } from '../../types/perk';
 import { getPerkArt } from '../../utils/card-art';
-import { copyToClipboard } from '../../utils/clipboard';
+import { useCopyFeedback } from '../../utils/use-copy-feedback';
 import { useModalLock } from '../../utils/use-modal-lock';
 import { ItemMarkControl } from '../account/ItemMarkControl';
 import { UiIcon } from '../awesome-ui/UiIcon';
@@ -12,7 +12,7 @@ interface PerkModalProps {
 }
 
 export const PerkModal: React.FC<PerkModalProps> = ({ perk, onClose }) => {
-  const [shareCopied, setShareCopied] = useState(false);
+  const [shareCopied, copyShare] = useCopyFeedback<boolean>(perk?.id ?? null);
   useModalLock(Boolean(perk), onClose);
 
   if (!perk) return null;
@@ -26,11 +26,7 @@ export const PerkModal: React.FC<PerkModalProps> = ({ perk, onClose }) => {
   const handleCopyShareLink = async () => {
     const origin = typeof window !== 'undefined' ? `${window.location.origin}${window.location.pathname}` : 'https://share.mangoqwq.com/';
     const shareUrl = `${origin}#/perks?card=${perk.id}`;
-    const success = await copyToClipboard(shareUrl);
-    if (success) {
-      setShareCopied(true);
-      setTimeout(() => setShareCopied(false), 2000);
-    }
+    await copyShare(shareUrl, true);
   };
 
   const cardArt = getPerkArt(

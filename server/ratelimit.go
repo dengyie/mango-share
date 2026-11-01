@@ -15,7 +15,7 @@ type rateLimiter struct {
 
 // maxRLBuckets bounds the key space: keys are attacker-controlled
 // (client IPs, emails), so once the map grows past this many entries the
-// next allow() sweeps expired buckets instead of letting memory creep.
+// next allow() sweeps expired buckets and rejects new keys if still full.
 const maxRLBuckets = 10_000
 
 type rlBucket struct {
@@ -37,6 +37,9 @@ func (rl *rateLimiter) allow(key string, limit int, window time.Duration) bool {
 	}
 	b, ok := rl.buckets[key]
 	if !ok || now.Sub(b.window) >= window {
+		if !ok && len(rl.buckets) >= maxRLBuckets {
+			return false
+		}
 		rl.buckets[key] = &rlBucket{count: 1, window: now, period: window}
 		return true
 	}

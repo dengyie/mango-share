@@ -78,6 +78,7 @@ export function useAiHubData(initialStations: AiStationItemType[]) {
   // ---- admin session ----------------------------------------------------
   const [adminSession, setAdminSession] = useState<AdminSession | null>(null);
   const [isAdminVerified, setIsAdminVerified] = useState(false);
+  const adminEpoch = useRef(0);
   // Ticks every 30s so an expired token flips the UI back to visitor mode
   // without waiting for the next state change.
   const [nowTick, setNowTick] = useState(() => Date.now());
@@ -93,6 +94,7 @@ export function useAiHubData(initialStations: AiStationItemType[]) {
   // rejection (401/403, role downgrade) clears the stored session; a network
   // failure keeps it so the admin regains access when connectivity returns.
   useEffect(() => {
+    const epoch = ++adminEpoch.current;
     const session = loadAdminSession(endpoint);
     if (!session || !isSessionActive(session)) {
       if (session) clearAdminSession();
@@ -104,7 +106,7 @@ export function useAiHubData(initialStations: AiStationItemType[]) {
     setIsAdminVerified(false);
     let cancelled = false;
     verifyAdminSession(session).then((result) => {
-      if (cancelled) return;
+      if (cancelled || epoch !== adminEpoch.current) return;
       if (result === 'invalid') {
         clearAdminSession();
         setAdminSession(null);
@@ -124,6 +126,7 @@ export function useAiHubData(initialStations: AiStationItemType[]) {
   }, [adminSession]);
 
   const handleAdminLogin = useCallback((session: AdminSession) => {
+    adminEpoch.current++;
     saveAdminSession(session);
     setAdminSession(session);
     setIsAdminVerified(true);
@@ -131,6 +134,7 @@ export function useAiHubData(initialStations: AiStationItemType[]) {
   }, []);
 
   const handleAdminLogout = useCallback(() => {
+    adminEpoch.current++;
     if (adminSession) logoutAdmin(adminSession);
     clearAdminSession();
     setAdminSession(null);

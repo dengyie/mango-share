@@ -65,7 +65,7 @@ export const AiStationModal: React.FC<AiStationModalProps> = ({ station, onClose
 
   const handleCopyShareLink = async () => {
     const origin = typeof window !== 'undefined' ? `${window.location.origin}${window.location.pathname}` : 'https://share.mangoqwq.com/';
-    const shareUrl = `${origin}#/ai-hub?card=${station.id}`;
+    const shareUrl = `${origin}#/ai-hub?card=${encodeURIComponent(station.id)}`;
     const success = await copyToClipboard(shareUrl);
     if (success) flash(setShareCopied);
   };

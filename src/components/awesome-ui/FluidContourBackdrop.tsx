@@ -94,7 +94,7 @@ void main() {
   float line = abs(fract(bands) - 0.5) / fwidth(bands);
   float a = 1.0 - smoothstep(0.0, 1.2, line);
   float index = 1.0 - step(0.5, mod(floor(bands + 0.5), 4.0));
-  a *= mix(0.045, 0.08, index);
+  a *= mix(0.075, 0.14, index);
   gl_FragColor = inkAt(a);
 }
 `;

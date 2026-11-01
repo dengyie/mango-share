@@ -1,10 +1,11 @@
 package main
 
 import (
+	"context"
 	"errors"
+	"hash/fnv"
 	"log"
 	"net/http"
-	"strconv"
 	"strings"
 	"sync"
 	"time"
@@ -40,16 +41,74 @@ var itemStatuses = map[string]bool{
 }
 
 type Server struct {
-	cfg    Config
-	st     *store
-	mailer Mailer
-	logger *log.Logger
-	rl     *rateLimiter
-	mux    *http.ServeMux
+	cfg          Config
+	st           *store
+	mailer       Mailer
+	logger       *log.Logger
+	rl           *rateLimiter
+	mux          *http.ServeMux
+	codeMu       sync.Mutex
+	codeClosed   bool
+	codeJobs     chan codeJob
+	codeDone     chan struct{}
+	codeCtx      context.Context
+	codeCancel   context.CancelFunc
+	codePending  sync.WaitGroup
+	codeWorkers  sync.WaitGroup
+	codeAccounts [64]sync.Mutex
+}
+
+type codeJob struct {
+	email, purpose string
+	queuedAt       time.Time
+}
+
+const codeQueueSize = 64
+const codeWorkerCount = 4
+const codeSendTimeout = 15 * time.Second
+
+// Close stops accepting work and drains accepted requests before the store closes.
+// If the deadline expires, in-flight mail is cancelled and queued jobs are dropped.
+func (s *Server) Close(ctx context.Context) error {
+	s.codeMu.Lock()
+	if !s.codeClosed {
+		s.codeClosed = true
+		close(s.codeJobs)
+	}
+	s.codeMu.Unlock()
+	select {
+	case <-s.codeDone:
+		return nil
+	case <-ctx.Done():
+		s.codeCancel()
+		return ctx.Err()
+	}
+}
+
+func (s *Server) runCodeJobs() {
+	defer s.codeWorkers.Done()
+	for job := range s.codeJobs {
+		if s.codeCtx.Err() == nil {
+			s.processCodeJob(job)
+		} else {
+			s.logger.Print("send-code job dropped: shutdown")
+		}
+		s.codePending.Done()
+	}
 }
 
 func NewServer(cfg Config, st *store, mailer Mailer, logger *log.Logger) *Server {
-	s := &Server{cfg: cfg, st: st, mailer: mailer, logger: logger, rl: newRateLimiter()}
+	s := &Server{cfg: cfg, st: st, mailer: mailer, logger: logger, rl: newRateLimiter(), codeJobs: make(chan codeJob, codeQueueSize), codeDone: make(chan struct{})}
+	s.codeCtx, s.codeCancel = context.WithCancel(context.Background())
+	s.codeWorkers.Add(codeWorkerCount)
+	for i := 0; i < codeWorkerCount; i++ {
+		go s.runCodeJobs()
+	}
+	go func() {
+		s.codeWorkers.Wait()
+		s.codeCancel()
+		close(s.codeDone)
+	}()
 	mux := http.NewServeMux()
 	mux.HandleFunc("GET /api/health", s.handleHealth)
 	mux.HandleFunc("POST /api/auth/send-code", s.handleSendCode)
@@ -170,57 +229,96 @@ func (s *Server) handleSendCode(w http.ResponseWriter, r *http.Request) {
 	}
 
 	ip := clientIP(r)
-	// Anti-enumeration: for an already-registered email the register code is
-	// silently dropped; for an unknown email the reset code is. Response is
-	// identical either way. Suppressed requests only burn the attacker's own
-	// per-IP budget below — charging the victim's per-account daily budget
-	// would let anyone who knows an email lock it out of codes all day.
+	// Admission is independent of account existence, cooldown and mailer latency.
+	s.codeMu.Lock()
+	if s.codeClosed {
+		s.codeMu.Unlock()
+		writeError(w, http.StatusServiceUnavailable, "服务暂时不可用，请稍后再试")
+		return
+	}
+	if len(s.codeJobs) == cap(s.codeJobs) {
+		s.codeMu.Unlock()
+		s.logger.Print("send-code queue full: admission rejected")
+		writeError(w, http.StatusServiceUnavailable, "服务繁忙，请稍后再试")
+		return
+	}
+	if !s.rl.allow("sc:ip:"+ip, sendIPHourlyLimit, time.Hour) {
+		s.codeMu.Unlock()
+		writeError(w, http.StatusTooManyRequests, "发送过于频繁，请稍后再试")
+		return
+	}
+	s.codePending.Add(1)
+	select {
+	case s.codeJobs <- codeJob{email: email, purpose: purpose, queuedAt: time.Now()}:
+		s.codeMu.Unlock()
+		writeJSON(w, http.StatusAccepted, map[string]bool{"ok": true})
+	default:
+		s.codePending.Done()
+		s.codeMu.Unlock()
+		writeError(w, http.StatusServiceUnavailable, "服务繁忙，请稍后再试")
+	}
+}
+
+// Workers are independent of request contexts. The queue is memory-only: a
+// crash or forced shutdown can lose accepted jobs; acceptance is not delivery.
+func (s *Server) processCodeJob(job codeJob) {
+	email, purpose := job.email, job.purpose
+	h := fnv.New32a()
+	_, _ = h.Write([]byte(email))
+	accountLock := &s.codeAccounts[h.Sum32()%uint32(len(s.codeAccounts))]
+	accountLock.Lock()
+	defer accountLock.Unlock()
+	// Do not deliver stale queued requests after the user's resend window.
+	if time.Since(job.queuedAt) >= sendCodeCooldown {
+		s.logger.Print("send-code job dropped: stale")
+		return
+	}
+	if s.codeCtx.Err() != nil {
+		s.logger.Print("send-code job dropped: shutdown")
+		return
+	}
 	exists, err := s.st.userExists(email)
 	if err != nil {
-		writeError(w, http.StatusInternalServerError, "服务暂时不可用，请稍后再试")
+		s.logger.Printf("send-code lookup failed: %v", err)
 		return
 	}
-	suppressed := (purpose == purposeRegister && exists) || (purpose == purposeReset && !exists)
-
-	if !s.rl.allow("sc:ip:"+ip, sendIPHourlyLimit, time.Hour) {
-		writeError(w, http.StatusTooManyRequests, "发送过于频繁，请稍后再试")
+	if (purpose == purposeRegister && exists) || (purpose == purposeReset && !exists) {
 		return
 	}
-	if suppressed {
-		s.logger.Printf("send-code suppressed email=%s purpose=%s ip=%s", email, purpose, ip)
-		writeJSON(w, http.StatusAccepted, map[string]bool{"ok": true})
+	row, err := s.st.getCode(email, purpose)
+	if err == nil && time.Now().Unix()-row.LastSentAt < int64(sendCodeCooldown.Seconds()) {
 		return
 	}
+	if err != nil && !errors.Is(err, errNotFound) {
+		s.logger.Printf("send-code lookup failed: %v", err)
+		return
+	}
+	// Charge delivery attempts, including failures and ambiguous timeouts, to
+	// prevent unlimited retries when the provider reports an error.
 	if !s.rl.allow("sc:acct:"+email, sendDailyLimit, 24*time.Hour) {
-		writeError(w, http.StatusTooManyRequests, "发送过于频繁，请稍后再试")
 		return
 	}
 	code, err := randomCode()
 	if err != nil {
-		writeError(w, http.StatusInternalServerError, "服务暂时不可用，请稍后再试")
+		s.logger.Printf("send-code generation failed: %v", err)
 		return
 	}
-	// Persist before sending: a code that reached an inbox must always
-	// verify. The save atomically enforces the resend cooldown — a loser
-	// gets 429 instead of mailing a second code. If the send fails the row
-	// is rolled back, so every stored code corresponds to a mailed one (and
-	// the cooldown goes with it, so the user can retry immediately).
-	if err := s.st.saveCode(email, purpose, sha256Hex(code), s.cfg.CodeTTL, sendCodeCooldown); err != nil {
-		if errors.Is(err, errCooldown) {
-			w.Header().Set("Retry-After", strconv.Itoa(int(sendCodeCooldown.Seconds())))
-			writeError(w, http.StatusTooManyRequests, "发送过于频繁，请稍后再试")
-			return
+	hash := sha256Hex(code)
+	if err := s.st.saveCode(email, purpose, hash, s.cfg.CodeTTL, sendCodeCooldown); err != nil {
+		if !errors.Is(err, errCooldown) {
+			s.logger.Printf("send-code save failed: %v", err)
 		}
-		writeError(w, http.StatusInternalServerError, "服务暂时不可用，请稍后再试")
 		return
 	}
-	if err := s.mailer.SendCode(r.Context(), email, code, purpose); err != nil {
+	ctx, cancel := context.WithTimeout(s.codeCtx, codeSendTimeout)
+	defer cancel()
+	if err := s.mailer.SendCode(ctx, email, code, purpose); err != nil {
 		s.logger.Printf("send mail email=%s failed: %v", email, err)
-		_ = s.st.deleteCode(email, purpose)
-		writeError(w, http.StatusBadGateway, "邮件发送失败，请稍后重试")
-		return
+		// Never delete a newer code installed while this delivery was in flight.
+		if _, err := s.st.db.Exec(`DELETE FROM email_codes WHERE email = ? AND purpose = ? AND code_hash = ?`, email, purpose, hash); err != nil {
+			s.logger.Printf("send-code rollback failed: %v", err)
+		}
 	}
-	writeJSON(w, http.StatusAccepted, map[string]bool{"ok": true})
 }
 
 // ---- register / login / reset ------------------------------------------
@@ -428,12 +526,16 @@ func (s *Server) handleGetItems(w http.ResponseWriter, r *http.Request) {
 		writeError(w, http.StatusUnauthorized, "未登录或登录已过期")
 		return
 	}
-	items, err := s.st.listItems(u.ID)
+	items, err := s.st.listItemsWithDeleted(u.ID, r.URL.Query().Get("includeDeleted") == "1")
 	if err != nil {
 		writeError(w, http.StatusInternalServerError, "服务暂时不可用，请稍后再试")
 		return
 	}
-	writeJSON(w, http.StatusOK, map[string]any{"items": items})
+	response := map[string]any{"items": items}
+	if r.URL.Query().Get("includeDeleted") == "1" {
+		response["tombstoneProtocol"] = 1
+	}
+	writeJSON(w, http.StatusOK, response)
 }
 
 func (s *Server) handlePutItems(w http.ResponseWriter, r *http.Request) {
@@ -475,13 +577,20 @@ func (s *Server) handlePutItems(w http.ResponseWriter, r *http.Request) {
 		cleaned = append(cleaned, it)
 	}
 	items, err := s.st.applyItems(u.ID, cleaned, maxItemsPerUser)
+	if err == nil && r.URL.Query().Get("includeDeleted") == "1" {
+		items, err = s.st.listItemsWithDeleted(u.ID, true)
+	}
 	if err != nil {
 		if errors.Is(err, errTooManyItems) {
-			writeError(w, http.StatusBadRequest, "标记数量已达上限")
+			writeError(w, http.StatusBadRequest, "条目总数已达上限（包括已删除的条目），或标记数量已达上限")
 			return
 		}
 		writeError(w, http.StatusInternalServerError, "服务暂时不可用，请稍后再试")
 		return
 	}
-	writeJSON(w, http.StatusOK, map[string]any{"items": items})
+	response := map[string]any{"items": items}
+	if r.URL.Query().Get("includeDeleted") == "1" {
+		response["tombstoneProtocol"] = 1
+	}
+	writeJSON(w, http.StatusOK, response)
 }

@@ -5,7 +5,7 @@ import {
   generateBatchNewApiImportJson,
   generateChannelsBatchCurlScript,
 } from '../../utils/api-station-sync';
-import { copyToClipboard } from '../../utils/clipboard';
+import { useCopyFeedback } from '../../utils/use-copy-feedback';
 import { useModalLock } from '../../utils/use-modal-lock';
 import { UiIcon } from '../awesome-ui/UiIcon';
 
@@ -23,14 +23,13 @@ export const BestConfigModal: React.FC<BestConfigModalProps> = ({
   apiEndpoint,
 }) => {
   const [activeTab, setActiveTab] = useState<'topology' | 'batch_json' | 'curl' | 'clients'>('topology');
-  const [copiedBatch, setCopiedBatch] = useState(false);
-  const [copiedCurl, setCopiedCurl] = useState(false);
-  const [copiedSingleId, setCopiedSingleId] = useState<string | null>(null);
+  const copyScope = useMemo(() => ({ isOpen, analysis, apiEndpoint }), [isOpen, analysis, apiEndpoint]);
+  const [copiedBatch, copyBatch] = useCopyFeedback<boolean>(copyScope);
+  const [copiedCurl, copyCurl] = useCopyFeedback<boolean>(copyScope);
+  const [copiedSingleId, copySingle] = useCopyFeedback<string>(copyScope);
   const [apiKeyPlaceholder, setApiKeyPlaceholder] = useState('');
 
   useModalLock(isOpen, onClose);
-
-  if (!isOpen) return null;
 
   const keyToUse = apiKeyPlaceholder.trim() || 'sk-your-upstream-token-here';
   const batchPayload = generateBatchNewApiImportJson(analysis.recommendations, keyToUse);
@@ -47,29 +46,19 @@ export const BestConfigModal: React.FC<BestConfigModalProps> = ({
     [analysis.recommendations]
   );
 
+  if (!isOpen) return null;
+
   const handleCopyBatch = async () => {
-    const success = await copyToClipboard(batchJsonString);
-    if (success) {
-      setCopiedBatch(true);
-      setTimeout(() => setCopiedBatch(false), 2000);
-    }
+    await copyBatch(batchJsonString, true);
   };
 
   const handleCopyCurl = async () => {
-    const success = await copyToClipboard(curlScript);
-    if (success) {
-      setCopiedCurl(true);
-      setTimeout(() => setCopiedCurl(false), 2000);
-    }
+    await copyCurl(curlScript, true);
   };
 
   const handleCopySingle = async (rec: StationRecommendation) => {
     const singlePayload = generateNewApiChannelJson(rec.station, rec, keyToUse);
-    const success = await copyToClipboard(JSON.stringify(singlePayload, null, 2));
-    if (success) {
-      setCopiedSingleId(rec.station.id);
-      setTimeout(() => setCopiedSingleId(null), 2000);
-    }
+    await copySingle(JSON.stringify(singlePayload, null, 2), rec.station.id);
   };
 
   return (

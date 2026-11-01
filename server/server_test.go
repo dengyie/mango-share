@@ -65,8 +65,14 @@ func newTestServer(t *testing.T) (*httptest.Server, *captureMailer) {
 	cfg := LoadConfig()
 	cfg.TokenTTL = 24 * time.Hour
 	srv := NewServer(cfg, st, mailer, log.New(io.Discard, "", 0))
-	ts := httptest.NewServer(srv.Handler())
-	t.Cleanup(ts.Close)
+	var testRequestMu sync.Mutex
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		testRequestMu.Lock()
+		defer testRequestMu.Unlock()
+		srv.Handler().ServeHTTP(w, r)
+		srv.codePending.Wait()
+	}))
+	t.Cleanup(func() { ts.Close(); _ = srv.Close(context.Background()) })
 	return ts, mailer
 }
 
@@ -193,9 +199,12 @@ func TestSendCodeCooldownAndSuppression(t *testing.T) {
 	if status, _ := doJSON(t, ts, "POST", "/api/auth/send-code", "", map[string]string{"email": "a@example.com", "purpose": purposeRegister}); status != http.StatusAccepted {
 		t.Fatal("first send-code should be 202")
 	}
-	// immediate resend → 429
-	if status, _ := doJSON(t, ts, "POST", "/api/auth/send-code", "", map[string]string{"email": "a@example.com", "purpose": purposeRegister}); status != http.StatusTooManyRequests {
-		t.Fatal("second immediate send-code should be 429")
+	// Immediate resend is silently suppressed to avoid account enumeration.
+	if status, _ := doJSON(t, ts, "POST", "/api/auth/send-code", "", map[string]string{"email": "a@example.com", "purpose": purposeRegister}); status != http.StatusAccepted {
+		t.Fatal("second immediate send-code should be 202")
+	}
+	if got := mailer.count(); got != 1 {
+		t.Fatalf("cooldown must suppress duplicate mail, got %d", got)
 	}
 
 	// register an account, then send register code to it: 202 but NO mail
@@ -259,8 +268,11 @@ func TestRoleDerivedFromAdminEmail(t *testing.T) {
 	cfg := LoadConfig()
 	cfg.AdminEmails = parseAdminEmails("boss@example.com, Second@example.com ,")
 	srv := NewServer(cfg, st, mailer, log.New(io.Discard, "", 0))
-	ts := httptest.NewServer(srv.Handler())
-	t.Cleanup(ts.Close)
+	ts := httptest.NewServer(http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+		srv.Handler().ServeHTTP(w, r)
+		srv.codePending.Wait()
+	}))
+	t.Cleanup(func() { ts.Close(); _ = srv.Close(context.Background()) })
 
 	adminToken := registerUser(t, ts, mailer, "boss@example.com", "password123")
 	secondToken := registerUser(t, ts, mailer, "second@example.com", "password123")
@@ -301,7 +313,7 @@ func TestRoleDerivedFromAdminEmail(t *testing.T) {
 	emptyCfg.AdminEmails = nil
 	srv2 := NewServer(emptyCfg, st, mailer, log.New(io.Discard, "", 0))
 	ts2 := httptest.NewServer(srv2.Handler())
-	t.Cleanup(ts2.Close)
+	t.Cleanup(func() { ts2.Close(); _ = srv2.Close(context.Background()) })
 	status, out = doJSON(t, ts2, "GET", "/api/me", adminToken, nil)
 	if status != http.StatusOK {
 		t.Fatalf("no-admin-config me status = %d", status)
@@ -522,7 +534,7 @@ func TestSendCodeSuppressionKeepsAccountBudget(t *testing.T) {
 
 // Concurrent send-code requests for the same email+purpose must produce
 // exactly one mailed code: the cooldown is enforced atomically inside
-// saveCode, so the loser of the race gets 429 instead of a second mail.
+// saveCode, so the losers are silently suppressed instead of sending mail.
 func TestSendCodeConcurrentSendsOneMail(t *testing.T) {
 	ts, mailer := newTestServer(t)
 
@@ -539,22 +551,12 @@ func TestSendCodeConcurrentSendsOneMail(t *testing.T) {
 	}
 	wg.Wait()
 
-	mailed := 0
-	accepted := 0
-	tooMany := 0
-	for _, st := range statuses {
-		switch st {
-		case http.StatusAccepted:
-			accepted++
-		case http.StatusTooManyRequests:
-			tooMany++
+	for _, status := range statuses {
+		if status != http.StatusAccepted {
+			t.Fatalf("expected all 202, got %v", statuses)
 		}
 	}
-	if accepted != 1 || tooMany != racers-1 {
-		t.Fatalf("expected exactly 1 accepted + %d 429, got accepted=%d 429=%d statuses=%v",
-			racers-1, accepted, tooMany, statuses)
-	}
-	mailed = mailer.count()
+	mailed := mailer.count()
 	if mailed != 1 {
 		t.Fatalf("exactly one mail expected, got %d", mailed)
 	}
@@ -580,13 +582,14 @@ func TestSendCodeMailFailureLeavesNoCode(t *testing.T) {
 	t.Cleanup(st.close)
 	srv := NewServer(LoadConfig(), st, failMailer{}, log.New(io.Discard, "", 0))
 	ts := httptest.NewServer(srv.Handler())
-	t.Cleanup(ts.Close)
+	t.Cleanup(func() { ts.Close(); _ = srv.Close(context.Background()) })
 
 	status, _ := doJSON(t, ts, "POST", "/api/auth/send-code", "",
 		map[string]string{"email": "fail@example.com", "purpose": purposeRegister})
-	if status != http.StatusBadGateway {
+	if status != http.StatusAccepted {
 		t.Fatalf("send-code with failing mailer status = %d", status)
 	}
+	srv.codePending.Wait()
 	if _, err := st.getCode("fail@example.com", purposeRegister); !errors.Is(err, errNotFound) {
 		t.Fatalf("failed send must not leave a code row, got %v", err)
 	}

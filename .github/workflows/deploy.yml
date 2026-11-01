@@ -71,13 +71,43 @@ jobs:
 
       - name: Deploy (rsync over relay + nginx reload)
         run: |
+          # Fail before touching the webroot if the existing nginx configuration
+          # is invalid or the deploy user cannot run the permitted check.
+          ssh -F $HOME/.ssh/config nl-target 'sudo -n /usr/sbin/nginx -t'
+          backup=$(mktemp -d)
+          # Complete the snapshot before any mutation. Requires the deploy user
+          # to be able to read every file in the existing webroot.
+          rsync -az -e "ssh -F $HOME/.ssh/config" nl-target:/var/www/mangoshare/ "$backup/"
+          rollback() {
+            rc=$?
+            trap - EXIT
+            if [ "$rc" -ne 0 ]; then
+              echo "Deploy failed; attempting webroot rollback" >&2
+              if rsync -az --delete -e "ssh -F $HOME/.ssh/config" "$backup/" nl-target:/var/www/mangoshare/ &&
+                 ssh -F "$HOME/.ssh/config" nl-target 'sudo -n /usr/sbin/nginx -t && sudo -n /usr/bin/systemctl reload nginx'; then
+                echo "Webroot restored; public availability still requires verification." >&2
+              else
+                echo "Rollback failed; manual recovery required. Runner snapshot: $backup (ephemeral)." >&2
+              fi
+            fi
+            exit "$rc"
+          }
+          trap rollback EXIT
           rsync -az --delete -e "ssh -F $HOME/.ssh/config" dist/ nl-target:/var/www/mangoshare/
           ssh -F $HOME/.ssh/config nl-target 'sudo -n /usr/sbin/nginx -t && sudo -n /usr/bin/systemctl reload nginx'
-          echo "Deployed $(git rev-parse --short HEAD) at $(date -u +%FT%TZ)"
+          trap - EXIT
+          rm -rf "$backup"
+          echo "Origin update completed for $(git rev-parse --short HEAD) at $(date -u +%FT%TZ)"
 
       - name: Verify production
         run: |
-          sleep 3
-          code=$(curl -s -o /dev/null -w '%{http_code}' https://share.mangoqwq.com)
-          echo "HTTP status: $code"
-          [ "$code" = "200" ] || { echo "Production check failed"; exit 1; }
+          # This is an external availability check, not proof of the revision
+          # served by the origin (a CDN may cache the response).
+          for i in $(seq 1 5); do
+            code=$(curl -sS --connect-timeout 5 --max-time 10 -o /dev/null -w '%{http_code}' https://share.mangoqwq.com) || code=000
+            echo "attempt $i: HTTP status $code"
+            [ "$code" = "200" ] && exit 0
+            [ "$i" -eq 5 ] || sleep 5
+          done
+          echo "Production check failed; webroot may be partially or fully updated. Manual recovery required."
+          exit 1

@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CreditCardItem } from '../../types/credit-card';
 import { getCreditCardArt } from '../../utils/card-art';
-import { copyToClipboard } from '../../utils/clipboard';
+import { useCopyFeedback } from '../../utils/use-copy-feedback';
 import { useModalLock } from '../../utils/use-modal-lock';
 import { ItemMarkControl } from '../account/ItemMarkControl';
 import { UiIcon } from '../awesome-ui/UiIcon';
@@ -12,8 +12,8 @@ interface CreditCardModalProps {
 }
 
 export const CreditCardModal: React.FC<CreditCardModalProps> = ({ card, onClose }) => {
-  const [copied, setCopied] = useState(false);
-  const [shareCopied, setShareCopied] = useState(false);
+  const [copied, copyCode] = useCopyFeedback<boolean>(card?.id ?? null);
+  const [shareCopied, copyShare] = useCopyFeedback<boolean>(card?.id ?? null);
   useModalLock(Boolean(card), onClose);
 
   if (!card) return null;
@@ -25,21 +25,13 @@ export const CreditCardModal: React.FC<CreditCardModalProps> = ({ card, onClose 
   };
 
   const handleCopyCode = async (code: string) => {
-    const success = await copyToClipboard(code);
-    if (success) {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
+    await copyCode(code, true);
   };
 
   const handleCopyShareLink = async () => {
     const origin = typeof window !== 'undefined' ? `${window.location.origin}${window.location.pathname}` : 'https://share.mangoqwq.com/';
     const shareUrl = `${origin}#/credit-cards?card=${card.id}`;
-    const success = await copyToClipboard(shareUrl);
-    if (success) {
-      setShareCopied(true);
-      setTimeout(() => setShareCopied(false), 2000);
-    }
+    await copyShare(shareUrl, true);
   };
 
   const cardArt = getCreditCardArt(

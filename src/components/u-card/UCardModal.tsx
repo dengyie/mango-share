@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { UCardItem } from '../../types/u-card';
-import { copyToClipboard } from '../../utils/clipboard';
+import { useCopyFeedback } from '../../utils/use-copy-feedback';
 import { useModalLock } from '../../utils/use-modal-lock';
 import { ItemMarkControl } from '../account/ItemMarkControl';
 import { UiIcon } from '../awesome-ui/UiIcon';
@@ -18,8 +18,8 @@ export const UCardModal: React.FC<UCardModalProps> = ({
   allCards,
   onSelectVariant,
 }) => {
-  const [copied, setCopied] = useState(false);
-  const [shareCopied, setShareCopied] = useState(false);
+  const [copied, copyCode] = useCopyFeedback<boolean>(card?.slug ?? null);
+  const [shareCopied, copyShare] = useCopyFeedback<boolean>(card?.slug ?? null);
   useModalLock(Boolean(card), onClose);
 
   if (!card) return null;
@@ -38,21 +38,13 @@ export const UCardModal: React.FC<UCardModalProps> = ({
   };
 
   const handleCopyCode = async (code: string) => {
-    const success = await copyToClipboard(code);
-    if (success) {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    }
+    await copyCode(code, true);
   };
 
   const handleCopyShareLink = async () => {
     const origin = typeof window !== 'undefined' ? `${window.location.origin}${window.location.pathname}` : 'https://share.mangoqwq.com/';
     const shareUrl = `${origin}#/u-cards?card=${card.slug}`;
-    const success = await copyToClipboard(shareUrl);
-    if (success) {
-      setShareCopied(true);
-      setTimeout(() => setShareCopied(false), 2000);
-    }
+    await copyShare(shareUrl, true);
   };
 
   const inviteCode = detail.inviteCode;

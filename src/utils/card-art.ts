@@ -33,6 +33,13 @@ function svgToDataUri(svg: string): string {
   return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
 }
 
+// Card palettes use CSS linear gradients with hexadecimal color stops. Translate
+// each stop instead of indexing whitespace-separated tokens (which loses stops).
+function gradientStops(bg: string): string {
+  const stops = [...bg.matchAll(/(#[\da-fA-F]{3,8})\s+(\d+(?:\.\d+)?%)/g)];
+  return stops.map(([, color, offset]) => `<stop offset="${offset}" stop-color="${color}" />`).join('\n        ');
+}
+
 export function getSimCardArt(id: string, name: string, countryCode: string, country: string, form: string[]): string {
   const configs: Record<string, { bg: string; accent: string; text: string; sub: string }> = {
     giffgaff: {
@@ -102,8 +109,7 @@ export function getSimCardArt(id: string, name: string, countryCode: string, cou
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 428 270" width="428" height="270">
     <defs>
       <linearGradient id="g_${safeId}" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="${c.bg.includes('#') ? c.bg.split(' ')[1] : '#242426'}" />
-        <stop offset="100%" stop-color="${c.bg.includes('#') ? c.bg.split(' ')[3] : '#111113'}" />
+        ${gradientStops(c.bg)}
       </linearGradient>
       <!-- SIM Chip pattern -->
       <pattern id="chipGrid" width="6" height="6" patternUnits="userSpaceOnUse">
@@ -278,8 +284,7 @@ export function getCreditCardArt(
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 428 270" width="428" height="270">
     <defs>
       <linearGradient id="cc_bg_${safeId}" x1="0%" y1="0%" x2="100%" y2="100%">
-        <stop offset="0%" stop-color="${bg.includes('#') ? bg.split(' ')[1] : '#1f2937'}" />
-        <stop offset="100%" stop-color="${bg.includes('#') ? bg.split(' ')[3] : '#111827'}" />
+        ${gradientStops(bg)}
       </linearGradient>
       <linearGradient id="foil_${safeId}" x1="0%" y1="0%" x2="100%" y2="0%">
         <stop offset="0%" stop-color="rgba(255,255,255,0.05)" />

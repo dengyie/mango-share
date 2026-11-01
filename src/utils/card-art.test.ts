@@ -5,7 +5,7 @@
  * the real probe state instead of a hardcoded "ONLINE".
  */
 import { describe, expect, it } from 'vitest';
-import { getAiStationArt, getStationHost } from './card-art';
+import { getAiStationArt, getStationHost, getSimCardArt, getCreditCardArt } from './card-art';
 
 function decodeArt(dataUri: string): string {
   const base64 = dataUri.replace('data:image/svg+xml;base64,', '');
@@ -13,6 +13,22 @@ function decodeArt(dataUri: string): string {
   // under the app's browser-only tsconfig lib set.
   return decodeURIComponent(escape(atob(base64)));
 }
+
+describe('SIM and credit card gradients', () => {
+  it('emits the actual SIM color stops', () => {
+    const svg = decodeArt(getSimCardArt('giffgaff', 'giffgaff', 'GB', 'UK', ['SIM']));
+    expect(svg).toContain('stop-color="#18181a"');
+    expect(svg).toContain('stop-color="#0d0d0f"');
+  });
+
+  it('preserves every credit-card gradient stop and solid colors', () => {
+    const svg = decodeArt(getCreditCardArt('a', 'Card', 'Issuer', 'Visa', 'US', 'linear-gradient(135deg, #d4af37 0%, #aa771c 50%, #593e0b 100%)'));
+    expect(svg).toContain('offset="0%" stop-color="#d4af37"');
+    expect(svg).toContain('offset="50%" stop-color="#aa771c"');
+    expect(svg).toContain('offset="100%" stop-color="#593e0b"');
+    expect(decodeArt(getCreditCardArt('a', 'Card', 'Issuer', 'Visa', 'US', '#abcdef'))).toContain('fill="#abcdef"');
+  });
+});
 
 describe('getStationHost', () => {
   it('returns the bare host of a valid portal URL', () => {

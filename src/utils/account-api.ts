@@ -7,7 +7,8 @@
  * opaque bearer tokens held in localStorage (30-day sliding TTL server
  * side, logout revokes).
  */
-import type { AccountSession, AccountUser, MyItemEntry, MyItemStatus, MyItemType } from '../types/account';
+import type { AccountSession, AccountUser } from '../types/account';
+import type { SyncItemEntry } from './my-items';
 
 export const ACCOUNT_API_BASE = '/account-api';
 
@@ -163,9 +164,15 @@ export async function verifyAccountSession(token: string): Promise<AccountVerify
 
 // ---- items --------------------------------------------------------------
 
-export async function fetchMyItems(token: string): Promise<MyItemEntry[]> {
-  const data = await request<{ items: MyItemEntry[] }>('GET', '/api/my/items', null, token);
-  return Array.isArray(data.items) ? data.items : [];
+function checkedItems(data: { items: SyncItemEntry[]; tombstoneProtocol?: number }): SyncItemEntry[] {
+  if (data?.tombstoneProtocol !== 1) throw new AccountApiError(0, '服务端不支持安全同步，请稍后重试');
+  if (!Array.isArray(data.items)) throw new AccountApiError(0, '同步响应格式不正确');
+  return data.items;
+}
+
+export async function fetchMyItems(token: string): Promise<SyncItemEntry[]> {
+  const data = await request<{ items: SyncItemEntry[]; tombstoneProtocol?: number }>('GET', '/api/my/items?includeDeleted=1', null, token);
+  return checkedItems(data);
 }
 
 /**
@@ -174,8 +181,10 @@ export async function fetchMyItems(token: string): Promise<MyItemEntry[]> {
  */
 export async function putMyItems(
   token: string,
-  items: Array<{ itemType: MyItemType; itemId: string; status: MyItemStatus | ''; updatedAt: number }>
-): Promise<MyItemEntry[]> {
-  const data = await request<{ items: MyItemEntry[] }>('PUT', '/api/my/items', { items }, token);
-  return Array.isArray(data.items) ? data.items : [];
+  items: SyncItemEntry[]
+): Promise<SyncItemEntry[]> {
+  // Never send tombstone writes to a server that does not advertise support.
+  await fetchMyItems(token);
+  const data = await request<{ items: SyncItemEntry[]; tombstoneProtocol?: number }>('PUT', '/api/my/items?includeDeleted=1', { items }, token);
+  return checkedItems(data);
 }

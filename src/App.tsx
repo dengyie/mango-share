@@ -290,8 +290,8 @@ export const App: React.FC = () => {
     <UserAccountProvider>
       {/* Dynamic WebGL Simplex Noise Contour Backdrop */}
       <FluidContourBackdrop
-        inkColor={[0.24, 0.24, 0.25]}
-        paperColor={[0.985, 0.985, 0.98]}
+        inkColor={[0.16, 0.20, 0.18]}
+        paperColor={[0.98, 0.98, 0.96]}
         speed={0.032}
         interactive={true}
       />

@@ -43,18 +43,22 @@ func readJSON(w http.ResponseWriter, r *http.Request, dst any) bool {
 	return true
 }
 
-// clientIP trusts the reverse proxy headers; the service is loopback-only
-// in production so only nginx can set them.
+// clientIP accepts only nginx's single-address X-Real-IP header from a
+// loopback peer. Forwarded chains are not trusted: their leftmost entries
+// can be supplied by clients even when a proxy appends its own address.
 func clientIP(r *http.Request) string {
-	if v := strings.TrimSpace(r.Header.Get("X-Real-IP")); v != "" {
-		return v
-	}
-	if v := r.Header.Get("X-Forwarded-For"); v != "" {
-		return strings.TrimSpace(strings.Split(v, ",")[0])
-	}
 	host, _, err := net.SplitHostPort(r.RemoteAddr)
 	if err != nil {
-		return r.RemoteAddr
+		host = r.RemoteAddr
+	}
+	peer := net.ParseIP(host)
+	if peer != nil && peer.IsLoopback() {
+		if ip := net.ParseIP(strings.TrimSpace(r.Header.Get("X-Real-IP"))); ip != nil {
+			return ip.String()
+		}
+	}
+	if peer != nil {
+		return peer.String()
 	}
 	return host
 }

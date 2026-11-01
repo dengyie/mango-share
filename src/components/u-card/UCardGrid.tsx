@@ -2,6 +2,7 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { UCardItem as UCardItemType } from '../../types/u-card';
 import { UCardItem } from './UCardItem';
 import { UiIcon } from '../awesome-ui/UiIcon';
+import { isFreeValue, hasCashback } from '../../utils/u-card-filter';
 
 interface UCardGridProps {
   cards: UCardItemType[];
@@ -131,11 +132,6 @@ export const UCardGrid: React.FC<UCardGridProps> = ({
     });
   };
 
-  const isFreeValue = (v?: string) => Boolean(v && /免费|0(?:\.0+)?(?:\s*%|\s*usd)?|无/i.test(v));
-  const hasCashback = (c: UCardItemType) => {
-    const v = c.detail && c.detail.cashback;
-    return Boolean(v && !/无|0%|未公开|待确认/i.test(v));
-  };
   const supportsPlatform = (c: UCardItemType, platformName: string) => {
     return Boolean(
       c.detail &&
@@ -234,7 +230,7 @@ export const UCardGrid: React.FC<UCardGridProps> = ({
 
       if (annualFeeFree && !isFreeValue(c.detail && c.detail.annualFee)) return false;
       if (cardFeeFree && !isFreeValue(c.detail && c.detail.cardFee)) return false;
-      if (cashbackOnly && !hasCashback(c)) return false;
+      if (cashbackOnly && !hasCashback(c.detail?.cashback)) return false;
 
       if (platformWechat && !supportsPlatform(c, '微信支付')) return false;
       if (platformAlipay && !supportsPlatform(c, '支付宝')) return false;

@@ -29,7 +29,7 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
   className = "",
   style,
 }) => {
-  const [displayValue, setDisplayValue] = useState<number>(target);
+  const [displayValue, setDisplayValue] = useState<number>(start);
   const elRef = useRef<HTMLSpanElement | null>(null);
 
   useEffect(() => {
@@ -39,12 +39,18 @@ export const AnimatedCounter: React.FC<AnimatedCounterProps> = ({
       return;
     }
 
+    if (duration <= 0) {
+      setDisplayValue(target);
+      return;
+    }
+
+    setDisplayValue(start);
     let rafId = 0;
     let timeoutId: ReturnType<typeof setTimeout> | null = null;
-    const startTime = performance.now() + delay;
     const range = target - start;
 
     timeoutId = setTimeout(() => {
+      const startTime = performance.now();
       const tick = (now: number) => {
         const elapsed = now - startTime;
         const progress = Math.min(1, Math.max(0, elapsed / duration));

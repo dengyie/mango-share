@@ -53,11 +53,14 @@ describe('upsertItem', () => {
     expect(before.size).toBe(0);
   });
 
-  it('null status removes the entry', () => {
-    let map = new Map();
-    map = upsertItem(map, 'perk', 'p1', 'wanted');
-    map = upsertItem(map, 'perk', 'p1', null);
-    expect(map.size).toBe(0);
+  it('persists a deletion so an older server copy cannot resurrect it', () => {
+    const storage = fakeStorage();
+    vi.stubGlobal('window', { localStorage: storage });
+    const deleted = upsertItem(new Map(), 'perk', 'p1', null);
+    saveLocalItems(deleted);
+    const restored = loadLocalItems();
+    expect(restored.get('perk:p1')?.status).toBe('');
+    expect(mergeItems(restored, [entry('perk', 'p1', 'wanted', 1)]).get('perk:p1')?.status).toBe('');
   });
 });
 

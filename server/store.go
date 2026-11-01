@@ -211,26 +211,41 @@ ON CONFLICT (email, purpose) DO UPDATE SET
 // verifyCode consumes a correct code; wrong attempts count up to
 // maxCodeAttempts before the code is dead.
 func (s *store) verifyCode(email, purpose, code string) error {
-	c, err := s.getCode(email, purpose)
-	if errors.Is(err, errNotFound) {
+	tx, err := s.db.Begin()
+	if err != nil {
+		return err
+	}
+	defer tx.Rollback()
+	var c codeRow
+	err = tx.QueryRow(`SELECT code_hash, attempts, expires_at FROM email_codes WHERE email = ? AND purpose = ?`, email, purpose).Scan(&c.CodeHash, &c.Attempts, &c.ExpiresAt)
+	if errors.Is(err, sql.ErrNoRows) {
 		return errCodeInvalid
 	}
 	if err != nil {
 		return err
 	}
-	if c.Attempts >= maxCodeAttempts {
-		_ = s.deleteCode(email, purpose)
+	result := error(nil)
+	switch {
+	case c.Attempts >= maxCodeAttempts:
+		result = errCodeInvalid
+	case time.Now().Unix() > c.ExpiresAt:
+		result = errCodeExpired
+	case subtle.ConstantTimeCompare([]byte(sha256Hex(code)), []byte(c.CodeHash)) != 1:
+		if _, err := tx.Exec(`UPDATE email_codes SET attempts = attempts + 1 WHERE email = ? AND purpose = ?`, email, purpose); err != nil {
+			return err
+		}
+		if err := tx.Commit(); err != nil {
+			return err
+		}
 		return errCodeInvalid
 	}
-	if time.Now().Unix() > c.ExpiresAt {
-		_ = s.deleteCode(email, purpose)
-		return errCodeExpired
+	if _, err := tx.Exec(`DELETE FROM email_codes WHERE email = ? AND purpose = ?`, email, purpose); err != nil {
+		return err
 	}
-	if subtle.ConstantTimeCompare([]byte(sha256Hex(code)), []byte(c.CodeHash)) != 1 {
-		_, _ = s.db.Exec(`UPDATE email_codes SET attempts = attempts + 1 WHERE email = ? AND purpose = ?`, email, purpose)
-		return errCodeInvalid
+	if err := tx.Commit(); err != nil {
+		return err
 	}
-	return s.deleteCode(email, purpose)
+	return result
 }
 
 func (s *store) deleteCode(email, purpose string) error {
@@ -304,9 +319,13 @@ type itemEntry struct {
 }
 
 func (s *store) listItems(userID int64) ([]itemEntry, error) {
+	return s.listItemsWithDeleted(userID, false)
+}
+
+func (s *store) listItemsWithDeleted(userID int64, includeDeleted bool) ([]itemEntry, error) {
 	rows, err := s.db.Query(
-		`SELECT item_type, item_id, status, updated_at FROM user_items WHERE user_id = ? ORDER BY updated_at DESC`,
-		userID)
+		`SELECT item_type, item_id, status, updated_at FROM user_items WHERE user_id = ? AND (status <> '' OR ?) ORDER BY updated_at DESC`,
+		userID, includeDeleted)
 	if err != nil {
 		return nil, err
 	}
@@ -337,13 +356,11 @@ func (s *store) applyItems(userID int64, items []itemEntry, maxItems int) ([]ite
 
 	for _, in := range items {
 		var existingMS int64
+		var existingStatus string
 		err := tx.QueryRow(
-			`SELECT updated_at FROM user_items WHERE user_id = ? AND item_type = ? AND item_id = ?`,
-			userID, in.ItemType, in.ItemID).Scan(&existingMS)
+			`SELECT updated_at, status FROM user_items WHERE user_id = ? AND item_type = ? AND item_id = ?`,
+			userID, in.ItemType, in.ItemID).Scan(&existingMS, &existingStatus)
 		if errors.Is(err, sql.ErrNoRows) {
-			if in.Status == "" {
-				continue
-			}
 			if _, err := tx.Exec(
 				`INSERT INTO user_items (user_id, item_type, item_id, status, updated_at) VALUES (?, ?, ?, ?, ?)`,
 				userID, in.ItemType, in.ItemID, in.Status, in.UpdatedAt); err != nil {
@@ -354,16 +371,8 @@ func (s *store) applyItems(userID int64, items []itemEntry, maxItems int) ([]ite
 		if err != nil {
 			return nil, err
 		}
-		if in.UpdatedAt < existingMS {
+		if in.UpdatedAt < existingMS || (in.UpdatedAt == existingMS && existingStatus == "" && in.Status != "") {
 			continue // stale client entry loses
-		}
-		if in.Status == "" {
-			if _, err := tx.Exec(
-				`DELETE FROM user_items WHERE user_id = ? AND item_type = ? AND item_id = ?`,
-				userID, in.ItemType, in.ItemID); err != nil {
-				return nil, err
-			}
-			continue
 		}
 		if _, err := tx.Exec(
 			`UPDATE user_items SET status = ?, updated_at = ? WHERE user_id = ? AND item_type = ? AND item_id = ?`,
@@ -373,10 +382,18 @@ func (s *store) applyItems(userID int64, items []itemEntry, maxItems int) ([]ite
 	}
 
 	var count int
-	if err := tx.QueryRow(`SELECT COUNT(*) FROM user_items WHERE user_id = ?`, userID).Scan(&count); err != nil {
+	if err := tx.QueryRow(`SELECT COUNT(*) FROM user_items WHERE user_id = ? AND status <> ''`, userID).Scan(&count); err != nil {
 		return nil, err
 	}
 	if count > maxItems {
+		return nil, errTooManyItems
+	}
+	// Keep tombstones indefinitely to prevent stale clients resurrecting data,
+	// but bound total rows as well as visible marks. Reject atomically at capacity.
+	if err := tx.QueryRow(`SELECT COUNT(*) FROM user_items WHERE user_id = ?`, userID).Scan(&count); err != nil {
+		return nil, err
+	}
+	if count > 10000 {
 		return nil, errTooManyItems
 	}
 	if err := tx.Commit(); err != nil {

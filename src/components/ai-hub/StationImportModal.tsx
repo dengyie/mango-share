@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { AiStationItem } from '../../types/ai-station';
 import {
   applyApiModelsToStations,
+  appendImportedStations,
   parseNewApiChannelsJson,
   VALID_AUTH_TYPES,
   VALID_CATEGORIES,
@@ -84,27 +85,11 @@ export const StationImportModal: React.FC<StationImportModalProps> = ({
     try {
       setErrorMessage(null);
       const parsedStations = parseNewApiChannelsJson(channelJsonInput.trim());
-      let resultStations: AiStationItem[];
-      if (importMode === 'replace') {
-        resultStations = parsedStations;
-      } else {
-        // Business-level deduplication: deduplicate by normalized API URL and node name
-        const existingUrls = new Set(
-          currentStations.map((s) => s.apiBaseUrl.toLowerCase().replace(/\/+$/, ''))
-        );
-        const existingNames = new Set(
-          currentStations.map((s) => s.name.trim().toLowerCase())
-        );
-        const nonDuplicateNew = parsedStations.filter(
-          (s) =>
-            !existingUrls.has(s.apiBaseUrl.toLowerCase().replace(/\/+$/, '')) &&
-            !existingNames.has(s.name.trim().toLowerCase())
-        );
-        resultStations = [...nonDuplicateNew, ...currentStations];
-      }
+      const base = importMode === 'replace' ? [] : currentStations;
+      const resultStations = appendImportedStations(base, parsedStations);
       onUpdateStations(resultStations);
       setChannelJsonInput('');
-      showNotification(`已成功解析并导入 ${parsedStations.length} 个渠道节点`);
+      showNotification(`已成功导入 ${resultStations.length - base.length} 个渠道节点`);
     } catch (err: unknown) {
       setErrorMessage(err instanceof Error ? err.message : '解析失败，请检查 New API 渠道 JSON 格式');
     }
