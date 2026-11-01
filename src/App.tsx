@@ -30,6 +30,9 @@ import { FluidContourBackdrop } from './components/awesome-ui/FluidContourBackdr
 import { AnimatedCounter } from './components/awesome-ui/AnimatedCounter';
 import { UiIcon } from './components/awesome-ui/UiIcon';
 
+const BACKDROP_INK: [number, number, number] = [0.16, 0.20, 0.18];
+const BACKDROP_PAPER: [number, number, number] = [0.98, 0.98, 0.96];
+
 function parseHashLocation() {
   if (typeof window === 'undefined') {
     return { tab: 'u-cards' as TabType, cardId: null as string | null };
@@ -290,8 +293,8 @@ export const App: React.FC = () => {
     <UserAccountProvider>
       {/* Dynamic WebGL Simplex Noise Contour Backdrop */}
       <FluidContourBackdrop
-        inkColor={[0.16, 0.20, 0.18]}
-        paperColor={[0.98, 0.98, 0.96]}
+        inkColor={BACKDROP_INK}
+        paperColor={BACKDROP_PAPER}
         speed={0.032}
         interactive={true}
       />

@@ -108,6 +108,8 @@ export const FluidContourBackdrop: React.FC<FluidContourBackdropProps> = ({
   style,
 }) => {
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  const [ir, ig, ib] = inkColor;
+  const [pr, pg, pb] = paperColor;
 
   useEffect(() => {
     const canvas = canvasRef.current;
@@ -183,9 +185,9 @@ export const FluidContourBackdrop: React.FC<FluidContourBackdropProps> = ({
         if (canvas.width !== w || canvas.height !== h) {
           canvas.width = w;
           canvas.height = h;
-          gl.viewport(0, 0, w, h);
-          gl.uniform2f(uRes, w, h);
         }
+        gl.viewport(0, 0, w, h);
+        gl.uniform2f(uRes, w, h);
       };
 
       const mouse = { x: -1e4, y: -1e4, tx: -1e4, ty: -1e4 };
@@ -274,7 +276,7 @@ export const FluidContourBackdrop: React.FC<FluidContourBackdropProps> = ({
     } catch {
       // Graceful fallback if WebGL is unavailable
     }
-  }, [inkColor, paperColor, speed, interactive]);
+  }, [ir, ig, ib, pr, pg, pb, speed, interactive]);
 
   return (
     <canvas
