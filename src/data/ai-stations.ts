@@ -152,5 +152,29 @@ export const AI_STATIONS: AiStationItem[] = [
     tutorial: '注册 OpenRouter 账号后进入 Keys 页面创建免费密钥，在模型名后添加 :free 后缀（例如 deepseek/deepseek-r1:free），永久 0 成本调用。',
     balance: '无限制永久免费',
     rpmLimit: '20 RPM'
+  },
+  {
+    id: 'bili-translate',
+    name: '哔哩哔哩 Index 翻译站 (B站官方直连)',
+    category: 'DirectKey',
+    portalUrl: 'https://index-translate.bilibili.com',
+    apiBaseUrl: 'https://index-translate.bilibili.com/v1',
+    models: [
+      'Index-Translate-2B',
+      'Index-Translate-9B',
+      'Index-Translate-35B-A3B',
+      'Index-Nailong-2B',
+      'Index-Nailong-9B',
+      'Index-Homura-2B',
+      'Index-Homura-9B'
+    ],
+    authType: 'DirectKey',
+    quotaDesc: 'B站官方免费开放接口，API Key 随意填写即可直连，无需注册、签到与审核',
+    healthState: 'online',
+    turnstile: false,
+    tags: ['B站官方', '翻译专精', '任意Key直连', '支持图片翻译'],
+    tutorial:
+      '兼容 OpenAI /v1/chat/completions 协议，Authorization 填任意字符串即可调用（经实测无需真实密钥）。Index-Translate-2B/9B 为文本翻译主力，Index-Translate-35B-A3B (MoE) 支持传图翻译；Index-Nailong 系列提供 22 万+ 超长上下文，Index-Homura 系列可作通用对话（建议携带 system prompt）。另有 Index-Echo-S2TT/S2ST 语音同传模型走音频接口，不在 chat 协议内。本站已接入 MangoApi 网关 (api.mangoqwq.com/v1)：别名 fanyi 自动映射到 Index-Translate-35B-A3B，原名单独可用，免费计费。GET /v1/models 可实时查询全部模型。',
+    balance: '免费开放'
   }
 ];
