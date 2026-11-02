@@ -1,8 +1,91 @@
-import { describe, expect, it } from 'vitest';
-import { appendImportedStations, mergePublicStations, parseNewApiChannelsJson } from './api-station-sync';
+import { afterEach, describe, expect, it, vi } from 'vitest';
+import {
+  appendImportedStations,
+  loadManagedStations,
+  mergeNewDefaultStations,
+  mergePublicStations,
+  parseNewApiChannelsJson,
+} from './api-station-sync';
+import type { AiStationItem } from '../types/ai-station';
 import type { PublicStationChannel } from '../types/api-sync';
 
 const channel = (base_url: string): PublicStationChannel => ({ id: 1, name: base_url, type: 1, status: 1, base_url, models: [], group: '', priority: 1, weight: 1, tag: '', response_time: 0, test_time: 0 });
+
+const station = (id: string): AiStationItem => ({
+  id,
+  name: `Station ${id}`,
+  category: 'Gateway',
+  portalUrl: `https://${id}.example`,
+  apiBaseUrl: `https://${id}.example/v1`,
+  models: [],
+  authType: 'DirectKey',
+  quotaDesc: '',
+  healthState: 'online',
+  turnstile: false,
+  tags: [],
+});
+
+// loadManagedStations 读裸 localStorage，node 环境需同时 stub window 判型与
+// localStorage 全局（catalog-index 走 window.localStorage，两者入口不同）。
+function fakeStorage(initial: Record<string, string> = {}) {
+  const map = new Map(Object.entries(initial));
+  return {
+    getItem: (k: string) => (map.has(k) ? map.get(k)! : null),
+    setItem: (k: string, v: string) => void map.set(k, String(v)),
+    removeItem: (k: string) => void map.delete(k),
+  };
+}
+
+describe('mergeNewDefaultStations', () => {
+  it('appends bundled defaults that a pre-existing cache is missing', () => {
+    const cached = [station('yiming'), station('amnew')];
+    const defaults = [station('yiming'), station('amnew'), station('bili-translate')];
+    const merged = mergeNewDefaultStations(cached, defaults);
+    expect(merged.map((s) => s.id)).toEqual(['yiming', 'amnew', 'bili-translate']);
+  });
+
+  it('returns the cache untouched when no defaults are missing', () => {
+    const cached = [station('yiming'), station('custom-1')];
+    const defaults = [station('yiming')];
+    expect(mergeNewDefaultStations(cached, defaults)).toEqual(cached);
+  });
+
+  it('lets the cached entry win over a default with the same id', () => {
+    const cached = [{ ...station('yiming'), name: 'User-renamed' }];
+    const defaults = [{ ...station('yiming'), name: 'Bundled name' }];
+    expect(mergeNewDefaultStations(cached, defaults)[0].name).toBe('User-renamed');
+  });
+
+  it('adds each missing default once even if the cache holds duplicate ids', () => {
+    const cached = [station('custom-1'), station('custom-1')];
+    const defaults = [station('yiming')];
+    const merged = mergeNewDefaultStations(cached, defaults);
+    expect(merged.filter((s) => s.id === 'yiming')).toHaveLength(1);
+  });
+});
+
+describe('loadManagedStations', () => {
+  afterEach(() => {
+    vi.unstubAllGlobals();
+  });
+
+  it('merges newly bundled defaults into a stored v2 cache', () => {
+    const stored = [station('yiming'), station('custom-1')];
+    vi.stubGlobal('window', {});
+    vi.stubGlobal('localStorage', fakeStorage({
+      mangoshare_custom_ai_stations_v2: JSON.stringify(stored),
+    }));
+    const defaults = [station('yiming'), station('bili-translate')];
+    expect(loadManagedStations(defaults).map((s) => s.id)).toEqual(['yiming', 'custom-1', 'bili-translate']);
+  });
+
+  it('falls back to defaults when the cache is absent', () => {
+    vi.stubGlobal('window', {});
+    vi.stubGlobal('localStorage', fakeStorage());
+    const defaults = [station('yiming')];
+    expect(loadManagedStations(defaults)).toEqual(defaults);
+  });
+});
 
 describe('AI Hub identity', () => {
   it('keeps separate imports with the same tag distinct', () => {

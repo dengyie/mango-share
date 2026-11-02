@@ -20,6 +20,21 @@ export const VALID_AUTH_TYPES = ['LinuxDO', 'GitHub', 'Password', 'DirectKey', '
 export const VALID_HEALTH_STATES = ['online', 'degraded', 'offline'] as const;
 
 /**
+ * Unions bundled defaults missing from a v2 cache into the loaded list. A
+ * non-empty cache otherwise shadows the bundled list wholesale, so default
+ * stations added by a newer build would never reach existing users. Union by
+ * id is safe because the UI offers no per-station delete (only import-merge
+ * and reset-all): an absent default id can only mean "cache predates this
+ * build", never "user removed it". Cached entries win for ids they already
+ * hold, so user-visible state never regresses mid-session.
+ */
+export function mergeNewDefaultStations(cached: AiStationItem[], defaults: AiStationItem[]): AiStationItem[] {
+  const ids = new Set(cached.map((s) => s.id));
+  const missing = defaults.filter((s) => !ids.has(s.id));
+  return missing.length > 0 ? [...cached, ...missing] : cached;
+}
+
+/**
  * Loads the user-managed station list from localStorage (v2 schema), falling
  * back to the bundled defaults. Used both by the ai-hub grid and by App-level
  * deep-link resolution so shared links to custom-imported stations keep working.
@@ -51,7 +66,8 @@ export function loadManagedStations(defaults: AiStationItem[]): AiStationItem[] 
             tags: Array.isArray(s.tags) ? s.tags : [],
           }));
         if (sanitized.length > 0) {
-          return sanitized as AiStationItem[];
+          // 新构建追加的默认站点要能触达老缓存用户（见 mergeNewDefaultStations）。
+          return mergeNewDefaultStations(sanitized as AiStationItem[], defaults);
         }
       }
     }
