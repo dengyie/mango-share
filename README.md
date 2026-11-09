@@ -1,125 +1,179 @@
+<!-- markdownlint-disable-file MD033 MD045 -->
 <div align="center">
 
 # MangoShare
 
-**Swiss Paper-Ink Digital Asset, eSIM & Global Resource Hub**
+**Swiss Paper-Ink Digital Asset, Global eSIM & Borderless Financial Resource Hub**
 
 [![License](https://img.shields.io/badge/license-MIT-green.svg?style=flat-square)](LICENSE)
 [![React](https://img.shields.io/badge/React-18.3-blue.svg?style=flat-square&logo=react&logoColor=white)](https://react.dev/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.5-blue.svg?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-5.3-purple.svg?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC.svg?style=flat-square&logo=tailwind-css&logoColor=white)](https://tailwindcss.com/)
-[![Tests](https://img.shields.io/badge/tests-passing-brightgreen.svg?style=flat-square)]()
+[![TypeScript](https://img.shields.io/badge/TypeScript-5.5-3178C6.svg?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
+[![Vite](https://img.shields.io/badge/Vite-5.3-646CFF.svg?style=flat-square&logo=vite&logoColor=white)](https://vitejs.dev/)
+[![Tailwind CSS](https://img.shields.io/badge/TailwindCSS-3.4-38B2AC.svg?style=flat-square&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
+[![Go Version](https://img.shields.io/badge/Backend-Go_1.24+-00ADD8.svg?style=flat-square&logo=go&logoColor=white)](https://go.dev/)
+[![Tests](https://img.shields.io/badge/tests-137%20passed-brightgreen.svg?style=flat-square)]()
 
-[简体中文](./README.md) • [English](./README_EN.md)
+[English](./README.md) · [简体中文](./README.zh-CN.md) · [Core Features](#core-features) · [Architecture](#system-architecture) · [Quick Start](#quick-start) · [Directory Pillars](#resource-directory-pillars) · [Sync Protocol](#account-sync--persistence-protocol)
+
+<br>
+
+<p align="center">
+  <b>Terminates decision paralysis and deceptive promotional noise across global cross-border financial and telecommunication utilities.</b><br>
+  Combines Swiss Paper-Ink aesthetics with responsive fluid contour backdrops and client-side offline-first persistence in an ultra-clean React architecture.<br>
+  Features structured fee comparisons for Web3 crypto cards, global eSIM roaming diagnostics, real-time AI mirror health monitoring, and asynchronous Go-powered email authentication.
+</p>
 
 </div>
 
 ---
 
-## 项目简介 (Overview)
+## Motivation & Architecture Comparison
 
-**MangoShare** 是一套遵循**瑞士现代主义（Swiss Modernism）**与**纸墨美学（Paper-Ink Aesthetics）**的高性能数字化资源导览与决策中枢。
+Digital nomads, cross-border engineers, and global entrepreneurs frequently struggle to find transparent data regarding international payment cards, roaming SIMs, and overseas services. Most navigational portals are cluttered with affiliate ads, outdated exchange rates, and obfuscated fee structures:
 
-系统摒弃了传统导航站混乱臃肿的视觉堆叠，融合了程序化流体等高线（Fluid Contour Backdrop）、优雅的物理质感排版与动态计数器，专为出海开发者、跨境从业者与数字游民提供透明、精准、结构化的全球资源决策矩阵。
-
----
-
-## 核心功能矩阵 (Key Pillars)
-
-### 1. 全球 U 卡与加密消费金融 (U-Cards)
-- 涵盖主流 Web3 虚拟卡与实体 Visa/Mastercard 借记卡评测；
-- 结构化对比充值费率、损耗点数、KYC 认证层级与 ATM 提现支持；
-- 支持深度 Hash 路由直达卡片详情（如 `#/u-cards?card=depay`）。
-
-### 2. 跨国通信与全球 eSIM 导航 (SIM Cards)
-- 聚合全球主流出海流量卡、零月租接码保号实体卡与免实名即时激活 eSIM；
-- 标注漫游网络优先级、APN 配置规则与充值生命周期。
-
-### 3. 公益 AI 站点与模型实时探活 (AI Station Hub)
-- 精选全球优质免费/公益大模型镜像站、Claude/GPT 代理节点与 New API 站点；
-- **MangoApi 实时探活集成**：集成 API 同步面板（ApiSyncPanel），支持实时同步可用模型矩阵与延迟评测。
-
-### 4. 全球信用卡与数字游民权益 (Credit Cards & Perks)
-- 精选海外多币种信用卡申请通路、返现机制与出海订阅消费门槛；
-- 汇聚云服务代金券、免费 VPS、域名解析与开发者专属福利池。
+| Evaluation Dimension | MangoShare Hub | Traditional Affiliate Link Portals | Commercial FinTech Comparison Sites |
+| :--- | :--- | :--- | :--- |
+| **Visual Aesthetics** | Minimalist Swiss Paper-Ink typography + fluid contour backdrop | Cluttered banner ads, flashing popups | Corporate dashboards with heavy tracking scripts |
+| **Fee Transparency** | Explicit breakdown of deposit friction, exchange spreads, and KYC tiers | Hidden fees, promotional bias | Generic marketing summaries |
+| **Offline First** | Full client-side browser persistence with guest-to-account migration | None (requires constant online connectivity) | Mandatory account creation before viewing |
+| **Real-Time Diagnostics**| Live latency, model availability probes, and health monitoring | Dead links, unverified recommendations | Periodic manual updates |
+| **Data Privacy** | Zero invasive third-party trackers; local-first state handling | Heavy analytics, Google Tag Manager, ad networks | Mandatory telemetry & cookie walls |
+| **Full-Stack Engine** | React 18 SPA + lightweight modern Go/SQLite backend | Static WordPress or PHP CMS | Heavy cloud microservices |
 
 ---
 
-## 技术架构与设计亮点 (Architecture & Design)
+## Core Features
 
+| Module | Feature Highlight | Technical Implementation & Advantage |
+| :--- | :--- | :--- |
+| **Swiss Paper-Ink UI** | High-density clean typography | Built with custom CSS token design systems, fluid contour canvas rendering, and animated numerical counters. |
+| **Web3 Crypto Cards** | Multi-attribute financial matrices | Structured fee breakdown for virtual and physical Visa/Mastercard debit cards, ATM support, and KYC level requirements. |
+| **Global eSIM Navigator**| International roaming telecommunication | Verified coverage matrices, zero-monthly-fee SMS retention cards, APN configurations, and carrier roaming priority guides. |
+| **Live AI Station Probes**| Real-time model endpoint verification | Direct integration with MangoApi telemetry, providing latency tracking, model availability catalogs, and status diagnostics. |
+| **Developer Perks Pool** | Verified perks and vouchers | Vetted cloud infrastructure credits, free tier VPS instances, domain registration bargains, and digital nomad tooling. |
+| **Offline-First Storage**| Frictionless guest-to-user sync | Local checklist items stored in browser `localStorage` with conflict-free server merging and quota overflow fallbacks. |
+| **Async Go Auth Server** | Resilient credential-free authentication | Go backend leveraging embedded `modernc.org/sqlite`, leaky-bucket rate limiting, and async email OTP queues. |
+| **Deep Link Routing** | Instant navigation to specific cards | Hash-based routing (`#/u-cards?card=depay`) supporting deep links, modal drawer states, and instantaneous clipboard sharing. |
+
+---
+
+## System Architecture
+
+```text
+┌────────────────────────────────────────────────────────────────────────┐
+│                        User Browser Environment                        │
+│  ├─ Swiss Paper-Ink Theme & Animated Counters (React 18)               │
+│  ├─ Hash Route Controller & Deep-Link Parser                           │
+│  └─ LocalStorage Client Vault (Offline-first checklist cache)          │
+└───────────────────────────────────┬────────────────────────────────────┘
+                                    │ JSON API & SSE (Vite Dev / Nginx Reverse Proxy)
+                                    ▼
+┌────────────────────────────────────────────────────────────────────────┐
+│                   MangoShare Go API Backend (:8080)                    │
+│  ┌──────────────────────┐ ┌──────────────────────┐ ┌────────────────┐  │
+│  │ Rate Limiter Engine  │ │ Async Mailer Queue   │ │ Items Syncer   │  │
+│  │ Leaky Bucket / IP    │ │ OneMail / SMTP Pipe  │ │ Tombstones Cap │  │
+│  └──────────┬───────────┘ └──────────┬───────────┘ └────────┬───────┘  │
+│             │                        │                      │          │
+│             ▼                        ▼                      ▼          │
+│  ┌──────────────────────────────────────────────────────────────────┐  │
+│  │          modernc.org/sqlite Embedded Pure-Go Storage             │  │
+│  │   Users · Sessions · Items Checklist · Deletion Tombstones       │  │
+│  └──────────────────────────────────────────────────────────────────┘  │
+└────────────────────────────────────────────────────────────────────────┘
 ```
-┌────────────────────────────────────────────────────────┐
-│                   MangoShare App Core                  │
-├──────────────────────────┬─────────────────────────────┤
-│   Presentation Layer     │   Swiss Paper-Ink Theme     │
-│   - FluidContourBackdrop │   - CSS Variables & Tokens  │
-│   - AnimatedCounter      │   - Tailwind Precision Grid │
-│   - Hash Router Engine   │   - Deep Linking Parser     │
-├──────────────────────────┼─────────────────────────────┤
-│   Domain & Data Stores   │   External Integrations     │
-│   - u-cards.ts           │   - MangoApi Model Sync     │
-│   - sim-cards.ts         │   - LocalStorage Caching    │
-│   - ai-stations.ts       │   - Session Auth Provider   │
-└──────────────────────────┴─────────────────────────────┘
-```
-
-- **视觉引擎**：基于原生 WebGL/Canvas 的流体纸墨背景算法（`FluidContourBackdrop`），轻量级 GPU 加速，零高帧率卡顿。
-- **状态流转**：无框架依赖的轻量 Hash Location 解析器，支持任意卡片一键分享与状态还原。
-- **模块解耦**：所有业务卡片均抽象为独立类型定义（`types/`）与纯展示网格（`components/*/`），新增品类只需声明式扩充数据源。
 
 ---
 
-## 快速上手 (Quick Start)
+## Resource Directory Pillars
 
-### 1. 环境准备
-- Node.js >= 18.0.0
-- npm / pnpm / yarn
+### 1. Global U-Cards & Crypto Spend (U-Cards)
+- In-depth reviews covering top-tier Web3 virtual cards and physical debit cards.
+- Structured parameter tables comparing deposit methods, cross-border conversion spreads, KYC validation steps, and ATM withdrawal capability.
+- Instant access via deep-link hash routes (e.g. `#/u-cards?card=depay`).
 
-### 2. 本地安装与启动
+### 2. International Telecommunications & Global eSIM (SIM Cards)
+- Directory of zero-monthly-cost SMS receiving physical SIMs and instant-activation travel eSIMs.
+- Clear documentation on carrier roaming tiers, APN settings, and SIM lifecycle maintenance.
+
+### 3. Public AI Stations & Mirror Gateways (AI Station Hub)
+- Curated index of high-reliability public model mirrors and OpenAI/Claude proxy channels.
+- Real-time station synchronization with live model availability and latency metrics.
+
+### 4. Global Nomad Banking & Developer Perks (Credit Cards & Perks)
+- Strategic guides for acquiring multi-currency cross-border bank accounts and credit cards.
+- Vetted repository of cloud computing coupons, developer subsidies, and productivity tools.
+
+---
+
+## Quick Start
+
+### 1. Frontend Development
+
 ```bash
-# 克隆仓库
-git clone https://github.com/dengyie/mango-share.git
-cd mango-share
+# Clone repository
+git clone https://github.com/dengyie/mangoshare.git
+cd mangoshare
 
-# 安装依赖
+# Install dependencies
 npm install
 
-# 启动开发服务器
+# Start Vite hot-reloading dev server
 npm run dev
-```
-启动后在浏览器中打开 `http://localhost:5173` 即可浏览。
 
-### 3. 测试与构建
+# Run full frontend unit test suite (104 tests)
+npm test
+```
+
+### 2. Backend Go Server
+
 ```bash
-# 运行单元测试
-npm run test
+# Navigate to server directory
+cd server
 
-# 生产级打包
-npm run build
+# Run backend test suite (33 tests)
+go test -v ./...
+
+# Launch server
+go run main.go
 ```
+
+The server listens on `http://127.0.0.1:8080` by default, managing user authentication and sync state with SQLite.
 
 ---
 
-## 目录结构 (Directory Structure)
+## Account Sync & Persistence Protocol
 
-```
-src/
-├── components/          # 核心 UI 模块
-│   ├── ai-hub/          # AI 公益站与模型探活面板
-│   ├── awesome-ui/      # 瑞士纸墨风原子组件（流体背景、图标、计数器）
-│   ├── credit-card/     # 全球信用卡矩阵
-│   ├── perk/            # 数字化权益专区
-│   ├── sim-card/        # 全球通信与 eSIM 列表
-│   └── u-card/          # Web3 U卡与加密借记卡模块
-├── data/                # 结构化数据源（卡片与站点事实字典）
-├── hooks/               # 核心 Hook（数据同步、用户会话）
-├── types/               # 强类型契约定义
-└── App.tsx              # 主应用入口与路由分发
-```
+1. **Guest Isolation**: Visitors can bookmark cards and build personalized checklists without creating an account; records persist immediately to browser `localStorage`.
+2. **Quota Resilience**: When browser storage hits storage quotas, fallback handlers preserve guest state in memory without corrupting user workflows.
+3. **Seamless Login Migration**: Upon logging in via email OTP, guest checklists automatically merge with server records using conflict-free timestamp ordering.
+4. **Tombstone Cleanup**: Deleted items leave bounded tombstones ensuring deletions propagate cleanly across multiple synchronized browsers.
 
 ---
 
-## 许可证 (License)
+## Configuration Reference
 
-本项目采用 [MIT License](LICENSE) 开源协议。
+| Environment Variable | Default | Purpose |
+| :--- | :--- | :--- |
+| `PORT` | `8080` | Port on which the Go backend HTTP service listens. |
+| `DB_PATH` | `./data/mangoshare.db` | Local file path for embedded SQLite storage. |
+| `ADMIN_EMAILS` | None (Optional) | Comma-separated email list granted administrative privileges. |
+| `MAILER_ENDPOINT` | None (Optional) | Outbound webhook endpoint for asynchronous verification code dispatch. |
+| `RATE_LIMIT_LOGIN` | `5/minute` | Rate limit ceiling on login attempts per IP. |
+| `RATE_LIMIT_SEND_CODE` | `60s cooldown` | Minimum time buffer between consecutive verification email dispatches. |
+
+---
+
+## Contributing & License
+
+Contributions and improvements are welcome. Please ensure that all test suites pass before submitting changes:
+
+```bash
+# Frontend test pass
+npm test
+
+# Backend test pass
+cd server && go test ./...
+```
+
+Licensed under the [MIT License](LICENSE).
