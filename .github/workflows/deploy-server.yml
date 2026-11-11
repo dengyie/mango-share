@@ -1,8 +1,8 @@
 name: Deploy Account Server
 
 # server/** changes = rebuild the Go account backend and restart it on
-# nl-vps via the google-vps relay (same path as deploy.yml — GitHub runners
-# have no IPv6 and the LeaseWeb IPv4 :22 endpoint is not this host's sshd).
+# tencent-lh (212.64.10.215, direct SSH — no relay needed since the 2026-11-12
+# migration from nl-vps).
 on:
   push:
     branches: [main]
@@ -47,42 +47,31 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
-          printf '%s\n' "$RELAY_KEY" > ~/.ssh/relay_key
           printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy_key
           printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
-          chmod 600 ~/.ssh/relay_key ~/.ssh/deploy_key ~/.ssh/known_hosts
+          chmod 600 ~/.ssh/deploy_key ~/.ssh/known_hosts
           # Same pinned-key SSH config as deploy.yml (see the notes there).
           cat >> ~/.ssh/config << 'CFG'
-          Host relay
-            HostName 35.212.179.13
-            User ci-relay
-            IdentityFile ~/.ssh/relay_key
-            IdentitiesOnly yes
-            StrictHostKeyChecking yes
-
-          Host nl-target
-            HostName 10.144.144.12
+          Host lh-target
+            HostName 212.64.10.215
             User deploy
             IdentityFile ~/.ssh/deploy_key
             IdentitiesOnly yes
-            ProxyJump relay
             StrictHostKeyChecking yes
           CFG
           chmod 600 ~/.ssh/config
         env:
-          RELAY_KEY: ${{ secrets.CI_RELAY_SSH_KEY }}
-          DEPLOY_KEY: ${{ secrets.NL_VPS_DEPLOY_SSH_KEY }}
-          KNOWN_HOSTS: ${{ secrets.CI_SSH_KNOWN_HOSTS }}
+          DEPLOY_KEY: ${{ secrets.LH_DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.LH_SSH_KNOWN_HOSTS }}
 
-      - name: Deploy (rsync binary over relay + restart service)
+      - name: Deploy (rsync binary + restart service)
         run: |
           # /var/www/mangoshare-bin is deploy-writable and NOT the rsync
           # --delete webroot, so the binary survives frontend deploys.
           # Stage separately: a failed transfer must not overwrite the live binary.
-          # Requires an existing readable binary and write access to this directory.
           stage="/var/www/mangoshare-bin/.mangoshare-account-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
-          rsync -az -e "ssh -F $HOME/.ssh/config" /tmp/mangoshare-account "nl-target:$stage"
-          ssh -F "$HOME/.ssh/config" nl-target sh -s -- "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" <<'REMOTE'
+          rsync -az -e "ssh -F $HOME/.ssh/config" /tmp/mangoshare-account "lh-target:$stage"
+          ssh -F "$HOME/.ssh/config" lh-target sh -s -- "$GITHUB_RUN_ID" "$GITHUB_RUN_ATTEMPT" <<'REMOTE'
           set -eu
           dir=/var/www/mangoshare-bin
           live="$dir/mangoshare-account"
@@ -124,12 +113,7 @@ jobs:
 
       - name: Verify production
         run: |
-          # nl-vps runs on a host with heavy CPU-steal spikes: after a restart
-          # the backend can take ~2 minutes to bind, and single requests can
-          # stall out. Retry the health assert for up to ~4 minutes instead of
-          # failing the deploy on a blip.
-          body=""
-          for i in $(seq 1 15); do
+          for i in $(seq 1 5); do
             body=$(curl -fsS --connect-timeout 5 --max-time 8 https://share.mangoqwq.com/account-api/api/health || true)
             [ "$body" = '{"status":"ok"}' ] && break
             echo "attempt $i: not healthy yet (${body:-no response}); retrying in 15s"

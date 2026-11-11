@@ -1,7 +1,8 @@
 name: Deploy to Production
 
-# Push to main = build + deploy to nl-vps via google-vps relay (GitHub runners
-# have no IPv6, and the LeaseWeb IPv4 :22 endpoint is not this host's sshd).
+# Push to main = build + deploy to tencent-lh (Shanghai Lighthouse, 212.64.10.215).
+# Migrated 2026-11-12 from nl-vps (LeaseWeb, repeatedly starved by host CPU steal).
+# Frontend webroot: /var/www/mangoshare (nginx loopback :18923 behind CF tunnel).
 on:
   push:
     branches: [main]
@@ -39,52 +40,40 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           chmod 700 ~/.ssh
-          printf '%s\n' "$RELAY_KEY" > ~/.ssh/relay_key
           printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/deploy_key
           printf '%s\n' "$KNOWN_HOSTS" > ~/.ssh/known_hosts
-          chmod 600 ~/.ssh/relay_key ~/.ssh/deploy_key ~/.ssh/known_hosts
-          # Host keys are pinned (StrictHostKeyChecking yes), not TOFU: every
-          # runner is ephemeral, so accept-new would re-trust whatever endpoint
-          # answers on each run. The pinned keys were verified against the
-          # hosts' own sshd public keys (fingerprint kLmFsR/... for nl-vps).
+          chmod 600 ~/.ssh/deploy_key ~/.ssh/known_hosts
+          # Host key pinned (StrictHostKeyChecking yes): every runner is
+          # ephemeral, so accept-new would re-trust whatever answers each run.
           cat >> ~/.ssh/config << 'CFG'
-          Host relay
-            HostName 35.212.179.13
-            User ci-relay
-            IdentityFile ~/.ssh/relay_key
-            IdentitiesOnly yes
-            StrictHostKeyChecking yes
-
-          Host nl-target
-            HostName 10.144.144.12
+          Host lh-target
+            HostName 212.64.10.215
             User deploy
             IdentityFile ~/.ssh/deploy_key
             IdentitiesOnly yes
-            ProxyJump relay
             StrictHostKeyChecking yes
           CFG
           chmod 600 ~/.ssh/config
         env:
-          RELAY_KEY: ${{ secrets.CI_RELAY_SSH_KEY }}
-          DEPLOY_KEY: ${{ secrets.NL_VPS_DEPLOY_SSH_KEY }}
-          KNOWN_HOSTS: ${{ secrets.CI_SSH_KNOWN_HOSTS }}
+          DEPLOY_KEY: ${{ secrets.LH_DEPLOY_SSH_KEY }}
+          KNOWN_HOSTS: ${{ secrets.LH_SSH_KNOWN_HOSTS }}
 
-      - name: Deploy (rsync over relay + nginx reload)
+      - name: Deploy (rsync + nginx reload)
         run: |
           # Fail before touching the webroot if the existing nginx configuration
           # is invalid or the deploy user cannot run the permitted check.
-          ssh -F $HOME/.ssh/config nl-target 'sudo -n /usr/sbin/nginx -t'
+          ssh -F $HOME/.ssh/config lh-target 'sudo -n /usr/sbin/nginx -t'
           backup=$(mktemp -d)
           # Complete the snapshot before any mutation. Requires the deploy user
           # to be able to read every file in the existing webroot.
-          rsync -az -e "ssh -F $HOME/.ssh/config" nl-target:/var/www/mangoshare/ "$backup/"
+          rsync -az -e "ssh -F $HOME/.ssh/config" lh-target:/var/www/mangoshare/ "$backup/"
           rollback() {
             rc=$?
             trap - EXIT
             if [ "$rc" -ne 0 ]; then
               echo "Deploy failed; attempting webroot rollback" >&2
-              if rsync -az --delete -e "ssh -F $HOME/.ssh/config" "$backup/" nl-target:/var/www/mangoshare/ &&
-                 ssh -F "$HOME/.ssh/config" nl-target 'sudo -n /usr/sbin/nginx -t && sudo -n /usr/bin/systemctl reload nginx'; then
+              if rsync -az --delete -e "ssh -F $HOME/.ssh/config" "$backup/" lh-target:/var/www/mangoshare/ &&
+                 ssh -F "$HOME/.ssh/config" lh-target 'sudo -n /usr/sbin/nginx -t && sudo -n /usr/bin/systemctl reload nginx'; then
                 echo "Webroot restored; public availability still requires verification." >&2
               else
                 echo "Rollback failed; manual recovery required. Runner snapshot: $backup (ephemeral)." >&2
@@ -93,8 +82,8 @@ jobs:
             exit "$rc"
           }
           trap rollback EXIT
-          rsync -az --delete -e "ssh -F $HOME/.ssh/config" dist/ nl-target:/var/www/mangoshare/
-          ssh -F $HOME/.ssh/config nl-target 'sudo -n /usr/sbin/nginx -t && sudo -n /usr/bin/systemctl reload nginx'
+          rsync -az --delete -e "ssh -F $HOME/.ssh/config" dist/ lh-target:/var/www/mangoshare/
+          ssh -F $HOME/.ssh/config lh-target 'sudo -n /usr/sbin/nginx -t && sudo -n /usr/bin/systemctl reload nginx'
           trap - EXIT
           rm -rf "$backup"
           echo "Origin update completed for $(git rev-parse --short HEAD) at $(date -u +%FT%TZ)"
