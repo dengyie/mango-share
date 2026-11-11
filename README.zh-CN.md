@@ -155,12 +155,17 @@ go run main.go
 
 | 环境变量 | 默认值 | 配置说明 |
 | :--- | :--- | :--- |
-| `PORT` | `8080` | Go 后端服务监听的端口号。 |
-| `DB_PATH` | `./data/mangoshare.db` | 内嵌 SQLite 数据库的文件保存路径。 |
+| `ADDR` | `127.0.0.1:8090` | Go 后端监听地址（生产绑定 loopback，由 nginx 反代 `/account-api/`）。 |
+| `DB_PATH` | `account.db` | 内嵌 SQLite 数据库的文件保存路径（相对工作目录）。 |
+| `SITE_URL` | `https://share.mangoqwq.com` | 公开站点域名，用于邮件文案。 |
+| `MAIL_FROM` | `MangoShare <noreply@otp.mangoqwq.com>` | 邮件发件人（one-mail 模式仅取显示名）。 |
+| `ONE_MAIL_API_BASE` / `ONE_MAIL_SEND_TOKEN` | 无 | 首选发信通道：one-mail Worker 地址与发件地址 JWT。 |
+| `RESEND_API_KEY` | 无 | 备用发信通道：直连 Resend 的 API Key（`ONE_MAIL_*` 未设置时生效）。 |
 | `ADMIN_EMAILS` | 无（可选） | 逗号分隔的管理员邮箱白名单列表。 |
-| `MAILER_ENDPOINT` | 无（可选） | 异步发送验证码邮件的 Webhook 端点地址。 |
-| `RATE_LIMIT_LOGIN` | `5 次/分钟` | 单 IP 尝试登录的最大速率上限。 |
-| `RATE_LIMIT_SEND_CODE`| `60 秒冷却` | 两次请求验证码之间的强制冷却时间。 |
+| `TOKEN_TTL` | `720h`（30 天） | 会话令牌滑动过期时长。 |
+| `CODE_TTL` | `10m` | 邮箱验证码有效期。 |
+
+限流为代码内置常量（非环境变量）：发码 10 次/小时/IP 且每地址 10 次/24 小时；注册与重置 10 次/小时/IP；登录失败 20 次/15 分钟/IP、10 次/15 分钟/账号。
 
 ---
 

@@ -155,12 +155,17 @@ The server listens on `http://127.0.0.1:8080` by default, managing user authenti
 
 | Environment Variable | Default | Purpose |
 | :--- | :--- | :--- |
-| `PORT` | `8080` | Port on which the Go backend HTTP service listens. |
-| `DB_PATH` | `./data/mangoshare.db` | Local file path for embedded SQLite storage. |
+| `ADDR` | `127.0.0.1:8090` | Listen address for the Go backend (loopback in production; nginx proxies `/account-api/`). |
+| `DB_PATH` | `account.db` | Local file path for embedded SQLite storage (relative to the working directory). |
+| `SITE_URL` | `https://share.mangoqwq.com` | Public site origin, used in mail copy. |
+| `MAIL_FROM` | `MangoShare <noreply@otp.mangoqwq.com>` | Mail sender header (one-mail mode only reads the display name). |
+| `ONE_MAIL_API_BASE` / `ONE_MAIL_SEND_TOKEN` | None | Preferred mail channel: one-mail Worker base URL and sender address JWT. |
+| `RESEND_API_KEY` | None | Fallback mail channel: direct Resend API key (used when `ONE_MAIL_*` is unset). |
 | `ADMIN_EMAILS` | None (Optional) | Comma-separated email list granted administrative privileges. |
-| `MAILER_ENDPOINT` | None (Optional) | Outbound webhook endpoint for asynchronous verification code dispatch. |
-| `RATE_LIMIT_LOGIN` | `5/minute` | Rate limit ceiling on login attempts per IP. |
-| `RATE_LIMIT_SEND_CODE` | `60s cooldown` | Minimum time buffer between consecutive verification email dispatches. |
+| `TOKEN_TTL` | `720h` (30 days) | Sliding expiry for session tokens. |
+| `CODE_TTL` | `10m` | Verification code validity window. |
+
+Rate limits are built-in constants (not environment variables): 10 codes/hour/IP and 10 codes/24h/address; registration and password reset 10/hour/IP; login failures 20/15min/IP and 10/15min/account.
 
 ---
 
