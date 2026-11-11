@@ -77,7 +77,15 @@ jobs:
           live="$dir/mangoshare-account"
           stage="$dir/.mangoshare-account-$1-$2"
           backup="$dir/.mangoshare-account-backup-$1-$2"
-          test -f "$live" && test -r "$live" && test -f "$stage"
+          # Bootstrap is manual by design: a fresh host needs the binary in
+          # place plus the mangoshare-account systemd unit (with its env file)
+          # before CI can safely upgrade it. Fail loudly instead of letting
+          # the bare test below print an opaque error.
+          if [ ! -f "$live" ] || [ ! -r "$live" ]; then
+            echo "no live binary at $live — bootstrap the host manually first (install binary + mangoshare-account.service, then re-run this deploy)" >&2
+            exit 1
+          fi
+          test -f "$stage"
           cp -p "$live" "$backup"
           rollback() {
             rc=$?
@@ -113,6 +121,9 @@ jobs:
 
       - name: Verify production
         run: |
+          # The backend binds in seconds on tencent-lh (no nl-vps-style CPU
+          # steal); 5 tries ≈ 75s is ample margin against a blip. Bump only
+          # if the host regresses.
           for i in $(seq 1 5); do
             body=$(curl -fsS --connect-timeout 5 --max-time 8 https://share.mangoqwq.com/account-api/api/health || true)
             [ "$body" = '{"status":"ok"}' ] && break

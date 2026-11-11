@@ -69,7 +69,7 @@ Digital nomads, cross-border engineers, and global entrepreneurs frequently stru
                                     │ JSON API & SSE (Vite Dev / Nginx Reverse Proxy)
                                     ▼
 ┌────────────────────────────────────────────────────────────────────────┐
-│                   MangoShare Go API Backend (:8080)                    │
+│                   MangoShare Go API Backend (:8090)                    │
 │  ┌──────────────────────┐ ┌──────────────────────┐ ┌────────────────┐  │
 │  │ Rate Limiter Engine  │ │ Async Mailer Queue   │ │ Items Syncer   │  │
 │  │ Leaky Bucket / IP    │ │ OneMail / SMTP Pipe  │ │ Tombstones Cap │  │
@@ -138,7 +138,7 @@ go test -v ./...
 go run main.go
 ```
 
-The server listens on `http://127.0.0.1:8080` by default, managing user authentication and sync state with SQLite.
+The server listens on `http://127.0.0.1:8090` by default, managing user authentication and sync state with SQLite.
 
 ---
 
