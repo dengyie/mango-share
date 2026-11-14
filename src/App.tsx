@@ -387,6 +387,12 @@ export const App: React.FC = () => {
               <span className="pill-badge">{PERKS.length}</span>
             </button>
 
+            {/* 博客是独立静态站（/blog/），整页跳转而非 hash tab */}
+            <a className="pill" href="/blog/">
+              <i className="fa-solid fa-feather opacity-75 mr-1 text-[11px]" />
+              <span>博客</span>
+            </a>
+
             {/* 用户中心入口已移至页脚：顶部 tab 只保留知识/资源栏目 */}
           </nav>
 

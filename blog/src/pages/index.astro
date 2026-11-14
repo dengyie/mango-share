@@ -1,0 +1,80 @@
+---
+import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/base';
+import Hero from '../components/Hero.astro';
+import Directions from '../components/Directions.astro';
+import PostList from '../components/PostList.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getPosts } from '../lib/posts';
+import { getFeaturedRepos, getRepos } from '../lib/github';
+import { SITE } from '../site.config';
+
+const posts = (await getPosts()).slice(0, 5);
+const [featured, repos] = await Promise.all([getFeaturedRepos(), getRepos()]);
+---
+
+<Base width="full">
+  <Hero />
+
+  <section class="band" id="about">
+    <div class="container">
+      <div class="band-head">
+        <div>
+          <h2>我在折腾什么</h2>
+          <p class="band-sub">开源开发者，一个爱折腾的工具人</p>
+        </div>
+        <a href={withBase('/about/')}>更多关于我 →</a>
+      </div>
+      <Directions />
+    </div>
+  </section>
+
+  {
+    featured.length > 0 && (
+      <section class="band band-alt" id="featured">
+        <div class="container">
+          <div class="band-head">
+            <div>
+              <h2>精选项目</h2>
+              <p class="band-sub">最受欢迎 & 最近在做的</p>
+            </div>
+            <a href={withBase('/projects/')}>全部 {repos.length} 个项目 →</a>
+          </div>
+          <div class="project-grid">
+            {featured.map((repo) => (
+              <ProjectCard repo={repo} />
+            ))}
+          </div>
+        </div>
+      </section>
+    )
+  }
+
+  <section class="band" id="posts">
+    <div class="container">
+      <div class="band-head">
+        <div>
+          <h2>最新笔记</h2>
+          <p class="band-sub">写代码时的笔记和思考</p>
+        </div>
+        <a href={withBase('/posts/')}>全部文章 →</a>
+      </div>
+      <div class="home-posts">
+        <PostList posts={posts} withSummary />
+      </div>
+    </div>
+  </section>
+
+  <section class="band band-last" id="contact">
+    <div class="container">
+      <div class="cta">
+        <h2>一起折腾？</h2>
+        <p>欢迎在 GitHub 上提 Issue、PR，或者直接来聊聊</p>
+        <div class="btns">
+          <a class="btn primary" href={`https://github.com/${SITE.github}`}>github.com/{SITE.github} ↗</a>
+          <a class="btn" href={withBase('/rss.xml')}>订阅 RSS</a>
+        </div>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,31 @@
+---
+// 「我在折腾什么」方向卡片，首页和关于页共用
+import { SITE } from '../site.config';
+import { withBase } from '../lib/base';
+import { getCategories } from '../lib/github';
+
+const counts = new Map((await getCategories()).map((c) => [c.id, c.count]));
+const cards = SITE.directions.map((d) => {
+  const count = d.category ? counts.get(d.category) : undefined;
+  return {
+    ...d,
+    href: d.href ?? withBase(`/projects/?cat=${d.category}`),
+    cta: d.cta ?? (count ? `${count} 个相关项目` : '相关项目'),
+  };
+});
+---
+
+<div class="directions">
+  {
+    cards.map((d) => (
+      <a class="direction" href={d.href}>
+        <span class="direction-icon" aria-hidden="true">
+          {d.icon}
+        </span>
+        <h3>{d.title}</h3>
+        <p>{d.text}</p>
+        <span class="direction-cta">{d.cta} →</span>
+      </a>
+    ))
+  }
+</div>

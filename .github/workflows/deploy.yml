@@ -3,9 +3,13 @@ name: Deploy to Production
 # Push to main = build + deploy to tencent-lh (Shanghai Lighthouse, 212.64.10.215).
 # Migrated 2026-11-12 from nl-vps (LeaseWeb, repeatedly starved by host CPU steal).
 # Frontend webroot: /var/www/mangoshare (nginx loopback :18923 behind CF tunnel).
+# Blog (blog/ subdirectory, Astro) publishes to /var/www/mangoshare/blog/.
+# Daily rebuild also refreshes the blog's build-time GitHub project data.
 on:
   push:
     branches: [main]
+  schedule:
+    - cron: '0 0 * * *' # 每天北京时间 8 点刷新项目数据
   workflow_dispatch:
 
 # workflow_dispatch can target any branch; only main may ever reach production.
@@ -27,14 +31,27 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: 20
+          node-version: 22
           cache: npm
+          cache-dependency-path: |
+            package-lock.json
+            blog/package-lock.json
 
-      - name: Build
+      - name: Build SPA
         run: |
           npm ci
           npm test
           npm run build
+
+      - name: Build blog
+        run: |
+          cd blog
+          npm ci
+          npm run check
+          npm test
+          npm run build
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Setup SSH keys
         run: |
@@ -82,7 +99,9 @@ jobs:
             exit "$rc"
           }
           trap rollback EXIT
-          rsync -az --delete -e "ssh -F $HOME/.ssh/config" dist/ lh-target:/var/www/mangoshare/
+          # SPA webroot；排除 blog/，博客由下面第二条 rsync 单独发布，防 --delete 互删
+          rsync -az --delete --exclude '/blog' -e "ssh -F $HOME/.ssh/config" dist/ lh-target:/var/www/mangoshare/
+          rsync -az --delete -e "ssh -F $HOME/.ssh/config" blog/dist/ lh-target:/var/www/mangoshare/blog/
           ssh -F $HOME/.ssh/config lh-target 'sudo -n /usr/sbin/nginx -t && sudo -n /usr/bin/systemctl reload nginx'
           trap - EXIT
           rm -rf "$backup"

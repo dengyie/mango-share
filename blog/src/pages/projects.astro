@@ -1,0 +1,88 @@
+---
+import Base from '../layouts/Base.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import { getCategories, getRepos } from '../lib/github';
+import { SITE } from '../site.config';
+
+const [repos, categories] = await Promise.all([getRepos(), getCategories()]);
+---
+
+<Base title="项目" description="mango 的开源项目：AI、自动化、网络与自托管" width="wide">
+  <header class="page-header">
+    <h1 class="page-title">项目</h1>
+    <p class="page-desc">
+      共 {repos.length} 个原创开源项目，按方向筛选或直接搜索。数据来自
+      <a href={`https://github.com/${SITE.github}`}>GitHub</a>，每天自动同步。
+    </p>
+  </header>
+
+  {
+    repos.length > 0 ? (
+      <>
+        {/* 筛选栏默认隐藏，由下方脚本启用；关掉 JS 时直接显示全部项目 */}
+        <div class="filter" data-filter hidden>
+          <div class="tabs">
+            <button type="button" class="tab" data-cat="all" aria-pressed="true">
+              全部 <span>{repos.length}</span>
+            </button>
+            {categories.map((c) => (
+              <button type="button" class="tab" data-cat={c.id} aria-pressed="false">
+                {c.label} <span>{c.count}</span>
+              </button>
+            ))}
+          </div>
+          <input class="search" type="search" placeholder="搜索项目 / 技术…" aria-label="搜索项目" />
+        </div>
+        <div class="project-grid" data-grid>
+          {repos.map((repo) => (
+            <ProjectCard repo={repo} />
+          ))}
+        </div>
+        <p class="empty" data-empty hidden>
+          没有找到匹配的项目。
+        </p>
+      </>
+    ) : (
+      <p class="empty">暂时拉取不到项目数据。</p>
+    )
+  }
+
+  <script is:inline>
+    // 分类 + 搜索。状态写进 URL（?cat=ai&q=proxy），方便分享和首页方向卡片直达
+    (function () {
+      var bar = document.querySelector('[data-filter]');
+      if (!bar) return;
+      bar.hidden = false;
+      var tabs = [].slice.call(bar.querySelectorAll('.tab'));
+      var input = bar.querySelector('.search');
+      var cards = [].slice.call(document.querySelectorAll('[data-grid] .project-card'));
+      var empty = document.querySelector('[data-empty]');
+      var params = new URLSearchParams(location.search);
+      var cat = params.get('cat') || 'all';
+      if (!tabs.some(function (t) { return t.dataset.cat === cat; })) cat = 'all';
+      input.value = params.get('q') || '';
+
+      function render() {
+        var k = input.value.trim().toLowerCase(), shown = 0;
+        tabs.forEach(function (t) { t.setAttribute('aria-pressed', String(t.dataset.cat === cat)); });
+        cards.forEach(function (c) {
+          var ok = (cat === 'all' || c.dataset.cat === cat) && (!k || c.dataset.search.indexOf(k) > -1);
+          c.hidden = !ok;
+          if (ok) shown++;
+        });
+        empty.hidden = shown > 0;
+        var p = new URLSearchParams();
+        if (cat !== 'all') p.set('cat', cat);
+        if (k) p.set('q', k);
+        var s = p.toString();
+        history.replaceState(null, '', s ? '?' + s : location.pathname);
+      }
+
+      tabs.forEach(function (t) {
+        t.addEventListener('click', function () { cat = t.dataset.cat; render(); });
+      });
+      input.addEventListener('input', render);
+      render();
+    })();
+  </script>
+</Base>

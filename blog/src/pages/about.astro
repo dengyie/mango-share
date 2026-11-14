@@ -1,0 +1,59 @@
+---
+import Base from '../layouts/Base.astro';
+import { withBase } from '../lib/base';
+import Directions from '../components/Directions.astro';
+import { SITE } from '../site.config';
+---
+
+<Base title="关于" description="关于 mango：一个爱折腾的开源开发者">
+  <header class="about-head">
+    <img class="avatar" src={SITE.avatar} alt={`${SITE.author} 的头像`} width="84" height="84" />
+    <div>
+      <h1>关于 {SITE.author}</h1>
+      <p>{SITE.bio}</p>
+    </div>
+  </header>
+
+  <div class="prose">
+    <p>
+      嗨，我是 <strong>mango</strong> 👋 一个开源开发者，也是一个爱折腾的工具人。
+      我只写自己平时真正需要用的东西：遇到重复的事就把它自动化，遇到好用的服务就想自己托管一份。
+    </p>
+  </div>
+
+  <section class="about-section">
+    <h2>我在折腾什么</h2>
+    <Directions />
+  </section>
+
+  <section class="about-section" id="skills">
+    <h2>略懂这些</h2>
+    <div class="skill-groups">
+      {
+        Object.entries(SITE.skills).map(([group, list]) => (
+          <div class="skill-group">
+            <h3>{group}</h3>
+            <ul class="skills">
+              {list.map((s) => (
+                <li>{s}</li>
+              ))}
+            </ul>
+          </div>
+        ))
+      }
+    </div>
+  </section>
+
+  <section class="about-section prose">
+    <h2>这个网站</h2>
+    <p>
+      {SITE.title} 是我的技术笔记本，也是我的项目展示柜。文章用 Markdown 写，<a href={withBase('/projects/')}>项目</a>每天从
+      GitHub 自动同步。
+    </p>
+    <h2>找到我</h2>
+    <ul>
+      <li>GitHub：<a href={`https://github.com/${SITE.github}`}>@{SITE.github}</a></li>
+      <li>订阅：<a href={withBase('/rss.xml')}>RSS</a></li>
+    </ul>
+  </section>
+</Base>

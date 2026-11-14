@@ -1,0 +1,73 @@
+---
+// 首页头部：头像 + 问候 + 终端打字 + 数据条（数据在构建时算出）
+import { SITE } from '../site.config';
+import { withBase } from '../lib/base';
+import { getStats } from '../lib/github';
+import { getPosts } from '../lib/posts';
+
+const [stats, posts] = await Promise.all([getStats(), getPosts()]);
+const github = `https://github.com/${SITE.github}`;
+const items = [
+  { value: stats.repos, label: '原创开源项目', href: withBase('/projects/') },
+  { value: stats.stars, label: '获得 Star', href: github },
+  { value: posts.length, label: '篇技术笔记', href: withBase('/posts/') },
+  { value: stats.years ?? '—', label: '年 GitHub 龄', href: github },
+];
+---
+
+<section class="hero-band">
+  <div class="container">
+    <div class="hero">
+      <img class="avatar" src={SITE.avatar} alt={`${SITE.author} 的头像`} width="132" height="132" />
+      <div class="hero-body">
+        <p class="kicker">{SITE.title} · 技术笔记 & 开源项目</p>
+        <h1 class="hero-title" set:html={SITE.greeting} />
+        <p class="hero-bio">{SITE.bio}</p>
+        <div class="term">
+          <span class="prompt">$</span> whoami<br />
+          <span class="typed" data-lines={JSON.stringify(SITE.typing)}>{SITE.typing[0]}</span><span
+            class="cursor"
+            aria-hidden="true"></span>
+        </div>
+        <div class="btns">
+          <a class="btn primary" href="#featured">看看我的项目</a>
+          <a class="btn" href={withBase('/posts/')}>读读笔记</a>
+          <a class="btn" href={github}>GitHub ↗</a>
+        </div>
+      </div>
+    </div>
+
+    <ul class="stats">
+      {
+        items.map((item) => (
+          <li>
+            <a class="stat" href={item.href}>
+              <b>{item.value}</b>
+              <small>{item.label}</small>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<script is:inline>
+  // 终端打字效果。关掉 JS 或开启「减少动态效果」时，停在第一句
+  (function () {
+    var el = document.querySelector('.typed');
+    if (!el || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+    var lines = JSON.parse(el.dataset.lines).map(function (s) { return Array.from(s); });
+    var li = 0, ci = lines[0].length, del = true;
+    function tick() {
+      var s = lines[li];
+      el.textContent = s.slice(0, ci).join('');
+      if (del) {
+        if (ci > 0) { ci--; setTimeout(tick, 35); }
+        else { del = false; li = (li + 1) % lines.length; setTimeout(tick, 300); }
+      } else if (ci < s.length) { ci++; setTimeout(tick, 80); }
+      else { del = true; setTimeout(tick, 1800); }
+    }
+    setTimeout(tick, 2200);
+  })();
+</script>

@@ -1,0 +1,22 @@
+<button class="theme-toggle" type="button" aria-label="切换明暗主题" title="切换明暗主题">
+  <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+    <circle cx="12" cy="12" r="8.5" fill="none" stroke="currentColor" stroke-width="1.6"></circle>
+    <path d="M12 3.5a8.5 8.5 0 0 1 0 17z" fill="currentColor"></path>
+  </svg>
+</button>
+
+<script>
+  document.querySelectorAll('.theme-toggle').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const next = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
+      document.documentElement.dataset.theme = next;
+      const metaTheme = document.querySelector('meta[name="theme-color"]');
+      if (metaTheme) metaTheme.setAttribute('content', next === 'dark' ? '#0b0d10' : '#faf8f4');
+      try {
+        localStorage.setItem('theme', next);
+      } catch {
+        // 隐私模式下无法持久化时，当前页面仍可正常切换。
+      }
+    });
+  });
+</script>

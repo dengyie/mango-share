@@ -1,0 +1,16 @@
+---
+import { SITE } from '../site.config';
+import { withBase } from '../lib/base';
+
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <span>© {year} {SITE.author} · {SITE.title} · Built with ☕ & 🥭</span>
+    <span class="footer-links">
+      <a href={withBase('/rss.xml')}>RSS</a>
+      <a href={`https://github.com/${SITE.github}`}>GitHub</a>
+    </span>
+  </div>
+</footer>

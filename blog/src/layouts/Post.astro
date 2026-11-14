@@ -1,0 +1,89 @@
+---
+import type { MarkdownHeading } from 'astro';
+import Base from './Base.astro';
+import TagList from '../components/TagList.astro';
+import PostList from '../components/PostList.astro';
+import { formatDate, postUrl, readingMinutes, summary, tagsOf, type Post } from '../lib/posts';
+
+interface Props {
+  post: Post;
+  headings: MarkdownHeading[];
+  related: Post[];
+  prev?: Post;
+  next?: Post;
+}
+
+const { post, headings, related, prev, next } = Astro.props;
+const { title, date, updated, description } = post.data;
+const tags = tagsOf(post);
+// 目录只取 h2/h3，用无序列表：很多文章标题自带 "1." 编号，有序列表会出现重复编号
+const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
+---
+
+<Base
+  title={title}
+  description={summary(post)}
+  type="article"
+  publishedTime={date}
+  modifiedTime={updated}
+>
+  <article class="post">
+    <header class="post-header">
+      <p class="post-meta">
+        <time datetime={date.toISOString()}>{formatDate(date)}</time>
+        {updated && <span> · 更新于 {formatDate(updated)}</span>}
+        <span> · {readingMinutes(post)} 分钟阅读</span>
+      </p>
+      <h1>{title}</h1>
+      {description && <p class="lede">{description}</p>}
+      {tags.length > 0 && <TagList tags={tags} />}
+    </header>
+
+    {
+      toc.length >= 3 && (
+        <details class="toc">
+          <summary>目录</summary>
+          <ul>
+            {toc.map((h) => (
+              <li class={`toc-${h.depth}`}>
+                <a href={`#${h.slug}`}>{h.text}</a>
+              </li>
+            ))}
+          </ul>
+        </details>
+      )
+    }
+
+    <div class="prose">
+      <slot />
+    </div>
+  </article>
+
+  {
+    (prev || next) && (
+      <nav class="post-nav" aria-label="上一篇和下一篇">
+        {prev && (
+          <a class="prev" href={postUrl(prev)}>
+            <small>← 上一篇</small>
+            <span>{prev.data.title}</span>
+          </a>
+        )}
+        {next && (
+          <a class="next" href={postUrl(next)}>
+            <small>下一篇 →</small>
+            <span>{next.data.title}</span>
+          </a>
+        )}
+      </nav>
+    )
+  }
+
+  {
+    related.length > 0 && (
+      <section class="related">
+        <h2>相关文章</h2>
+        <PostList posts={related} />
+      </section>
+    )
+  }
+</Base>

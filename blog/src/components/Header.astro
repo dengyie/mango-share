@@ -1,0 +1,28 @@
+---
+import { SITE } from '../site.config';
+import { withBase } from '../lib/base';
+import ThemeToggle from './ThemeToggle.astro';
+
+// Astro 7 静态构建中 pathname 已含 base（/blog/...），与 nav href（withBase 生成，同样带前缀）直接比较
+const path = Astro.url.pathname;
+---
+
+<header class="site-header">
+  <div class="container header-inner">
+    <a href={withBase('/')} class="wordmark"><span aria-hidden="true">🥭</span> {SITE.author}</a>
+    <nav aria-label="主导航">
+      {
+        SITE.nav.map((item) => (
+          <a
+            href={item.href}
+            class:list={['nav-link', { active: path.startsWith(item.href) }]}
+            aria-current={path.startsWith(item.href) ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
+      <ThemeToggle />
+    </nav>
+  </div>
+</header>

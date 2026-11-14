@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://share.mangoqwq.com/blog/sitemap-index.xml

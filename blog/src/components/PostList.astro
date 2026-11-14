@@ -1,0 +1,26 @@
+---
+import { formatDate, postUrl, summary, type Post } from '../lib/posts';
+
+interface Props {
+  posts: Post[];
+  withSummary?: boolean;
+}
+
+const { posts, withSummary = false } = Astro.props;
+---
+
+<ul class="post-list">
+  {
+    posts.map((post) => (
+      <li class="post-item">
+        <time datetime={post.data.date.toISOString()}>{formatDate(post.data.date)}</time>
+        <div>
+          <a class="post-title" href={postUrl(post)}>
+            {post.data.title}
+          </a>
+          {withSummary && <p class="post-summary">{summary(post)}</p>}
+        </div>
+      </li>
+    ))
+  }
+</ul>

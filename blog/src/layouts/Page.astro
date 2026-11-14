@@ -1,0 +1,17 @@
+---
+// 新增 Markdown 单页时使用的布局（见 docs/DEVELOPMENT.md 第 12.4 节）
+import Base from './Base.astro';
+
+const { frontmatter } = Astro.props;
+---
+
+<Base title={frontmatter.title} description={frontmatter.description}>
+  <article>
+    <header class="page-header">
+      <h1 class="page-title">{frontmatter.title}</h1>
+    </header>
+    <div class="prose">
+      <slot />
+    </div>
+  </article>
+</Base>

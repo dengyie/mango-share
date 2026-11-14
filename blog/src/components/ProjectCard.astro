@@ -1,0 +1,41 @@
+---
+import type { Repo } from '../lib/github';
+
+interface Props {
+  repo: Repo;
+}
+
+const { repo } = Astro.props;
+const COLORS: Record<string, string> = {
+  Python: '#3572A5',
+  JavaScript: '#f1e05a',
+  TypeScript: '#3178c6',
+  Go: '#00ADD8',
+  Vue: '#41b883',
+  HTML: '#e34c26',
+  Java: '#b07219',
+  Kotlin: '#A97BFF',
+  Dart: '#00B4AB',
+};
+// 项目页搜索用的文本：名称、描述、语言、topics
+const search = [repo.name, repo.description, repo.language, ...repo.topics].filter(Boolean).join(' ').toLowerCase();
+---
+
+<a class="project-card" href={repo.url} data-cat={repo.category} data-search={search}>
+  <div class="project-head">
+    <h3>{repo.name}</h3>
+    {repo.stars > 0 && <span class="stars">★ {repo.stars}</span>}
+  </div>
+  <p>{repo.description ?? '暂无描述'}</p>
+  <div class="project-meta">
+    {
+      repo.language && (
+        <span>
+          <i class="lang-dot" style={`background:${COLORS[repo.language] ?? '#888'}`} />
+          {repo.language}
+        </span>
+      )
+    }
+    {repo.topics.slice(0, 3).map((t) => <span class="topic">{t}</span>)}
+  </div>
+</a>

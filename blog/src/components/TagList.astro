@@ -1,0 +1,23 @@
+---
+import { tagUrl } from '../lib/posts';
+
+interface Props {
+  tags: string[];
+  counts?: Map<string, number>;
+}
+
+const { tags, counts } = Astro.props;
+---
+
+<ul class="tag-list">
+  {
+    tags.map((tag) => (
+      <li>
+        <a href={tagUrl(tag)}>
+          #{tag}
+          {counts && <span>{counts.get(tag)}</span>}
+        </a>
+      </li>
+    ))
+  }
+</ul>
