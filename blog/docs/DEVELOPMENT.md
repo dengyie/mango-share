@@ -52,11 +52,11 @@ v2 遵循四条原则，后续改动也应遵守：
 ## 3. 目录结构
 
 ```
-.
-├── .github/workflows/deploy.yml   # 构建并发布到 GitHub Pages（第 10 节）
-├── astro.config.mjs               # 站点 URL、sitemap、代码高亮、旧链接重定向
+.                                   # 本目录是 mangoshare 仓库的 blog/ 子项目（独立 package.json）
+├── ../.github/workflows/deploy.yml # 仓库根部 CI：SPA 与本目录双构建、双 rsync（第 10 节）
+├── astro.config.mjs               # 站点 URL、/blog base、sitemap、代码高亮
 ├── docs/DEVELOPMENT.md            # 本文档
-├── public/                        # 原样复制到站点根目录
+├── public/                        # 原样复制到 /blog/ 下
 │   ├── icon.svg
 │   ├── robots.txt
 │   └── images/                    # 文章引用的图片（第 4.3 节）
@@ -65,6 +65,7 @@ v2 遵循四条原则，后续改动也应遵守：
     ├── content.config.ts          # 文章 frontmatter schema（第 4 节）
     ├── content/posts/*.md         # ★ 文章，一篇一个文件
     ├── lib/
+    │   ├── base.ts                # withBase()：/blog 子路径链接前缀（子路径托管的关键，见第 5.1 节）
     │   ├── posts.ts               # 文章查询与派生字段（第 6 节）
     │   └── github.ts              # 构建时拉取 GitHub 仓库（第 9 节）
     ├── layouts/
@@ -142,6 +143,8 @@ schema 定义在 `src/content.config.ts`。规则：
 
 ## 5. 路由
 
+站点托管在 `https://share.mangoqwq.com/blog/`，下表路由均相对 `/blog/` 前缀：
+
 | 路由 | 文件 | 内容 |
 | --- | --- | --- |
 | `/` | `pages/index.astro` | Hero（头像、打字、数据条）→ 我在折腾什么 → 精选项目 → 最新 5 篇 → 一起折腾 |
@@ -154,22 +157,31 @@ schema 定义在 `src/content.config.ts`。规则：
 | `/rss.xml` | `pages/rss.xml.ts` | RSS 订阅 |
 | `/feed.xml` | `pages/feed.xml.ts` | `/rss.xml` 的别名，兼容旧订阅 |
 | `/sitemap-index.xml` | sitemap 插件 | 自动生成 |
-| `/404.html` | `pages/404.astro` | GitHub Pages 自动使用 |
+| `/404.html` | `pages/404.astro` | nginx `try_files` 回落到博客自己的 404 页 |
 
-### 旧链接兼容
+### 子路径链接规范（重要）
 
-旧版的这些地址在 `astro.config.mjs` 的 `redirects` 中跳转到新地址，避免搜索引擎和外链出现 404：
+- **组件里禁止写根绝对路径**（`href="/posts/"` 这类）。站点在 `/blog/` 下，所有内部链接必须经 `src/lib/base.ts` 的 `withBase()` 加前缀；漏一处就是线上 404。
+- canonical、RSS、sitemap 由 `astro.config.mjs` 的 `site` + `base` 自动派生；Astro 7 静态构建中 `Astro.url.pathname` 已含 base，`Base.astro` 的 canonical 直接拼 `SITE.url`。
+- 正文图片用 `/blog/images/<file>`（写入 markdown 时硬编码完整路径）。
 
-| 旧地址 | 新地址 |
+### 旧域名兼容（Cloudflare Redirect Rule）
+
+独立域名 `blog.mangoqwq.com` 由 zone 级 Redirect Rules 全站 301 到新地址（2026-11-15 配置，免费档不支持 regex_replace，特判路径逐条写死）：
+
+| 旧地址 | 301 目标 |
 | --- | --- |
-| `/categories/java` | `/tags/java/` |
-| `/categories/android` | `/tags/android/` |
-| `/categories/cpp` | `/tags/cpp/` |
-| `/categories/other` | `/tags/` |
-| `/submit` | `/` |
-| `/feed.xml` | 保留为 RSS 别名 |
+| `blog.mangoqwq.com/*` | `share.mangoqwq.com/blog/*` |
+| `/categories/java` | `/blog/tags/java/` |
+| `/categories/android` | `/blog/tags/android/` |
+| `/categories/cpp`、`/categories/c++` | `/blog/tags/cpp/` |
+| `/categories/design-notes` | `/blog/tags/notes/` |
+| `/categories/other` | `/blog/tags/` |
+| `/submit` | `/blog/` |
 
-文章地址 `/posts/<slug>` 保持不变（GitHub Pages 会自动补上结尾的 `/`）。
+注意：Redirect Rule 只对橙云（Proxied）DNS 记录生效，`blog` 记录已于迁移时改为 Proxied。
+
+文章地址 `/posts/<slug>` 保持不变（nginx `try_files $uri $uri/` 自动补结尾 `/`）。
 
 ---
 
@@ -337,17 +349,17 @@ npm run preview   # 预览 dist/
 
 要求 Node ≥ 22.12。
 
-### CI（`.github/workflows/deploy.yml`）
+### CI（仓库根部 `.github/workflows/deploy.yml`）
 
 | 触发 | 说明 |
 | --- | --- |
 | push 到 `main` | 写完文章 push 即发布 |
-| 每天 00:00 UTC | 刷新项目数据 |
+| 每天 00:00 UTC | 刷新项目数据（SPA + blog 一起重建） |
 | 手动 `workflow_dispatch` | 在 Actions 页面点 Run |
 
-流程：`npm ci` → `npm run check`（类型检查）→ `npm test`（单元测试）→ `npm run build` → 上传 `dist/` → `deploy-pages` 发布。任一检查失败都会中止发布。从 push 到上线约 1 分钟。
+流程：SPA 构建（`npm ci` → `npm test` → `npm run build`）→ 本目录构建（`npm ci` → `npm run check` → `npm test` → `npm run build`，构建环境带 `GITHUB_TOKEN`）→ 两条 rsync（SPA `dist/` → `/var/www/mangoshare/` 排除 blog；本目录 `dist/` → `/var/www/mangoshare/blog/`）→ `nginx -t` → reload。任一检查失败都会中止发布。从 push 到上线约 2 分钟。
 
-GitHub 仓库设置要求：**Settings → Pages → Source 选 "GitHub Actions"**（当前已经是）。构建产物不再提交进仓库。
+博客侧 CI 门禁：`npm run check`（astro check）、`npm test`（vitest）、`npm run build`。SPA 侧 vitest 的 include 已收窄到 `src/**`，不会误扫本目录的测试。
 
 ---
 
@@ -410,12 +422,7 @@ npm run posts
 #### D. 草稿与下架
 - **暂存为草稿**：在文章 frontmatter 头部添加 `draft: true`。草稿在 `npm run dev` 本地可见，但在 `npm run build` 和生产环境会自动排除，不会被打包，也不会进入 RSS / Sitemap。
 - **永久删除**：直接删除对应的 `src/content/posts/<slug>.md` 文件，并用 git commit 提交删除。
-- **修改 Slug / URL 重定向**：若修改了文件名（改变了文章 URL），为了防止外部死链，请在 `astro.config.mjs` 的 `redirects` 中配置 301 重定向：
-  ```js
-  redirects: {
-    '/posts/old-slug/': '/posts/new-slug/',
-  }
-  ```
+- **修改 Slug / URL 重定向**：若修改了文件名（改变了文章 URL），为了防止外部死链，可在 Cloudflare Redirect Rulesets（zone `mangoqwq.com`）里加一条静态映射；少量旧文章链接也可以直接改 `blog/astro.config.mjs` 的 `redirects`（注意：带 base 时 stub 目标不会自动加前缀，需写完整 `/blog/posts/new-slug/`）。
 
 #### E. 发布与上线全流程
 ```bash
@@ -425,12 +432,12 @@ npm run dev
 # 2. 发布前质量门禁自检（与 CI 保持一致）
 npm run check && npm test && npm run build
 
-# 3. 提交并推送到 GitHub 生产环境
-git add .
+# 3. 提交并推送到 mangoshare 生产环境（在仓库根目录执行，或 blog/ 内 git 同仓直接推）
+git add blog/
 git commit -m "post: 新增文章标题"
 git push origin main
 ```
-推送后 GitHub Actions 会自动执行 check、test、build 并部署到 GitHub Pages，全程约 1 分钟即可生效。
+推送后 GitHub Actions 会自动执行 SPA + blog 双构建、check/test 门禁并 rsync 部署到 tencent-lh，全程约 2 分钟生效。
 
 ### 12.2 改自我介绍和关于页
 
