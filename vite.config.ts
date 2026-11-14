@@ -3,6 +3,11 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  // blog/ 是独立的 Astro 子项目（自己的 vitest 5 + tsconfig），
+  // 根目录测试只收集 SPA 的 src/**，避免误扫 blog/tests 报 tsconfig extends 解析错误。
+  test: {
+    include: ['src/**/*.{test,spec}.{ts,tsx}'],
+  },
   server: {
     port: 3000,
     host: true,
