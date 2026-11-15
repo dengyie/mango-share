@@ -43,6 +43,7 @@ export const SimCardModal: React.FC<SimCardModalProps> = ({ card, onClose }) => 
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
+        aria-labelledby="modal-title"
       >
         <div className="topbar">
           <button className="back-btn" onClick={onClose} type="button">
@@ -56,7 +57,7 @@ export const SimCardModal: React.FC<SimCardModalProps> = ({ card, onClose }) => 
           <img src={cardArt} alt={`${card.name} 卡面`} />
         </div>
 
-        <div className="card-title" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div id="modal-title" className="card-title" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <span style={{ fontSize: '11px', fontFamily: 'monospace', fontWeight: 700, padding: '2px 6px', borderRadius: '4px', background: 'var(--paper-soft)', border: '1px solid var(--line)', color: 'var(--ink-soft)' }}>
             {card.countryCode}
           </span>

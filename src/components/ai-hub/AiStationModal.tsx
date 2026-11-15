@@ -98,6 +98,7 @@ export const AiStationModal: React.FC<AiStationModalProps> = ({ station, onClose
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
+        aria-labelledby="modal-title"
       >
         <div className="topbar">
           <button className="back-btn" onClick={onClose} type="button">
@@ -111,7 +112,7 @@ export const AiStationModal: React.FC<AiStationModalProps> = ({ station, onClose
           <img src={cardArt} alt={`${station.name} 卡面`} />
         </div>
 
-        <div className="card-title">{station.name}</div>
+        <div id="modal-title" className="card-title">{station.name}</div>
         <div className="card-brand">{station.category} 架构 · {station.authType} 认证</div>
 
         {/* 3-Column Key Stats */}

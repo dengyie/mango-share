@@ -35,6 +35,20 @@ export function useModalLock(isOpen: boolean, onClose: () => void) {
     document.body.style.overflow = 'hidden';
     document.body.style.touchAction = 'none';
 
+    // Move initial focus into the dialog: keyboard/screen-reader users land
+    // inside the sheet instead of staying on the trigger behind the overlay.
+    // The first focusable is preferred; an empty sheet parks focus on itself
+    // (same fallback the Tab trap uses). Must run after previouslyFocused is
+    // captured so close() restores focus to the original trigger.
+    const sheets = document.querySelectorAll<HTMLElement>('.modal-sheet');
+    const sheet = sheets.length ? sheets[sheets.length - 1] : null;
+    if (sheet) {
+      const firstFocusable = Array.from(
+        sheet.querySelectorAll<HTMLElement>(FOCUSABLE_SELECTOR)
+      ).find((el) => el.offsetParent !== null);
+      (firstFocusable ?? sheet).focus({ preventScroll: true });
+    }
+
     // Resolve the overlay this lock belongs to: the modal content is found by
     // walking up from the focused element (focus moves into the modal on
     // open) — fallback to the last .modal-sheet in the DOM.

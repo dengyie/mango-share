@@ -45,6 +45,7 @@ export const PerkModal: React.FC<PerkModalProps> = ({ perk, onClose }) => {
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
+        aria-labelledby="modal-title"
       >
         <div className="topbar">
           <button className="back-btn" onClick={onClose} type="button">
@@ -58,7 +59,7 @@ export const PerkModal: React.FC<PerkModalProps> = ({ perk, onClose }) => {
           <img src={cardArt} alt={`${perk.name} 卡面`} />
         </div>
 
-        <div className="card-title" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+        <div id="modal-title" className="card-title" style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
           <UiIcon name={perk.iconName || 'gift'} size={20} style={{ opacity: 0.9, flexShrink: 0 }} />
           <span>{perk.name.split(' (')[0]}</span>
         </div>

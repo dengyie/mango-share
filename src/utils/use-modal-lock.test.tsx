@@ -68,8 +68,8 @@ describe('useModalLock focus trap', () => {
   it('wraps Tab from the last focusable back to the first', () => {
     const sheet = sheetWithButtons(3);
     const buttons = sheet.querySelectorAll('button');
-    buttons[2].focus();
     mountLock(true);
+    buttons[2].focus();
     const prevented = pressTab();
     expect(prevented).toBe(true);
     expect(document.activeElement).toBe(buttons[0]);
@@ -79,8 +79,8 @@ describe('useModalLock focus trap', () => {
   it('wraps shift+Tab from the first focusable to the last', () => {
     const sheet = sheetWithButtons(3);
     const buttons = sheet.querySelectorAll('button');
-    buttons[0].focus();
     mountLock(true);
+    buttons[0].focus();
     const prevented = pressTab(true);
     expect(prevented).toBe(true);
     expect(document.activeElement).toBe(buttons[2]);
@@ -92,8 +92,8 @@ describe('useModalLock focus trap', () => {
     const buttons = sheet.querySelectorAll('button');
     const outside = document.createElement('button');
     document.body.appendChild(outside);
-    outside.focus();
     mountLock(true);
+    outside.focus();
     pressTab();
     expect(document.activeElement).toBe(buttons[0]);
     unmount();
@@ -101,8 +101,8 @@ describe('useModalLock focus trap', () => {
 
   it('parks focus on the sheet itself when it has no focusables', () => {
     const sheet = sheetWithButtons(0);
-    sheet.focus();
     mountLock(true);
+    sheet.focus();
     const prevented = pressTab();
     expect(prevented).toBe(true);
     expect(document.activeElement).toBe(sheet);
@@ -115,5 +115,18 @@ describe('useModalLock focus trap', () => {
     const prevented = pressTab();
     unmount();
     expect(prevented).toBe(false);
+  });
+
+  it('moves initial focus to the first focusable on open', () => {
+    const sheet = sheetWithButtons(3);
+    const buttons = sheet.querySelectorAll('button');
+    const trigger = document.createElement('button');
+    document.body.appendChild(trigger);
+    trigger.focus();
+    mountLock(true);
+    expect(document.activeElement).toBe(buttons[0]);
+    // Cleanup restores focus to the original trigger, not the moved focus.
+    unmount();
+    expect(document.activeElement).toBe(trigger);
   });
 });

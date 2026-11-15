@@ -68,6 +68,7 @@ export const BestConfigModal: React.FC<BestConfigModalProps> = ({
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
+        aria-labelledby="modal-title"
       >
         {/* Top Header */}
         <div className="topbar">
@@ -82,7 +83,7 @@ export const BestConfigModal: React.FC<BestConfigModalProps> = ({
         </div>
 
         {/* Hero Title & Analysis Badge */}
-        <div className="card-title flex items-center gap-2">
+        <div id="modal-title" className="card-title flex items-center gap-2">
           <UiIcon name="sparkles" size={20} className="text-amber-500" />
           <span>AI 公益站最佳拓扑配置方案</span>
         </div>

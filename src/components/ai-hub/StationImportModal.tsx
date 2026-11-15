@@ -209,6 +209,7 @@ export const StationImportModal: React.FC<StationImportModalProps> = ({
         className="modal-sheet !max-w-2xl"
         onClick={(e) => e.stopPropagation()}
         role="dialog"
+        aria-labelledby="modal-title"
         aria-modal="true"
       >
         {/* Top Header */}
@@ -223,7 +224,7 @@ export const StationImportModal: React.FC<StationImportModalProps> = ({
         </div>
 
         {/* Modal Title */}
-        <div className="card-title flex items-center gap-2">
+        <div id="modal-title" className="card-title flex items-center gap-2">
           <UiIcon name="server" size={18} className="text-[var(--ink)]" />
           <span>公益站系统化导入与更新中心</span>
         </div>

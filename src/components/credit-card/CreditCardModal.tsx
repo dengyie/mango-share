@@ -51,6 +51,7 @@ export const CreditCardModal: React.FC<CreditCardModalProps> = ({ card, onClose 
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
+        aria-labelledby="modal-title"
       >
         <div className="topbar">
           <button className="back-btn" onClick={onClose} type="button">
@@ -64,7 +65,7 @@ export const CreditCardModal: React.FC<CreditCardModalProps> = ({ card, onClose 
           <img src={cardArt} alt={`${card.name} 卡面`} />
         </div>
 
-        <div className="card-title">{card.name.split(' (')[0]}</div>
+        <div id="modal-title" className="card-title">{card.name.split(' (')[0]}</div>
         <div className="card-brand">{card.issuer} · {card.regionName} ({card.currency}) · {card.network}</div>
 
         {/* 3-Column Key Stats */}

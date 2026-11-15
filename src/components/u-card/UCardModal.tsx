@@ -57,6 +57,7 @@ export const UCardModal: React.FC<UCardModalProps> = ({
         onClick={(e) => e.stopPropagation()}
         role="dialog"
         aria-modal="true"
+        aria-labelledby="modal-title"
       >
         <div className="topbar">
           <button className="back-btn" onClick={onClose} type="button">
@@ -70,7 +71,7 @@ export const UCardModal: React.FC<UCardModalProps> = ({
           <img src={card.img.startsWith('/') ? card.img : `/${card.img}`} alt={`${brand} 卡面`} />
         </div>
 
-        <div className="card-title">{brand}</div>
+        <div id="modal-title" className="card-title">{brand}</div>
         <div className="card-brand">{detail.name || `${net} 加密货币卡`}</div>
 
         {/* 3-Column Key Stats */}
