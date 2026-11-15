@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /account-api/
+
+Sitemap: https://share.mangoqwq.com/blog/sitemap-index.xml

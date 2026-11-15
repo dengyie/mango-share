@@ -35,7 +35,7 @@
   --paper-soft: oklch(0.955 0.005 85);
   --ink: oklch(0.24 0.008 80);
   --ink-soft: oklch(0.42 0.008 80);
-  --gray: oklch(0.60 0.008 80);
+  --gray: oklch(0.52 0.008 80); /* 0.60 was 3.8:1 on paper — fails WCAG AA for the 0.82rem .cell-sub text */
   --line: oklch(0.88 0.006 85);
   --warn-bg: oklch(0.95 0.035 75);
   --warn-ink: oklch(0.47 0.09 60);
