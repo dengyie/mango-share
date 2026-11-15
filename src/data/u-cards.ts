@@ -1,5 +1,4 @@
 import { UCardItem } from "../types/u-card";
-
 export const U_CARDS: UCardItem[] = [
   {
     "slug": "plasma-lite",
@@ -9,7 +8,6 @@ export const U_CARDS: UCardItem[] = [
     "net": "Visa",
     "custody": "自托管",
     "img": "cards/PLASMA-FLAT-LITE.webp",
-    "imageSource": "https://www.plasma.org/og/personal-lite.png",
     "c1": "#d8d8d3",
     "c2": "#aaa9a3",
     "fg": "#171916",
@@ -26,12 +24,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "$10 或预存 $10",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.plasma.org/personal/lite",
-      "highlights": [
-        "每月前 $500 符合条件的消费返现 2%，超出部分返现 0.1%",
-        "返现以 XPL 发放，可使用自托管稳定币余额消费",
-        "支持 Apple Pay 与 Google Pay，可在 Visa 商户使用",
-        "无需锁仓 XPL，适合低门槛体验 Plasma One"
-      ],
       "cautions": [
         "返现以 XPL 代币发放，价值会随币价波动",
         "外币消费由 Plasma 加收约 1%，另有 Visa 网络外汇费用",
@@ -89,17 +81,6 @@ export const U_CARDS: UCardItem[] = [
           "supported"
         ]
       ],
-      "note": "资料可信度：high；核验日期 2026-10-10；来源资料日期 2026-10-08。",
-      "references": [
-        {
-          "label": "Plasma One Lite 官方页面",
-          "url": "https://www.plasma.org/personal/lite"
-        },
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        }
-      ],
       "kycRequirements": {
         "idCard": "不需要",
         "passport": "需要",
@@ -118,7 +99,6 @@ export const U_CARDS: UCardItem[] = [
     "net": "Visa",
     "custody": "自托管",
     "img": "cards/PLASMA-OFFICIAL-CORE.webp",
-    "imageSource": "https://www.plasma.org/images/personal-core/core-visa-signature-card.png",
     "c1": "#213d32",
     "c2": "#0d1814",
     "fg": "#eef4ef",
@@ -135,12 +115,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "首张免费＋$20 运费",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.plasma.org/personal/core",
-      "highlights": [
-        "基础消费返现 3%，符合条件的 AI 消费返现 5%",
-        "可免费开通最多 2 张虚拟卡",
-        "首张实体卡免制卡费，标准运费为 $20",
-        "支持 Apple Pay、Google Pay、ChatGPT 与 Claude"
-      ],
       "cautions": [
         "锁仓方案需要锁定 20,000 XPL 12 个月，存在代币价格风险",
         "外币消费由 Plasma 加收约 0.5%，另有 Visa 网络外汇费用",
@@ -198,17 +172,6 @@ export const U_CARDS: UCardItem[] = [
           "supported"
         ]
       ],
-      "note": "资料可信度：high；核验日期 2026-10-10；来源资料日期 2026-10-08。",
-      "references": [
-        {
-          "label": "Plasma One Core 官方页面",
-          "url": "https://www.plasma.org/personal/core"
-        },
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        }
-      ],
       "kycRequirements": {
         "idCard": "不需要",
         "passport": "需要",
@@ -227,7 +190,6 @@ export const U_CARDS: UCardItem[] = [
     "net": "Visa",
     "custody": "自托管",
     "img": "cards/PLASMA-FLAT-PLATINUM.webp",
-    "imageSource": "https://www.plasma.org/og/personal-platinum.png",
     "c1": "#272826",
     "c2": "#090a09",
     "fg": "#f2f2ed",
@@ -244,12 +206,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "首张实体卡免费",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.plasma.org/personal/platinum",
-      "highlights": [
-        "基础消费最高返现 4%，符合条件的 AI 消费返现 10%",
-        "指定航司机票返现 10%，每年最高返还 $600",
-        "包含 ChatGPT Plus 与 Claude Pro 订阅权益",
-        "Plasma 承担 Visa 网络外汇费用，可免费开通最多 3 张虚拟卡"
-      ],
       "cautions": [
         "需要锁仓 100,000 XPL 12 个月，暂无美元订阅方案",
         "返现以 XPL 代币发放，价值会随币价波动",
@@ -307,17 +263,6 @@ export const U_CARDS: UCardItem[] = [
           "supported"
         ]
       ],
-      "note": "资料可信度：high；核验日期 2026-10-10；来源资料日期 2026-10-08。",
-      "references": [
-        {
-          "label": "Plasma One Platinum 官方页面",
-          "url": "https://www.plasma.org/personal/platinum"
-        },
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        }
-      ],
       "kycRequirements": {
         "idCard": "不需要",
         "passport": "需要",
@@ -336,7 +281,6 @@ export const U_CARDS: UCardItem[] = [
     "net": "Visa",
     "custody": "自托管",
     "img": "cards/ETHERFI-CORE.webp",
-    "imageSource": "https://www.ether.fi/personal/compare",
     "c1": "#8f7cc7",
     "c2": "#6f5aa8",
     "fg": "#ffffff",
@@ -353,12 +297,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "按卡片形态／地区",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.ether.fi/personal/compare",
-      "highlights": [
-        "Core 国际版虚拟卡 费用与权益仅按本套餐计算",
-        "Core 国际版实体卡 费用与权益仅按本套餐计算",
-        "符合条件消费每月前 2000 美元返现 3% 超额及例外按本套餐规则",
-        "明确支持：Apple Pay、Google Pay、微信支付、支付宝、ChatGPT、Claude"
-      ],
       "cautions": [
         "核验方案：Core 虚拟卡；Core 实体卡",
         "按本站收录规则 有开卡要求默认支持 仍需满足所列条件 KYC 列出护照 海外地址证明和海外手机号",
@@ -436,25 +374,6 @@ export const U_CARDS: UCardItem[] = [
           "supported"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-08。",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "ether.fi Cash KYC 流程与材料",
-          "url": "https://help.ether.fi/en/articles/269731-kyc-process-and-requirements"
-        },
-        {
-          "label": "集卡 · 卡片市场",
-          "url": "https://card.lengziyu.cn/market"
-        },
-        {
-          "label": "集卡 · ether.fi Cash Core 详情",
-          "url": "https://card.lengziyu.cn/card/etherfi-core"
-        }
-      ],
       "kycRequirements": {
         "idCard": "不需要",
         "passport": "需要",
@@ -471,7 +390,6 @@ export const U_CARDS: UCardItem[] = [
     "net": "Visa / Mastercard",
     "custody": "自托管",
     "img": "cards/mkt-bitget-wallet.webp",
-    "remote": "/card-art/BITGET-WALLET-CARD.webp",
     "c1": "#1c1e22",
     "c2": "#0e0f12",
     "fg": "#ffffff",
@@ -489,11 +407,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "需要 KYC",
       "applyUrl": "https://web3.bitget.com/card",
       "status": "中国大陆申请需满足地区条件",
-      "highlights": [
-        "DCS 亚太 Visa 钱包卡；申请需符合地区资格，消费可获符合条件的 Assetback 奖励",
-        "2026-08-01 起升级为 Assetback：基础 2%，新用户或满足月消费门槛可达 3%。可选 BTC、代币化黄金／股票／ETF 或 USDC；月上限与门槛以 App 为准，退款、取现及受限 MCC 不参加。不再沿用交易所卡的 BGB 返现档位。",
-        "明确支持：Google Pay、微信支付、ChatGPT"
-      ],
       "cautions": [
         "核验方案：APAC DCS 虚拟卡；APAC DCS 实体卡",
         "APAC DCS 官方申请名单不含中国大陆；大陆用户须另满足所列地区的合法居民资格并通过审核，不能仅凭大陆身份证直接申请。本条目不是 Fiat24 中国地区卡，也不是 Bitget 交易所卡。",
@@ -571,33 +484,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-08。",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "Bitget Wallet 官方 X 版本澄清",
-          "url": "https://x.com/BitgetWalletCN/status/2063573409968341338"
-        },
-        {
-          "label": "Bitget Wallet APAC 官方费用",
-          "url": "https://web3.bitget.com/helpCenter/431"
-        },
-        {
-          "label": "APAC 申请资格与证件要求",
-          "url": "https://web3.bitget.com/helpCenter/425"
-        },
-        {
-          "label": "APAC 实体卡价格、ATM 费用与限额",
-          "url": "https://web3.bitget.com/helpCenter/675"
-        },
-        {
-          "label": "Assetback 2% ／ 3% 奖励升级",
-          "url": "https://web3.bitget.com/en/blog/articles/bitget-wallet-card-assetback"
-        }
-      ],
       "kycRequirements": {
         "idCard": "二选一",
         "passport": "二选一",
@@ -629,13 +515,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡开卡费标准 20 USD",
       "kyc": "KYC",
       "applyUrl": "https://www.mexc.com/zh-MY/buy-crypto/mexc-card",
-      "highlights": [
-        "最高 10% USDT 返现",
-        "Visa 汇率无外汇加价",
-        "单笔限额 80,000 USD、单日 1,000,000 USD",
-        "卡余额可参与专属理财，宣传 7% APR",
-        "支持 Apple Pay / Google Pay"
-      ],
       "cautions": [
         "每笔交易收 1% 交易费（2026-08-31 至 09-30 限时免收）",
         "返现等级取决于交易所 VVIP 等级而非刷卡额，且有月上限",
@@ -698,7 +577,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     }
   },
   {
@@ -722,12 +600,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "橙色/黑色卡免费并免费寄送",
       "kyc": "KYC",
       "applyUrl": "https://www.krak.app/card",
-      "highlights": [
-        "最高 2% 返现，可选 USD 或 BTC",
-        "可用 600+ 种资产消费并自定义扣款顺序",
-        "英国/欧盟版无外汇费，按 Mastercard 汇率",
-        "支持 Apple Pay / Google Pay，可在 250 万+ ATM 取现"
-      ],
       "cautions": [
         "美国版有 1% 境外交易费",
         "卖出资产消费时可能有可变点差，花加密资产可能产生税务事件",
@@ -790,7 +662,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。",
       "kycRequirements": {
         "idCard": "待确认",
         "passport": "待确认",
@@ -824,12 +695,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "按卡片形态／地区",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.bybit.com/en/cards/",
-      "highlights": [
-        "APAC虚拟卡 独立记录开卡费用与取现条件",
-        "APAC实体卡 独立记录开卡费用与取现条件",
-        "最高 $5（原文，未说明周期及门槛）。",
-        "明确支持：Apple Pay、Google Pay、微信支付、支付宝、ChatGPT"
-      ],
       "cautions": [
         "核验方案：APAC 虚拟卡；APAC 实体卡",
         "按本站收录规则 有开卡要求默认支持 仍需满足所列条件 KYC 列出身份证 其他三项材料不需要 原文方案注明申请台湾地区 使用身份证即可",
@@ -907,21 +772,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-09-27。",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "集卡 · 卡片市场",
-          "url": "https://card.lengziyu.cn/market"
-        },
-        {
-          "label": "集卡 · Bybit Card 详情",
-          "url": "https://card.lengziyu.cn/card/bybit"
-        }
-      ],
       "kycRequirements": {
         "idCard": "需要",
         "passport": "不需要",
@@ -955,11 +805,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "按卡片形态／地区",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.redotpay.com/",
-      "highlights": [
-        "以稳定币余额消费的 Visa 卡，USD 普通计划分形态记录。",
-        "对标资料记常规返现 0%，具体活动不作为常驻权益",
-        "明确支持：Apple Pay、Google Pay"
-      ],
       "cautions": [
         "核验方案：Standard USD 虚拟卡；Standard USD 实体卡",
         "最新官方发卡禁用名单明确包含 Mainland China；大陆居民无法发行虚拟或实体卡。不能用海外地址提示替代官方限制。",
@@ -1037,35 +882,8 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-08。",
       "status": "中国大陆暂不支持申请",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "RedotPay 身份验证说明",
-          "url": "https://helpcenter.redotpay.com/en/articles/10339264-understanding-identity-verification"
-        },
-        {
-          "label": "集卡 · 对应卡片资料",
-          "url": "https://card.lengziyu.cn/card/redotpay"
-        },
-        {
-          "label": "官方网站",
-          "url": "https://www.redotpay.com/"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://helpcenter.redotpay.com/en/articles/14254838-card-issuance-restrictions"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://helpcenter.redotpay.com/en/articles/10566200-are-there-any-fees-for-getting-a-card"
-        }
-      ]
-    }
+      }
   },
   {
     "slug": "cryptocom",
@@ -1088,11 +906,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "免费",
       "kyc": "需要 KYC",
       "applyUrl": "https://crypto.com/us/cards/prepaidcard/",
-      "highlights": [
-        "Crypto.com 美国 Basic／Midnight Blue 预付Visa，无订阅或CRO锁仓要求。",
-        "Basic 无消费返现；不混用其他付费等级的高返现",
-        "明确支持：Apple Pay、Google Pay"
-      ],
       "cautions": [
         "核验方案：US Midnight Blue ／ Basic 实体卡",
         "此条仅美国发行计划，需要美国地区申请资格；不是中国大陆居民开卡路径。",
@@ -1166,36 +979,9 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-08。",
       "cardFee": "美国Midnight实体制卡4.99美元，非虚拟免费报价",
       "status": "中国大陆暂不支持申请",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "Crypto.com 地址证明材料",
-          "url": "https://help.crypto.com/en/articles/2320375-what-types-of-documents-are-acceptable-for-proof-of-address-verification"
-        },
-        {
-          "label": "集卡 · 对应卡片资料",
-          "url": "https://card.lengziyu.cn/card/crypto"
-        },
-        {
-          "label": "官方网站",
-          "url": "https://crypto.com/us/cards/prepaidcard/"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://help.crypto.com/en/articles/5966563-crypto-com-prepaid-visa-card-fees-and-limits-united-states"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://help.crypto.com/en/articles/12017604-how-do-i-join-level-up"
-        }
-      ]
-    }
+      }
   },
   {
     "slug": "coca",
@@ -1217,11 +1003,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.coca.xyz/",
-      "highlights": [
-        "COCA 钱包虚拟 Visa，采用基础 Starter 权益，不混入高档持仓返现。",
-        "Starter 官方会员表列 1% 返现，无需质押；无订阅返还名额。领取额度、资格及排除项须按当前 App／条款，返现不抵扣评分成本。",
-        "明确支持：Apple Pay、Google Pay、ChatGPT、Claude"
-      ],
       "cautions": [
         "核验方案：Starter 虚拟卡",
         "对标资料记录本产品大陆资格；仍需按发卡地区及真实居住资料审核",
@@ -1299,35 +1080,8 @@ export const U_CARDS: UCardItem[] = [
           "supported"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-05。",
       "annualFee": "免费",
       "status": "中国大陆申请需满足地区条件",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "集卡 · 对应卡片资料",
-          "url": "https://card.lengziyu.cn/card/coca"
-        },
-        {
-          "label": "官方网站",
-          "url": "https://www.coca.xyz/"
-        },
-        {
-          "label": "集卡 · 原始资料",
-          "url": "https://card.lengziyu.cn/"
-        },
-        {
-          "label": "集卡 · 原始资料",
-          "url": "https://card.lengziyu.cn"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://ranked.plus/_serverFn/be96b738cf59ba8bfd779130d0163fee84df1cd2bac1a3e48f4d947f51db71b9"
-        }
-      ],
       "kycRequirements": {
         "idCard": "不需要",
         "passport": "需要",
@@ -1360,12 +1114,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://gnosispay.com",
       "status": "已停止发卡",
-      "highlights": [
-        "自托管：资金存于用户 Safe 智能账户",
-        "消费、外汇、Gas、出金均免费（停运前）",
-        "ATM 每月 5 次或 €200 内免费",
-        "Safe 中余额停卡后仍可提取"
-      ],
       "cautions": [
         "卡片将于 2026-12-20 停止处理交易",
         "返现计划已结束",
@@ -1428,7 +1176,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     }
   },
   {
@@ -1451,12 +1198,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "无年费",
       "kyc": "KYC",
       "applyUrl": "https://www.binance.com/en/cards",
-      "highlights": [
-        "直接用 Binance 资金账户的加密资产消费",
-        "巴西最高 3% 返现",
-        "每月 2 次免费 ATM 取现",
-        "无年费"
-      ],
       "cautions": [
         "仅部分国家可用，不支持美国、英国、EEA",
         "加密转换费 0.9%，外汇费 2%（新西兰 3%）",
@@ -1519,7 +1260,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     }
   },
   {
@@ -1527,7 +1267,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Kast Card",
     "net": "Visa",
     "img": "cards/mkt-kast.webp",
-    "remote": "/card-art/KAST-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -1540,12 +1279,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Standard 含 2 张卡（实体…",
       "kyc": "KYC",
       "applyUrl": "https://www.kast.xyz/en/membership",
-      "highlights": [
-        "免费档即有 1.5% USD 返现",
-        "返现在授权时即时到账，可一键抵扣下次消费",
-        "高档位叠加 KAST Points",
-        "在 1.5 亿+ 商户使用稳定币消费"
-      ],
       "cautions": [
         "高档位年费昂贵且预付不退",
         "返现有月消费上限",
@@ -1595,7 +1328,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -1604,7 +1336,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Wise Card",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-wise.webp",
-    "remote": "/cardentify-cards/wise-platinum-card.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -1617,12 +1348,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "美国实体卡 $9（其他地区以当地定价…",
       "kyc": "证件",
       "applyUrl": "https://wise.com/us/pricing/card-fees",
-      "highlights": [
-        "持有币种直接消费免费",
-        "按中间价换汇，透明收费",
-        "美国每月 $250 内 ATM 免费",
-        "支持多币种账户与本地收款"
-      ],
       "cautions": [
         "需换汇时收转换费（美国约 0.22%–4.42%，视币种）",
         "超免费额度 ATM 收 $1.95 + 1.95%",
@@ -1685,7 +1410,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -1694,7 +1418,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Infini Corporate Card",
     "net": "",
     "img": "cards/mkt-infini-card.webp",
-    "remote": "/card-art/INFINI-CARD.webp",
     "tags": [
       "U卡",
       "托管"
@@ -1706,12 +1429,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "每张 $10 开卡费（首张免费需最低…",
       "kyc": "KYC",
       "applyUrl": "https://www.infini.money/products/corporate-cards",
-      "highlights": [
-        "三种 BIN 覆盖广告、SaaS、AI 订阅等场景",
-        "Lite 卡支持 Apple Pay/Google Pay 及 ChatGPT、Claude 订阅",
-        "Pro/AI 卡外汇费 1%、返现 2%",
-        "支持月度自动充值、余额预警、团队权限"
-      ],
       "cautions": [
         "Lite 卡非美元交易费 3%",
         "Pro 卡因发卡行风控不能订阅 ChatGPT、Claude",
@@ -1770,7 +1487,6 @@ export const U_CARDS: UCardItem[] = [
           "supported"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -1779,7 +1495,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Kolo Card",
     "net": "Visa",
     "img": "cards/mkt-kolo.webp",
-    "remote": "/card-art/KOLO-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -1792,11 +1507,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "有条件",
       "kyc": "需要 KYC",
       "applyUrl": "https://kolo.xyz/",
-      "highlights": [
-        "以Crypto和稳定币支付并获得BTC奖励的Visa卡",
-        "官网常规2% BTC奖励；宣传期间最高5%属活动，合格消费／上限以账户规则为准",
-        "明确支持：Apple Pay、Google Pay"
-      ],
       "cautions": [
         "核验方案：Standard Visa 实体＋虚拟",
         "来源未能确认中国大陆居民当前申请资格，不将全球消费范围当作可申请范围",
@@ -1874,34 +1584,7 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-05。",
       "status": "中国大陆申请资格待确认",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "集卡 · 对应卡片资料",
-          "url": "https://card.lengziyu.cn/card/kolo"
-        },
-        {
-          "label": "官方网站",
-          "url": "https://kolo.xyz/"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://cdn.kolo.in/public/terms-of-use"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://ranked.plus/_serverFn/be96b738cf59ba8bfd779130d0163fee84df1cd2bac1a3e48f4d947f51db71b9"
-        },
-        {
-          "label": "官方资料复核（2026-10-05）",
-          "url": "https://kolo.xyz/docs/terms-of-use"
-        }
-      ],
       "kycRequirements": {
         "idCard": "待确认",
         "passport": "待确认",
@@ -1918,7 +1601,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "dtcpay Card",
     "net": "Visa",
     "img": "cards/mkt-dtcpay.webp",
-    "remote": "/card-art/DTCPAY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -1931,11 +1613,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "有条件",
       "kyc": "需要 KYC",
       "applyUrl": "https://dtcpay.com/",
-      "highlights": [
-        "dtcpay稳定币支付Visa卡，支持线上支付和实体取现",
-        "未查到明确常规返現比例，保留待确认",
-        "明确支持：Google Pay、ChatGPT、Claude"
-      ],
       "cautions": [
         "核验方案：Standard Visa 实体＋虚拟",
         "来源未能确认中国大陆居民当前申请资格，不将全球消费范围当作可申请范围",
@@ -2009,30 +1686,7 @@ export const U_CARDS: UCardItem[] = [
           "supported"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-05。",
       "status": "中国大陆申请资格待确认",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "集卡 · 对应卡片资料",
-          "url": "https://card.lengziyu.cn/card/dtcpay"
-        },
-        {
-          "label": "官方网站",
-          "url": "https://dtcpay.com/"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://dtcpay.com/faqs/where-can-i-withdraw-funds-using-my-dtcpay-card/"
-        },
-        {
-          "label": "集卡 · 原始资料",
-          "url": "https://card.lengziyu.cn/"
-        }
-      ],
       "kycRequirements": {
         "idCard": "不需要",
         "passport": "需要",
@@ -2051,7 +1705,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Starryblu 星空卡（免费档）",
     "net": "Mastercard",
     "img": "cards/mkt-starryblu-xingkong.webp",
-    "remote": "/card-art/STARRYBLU-XINGKONG.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -2065,12 +1718,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "护照",
       "applyUrl": "https://www.starryblu.com/",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "免费开户，多币种（CNY、SGD、USD、EUR、HKD、GBP 等）",
-        "每月 1 次、$350 内免费取现",
-        "$5,000 额度换汇券",
-        "L1 余额收益"
-      ],
       "cautions": [
         "卡片返现/权益为促销性质，会员权益可能实时调整",
         "Mastercard 卡开卡以白名单优先，部分地区可能尚未开放",
@@ -2132,7 +1779,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -2141,7 +1787,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "SAVO Card",
     "net": "Visa",
     "img": "cards/mkt-savo.webp",
-    "remote": "/card-art/ucard/savo-landscape-ai.png",
     "tags": [
       "U卡",
       "Visa",
@@ -2151,12 +1796,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "SAVO Card",
       "kyc": "需分级 KYC",
       "applyUrl": "https://www.savvvo.com/",
-      "highlights": [
-        "提供虚拟与实体 Visa 卡，可 ATM 取现",
-        "艺术家联名卡面",
-        "多币种账户与实时汇率",
-        "支持企业 ESOP 与福利发放"
-      ],
       "cautions": [
         "官网资费信息极少",
         "发卡方与可用地区未公开",
@@ -2202,7 +1841,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -2211,7 +1849,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "YPT Card",
     "net": "Visa",
     "img": "cards/mkt-ypt.webp",
-    "remote": "/card-art/YPT-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -2223,12 +1860,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "需支付开卡费（金额未在文档公开）",
       "kyc": "KYC",
       "applyUrl": "https://ypt.com/",
-      "highlights": [
-        "支持 USDT/USDC/BTC/ETH 充值",
-        "可绑定 Apple Pay、Google Pay",
-        "文档提供绑定香港支付宝与 ChatGPT 会员支付指南",
-        "美元卡单笔上限 $100,000、无日限额"
-      ],
       "cautions": [
         "卡币种交易费 1%，非卡币种 2.2%",
         "0–1U 小额授权 0.2U/笔、拒绝交易 0.5U/笔（超免费次数后）",
@@ -2291,7 +1922,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -2302,7 +1932,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Starryblu 主神卡",
     "net": "Mastercard",
     "img": "cards/mkt-starryblu-zhushen.webp",
-    "remote": "/card-art/STARRYBLU-ZHUSHEN.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -2315,12 +1944,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "护照",
       "applyUrl": "https://www.starryblu.com/",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "不限次数汇款手续费减免",
-        "每月 10 次取款券、$5,000 免费提现额度",
-        "2‰ 换汇提升与 L4 余额收益",
-        "1 对 1 专属金融顾问"
-      ],
       "cautions": [
         "卡片返现/权益为促销性质，会员权益可能实时调整",
         "Mastercard 卡开卡以白名单优先，部分地区可能尚未开放",
@@ -2383,7 +2006,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -2394,7 +2016,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Starryblu 星球卡",
     "net": "Mastercard",
     "img": "cards/mkt-starryblu-xingqiu.webp",
-    "remote": "/card-art/STARRYBLU-XINGQIU.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -2406,12 +2027,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "护照",
       "applyUrl": "https://www.starryblu.com/",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "相比 Plus 增加消费券金额、免费汇款与取款次数",
-        "更低的 ATM 取现费率",
-        "更高的换汇提升",
-        "更高的刷卡奖励与余额收益"
-      ],
       "cautions": [
         "卡片返现/权益为促销性质，会员权益可能实时调整",
         "Mastercard 卡开卡以白名单优先，部分地区可能尚未开放",
@@ -2474,7 +2089,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -2485,7 +2099,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Ether.fi Cash Luxe",
     "net": "Visa",
     "img": "cards/mkt-etherfi-luxe.webp",
-    "imageSource": "https://www.ether.fi/personal/compare",
     "tags": [
       "U卡",
       "Visa",
@@ -2498,12 +2111,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.ether.fi/personal/compare",
-      "highlights": [
-        "Luxe 国际版虚拟卡 费用与权益仅按本套餐计算",
-        "Luxe 国际版实体卡 费用与权益仅按本套餐计算",
-        "符合条件消费每月前 10000 美元返现 3% 超额及例外按本套餐规则",
-        "明确支持：Apple Pay、Google Pay"
-      ],
       "cautions": [
         "核验方案：Luxe 虚拟卡；Luxe 实体卡",
         "KYC 明确标注大陆不可用",
@@ -2581,27 +2188,8 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-08。",
       "status": "中国大陆暂不支持申请",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "ether.fi Cash KYC 流程与材料",
-          "url": "https://help.ether.fi/en/articles/269731-kyc-process-and-requirements"
-        },
-        {
-          "label": "集卡 · 卡片市场",
-          "url": "https://card.lengziyu.cn/market"
-        },
-        {
-          "label": "集卡 · ether.fi Cash Core 详情",
-          "url": "https://card.lengziyu.cn/card/etherfi-core"
-        }
-      ]
-    },
+      },
     "custody": "自托管"
   },
   {
@@ -2611,7 +2199,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Ether.fi Cash Pinnacle",
     "net": "Visa",
     "img": "cards/mkt-etherfi-pinnacle.webp",
-    "imageSource": "https://www.ether.fi/personal/compare",
     "tags": [
       "U卡",
       "Visa",
@@ -2624,12 +2211,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.ether.fi/personal/compare",
-      "highlights": [
-        "Pinnacle 国际版虚拟卡 费用与权益仅按本套餐计算",
-        "Pinnacle 国际版实体卡 费用与权益仅按本套餐计算",
-        "符合条件消费每月前 50000 美元返现 3% 超额及例外按本套餐规则",
-        "明确支持：Apple Pay、Google Pay"
-      ],
       "cautions": [
         "核验方案：Pinnacle 虚拟卡；Pinnacle 实体卡",
         "KYC 明确标注大陆不可用",
@@ -2707,27 +2288,8 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-08。",
       "status": "中国大陆暂不支持申请",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "ether.fi Cash KYC 流程与材料",
-          "url": "https://help.ether.fi/en/articles/269731-kyc-process-and-requirements"
-        },
-        {
-          "label": "集卡 · 卡片市场",
-          "url": "https://card.lengziyu.cn/market"
-        },
-        {
-          "label": "集卡 · ether.fi Cash Core 详情",
-          "url": "https://card.lengziyu.cn/card/etherfi-core"
-        }
-      ]
-    },
+      },
     "custody": "自托管"
   },
   {
@@ -2737,7 +2299,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Ether.fi Cash VIP",
     "net": "Visa",
     "img": "cards/mkt-etherfi-vip.webp",
-    "imageSource": "https://www.ether.fi/personal/compare",
     "tags": [
       "U卡",
       "Visa",
@@ -2750,12 +2311,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.ether.fi/personal/compare",
-      "highlights": [
-        "VIP 国际版虚拟卡 费用与权益仅按本套餐计算",
-        "VIP 国际版实体卡 费用与权益仅按本套餐计算",
-        "符合条件消费每月前 50000 美元返现 4% 超额及例外按本套餐规则",
-        "明确支持：Apple Pay、Google Pay"
-      ],
       "cautions": [
         "核验方案：VIP 虚拟卡；VIP 实体卡",
         "KYC 明确标注大陆不可用",
@@ -2833,27 +2388,8 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-08。",
       "status": "中国大陆暂不支持申请",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "ether.fi Cash KYC 流程与材料",
-          "url": "https://help.ether.fi/en/articles/269731-kyc-process-and-requirements"
-        },
-        {
-          "label": "集卡 · 卡片市场",
-          "url": "https://card.lengziyu.cn/market"
-        },
-        {
-          "label": "集卡 · ether.fi Cash Core 详情",
-          "url": "https://card.lengziyu.cn/card/etherfi-core"
-        }
-      ]
-    },
+      },
     "custody": "自托管"
   },
   {
@@ -2861,7 +2397,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "OKX Card",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-okx.webp",
-    "remote": "/card-art/OKX-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -2875,11 +2410,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.okx.com/en-eu/pay",
-      "highlights": [
-        "EEA 版本以 USDC ／ USDG 消费，零卡片年费，转换点差 0.1%。",
-        "USDG 返现依 VIP、活动报名、月份与上限变化；不将已结束的首发 20% 活动当成常驻权益，计算成本时不抵扣活动返现。",
-        "明确支持：Apple Pay、Google Pay"
-      ],
       "cautions": [
         "核验方案：EEA 虚拟卡",
         "KYC 明确标注大陆不可用 该栏的版本说明较旧 本站按指定的 KYC 栏目收录口径展示 不视作发卡方最新资格确认",
@@ -2953,27 +2483,8 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-08。",
       "status": "中国大陆暂不支持申请",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "OKX EEA 卡申请及材料说明",
-          "url": "https://www.okx.com/en-us/learn/okx-card-europe-explained"
-        },
-        {
-          "label": "OKX EEA 费用与资格",
-          "url": "https://www.okx.com/en-eu/learn/okx-card-eea-fees-rewards-eligibility"
-        },
-        {
-          "label": "OKX 卡片说明",
-          "url": "https://www.okx.com/en-eu/help/whats-okx-card"
-        }
-      ]
-    },
+      },
     "custody": "托管"
   },
   {
@@ -2981,7 +2492,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Cypher Card",
     "net": "Visa",
     "img": "cards/mkt-cypher.webp",
-    "remote": "/card-art/CYPHER-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -2992,11 +2502,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "不适用（已关闭）",
       "applyUrl": "https://cypherhq.io/",
       "status": "已关闭",
-      "highlights": [
-        "（历史）多链钱包直接充值",
-        "（历史）Premium 档外汇费降至 0.75%",
-        "（历史）支持 Apple Pay / Google Pay"
-      ],
       "cautions": [
         "2026-07-08 停止充值，08-08 停止消费，09-06 平台关闭",
         "被 Nium 收购后终止服务",
@@ -3058,7 +2563,6 @@ export const U_CARDS: UCardItem[] = [
           "unsupported"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -3067,7 +2571,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Avici Card",
     "net": "Visa",
     "img": "cards/mkt-avici.webp",
-    "remote": "/card-art/AVICI-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -3079,12 +2582,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Platinum：首张虚拟卡 $15…",
       "kyc": "KYC",
       "applyUrl": "https://avici.money/",
-      "highlights": [
-        "USDC 存入用户自有托管合约，换取美元 Visa 额度",
-        "可从 Solana 自动跨链充值",
-        "消费、充值、提回钱包均不收 Avici 费用",
-        "支持 Apple Pay / Google Pay"
-      ],
       "cautions": [
         "非美元交易 Visa 可能加收 0.4%–1%",
         "担保信用卡模式，额度受存入 USDC 限制",
@@ -3138,7 +2635,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -3147,7 +2643,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Tria Card",
     "net": "Visa",
     "img": "cards/mkt-tria.webp",
-    "remote": "/card-art/TRIA-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -3159,11 +2654,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "Lite $20/年",
       "kyc": "KYC",
       "applyUrl": "https://app.tria.so/membership",
-      "highlights": [
-        "自托管钱包直接消费",
-        "Max 档前 $2,000 消费 6% 返现",
-        "2026-09 会员更名：Virtual→Lite、Signature→Pro、Premium→Max"
-      ],
       "cautions": [
         "旧条款列外汇费最高 3%、国际费 1%、USDC 结算/充值 1%",
         "高返现仅适用于每月前 $1,000–$2,000",
@@ -3217,7 +2707,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -3226,7 +2715,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "MetaMask Card",
     "net": "Mastercard",
     "img": "cards/mkt-metamask.webp",
-    "remote": "/card-art/METAMASK-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -3239,11 +2727,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费",
       "kyc": "需要 KYC",
       "applyUrl": "https://metamask.io/card",
-      "highlights": [
-        "MetaMask 钱包的 Free 虚拟 Mastercard，按当前开放欧洲计划记录。",
-        "Free虚拟1% mUSD，返现上限／资格需按现行权益，不复制Metal3%。",
-        "明确支持：Apple Pay、Google Pay"
-      ],
       "cautions": [
         "核验方案：Free 欧洲 虚拟卡",
         "官方当前可申请国家列表不包含中国大陆；应有受支持国家真实资格，当前官方文档明确需居住地址证明。不能把仅护照+海外手机号误表述为大陆地址可申请。",
@@ -3321,35 +2804,8 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-05。",
       "status": "中国大陆暂不支持申请",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "集卡 · 对应卡片资料",
-          "url": "https://card.lengziyu.cn/card/metamask"
-        },
-        {
-          "label": "官方网站",
-          "url": "https://metamask.io/card"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://support.metamask.io/trade/metamask-card/what-is-metamask-card/"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://support.metamask.io/trade/metamask-card/card-faq/"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://support.metamask.io/trade/metamask-card/limits-and-fees/"
-        }
-      ]
-    },
+      },
     "custody": "自托管"
   },
   {
@@ -3357,7 +2813,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Coinbase Card",
     "net": "Visa",
     "img": "cards/mkt-coinbase.webp",
-    "remote": "/card-art/COINBASE-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -3369,11 +2824,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "免费",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.coinbase.com/card",
-      "highlights": [
-        "美国 Coinbase Visa 借记卡，连接账户余额；与 Coinbase One Amex 信用卡分开。",
-        "美国借记卡可选加密奖励，费率浮动，以App为准。不可沿用Coinbase One资产分档BTC2%-4%信用卡奖励。",
-        "明确支持：Apple Pay、Google Pay"
-      ],
       "cautions": [
         "核验方案：US Visa Debit 实体卡",
         "美国版要求美国居民（夏威夷除外），中国大陆及香港又属于卡使用禁止地区，不仅是开卡资格限制。",
@@ -3451,36 +2901,9 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-08。",
       "cardFee": "免费",
       "status": "中国大陆暂不支持申请",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "Coinbase 美国借记卡申请要求",
-          "url": "https://help.coinbase.com/en/coinbase/trading-and-funding/coinbase-card/cb-card-apply"
-        },
-        {
-          "label": "集卡 · 对应卡片资料",
-          "url": "https://card.lengziyu.cn/card/coinbase"
-        },
-        {
-          "label": "官方网站",
-          "url": "https://www.coinbase.com/card"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://help.coinbase.com/en/coinbase/trading-and-funding/coinbase-card/cb-card"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://help.coinbase.com/en/coinbase/trading-and-funding/coinbase-card/cb-card-troubleshoot"
-        }
-      ]
-    },
+      },
     "custody": "托管"
   },
   {
@@ -3488,7 +2911,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Solayer Card（Solayer Pay / Emerald）",
     "net": "Visa",
     "img": "cards/mkt-solayer.webp",
-    "remote": "/card-art/SOLAYER-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -3500,11 +2922,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "$20/年",
       "kyc": "KYC",
       "applyUrl": "https://solayer.org/",
-      "highlights": [
-        "用 USDC 在 Visa 商户消费",
-        "Solana 生态积分激励",
-        "原 Emerald 卡已更名为 Solayer Pay"
-      ],
       "cautions": [
         "每次充值收 1%",
         "美元交易每笔 $0.15，国际交易 $0.10 + 1.5%",
@@ -3558,7 +2975,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。",
       "kycRequirements": {
         "idCard": "待确认",
         "passport": "待确认",
@@ -3575,7 +2991,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Safepal Card",
     "net": "Mastercard",
     "img": "cards/mkt-safepal.webp",
-    "remote": "/card-art/SAFEPAL-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -3587,11 +3002,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "免费",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.safepal.com/bank",
-      "highlights": [
-        "SafePal与Fiat24账户联动的虚拟Mastercard，用于钱包资产及银行账户消费。",
-        "对标返现细则缺失，保留待核实",
-        "明确支持：Apple Pay、Google Pay"
-      ],
       "cautions": [
         "核验方案：Fiat24 虚拟卡",
         "对标资料涉及海外定位及暂无法充值，不足以确认大陆真实居民可以申请；具体资格待发行方确认",
@@ -3665,35 +3075,8 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-08。",
       "cardFee": "免费",
       "status": "中国大陆申请资格待确认",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "SafePal Fiat24 注册与 ReadID 验证",
-          "url": "https://safepalsupport.zendesk.com/hc/en-us/articles/22558184801691-How-to-Register-Your-Fiat24-Bank-Account"
-        },
-        {
-          "label": "集卡 · 对应卡片资料",
-          "url": "https://card.lengziyu.cn/card/safepal"
-        },
-        {
-          "label": "官方网站",
-          "url": "https://www.safepal.com/bank"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://docs.fiat24.com/legal/payment-card-terms-and-conditions"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://www.safepal.com/en/bank"
-        }
-      ],
       "kycRequirements": {
         "idCard": "不需要",
         "passport": "需要",
@@ -3710,7 +3093,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Ready Card",
     "net": "Mastercard",
     "img": "cards/mkt-ready.webp",
-    "remote": "/card-art/READY-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -3724,11 +3106,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "不适用",
       "applyUrl": "https://help.ready.co/hc/en-us/articles/36906149111197-Why-was-my-card-deactivated",
       "status": "已停止发卡",
-      "highlights": [
-        "钱包资产仍在用户自托管中",
-        "未使用的订阅费与近期运费自动退还",
-        "Ready 正在开发 Base 上的 Community Card"
-      ],
       "cautions": [
         "现有 Ready 卡已无法申请和使用",
         "Community Card 的发卡方、费用、地区均未公布"
@@ -3789,7 +3166,6 @@ export const U_CARDS: UCardItem[] = [
           "unsupported"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -3798,7 +3174,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Pintopay Card",
     "net": "Visa",
     "img": "cards/mkt-pintopay.webp",
-    "remote": "/card-art/PINTOPAY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -3811,11 +3186,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "开卡费 $35 / 35 USDT",
       "kyc": "未公开",
       "applyUrl": "https://pintopay.me/en",
-      "highlights": [
-        "在 Telegram 内即可开卡与管理",
-        "宣传 0 外汇加价",
-        "首笔消费奖励 $10"
-      ],
       "cautions": [
         "加密充值费 2.5%",
         "用户反馈：每笔成功授权收 $0.25，ATM 取现 $0.25 + 运营商费",
@@ -3873,7 +3243,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -3882,7 +3251,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Spritz Card（SpritzCard）",
     "net": "Visa",
     "img": "cards/mkt-spritz.webp",
-    "remote": "/card-art/SPRITZ-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -3894,12 +3262,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "无年费、月费、账户维护费",
       "kyc": "需 KYC",
       "applyUrl": "https://www.spritz.finance/individuals#card",
-      "highlights": [
-        "消费本身不收费",
-        "支持从多条链（Arbitrum、Base、Polygon、Solana 等）用 USDC 充值",
-        "同一 App 内可加密出金到银行、代缴账单",
-        "官方支持 31 个国家（欧洲多国、英国、阿联酋、澳洲、巴西、美国、加拿大）"
-      ],
       "cautions": [
         "充值费 1%（最低 $2），非 USDC 代币再加 0.5%",
         "非美国用户卡余额上限 $10,000",
@@ -3957,7 +3319,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -3966,7 +3327,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Tuyo Card",
     "net": "Visa",
     "img": "cards/mkt-tuyo.webp",
-    "remote": "/card-art/TUYO-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -3979,13 +3339,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "开卡免费",
       "kyc": "KYC",
       "applyUrl": "https://tuyo.com/card",
-      "highlights": [
-        "自托管：消费前资金一直由自己控制",
-        "美元交易 0 手续费",
-        "Earn 中的 USDC 可直接刷卡，消费前持续生息",
-        "支持 Apple Pay / Google Pay",
-        "部分消费随机免单（BNPM）"
-      ],
       "cautions": [
         "非美元消费最高约 1% 汇差",
         "暂不支持 ATM、PIN 和实体卡",
@@ -4047,7 +3400,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -4056,7 +3408,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Bing Card（BingCard）",
     "net": "",
     "img": "cards/mkt-bing.webp",
-    "remote": "/card-art/BING-CARD.webp",
     "tags": [
       "U卡",
       "托管"
@@ -4068,12 +3419,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Premium $20",
       "kyc": "KYC",
       "applyUrl": "https://www.bingcard.com/pricing",
-      "highlights": [
-        "虚拟卡约 5 分钟开通，免 KYC",
-        "支持 USDT、USDC、BTC、ETH 充值",
-        "月限额最高 $100,000（美国卡）",
-        "可用于订阅、账单支付，官方称可绑定 PayPal、微信支付"
-      ],
       "cautions": [
         "充值费 2%、提现 2%、拒付交易每笔 $1",
         "交易费 3%，非美国地区交易 1.5%（最低 $0.5），换汇 2%",
@@ -4128,7 +3473,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -4137,7 +3481,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "X Card（X Money）",
     "net": "Visa",
     "img": "cards/mkt-x.webp",
-    "remote": "/card-art/X-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -4149,12 +3492,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "无月费、无年费",
       "kyc": "KYC",
       "applyUrl": "https://money.x.com",
-      "highlights": [
-        "最高 3% 现金返还",
-        "余额最高 6.00% APY",
-        "FDIC 保险最高 $10M（通过 sweep 网络）",
-        "无境外交易费，ATM 运营商费可报销"
-      ],
       "cautions": [
         "仅美国、逐步开放给部分用户",
         "非订阅用户的 3% 需满足存款条件",
@@ -4217,7 +3554,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -4226,7 +3562,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Crypto Cash Card（CryptoCash）",
     "net": "Mastercard",
     "img": "cards/mkt-crypto-cash.webp",
-    "remote": "/card-art/CRYPTO-CASH-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -4240,11 +3575,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://thecryptocash.co/",
       "status": "无法确认",
-      "highlights": [
-        "可用 USDT、USDC、BTC、ETH 充值",
-        "实体卡支持 ATM 取现",
-        "充值与消费转换 0 手续费（行业站数据）"
-      ],
       "cautions": [
         "官网未能抓取到有效内容，信息主要来自第三方",
         "基于 BFIC Chain，生态较小",
@@ -4302,7 +3632,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -4311,7 +3640,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "SolCard",
     "net": "Visa",
     "img": "cards/mkt-solcard.webp",
-    "remote": "/card-art/SOLCARD-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -4323,9 +3651,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "官方基础Virtual开卡10美元",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.solcard.cc/",
-      "highlights": [
-        "SolCard基础Visa虚拟卡，连接加密充值余额用于线上消费。"
-      ],
       "cautions": [
         "核验方案：Virtual 基础虚拟卡",
         "基本计划大陆真实居民申请资格未明示，不能将线上可用范围视作申请资格",
@@ -4399,31 +3724,8 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-05。",
       "annualFee": "免费",
       "status": "中国大陆申请资格待确认",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "集卡 · 对应卡片资料",
-          "url": "https://card.lengziyu.cn/card/solcard"
-        },
-        {
-          "label": "官方网站",
-          "url": "https://www.solcard.cc/"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://www.solcard.cc/terms"
-        },
-        {
-          "label": "官方资料复核（2026-10-05）",
-          "url": "https://www.solcard.cc/blog/solana-mastercard"
-        }
-      ],
       "kycRequirements": {
         "idCard": "待确认",
         "passport": "待确认",
@@ -4440,7 +3742,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Bit.Store Card",
     "net": "Mastercard",
     "img": "cards/mkt-bitstore.webp",
-    "remote": "/card-art/BIT.STORE-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -4454,11 +3755,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://bit.store/",
       "status": "已停止发卡",
-      "highlights": [
-        "可用欧元或 10+ 种加密资产充值",
-        "EEA 内消费零手续费",
-        "实体卡额度 €100,000"
-      ],
       "cautions": [
         "官网公告：Bit.Store 实体卡服务正在停止",
         "STORE 代币返现价值波动",
@@ -4512,7 +3808,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -4521,7 +3816,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Kardpay Card",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-kardpay.webp",
-    "remote": "/card-art/KARDPAY-CARD.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -4534,12 +3828,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Core $29（充值费 5%）",
       "kyc": "未公开",
       "applyUrl": "https://kardpay.app/",
-      "highlights": [
-        "虚拟卡即时发放",
-        "支持 Apple Pay / Google Pay",
-        "USDT/USDC 经 TRC-20/ERC-20 10 分钟内到账",
-        "实体卡月限额最高 $1M、有效期 5 年"
-      ],
       "cautions": [
         "充值费 3%–5% 偏高",
         "条款列每次交易尝试 $0.25（含被拒）、拒付 $30",
@@ -4593,7 +3881,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -4602,7 +3889,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Jupiter Card",
     "net": "Visa",
     "img": "cards/mkt-jupiter.webp",
-    "remote": "/card-art/JUPITER-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -4613,13 +3899,6 @@ export const U_CARDS: UCardItem[] = [
       "cashback": "2%",
       "kyc": "KYC",
       "applyUrl": "https://docs.jup.ag/user-docs/global/spend/jupiter-card",
-      "highlights": [
-        "2% 自动返现",
-        "Rain 发行卡的 USDC/USDT 留在链上作抵押",
-        "支持 Apple Wallet / Google Wallet",
-        "可用 Solana、Ethereum、Sui、Arbitrum、Base 上的 USDC 或 Solana USDT 入金",
-        "Claynosaurz 联名卡 2026 年底前外汇费返还"
-      ],
       "cautions": [
         "非美元消费外汇费：Rain 1%、DCS 1.8%",
         "DCS 发行卡暂不支持 ATM 取现",
@@ -4682,7 +3961,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -4691,7 +3969,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Wavecard（wave.space）",
     "net": "Visa",
     "img": "cards/mkt-wavecard.webp",
-    "remote": "/card-art/WAVECARD-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -4704,12 +3981,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡 €2.99",
       "kyc": "KYC",
       "applyUrl": "https://www.wave.space/card",
-      "highlights": [
-        "通过 Nostr Wallet Connect 自动从自托管闪电钱包扣 BTC",
-        "0% 外汇费",
-        "可自定义卡面姓名、开多张卡",
-        "支持 Google Pay、Garmin Pay，Apple Pay 需经 Curve"
-      ],
       "cautions": [
         "只支持比特币，不支持 USDT/USDC",
         "BTC 转换费 1% + 约 0.5% 流动性点差",
@@ -4771,7 +4042,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -4780,7 +4050,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Moto Card",
     "net": "Visa",
     "img": "cards/mkt-moto.webp",
-    "remote": "/card-art/MOTO-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -4793,12 +4062,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://www.moto-card.com/",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "Visa Infinite 信用卡，按月账单结算",
-        "Full 档全球 0 外汇费",
-        "24/7 专属礼宾",
-        "以 Solana 上 USDC 作为抵押"
-      ],
       "cautions": [
         "会员费昂贵",
         "Lite 档外汇费最高 2.2%",
@@ -4853,7 +4116,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -4862,7 +4124,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Offgrid Card（OffGrid Cash）",
     "net": "Visa",
     "img": "cards/mkt-offgrid.webp",
-    "remote": "/card-art/OFFGRID-PREMIUM.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -4875,12 +4136,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "宣称免 KYC",
       "applyUrl": "https://app.offgrid.cash",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "无需身份验证",
-        "支持 USDT、USDC、BTC、ETH、SOL 等十余种资产、10 条链充值",
-        "支持 Google Pay",
-        "宣传 0 外汇费"
-      ],
       "cautions": [
         "发卡方与主体完全未披露，风险高",
         "条款写明账户终止时卡内余额可能被没收",
@@ -4939,7 +4194,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -4948,7 +4202,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Maxswap Card",
     "net": "Mastercard",
     "img": "cards/mkt-maxswap.webp",
-    "remote": "/card-art/MAXSWAP-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -4960,12 +4213,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "开卡 $50",
       "kyc": "未公开",
       "applyUrl": "https://maxswap.cc/virtual-cards/",
-      "highlights": [
-        "通过 Telegram 机器人开卡",
-        "支持 Apple Pay / Google Pay",
-        "可用于订阅与线上线下消费",
-        "新推 Premium 卡支持 ATM（每日最高 $750）"
-      ],
       "cautions": [
         "充值费 4.5% + $1",
         "每笔交易 $0.25 + 0.4%（Premium 卡 $0.30）",
@@ -5019,7 +4266,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -5028,7 +4274,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Kosh Card（KOSH Everyday Card）",
     "net": "Visa",
     "img": "cards/mkt-kosh.webp",
-    "remote": "/card-art/KOSH-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -5041,12 +4286,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "同年费（无月费）",
       "kyc": "证件",
       "applyUrl": "https://koshmoney.com/global-card",
-      "highlights": [
-        "年费低（虚拟卡 $8/年）",
-        "外汇加价仅 0.5%",
-        "可从 USDT/USDC 或 KOSH 美元账户扣款",
-        "实体卡支持 ATM"
-      ],
       "cautions": [
         "USDC/USDT 存入/结算费 $1 + 1%（第三方整理）",
         "ATM $1 + 1% + 外汇费，单笔 ≤$250、每日 3 次",
@@ -5104,7 +4343,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -5113,7 +4351,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Pengu Card",
     "net": "Visa",
     "img": "cards/mkt-pengu.webp",
-    "remote": "/card-art/PENGU-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -5126,12 +4363,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "与 KAST 卡定价一致",
       "kyc": "KYC",
       "applyUrl": "https://www.kast.xyz/en/blog/product/pengu-card-is-now-live-in-kast",
-      "highlights": [
-        "Pudgy Penguins 联名卡面",
-        "免费档即有 2% Points + 4% MOVE",
-        "稳定币充值免费",
-        "2026-03-24 正式上线"
-      ],
       "cautions": [
         "奖励为积分和 MOVE 代币，价值波动",
         "非美元交易外汇费最高 1.75%",
@@ -5194,7 +4425,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -5203,7 +4433,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Laso Card（Laso Finance）",
     "net": "Visa",
     "img": "cards/mkt-laso.webp",
-    "remote": "/card-art/LASO-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -5216,11 +4445,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "美国卡面额 $5–$1",
       "kyc": "KYC",
       "applyUrl": "https://laso.finance/",
-      "highlights": [
-        "无需银行账户和身份证件，秒级出卡",
-        "AI Agent 可通过 x402/MPP 协议用 USDC 自动购卡",
-        "另提供礼品卡与借记卡转账"
-      ],
       "cautions": [
         "美国卡为不可充值预付卡，仅能在美国商户使用",
         "免 KYC 产品可能被部分商户拒绝",
@@ -5278,7 +4502,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -5287,7 +4510,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Vpay Card（vPay）",
     "net": "Visa",
     "img": "cards/mkt-vpay.webp",
-    "remote": "/card-art/VPAY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -5298,11 +4520,6 @@ export const U_CARDS: UCardItem[] = [
       "cashback": "1.5%",
       "kyc": "KYC",
       "applyUrl": "https://vpay.fund/",
-      "highlights": [
-        "提供虚拟卡与实体卡，结账时加密转法币",
-        "整合全球账户、支付链接",
-        "支持 USDT 等加密资产"
-      ],
       "cautions": [
         "费率信息主要来自第三方",
         "ATM、月费、限额均未披露",
@@ -5356,7 +4573,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -5365,7 +4581,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Picnic Card",
     "net": "Visa",
     "img": "cards/mkt-picnic.webp",
-    "remote": "/card-art/PICNIC-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -5376,12 +4591,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "无年费",
       "kyc": "KYC",
       "applyUrl": "https://usepicnic.com/en",
-      "highlights": [
-        "USDC 支撑，链上自主控制",
-        "可用 PIX 或加密资产充值",
-        "美元消费 Picnic 不收费",
-        "单笔 $5,000、每日 $8,000 消费额度"
-      ],
       "cautions": [
         "非美元消费 Visa 转换约 0.3%",
         "主要面向巴西用户",
@@ -5439,7 +4648,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -5448,7 +4656,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Swissborg Card",
     "net": "Mastercard",
     "img": "cards/mkt-swissborg.webp",
-    "remote": "/card-art/SWISSBORG-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -5461,12 +4668,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费订购",
       "kyc": "KYC",
       "applyUrl": "https://swissborg.com/crypto-debit-card",
-      "highlights": [
-        "零年费、零开卡费",
-        "BORG 返现最高抵 99% 兑换费",
-        "直接用 App 内加密资产消费",
-        "2026-02-25 上线"
-      ],
       "cautions": [
         "每笔消费 0.99% 加密转法币费",
         "跨币种可能另有外汇费",
@@ -5528,7 +4729,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -5537,7 +4737,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Xhype Card（XKARD）",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-xhype.webp",
-    "remote": "/card-art/XHYPE-CARD.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -5550,11 +4749,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "同年费",
       "kyc": "KYC",
       "applyUrl": "https://www.xkard.io/",
-      "highlights": [
-        "USDT（TRC20/BEP20）充值",
-        "支持 Apple Pay / Google Pay",
-        "三档年限额 $25k / $50k / $100k"
-      ],
       "cautions": [
         "充值费 4.5% / 3.5% / 2.3%",
         "年费较高",
@@ -5604,7 +4798,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -5613,7 +4806,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Haven Card",
     "net": "Visa",
     "img": "cards/mkt-haven.webp",
-    "remote": "/card-art/ucard/haven-concept-ai.png",
     "tags": [
       "U卡",
       "Visa"
@@ -5622,11 +4814,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Haven Card",
       "kyc": "未公开",
       "applyUrl": "https://haven.hn/",
-      "highlights": [
-        "可用支持的加密资产与稳定币在 Visa 商户消费",
-        "支持 Apple Pay / Google Pay",
-        "以隐私池结算为卖点"
-      ],
       "cautions": [
         "消费卡费率表未公开",
         "发卡方未披露",
@@ -5668,7 +4855,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     }
   },
   {
@@ -5676,7 +4862,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Meru Card（MeruCard）",
     "net": "Visa",
     "img": "cards/mkt-meru.webp",
-    "remote": "/card-art/MERU-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -5687,12 +4872,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费",
       "kyc": "KYC",
       "applyUrl": "https://getmeru.com/",
-      "highlights": [
-        "拉美用户的美元账户",
-        "可用 USDC、USDT 及本地支付方式充值",
-        "支持 Stellar、Polygon、Base、Arbitrum、Solana、Tron、BSC 等多条链入金",
-        "实体卡可 ATM 取现"
-      ],
       "cautions": [
         "主要面向拉美市场",
         "外汇与 ATM 费率未在核实来源中公开"
@@ -5745,7 +4924,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -5754,7 +4932,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Fizen Card",
     "net": "Visa",
     "img": "cards/mkt-fizen.webp",
-    "remote": "/card-art/FIZEN-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -5766,11 +4943,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡 $9.99（预注册用户免费）",
       "kyc": "KYC",
       "applyUrl": "https://fizen.io/card",
-      "highlights": [
-        "从 Fizen 钱包充值免费（仅 Solana gas）",
-        "支持 QR Pay 免费充值",
-        "实体卡可 ATM 取现"
-      ],
       "cautions": [
         "非美元消费外汇费 1%，加密转法币 0.5%",
         "$50 以下消费每笔 $0.50",
@@ -5828,7 +5000,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -5837,7 +5008,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "MEXC Ether.fi Card",
     "net": "Visa",
     "img": "cards/mkt-mexc-ether-fi.webp",
-    "remote": "/card-art/MEXC-ETHERFI-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -5850,12 +5020,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费",
       "kyc": "KYC",
       "applyUrl": "https://help.ether.fi/en/articles/490457-ether-fi-x-mexc-card",
-      "highlights": [
-        "Visa Signature 卡",
-        "可抵押加密资产消费而不卖币",
-        "非托管",
-        "费率与权益跟随 ether.fi 会员档"
-      ],
       "cautions": [
         "MEXC 专属返现加成已结束",
         "外汇费按 ether.fi 规则（约 1% + 档位附加）",
@@ -5917,7 +5081,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -5926,7 +5089,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Xplace Card（X.Place）",
     "net": "Visa",
     "img": "cards/mkt-xplace.webp",
-    "remote": "/card-art/XPLACE-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -5936,12 +5098,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Xplace Card（X.Place）",
       "kyc": "KYC",
       "applyUrl": "https://x.place/the-card/",
-      "highlights": [
-        "Cash Mode 直接花 USDC",
-        "Credit Mode 抵押加密资产借 USDC 消费不卖币",
-        "支持 Apple Pay / Google Pay",
-        "Platinum 档 0% 外汇、月消费最高 $750,000"
-      ],
       "cautions": [
         "信用模式存在清算风险",
         "费用与限额随档位变化，需查条款",
@@ -5991,7 +5147,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -6000,7 +5155,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Robinhood Gold Card",
     "net": "Visa",
     "img": "cards/mkt-robinhood.webp",
-    "remote": "/card-art/ROBINHOOD-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -6012,11 +5166,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "卡片无年费",
       "kyc": "美国居民",
       "applyUrl": "https://robinhood.com/us/en/support/articles/robinhood-gold-card-payments/",
-      "highlights": [
-        "3% 全场景现金返还",
-        "卡本身无年费",
-        "可在 Robinhood App 内管理与还款"
-      ],
       "cautions": [
         "2026-07-01 起新开户外币交易收 3% 境外交易费（老账户不收）",
         "需付费 Gold 会员才可获返现",
@@ -6075,7 +5224,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -6084,7 +5232,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Pionex Card",
     "net": "Visa",
     "img": "cards/mkt-pionex.webp",
-    "remote": "/card-art/PIONEX-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -6097,12 +5244,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "无开卡费",
       "kyc": "KYC",
       "applyUrl": "https://pay.pionex.com/en/",
-      "highlights": [
-        "无开卡、年费、闲置、补卡、充值费",
-        "1% USDT 返现 + 卡余额 5% 活期收益",
-        "官方称可绑定微信、支付宝、LINE Pay、PayPal 等钱包",
-        "虚拟卡与实体卡均可申请"
-      ],
       "cautions": [
         "非美元消费收 1%",
         "ATM 取现 2%",
@@ -6161,7 +5302,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -6170,7 +5310,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Avvio Card",
     "net": "Visa",
     "img": "cards/mkt-avvio.webp",
-    "remote": "/card-art/AVVIO-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -6181,11 +5320,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://avvio.xyz/",
       "status": "无法确认",
-      "highlights": [
-        "提供 USD、EUR、GBP、AED 账户",
-        "可用 USDC/USDT（Ethereum、Solana、Base 等）入金",
-        "卡片经 Bridge 发行，支持 Apple Pay（第三方整理）"
-      ],
       "cautions": [
         "部分官方材料仍写卡片“即将推出”",
         "官网首页主打企业账户与跨境付款，未见卡片费率",
@@ -6231,7 +5365,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -6240,7 +5373,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Cardano Card",
     "net": "Visa",
     "img": "cards/mkt-cardano.webp",
-    "remote": "/card-art/CARDANO-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -6251,12 +5383,6 @@ export const U_CARDS: UCardItem[] = [
       "cashback": "最高 8%",
       "kyc": "KYC",
       "applyUrl": "https://cardanocard.io/",
-      "highlights": [
-        "直接用 ADA 及 685+ 种代币消费",
-        "支持 Apple Pay / Google Pay",
-        "可用 ADA 抵押借稳定币",
-        "2026 年 4 月推出实体卡（限量）"
-      ],
       "cautions": [
         "返现档位与条件需在 App 中确认",
         "质押功能标注即将推出",
@@ -6306,7 +5432,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -6315,7 +5440,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Airtm Card（USD 虚拟预付卡）",
     "net": "Visa",
     "img": "cards/mkt-airtm.webp",
-    "remote": "/card-art/AIRTM-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -6328,11 +5452,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费开卡",
       "kyc": "KYC",
       "applyUrl": "https://www.airtm.com/en/solutions/usd-virtual-card/",
-      "highlights": [
-        "免费开卡、无月费、无单笔消费费",
-        "从 Airtm 钱包充值",
-        "适合国际订阅与线上消费"
-      ],
       "cautions": [
         "充值费最高 2%（现行公开费率：每月前 $200 收 1%，最多 $2）",
         "不支持 ATM 和现金充值",
@@ -6390,7 +5509,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -6399,7 +5517,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Satpay Card（SatPay）",
     "net": "Mastercard",
     "img": "cards/mkt-satpay.webp",
-    "remote": "/card-art/SatPay-Card2.webp",
     "tags": [
       "U卡",
       "Mastercard"
@@ -6409,11 +5526,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://satpay.app/waitlist",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "持有 BTC 赚收益",
-        "以 BTC 抵押借稳定币消费，无需卖币",
-        "计划提供虚拟卡与实体卡"
-      ],
       "cautions": [
         "目前为候补名单",
         "费用、返现、地区均未公开",
@@ -6459,7 +5571,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     }
   },
   {
@@ -6467,7 +5578,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Veil Card",
     "net": "",
     "img": "cards/mkt-veil.webp",
-    "remote": "/card-art/VEIL-CARD.webp",
     "tags": [
       "U卡",
       "托管"
@@ -6477,11 +5587,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "宣称免 KYC",
       "applyUrl": "https://www.getveil.cards/register",
       "status": "无法确认",
-      "highlights": [
-        "可用 USDT、USDC、ETH、BTC 充值",
-        "可为单个商户开专用卡",
-        "可设置消费限额，随时暂停或删除卡片"
-      ],
       "cautions": [
         "免 KYC 产品合规风险较高",
         "存在同名不同主体（Veil Bank，veilbank.co）易混淆",
@@ -6527,7 +5632,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -6536,7 +5640,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "BingX Card",
     "net": "Visa",
     "img": "cards/mkt-bingx.webp",
-    "remote": "/card-art/BINGX-CARD2.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -6549,13 +5652,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费",
       "kyc": "KYC",
       "applyUrl": "https://bingx.com/en/support/articles/16946770585231",
-      "highlights": [
-        "直接从 BingX 资金账户扣 USDT，按实时汇率结算为美元",
-        "最高 5% 返现，指定订阅最高 20% 返现",
-        "支持 Apple Pay / Google Pay",
-        "2026 年 9 月 11 日起向所有符合条件用户全面开放",
-        "金属卡每月前 $200 ATM 取现免费"
-      ],
       "cautions": [
         "每笔消费收取 1.5% 交易手续费，非美元消费可能另有汇率成本",
         "返现有月度上限，且 BingX 可随时修改或取消奖励",
@@ -6614,7 +5710,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -6623,7 +5718,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Solid Card",
     "net": "Visa",
     "img": "cards/mkt-solid.webp",
-    "remote": "/card-art/SOLID-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -6635,13 +5729,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "无",
       "kyc": "KYC",
       "applyUrl": "https://www.solid.xyz/card",
-      "highlights": [
-        "非托管 Safe 钱包，余额可投入 SoUSD 收益金库",
-        "3%–5% USDC 返现，高于外汇成本",
-        "美元消费零费用",
-        "支持 Apple Pay / Google Pay",
-        "覆盖 105 个国家，含英国、欧盟/EEA、美国 30+ 州"
-      ],
       "cautions": [
         "非美元消费收 1% 发卡方汇率费 + Solid 档位汇率费（Core 1%/Prime 0.5%/Ultra 0%）",
         "不支持中国、印度、俄罗斯等国家居民申请",
@@ -6696,7 +5783,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -6705,7 +5791,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Zeal Visa Card（Gnosis Pay）",
     "net": "Visa",
     "img": "cards/mkt-zeal.webp",
-    "remote": "/card-art/ZEAL-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -6719,12 +5804,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://www.zeal.app",
       "status": "已停止发卡",
-      "highlights": [
-        "自托管 Safe 钱包，资金由用户控制",
-        "消费无手续费，外汇按 Visa 汇率、不加收费用",
-        "EUR/USD 余额可赚取浮动收益",
-        "支持虚拟卡与实体卡、Apple Pay"
-      ],
       "cautions": [
         "Zeal 的卡片服务将于 2026 年 12 月 20 日前结束，需迁移到 Rebind（EUR 卡）或 Picnic/MiniPay（USD 卡）或提走资金",
         "GNO 返现已于 2026-09-30 终止",
@@ -6782,7 +5861,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -6791,7 +5869,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Stables Card",
     "net": "Mastercard",
     "img": "cards/mkt-stables.webp",
-    "remote": "/card-art/STABLES-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -6804,11 +5881,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://stables.money",
       "status": "已停止发卡",
-      "highlights": [
-        "上线时虚拟卡无年费、无充值费、美元消费免费",
-        "支持多链稳定币充值",
-        "交易限额标注为无限制"
-      ],
       "cautions": [
         "官网已转型为面向企业的 USDt 支付 API，原 /card 页面返回 404",
         "非美元消费曾收 2% 外汇费",
@@ -6862,7 +5934,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -6871,7 +5942,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "DeCard（标准卡）/ DeCard Luminaries",
     "net": "Visa",
     "img": "cards/mkt-decard.webp",
-    "remote": "/card-art/DECARD-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -6883,12 +5953,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费",
       "kyc": "证件",
       "applyUrl": "https://www.thedecard.com",
-      "highlights": [
-        "可直接用 USDT/USDC 消费，加密资产兑换 0 加价",
-        "标准卡无年费、虚拟卡免费",
-        "Luminaries 自 2026-07-13 起境外消费 0% 外汇费，并含机场贵宾室与 24/7 礼宾",
-        "新加坡发卡，Visa 全球受理"
-      ],
       "cautions": [
         "标准卡外币交易收 1.8% 手续费",
         "ATM 取现每笔 1% 或 US$5 取高者",
@@ -6947,7 +6011,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -6956,7 +6019,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "ARQ Card",
     "net": "Mastercard",
     "img": "cards/mkt-arq.webp",
-    "remote": "/card-art/ARQ-CARD2.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -6968,12 +6030,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费",
       "kyc": "KYC",
       "applyUrl": "https://www.arqfinance.com",
-      "highlights": [
-        "以 USDc/EURc 余额作担保的国际 Mastercard",
-        "虚拟卡免费，可绑定 Apple Pay / Google Pay",
-        "实体卡可 ATM 取现",
-        "面向墨西哥、阿根廷、哥伦比亚、巴西用户"
-      ],
       "cautions": [
         "ATM 取现收 1%（Premium 每月 $500 内免费），ATM 运营方可能另收费",
         "标准方案入金可能收 3 USDc/EURc",
@@ -7031,7 +6087,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -7040,7 +6095,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Payy Card",
     "net": "Visa",
     "img": "cards/mkt-payy.webp",
-    "remote": "/card-art/PAYY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -7053,11 +6107,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://payy.network/card",
       "status": "无法确认",
-      "highlights": [
-        "用户自持 USDC，链上活动有 ZK 隐私保护",
-        "据第三方测评无月费、无交易费",
-        "支持虚拟卡与实体卡、Apple Pay / Google Pay（第三方信息）"
-      ],
       "cautions": [
         "2026-09-24 Payy 以太坊桥被攻击，损失约 192 万 USDC，充值、提现、转账与卡支付全部暂停",
         "截至报道时未公布恢复时间及用户损失处理方案",
@@ -7115,7 +6164,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -7124,7 +6172,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "KuCard",
     "net": "Visa",
     "img": "cards/mkt-kucard.webp",
-    "remote": "/card-art/KUCOIN-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -7137,12 +6184,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "首张虚拟卡免费",
       "kyc": "KYC",
       "applyUrl": "https://www.kucoin.com/kucard/home/eea",
-      "highlights": [
-        "直接使用 KuCoin 账户中的 USDC 消费",
-        "首张虚拟卡免费、无年费",
-        "可开最多 5 张虚拟卡",
-        "AU 版日消费上限 20,000 USDC、年 200,000 USDC"
-      ],
       "cautions": [
         "每笔交易 0.5% 手续费，非 USDC 结算另加 1% 外汇费及兑换点差",
         "仅虚拟卡，限 EEA（不含马耳他）和澳大利亚居民",
@@ -7204,7 +6245,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -7213,7 +6253,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Lava Card",
     "net": "Visa",
     "img": "cards/mkt-lava.webp",
-    "remote": "/card-art/LAVA-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -7225,12 +6264,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "无年费、无最低消费",
       "kyc": "未公开",
       "applyUrl": "https://www.lava.xyz/card",
-      "highlights": [
-        "消费返比特币而非积分，最高 5%",
-        "无外汇手续费、无汇率加价，按 Visa 官方汇率",
-        "可用美元存款、稳定币或比特币抵押借款消费",
-        "美国与国际用户均可使用（国际版有独立条款）"
-      ],
       "cautions": [
         "美国以外用户普通消费返现仅 1%",
         "ATM 取现收 2%（最低 $1）",
@@ -7284,7 +6317,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -7293,7 +6325,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Axiome Pay Card",
     "net": "Visa",
     "img": "cards/mkt-axiome-pay.webp",
-    "remote": "/card-art/AXIOME-PAY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -7305,13 +6336,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "按卡种不同约 $20–$250（据搜…",
       "kyc": "未公开",
       "applyUrl": "https://axiomepay.com/en",
-      "highlights": [
-        "提供多种不同用途的虚拟卡和实体卡",
-        "支持 Apple Pay / Google Pay",
-        "USDT/USDC（TRC-20、BSC）即时充值",
-        "持有更多 AXP 可降低充值费率",
-        "Physical Visa Pro 卡支持 ATM 取现"
-      ],
       "cautions": [
         "充值费按状态约 1.9%–4%（据搜索摘要）",
         "返现以项目代币 AXP 发放，价值波动大",
@@ -7365,7 +6389,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -7374,7 +6397,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Bleap Card",
     "net": "Mastercard",
     "img": "cards/mkt-bleap.webp",
-    "remote": "/card-art/BLEAP-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -7387,13 +6409,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡与实体卡均无发卡费",
       "kyc": "KYC",
       "applyUrl": "https://www.bleap.finance/en-us/card",
-      "highlights": [
-        "非托管，直接从加密或现金余额消费",
-        "0 外汇加价、无境外交易费",
-        "最高 20% USDC 返现",
-        "每月 €400 内 ATM 取现免费",
-        "支持 Apple Pay / Google Pay"
-      ],
       "cautions": [
         "仅限 EEA 与瑞士居民，不支持英国",
         "部分 EEA 国家（如意大利、西班牙）可能因合作方限制暂不可用",
@@ -7455,7 +6470,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -7464,7 +6478,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "UGLYCASH Card（Ugly Card Visa）",
     "net": "Visa",
     "img": "cards/mkt-uglycash.webp",
-    "remote": "/card-art/UGLYCASH-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -7476,12 +6489,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡在 Earn 余额有 $5 时…",
       "kyc": "KYC",
       "applyUrl": "https://ugly.cash/",
-      "highlights": [
-        "稳定币余额支持的 Visa 预付卡",
-        "消费返现最高 6%",
-        "支持虚拟卡与实体卡、ATM 取现",
-        "主打美国到拉美跨境支付"
-      ],
       "cautions": [
         "ATM 取现每笔 $2.50 + 1%–2%（视国家）",
         "日限额 $500、月限额 $5,000（据用户协议摘要）",
@@ -7535,7 +6542,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -7544,7 +6550,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Morse Card",
     "net": "Visa",
     "img": "cards/mkt-morse.webp",
-    "remote": "/card-art/MORSE-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -7554,12 +6559,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Morse Card",
       "kyc": "KYC",
       "applyUrl": "https://morsemoney.com/product/morse-card",
-      "highlights": [
-        "BTC、ETH、稳定币等充值后转为 USDC 余额消费",
-        "按 Visa 实时汇率、零外汇费零加价",
-        "支持 Apple Pay / Google Pay 及线上支付",
-        "覆盖美国和 15 个拉美国家"
-      ],
       "cautions": [
         "目前仅虚拟卡，不支持 ATM 取现和仅接受实体卡的商户",
         "证件国家必须在支持名单内",
@@ -7621,7 +6620,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -7630,7 +6628,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Rebind Card",
     "net": "Visa",
     "img": "cards/mkt-rebind.webp",
-    "remote": "/card-art/REBIND-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -7643,12 +6640,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费",
       "kyc": "KYC",
       "applyUrl": "https://rebind.co",
-      "highlights": [
-        "免费 Visa 卡，消费无外汇费",
-        "欧元余额（EURe）最高约 5% 浮动收益，消费前持续计息",
-        "提供个人欧元 IBAN，24/7 即时转账",
-        "Gnosis Pay 指定的 Zeal EUR 卡用户迁移目标"
-      ],
       "cautions": [
         "Rebind 不持有银行牌照，余额为 e-money/稳定币，不受存款保险保障",
         "收益来自第三方 DeFi 协议，可能亏损",
@@ -7706,7 +6697,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -7715,7 +6705,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Karta Visa Signature Card",
     "net": "Visa",
     "img": "cards/mkt-karta.webp",
-    "remote": "/card-art/KARTA-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -7728,12 +6717,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡 5 USDT",
       "kyc": "未公开",
       "applyUrl": "https://karta.io/",
-      "highlights": [
-        "Visa Signature 卡，虚拟卡与实体卡即时发放",
-        "支持 Apple Pay / Google Pay 与 ATM",
-        "加密货币充值免费（仅网络费）",
-        "提供虚拟账户与 SEPA 转账"
-      ],
       "cautions": [
         "每笔消费收 1.5%",
         "非美元交易可能另有 Visa 1% 费用，条款允许最高 3% 跨境/外汇费",
@@ -7795,7 +6778,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -7804,7 +6786,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Oobit Crypto Card",
     "net": "Visa",
     "img": "cards/mkt-oobit.webp",
-    "remote": "/card-art/OOBIT-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -7817,11 +6798,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.oobit.com/crypto-card",
-      "highlights": [
-        "连接自托管钱包，用Visa渠道直接消费数字资产的虚拟卡",
-        "宣传最高10%加密资产返现；不保证所有用户或全部类别同一比例，活动和上限待确认",
-        "明确支持：Apple Pay、Google Pay"
-      ],
       "cautions": [
         "核验方案：Standard Visa 虚拟卡",
         "来源未能确认中国大陆居民当前申请资格，不将全球消费范围当作可申请范围",
@@ -7895,30 +6871,7 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-05。",
       "status": "中国大陆申请资格待确认",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "集卡 · 对应卡片资料",
-          "url": "https://card.lengziyu.cn/card/oobit"
-        },
-        {
-          "label": "官方网站",
-          "url": "https://www.oobit.com/crypto-card"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://www.oobit.com/faq"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://ranked.plus/_serverFn/be96b738cf59ba8bfd779130d0163fee84df1cd2bac1a3e48f4d947f51db71b9"
-        }
-      ],
       "kycRequirements": {
         "idCard": "待确认",
         "passport": "待确认",
@@ -7935,7 +6888,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "ZEN Card",
     "net": "Mastercard",
     "img": "cards/mkt-zen.webp",
-    "remote": "/card-art/ZEN-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -7947,12 +6899,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "有免费套餐及付费订阅套餐（具体价格见官方…",
       "kyc": "KYC",
       "applyUrl": "https://www.zen.com",
-      "highlights": [
-        "日常刷卡消费 ZEN 不收费",
-        "合作商户即时返现",
-        "支持加密货币充值进入法币余额",
-        "有欧盟与英国两套定价"
-      ],
       "cautions": [
         "加密货币只是充值通道，ZEN 不持有加密余额；充值约 0.5%（第三方测评）",
         "ATM 取现、余额查询（€1/次）、改 PIN（€1/次）收费",
@@ -8010,7 +6956,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -8019,7 +6964,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "BipTap Card",
     "net": "Visa",
     "img": "cards/mkt-biptap.webp",
-    "remote": "/card-art/BIPTAP-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -8031,11 +6975,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Lite 首张虚拟卡免费",
       "kyc": "KYC",
       "applyUrl": "https://biptap.com/cards",
-      "highlights": [
-        "提供虚拟卡、塑料卡和高级金属卡",
-        "支持加密货币与法币充值",
-        "Skins 可永久降低 0.5% 充值费等权益"
-      ],
       "cautions": [
         "据第三方测评，Lite 档法币充值 5%、加密充值 3%，费率偏高",
         "官方费率表未能直接核实",
@@ -8085,7 +7024,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -8094,7 +7032,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Eversend USD Virtual Card（稳定币充值）",
     "net": "Visa",
     "img": "cards/mkt-eversend.webp",
-    "remote": "/card-art/EVERSEND-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -8107,12 +7044,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "见左（月费或一次性费用）",
       "kyc": "未公开",
       "applyUrl": "https://eversend.co/cards/stablecoin-card",
-      "highlights": [
-        "可用 USDT、USDC、PYUSD 充值",
-        "钱包充值与提现免费",
-        "最低充值 $1",
-        "美元商户消费无外汇费"
-      ],
       "cautions": [
         "非美元或非美国结算商户收 3.5% + $0.50",
         "余额不足导致失败的交易每次扣 $0.40",
@@ -8170,7 +7101,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -8179,7 +7109,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Bitwala Visa Card",
     "net": "Visa",
     "img": "cards/mkt-bitwala.webp",
-    "remote": "/card-art/BITWALA-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -8191,12 +7120,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡一次性 €0.99",
       "kyc": "需验证身份",
       "applyUrl": "https://bitwala.com/card",
-      "highlights": [
-        "可一键切换 BTC、ETH、USDC 或 EUR 作为付款来源",
-        "虚拟卡即时可用，实体卡可 ATM 取现",
-        "可用加密货币直接购卡和充值",
-        "可自定义线上/线下/ATM 限额与开关"
-      ],
       "cautions": [
         "ATM 取现 €2 + 1%",
         "ATM 限额 €350/日、€3,000/月",
@@ -8254,7 +7177,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -8263,7 +7185,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "xPortal Card",
     "net": "Mastercard",
     "img": "cards/mkt-xportal.webp",
-    "remote": "/card-art/XPORTAL-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -8276,12 +7197,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费",
       "kyc": "KYC",
       "applyUrl": "https://xportal.com/card",
-      "highlights": [
-        "免费虚拟 Mastercard，支持 Apple Pay / Google Pay",
-        "可从加密钱包或其他银行卡充值",
-        "实时支付通知",
-        "质押 EGLD 可得返现与生态权益"
-      ],
       "cautions": [
         "通过 xMoney 买币充值收 1.49%",
         "返现比例低（最高 0.5%）且需大额质押",
@@ -8335,7 +7250,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -8344,7 +7258,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "GoMining Card",
     "net": "Visa",
     "img": "cards/mkt-gomining.webp",
-    "remote": "/card-art/GOMINING-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -8357,12 +7270,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡发卡免费",
       "kyc": "护照",
       "applyUrl": "https://docs.gomining.com/en/product/cards",
-      "highlights": [
-        "可选 BTC、GOMINING、USDT、USDC 付款，交易时即时兑换",
-        "返现为挖矿算力（TH）",
-        "支持 Apple Pay / Google Wallet",
-        "无需外部充值，直接从卡钱包余额扣款"
-      ],
       "cautions": [
         "使用 GoMining 内部汇率，用户反馈充值和兑换合计成本可达约 4%",
         "返现为算力而非现金，收益随币价和难度变化",
@@ -8424,7 +7331,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -8433,7 +7339,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Karma Spend Card",
     "net": "Visa",
     "img": "cards/mkt-karma.webp",
-    "remote": "/card-art/KARMA-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -8443,12 +7348,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Karma Spend Card",
       "kyc": "KYC",
       "applyUrl": "https://www.karmapay.xyz/",
-      "highlights": [
-        "用户自持私钥，可用 USDC 或银行转账入金",
-        "USD/EUR/GBP 法币入金自动转为加密资产",
-        "可在 Visa 商户消费",
-        "目前为虚拟卡"
-      ],
       "cautions": [
         "每笔消费 0.5% 服务费（据第三方测评）",
         "非美元交易外汇费最高 3%，目前 1%（Visa 收取）",
@@ -8502,7 +7401,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -8511,7 +7409,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Revuto Debit Card（订阅卡 Mastercard / Visa 虚拟卡）",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-revuto.webp",
-    "remote": "/card-art/REVUTO-CARD.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -8522,12 +7419,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "基础版免费",
       "kyc": "KYC",
       "applyUrl": "https://revuto.com",
-      "highlights": [
-        "专为订阅付款设计，可防免费试用自动扣费",
-        "USDT / ADA 充值",
-        "全球用户可开卡",
-        "基础版每月可开 3 张，Pro 可开 10 张"
-      ],
       "cautions": [
         "订阅卡单笔仅支持 $15–$200，且大量商户类别不支持",
         "需使用官方提供的英国账单地址",
@@ -8586,7 +7477,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -8595,7 +7485,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "PokePay Card",
     "net": "Visa",
     "img": "cards/mkt-pokepay.webp",
-    "remote": "/card-art/POKEPAY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -8607,12 +7496,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡开卡低至 5U",
       "kyc": "未公开",
       "applyUrl": "https://www.pokepay.com/",
-      "highlights": [
-        "支持 USDT、USDC、BTC、ETH 充值",
-        "官网称 0% 跨境交易费、无小额交易费",
-        "实体卡支持 POS 与 ATM 取现",
-        "支持 3DS、自助锁卡"
-      ],
       "cautions": [
         "用户整理资料显示充值约 1%、消费约 1%、非 HKD 外汇约 1%，合计可达 3%",
         "实体卡 ATM 取现约 2%（用户反馈）",
@@ -8670,7 +7553,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -8679,7 +7561,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Volet Prepaid Card",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-volet.webp",
-    "remote": "/card-art/VOLET-CARD.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -8692,12 +7573,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "欧洲实体卡 $5/€5",
       "kyc": "KYC",
       "applyUrl": "https://volet.com/en-ca/cards/europe",
-      "highlights": [
-        "加密货币入金免费，USDT/USDC 自动兑换收 $1",
-        "卡片币种内 POS 消费免费",
-        "提供 Visa 与 Mastercard 实体/虚拟卡",
-        "有欧洲及其他地区卡种"
-      ],
       "cautions": [
         "卡片充值 1.5% + 1 USD（帮助中心）",
         "货币兑换 3.5%",
@@ -8755,7 +7630,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -8764,7 +7638,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Revolut Crypto Card（Revolut 卡的加密支付功能）",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-revolut-crypto.webp",
-    "remote": "/card-art/REVOLUT-CRYPTO-CARD.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -8776,12 +7649,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费",
       "kyc": "KYC",
       "applyUrl": "https://www.revolut.com/crypto/crypto-card/",
-      "highlights": [
-        "可绑定单一或全部加密余额，消费时按实时汇率自动兑换",
-        "刷卡本身不另收费，兑换按普通加密兑换计费",
-        "高阶套餐无加密兑换合理使用费",
-        "单笔最高 £100,000，ATM 日限 £3,000"
-      ],
       "cautions": [
         "Standard 每月加密兑换超 £1,000 收 1%，Plus 超 £3,000 收 0.5%（另有兑换价差）",
         "加密功能仅在部分国家开放",
@@ -8843,7 +7710,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -8852,7 +7718,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Simple Card（Simple.app）",
     "net": "Mastercard",
     "img": "cards/mkt-simple.webp",
-    "remote": "/card-art/SIMPLE-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -8862,12 +7727,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Simple Card（Simple.app）",
       "kyc": "未公开",
       "applyUrl": "https://simple.app/",
-      "highlights": [
-        "USDC 卡可从自托管钱包充值",
-        "支持 Apple Pay / Google Pay",
-        "EEA 用户可选带 IBAN 的托管 EUR 卡",
-        "App 内可设置消费限额"
-      ],
       "cautions": [
         "据第三方测评 USDC 卡加密兑换费约 2%",
         "目前无实体卡",
@@ -8925,7 +7784,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "自托管（USDC 卡）/ 托管（EUR 卡）"
   },
@@ -8934,7 +7792,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Zebec Card（Silver / Carbon / Black）",
     "net": "Mastercard",
     "img": "cards/mkt-zebec.webp",
-    "remote": "/card-art/ZEBEC-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -8946,12 +7803,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Silver/Carbon 无开卡费",
       "kyc": "按居住国开放",
       "applyUrl": "https://zebec.io/cards/carbon-card",
-      "highlights": [
-        "Silver：一次性卡，每次新卡号，$10–$1,000",
-        "Carbon：可充值，USD 卡覆盖 90+ 国家，EUR/GBP 限英欧",
-        "Black：最高单次充值 $10,000、余额 $50,000",
-        "三档均支持 Apple Pay / Google Pay"
-      ],
       "cautions": [
         "Black 卡每次充值约 2%、每笔交易 $0.30",
         "外汇、加密兑换与 Gas 费可能另计",
@@ -9005,7 +7856,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -9014,7 +7864,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Trocador Prepaid Card",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-trocador.webp",
-    "remote": "/card-art/TROCADOR-CARD.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -9027,12 +7876,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "一次性便利费：上线时为 3.5% +…",
       "kyc": "无 KYC 审核",
       "applyUrl": "https://trocador.app/en/prepaidcards/",
-      "highlights": [
-        "可用 XMR 及其他加密货币通过 AnonPay 购买",
-        "无需身份证件 KYC",
-        "有 USD、EUR、GBP 计价卡",
-        "可在多数线上和线下商户使用"
-      ],
       "cautions": [
         "不能用于需要 3DS 验证的商户",
         "国际 Mastercard 单卡最高约 $1,000",
@@ -9087,7 +7930,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -9096,7 +7938,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Tangem Pay",
     "net": "Visa",
     "img": "cards/mkt-tangem.webp",
-    "remote": "/card-art/TANGEM-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -9108,12 +7949,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "首张虚拟卡免费",
       "kyc": "KYC",
       "applyUrl": "https://tangem.com/en-GB/tangem-pay/",
-      "highlights": [
-        "直接花费 Tangem 钱包中的 USDC",
-        "无交易手续费、无链上提现费",
-        "Basic 档无月费，日消费上限 $10,000（Plus $50,000）",
-        "Plus 档含 Visa Signature 权益、银行转账入金免费"
-      ],
       "cautions": [
         "非美元消费按 Visa 汇率 + 1.5%",
         "ATM 取现 Basic 4% / Plus 2%，每 24 小时 3 次、每次 $250",
@@ -9175,7 +8010,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -9184,7 +8018,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Cryptomus Virtual Card",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-cryptomus.webp",
-    "remote": "/card-art/CRYPTOMUS-CARD.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -9197,12 +8030,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "开卡费 $4（虚拟卡）",
       "kyc": "KYC",
       "applyUrl": "https://cryptomus.com/cards",
-      "highlights": [
-        "约 5 分钟发卡",
-        "支持 USDT / USDC 充值，充值时按市价兑换为法币",
-        "支持 3D Secure",
-        "有 Visa 与 Mastercard 多种卡可选"
-      ],
       "cautions": [
         "充值费 3.2%",
         "消费时可能另有交易或兑换费",
@@ -9260,7 +8087,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -9269,7 +8095,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Altitude Card",
     "net": "Visa",
     "img": "cards/mkt-altitude.webp",
-    "remote": "/card-art/ALTITUDE-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -9282,12 +8107,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "无发卡费",
       "kyc": "KYC",
       "applyUrl": "https://altitude.xyz/blog/introducing-altitude-card",
-      "highlights": [
-        "任何国家的企业可开无限张虚拟 Visa 卡",
-        "创建后立即可用 Apple Pay / Google Pay",
-        "可按员工设置日/周/月/单笔限额",
-        "最高 2% USDC 返现"
-      ],
       "cautions": [
         "仅面向企业，不是个人卡",
         "据第三方信息非美元交易约 1% 费用",
@@ -9345,7 +8164,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -9354,7 +8172,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Slash Global Card",
     "net": "Visa",
     "img": "cards/mkt-slash.webp",
-    "remote": "/card-art/SLASH-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -9364,12 +8181,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Slash Global Card",
       "kyc": "面向企业",
       "applyUrl": "https://www.slash.com/products/globalcards",
-      "highlights": [
-        "非美国企业无需注册美国公司即可获得美元 Visa 卡",
-        "资金以 Slash 自有稳定币 USDSL 持有，转换由 Rain 在后台完成",
-        "美元消费卡费为 0",
-        "美国企业另有以 FDIC 保险支票账户扣款的 Slash Card"
-      ],
       "cautions": [
         "外币交易 1%、跨境交易 1%",
         "稳定币出入金费用最高 1.5%",
@@ -9419,7 +8230,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -9428,7 +8238,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "MPay Card",
     "net": "Visa",
     "img": "cards/mkt-mpay.webp",
-    "remote": "/card-art/MPAY-CARD-202608.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -9438,12 +8247,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "MPay Card",
       "kyc": "KYC",
       "applyUrl": "https://www.mpay.cards/",
-      "highlights": [
-        "连接钱包、充值稳定币后约 5 分钟出卡",
-        "USDT 支持 BEP20/ERC20/TRC20，USDC 支持 BEP20/ERC20/Base",
-        "多数用户免 KYC",
-        "CVV 与有效期默认隐藏"
-      ],
       "cautions": [
         "官网 mpay.cards 为前端渲染页面，未公开费率表",
         "充值、交易、外汇、ATM 费用均未公开",
@@ -9493,7 +8296,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -9502,7 +8304,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "NAKA Card / NAKA+ Visa Platinum Card",
     "net": "Visa",
     "img": "cards/mkt-naka.webp",
-    "remote": "/card-art/NAKA-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -9515,12 +8316,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "开卡免费（据第三方）",
       "kyc": "未公开",
       "applyUrl": "https://naka.com/blog/naka-visa-platinum-card-launch",
-      "highlights": [
-        "从自托管钱包直接消费，用户保持资金控制权",
-        "支持 Apple Pay / Google Pay",
-        "NAKA+ Visa Platinum 可做品牌化白标卡",
-        "Visa 全球 1.5 亿+ 商户可用"
-      ],
       "cautions": [
         "据第三方约 1.25% 外汇加价",
         "充值需支付链上 Gas",
@@ -9578,7 +8373,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -9587,7 +8381,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Amp Black Card（Amp Pay）",
     "net": "Visa",
     "img": "cards/mkt-amp-black.webp",
-    "remote": "/card-art/AMP-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -9600,10 +8393,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://www.getamppay.com/",
       "status": "已关闭",
-      "highlights": [
-        "曾为 Solana 自托管钱包 + Visa 卡",
-        "曾宣传最高 4% 返现与高息储蓄"
-      ],
       "cautions": [
         "官网已公告 Amp Pay App 停止运营",
         "用户需将资金转至其他 Solana 钱包或导出私钥",
@@ -9653,7 +8442,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -9662,7 +8450,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Keytom Card",
     "net": "Visa",
     "img": "cards/mkt-keytom.webp",
-    "remote": "/card-art/KEYTOM-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -9675,12 +8462,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡开卡免费",
       "kyc": "KYC",
       "applyUrl": "https://keytom.com/card",
-      "highlights": [
-        "单笔最高可消费 $150,000",
-        "个人与企业账户均可开卡",
-        "同一账户持有法币与加密资产，提供欧元 IBAN",
-        "消费时自动货币转换"
-      ],
       "cautions": [
         "美元消费收 1%（最低 0.66 USDC），非美元 2.35%",
         "每月 10 USDC 卡费，实体卡再加 10 USDC/月",
@@ -9738,7 +8519,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -9747,7 +8527,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Sana Visa Signature Card",
     "net": "Visa",
     "img": "cards/mkt-sana.webp",
-    "remote": "/card-art/SANA-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -9757,12 +8536,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Sana Visa Signature Card",
       "kyc": "KYC",
       "applyUrl": "https://card.sana.money/",
-      "highlights": [
-        "每张卡有独立链上抵押地址，USDC/USDT 可随时存取",
-        "USDC 消费 0% 外汇加价（官网）",
-        "支持 Apple Pay / Google Pay",
-        "可通过 Sana API 为用户或 AI Agent 编程发卡"
-      ],
       "cautions": [
         "国际卡条款允许外汇费最高 3% + 跨境费最高 3%（据搜索摘要）",
         "目前仅虚拟卡，实体卡即将推出",
@@ -9824,7 +8597,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -9833,7 +8605,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "OG Card（OgbcPay）",
     "net": "Visa",
     "img": "cards/mkt-og.webp",
-    "remote": "/card-art/OG-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -9843,12 +8614,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "OG Card（OgbcPay）",
       "kyc": "KYC",
       "applyUrl": "https://ogcard.io/",
-      "highlights": [
-        "可用 USDT、USDC、BTC、ETH 直接消费，无需预先兑换法币",
-        "虚拟卡与实体卡，实体卡支持 ATM 取现",
-        "支持 Apple Pay / Google Pay",
-        "App 内转账/赠送零手续费"
-      ],
       "cautions": [
         "官网未公开费率表",
         "托管模式，资金由平台持有",
@@ -9902,7 +8667,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -9911,7 +8675,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Phantom Debit Card（Phantom Cash）",
     "net": "Visa",
     "img": "cards/mkt-phantom-cash.webp",
-    "remote": "/card-art/PHANTOM-CASH-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -9923,12 +8686,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "发卡免费",
       "kyc": "KYC",
       "applyUrl": "https://help.phantom.com/articles/use-your-virtual-phantom-debit-card-us-only-44800221533459",
-      "highlights": [
-        "直接花费 Phantom Cash 中的 CASH 稳定币余额",
-        "美国境内消费免费",
-        "支持 Apple Pay / Google Pay",
-        "可用借记卡、银行或 Solana 上的 USDT/USDC/PYUSD 入金"
-      ],
       "cautions": [
         "仅限美国（不含纽约州）",
         "境外消费 1% + $0.30",
@@ -9986,7 +8743,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -9995,7 +8751,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "The Bitcoin Company Prepaid Cards",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-the-bitcoin-company.webp",
-    "remote": "/card-art/THE-BITCOIN-COMPANY-CARD.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -10007,12 +8762,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "按显示价格购买",
       "kyc": "未公开",
       "applyUrl": "https://thebitcoincompany.com/",
-      "highlights": [
-        "可用比特币闪电网络或链上支付购买预付卡",
-        "购买返比特币奖励，可提取到闪电/链上钱包",
-        "价格所见即所得",
-        "也提供各类礼品卡"
-      ],
       "cautions": [
         "Visa 预付卡仅限美国领取和使用",
         "Mastercard 预付卡在美国境外或非 USD 消费收 $2 + 2.5%",
@@ -10070,7 +8819,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -10079,7 +8827,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Decaf Card",
     "net": "Visa",
     "img": "cards/mkt-decaf.webp",
-    "remote": "/card-art/DECAF-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -10092,12 +8839,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡 $5",
       "kyc": "需完整身份验证",
       "applyUrl": "https://www.decaf.so",
-      "highlights": [
-        "用 USDC 在 Visa 商户消费",
-        "统一余额可从 Solana 或 Stellar 扣款，无额外跨链路由费",
-        "可手动添加至 Apple Pay / Google Pay",
-        "另有企业版 Visa Business Card"
-      ],
       "cautions": [
         "实体卡在美国以外费用较高（约 $90）",
         "按 Visa 汇率，ATM 运营方可能另收费",
@@ -10159,7 +8900,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -10168,7 +8908,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "HypurrFi Card",
     "net": "Visa",
     "img": "cards/mkt-hypurrfi.webp",
-    "remote": "/card-art/HYPURRFI-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -10181,11 +8920,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://app.hypurrfi.com/card",
       "status": "已关闭",
-      "highlights": [
-        "曾为 Hyperliquid 首张链上信用卡",
-        "消费时以链上抵押物实时借款，无需卖币或预充值",
-        "无信用审查"
-      ],
       "cautions": [
         "HypurrFi 于 2026-05-15 宣布清盘，卡片与积分计划同步终止",
         "借贷仓位迁移至 Euler，清盘目标完成日 2026-07-30",
@@ -10239,7 +8973,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -10248,7 +8981,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Swissquote Debit Mastercard（Light / Bright / Elite）",
     "net": "Mastercard",
     "img": "cards/mkt-swissquote.webp",
-    "remote": "/card-art/SWISSQUOTE-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -10260,12 +8992,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "Light 免费",
       "kyc": "KYC",
       "applyUrl": "https://www.swissquote.com/en-ch/private/bank/products/debit-cards",
-      "highlights": [
-        "可直接用 BTC、ETH、XRP 等加密资产支付",
-        "持牌瑞士银行发行",
-        "返现以交易额度（Trading Credit）发放",
-        "无交易手续费"
-      ],
       "cautions": [
         "13 种主要货币兑换收 0.95%，其他货币 Mastercard 汇率 + 1.5%",
         "返现只能用于交易，不是现金",
@@ -10323,7 +9049,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -10332,7 +9057,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Jeton Card",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-jeton.webp",
-    "remote": "/card-art/ucard/jeton-landscape-ai.png",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -10344,12 +9068,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡 0.99 USD/EUR",
       "kyc": "KYC",
       "applyUrl": "https://www.jeton.com/fees",
-      "highlights": [
-        "可选 Mastercard、银联或 Visa 卡种",
-        "最多可开 25 张附加虚拟卡",
-        "支持加密货币入金后转换为法币使用",
-        "ATM 单笔上限 $700、月上限 $10,000"
-      ],
       "cautions": [
         "加密货币需先兑换为法币才能刷卡",
         "ATM 取现英国 0.5%，境外 0.5% + 2%（据搜索摘要）",
@@ -10407,7 +9125,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -10416,7 +9133,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Kontigo Card",
     "net": "Visa",
     "img": "cards/mkt-kontigo.webp",
-    "remote": "/card-art/KONTIGO-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -10427,12 +9143,6 @@ export const U_CARDS: UCardItem[] = [
       "cashback": "无",
       "kyc": "未公开",
       "applyUrl": "https://www.kontigo.com/en",
-      "highlights": [
-        "官网称为“首张可赚 8% 收益的国际 USDC 信用/借记卡”",
-        "主打拉美用户的境外线上消费",
-        "支持 Google Pay",
-        "Kontigo Cash 为自托管 USDC 钱包"
-      ],
       "cautions": [
         "日消费上限 $500、月 $5,000，每日最多 12 笔（媒体报道）",
         "官方未公开完整费率；第三方称钱包转入卡收 0.15%",
@@ -10482,7 +9192,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -10491,7 +9200,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Pera Card",
     "net": "Mastercard",
     "img": "cards/mkt-pera.webp",
-    "remote": "/card-art/PERA-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -10504,11 +9212,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://perawallet.app/pera-card/",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "原卡可直接花费 Algorand 上的 USDC",
-        "新版承诺覆盖更多国家、与钱包原生集成",
-        "通过 Pera Connect 加入候补名单"
-      ],
       "cautions": [
         "原 Pera Card（Immersve）已于 2026-04-03 停止使用（第三方）",
         "新版仅有候补名单，费率、国家、发卡方均未公布",
@@ -10554,7 +9257,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -10563,7 +9265,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "BloFin Wallet Card",
     "net": "Visa",
     "img": "cards/mkt-blofin.webp",
-    "remote": "/card-art/BLOFIN-CARD.webp",
     "tags": [
       "U卡",
       "Visa"
@@ -10575,12 +9276,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "目前无开卡/补卡费",
       "kyc": "KYC",
       "applyUrl": "https://wallet.blofin.com/en/card",
-      "highlights": [
-        "Rain 发卡，Visa 全球商户可用",
-        "存入的资产可作为信用额度抵押（Credit 模式）或直付",
-        "无年费、无发卡费、无闲置费",
-        "无固定消费上限"
-      ],
       "cautions": [
         "消费手续费 0–1%，按 VIP 等级；另有约 1% 外汇费和 0.9% 加密兑换费（搜索摘要）",
         "卡内资金目前无法提回",
@@ -10634,7 +9329,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     }
   },
   {
@@ -10642,7 +9336,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "PEXX Virtual Mastercard",
     "net": "Mastercard",
     "img": "cards/mkt-pexx.webp",
-    "remote": "/card-art/PEXX-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -10654,12 +9347,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "无激活费",
       "kyc": "KYC",
       "applyUrl": "https://pexx.com/card",
-      "highlights": [
-        "可用 USDT、USDC 或 USD 充值",
-        "支持 Apple Pay / Google Pay",
-        "审批后 5–10 分钟出卡",
-        "无年费、无充值费"
-      ],
       "cautions": [
         "外汇/跨境 1.2% + 交易费 0.6%，另有 0.10–0.50 美元授权费",
         "最低充值 2 美元",
@@ -10717,7 +9404,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -10726,7 +9412,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Machines Cash Card",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-machines.webp",
-    "remote": "/card-art/MACHINES-CARD.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard"
@@ -10736,12 +9421,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://www.machines.cash/",
       "status": "无法确认",
-      "highlights": [
-        "最多 20 张虚拟卡，可设单笔/日/周/月/年/终身限额",
-        "加密资产充值后转为稳定币抵押，商户收到法币",
-        "提供 App、API、CLI 及 Agentic Payments 发卡",
-        "合作方可通过 Privy、Crossmint、Openfort 等钱包接入"
-      ],
       "cautions": [
         "2026-10-09 访问官网 machines.cash 返回 402“DEPLOYMENT_DISABLED”，网站处于下线状态",
         "官方费率未公开",
@@ -10791,7 +9470,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     }
   },
   {
@@ -10799,7 +9477,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Lemon Card",
     "net": "Visa",
     "img": "cards/mkt-lemon.webp",
-    "remote": "/card-art/LEMON-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -10812,12 +9489,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "无申请费、无运费",
       "kyc": "证件",
       "applyUrl": "https://www.lemon.me/lemon_card",
-      "highlights": [
-        "可选 ARS、DAI、USDT、BTC、ETH、USDC 付款，并设备用币种",
-        "消费返比特币",
-        "虚拟卡即时创建，实体卡免费配送",
-        "商户收银台可提取最多 ARS 50,000/日现金"
-      ],
       "cautions": [
         "仅限持阿根廷证件用户",
         "用加密货币支付收 0.5% 手续费",
@@ -10875,7 +9546,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -10884,7 +9554,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Odix Card（White / Black / 高阶档 / Purple）",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-odix.webp",
-    "remote": "/card-art/ODIX-CARD.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -10894,12 +9563,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Odix Card（White / Black / 高阶档 / Purple）",
       "kyc": "KYC",
       "applyUrl": "https://odixpay.com/card",
-      "highlights": [
-        "多档卡：White、Black 为塑料卡，日限 $200,000；顶级档为金属卡，日限 $1,000,000",
-        "可线上、线下及 ATM 使用",
-        "多币种钱包与货币兑换",
-        "有 Mastercard Purple 档"
-      ],
       "cautions": [
         "Google Play 介绍称其为消费工具，而非加密钱包或交易平台",
         "官网仅写“Fees and limits apply”，未公开具体费率",
@@ -10949,7 +9612,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -10958,7 +9620,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "MPCVault Card",
     "net": "Visa",
     "img": "cards/mkt-mpcvault.webp",
-    "remote": "/card-art/MPCVAULT-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -10970,12 +9631,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "每张卡 1 USDC",
       "kyc": "KYC",
       "applyUrl": "https://docs.mpcvault.com/guides/29-how-to-use-an-mpcvault-card",
-      "highlights": [
-        "可无限创建虚拟卡分配给团队成员",
-        "每张卡单独设消费限额并保留交易记录",
-        "可用 Ethereum、Polygon、Solana 上的 USDC 充值",
-        "与美国商户的美元交易 0% 国际费"
-      ],
       "cautions": [
         "每次充值 3 USDC + 0.5%",
         "国际交易最高 3%",
@@ -11037,7 +9692,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -11046,7 +9700,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "TXBFI Card（Virtual / Plastic / Metal / Gold）",
     "net": "Visa",
     "img": "cards/mkt-txbfi.webp",
-    "remote": "/card-art/TXBFI-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -11059,12 +9712,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "一次性开卡费：Virtual $25…",
       "kyc": "未公开",
       "applyUrl": "https://txbfi.com/card-tiers",
-      "highlights": [
-        "支持 BTC、SOL、SUI、XRP、XLM、USDT、USDC 充值",
-        "所有档位支持 Visa 网络与 Apple Pay / Google Pay（实体卡页面仅列 Google Pay）",
-        "外汇费 0.6%",
-        "实体卡支持 ATM，日限 $1,000–$1,500"
-      ],
       "cautions": [
         "充值费 1.8%–2.6%（按档位）",
         "开卡费较高，实体卡数百美元起",
@@ -11122,7 +9769,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -11131,7 +9777,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Antarctic Wallet Card（Card for Everything 虚拟卡 / SGD 实体卡）",
     "net": "Mastercard",
     "img": "cards/mkt-antarctic-wallet.webp",
-    "remote": "/card-art/ANTARCTIC-WALLET.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -11144,12 +9789,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡 9.99 USD",
       "kyc": "KYC",
       "applyUrl": "https://antarcticwallet.com/",
-      "highlights": [
-        "可在 App 或 Telegram Bot 中开卡",
-        "支持 Apple Pay / Google Pay",
-        "适合订阅、旅行和线上服务",
-        "TON 网络 USDT 充值免费"
-      ],
       "cautions": [
         "卡片充值收 3%，每笔消费 0.50 USD",
         "非 SGD 消费可能另收 0–3% 卡组织费用",
@@ -11207,7 +9846,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -11216,7 +9854,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Bitsa Card（Free / Move / Pro）",
     "net": "Visa",
     "img": "cards/mkt-bitsa.webp",
-    "remote": "/card-art/BITSA-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -11228,12 +9865,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "实体卡 €20",
       "kyc": "未公开",
       "applyUrl": "https://bitsacard.com/en/plans",
-      "highlights": [
-        "在 App 内把加密货币兑换为欧元余额后消费",
-        "三档套餐可选",
-        "支持外部银行卡充值（有免费额度）",
-        "Visa 全球可用"
-      ],
       "cautions": [
         "欧元区外消费 1.75%，其他 2%",
         "非欧元 ATM 取现 €0.55 + 1%（最低 €0.75）",
@@ -11291,7 +9922,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -11300,7 +9930,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Solflare Card",
     "net": "Mastercard",
     "img": "cards/mkt-solflare.webp",
-    "remote": "/card-art/SOLFLARE-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -11313,10 +9942,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "需要 KYC",
       "applyUrl": "https://www.solflare.com/crypto-card/",
       "status": "已停止申请",
-      "highlights": [
-        "原 Kulipa 发卡的 Solflare Standard Mastercard 已于 2026-07-28 暂停；旧卡不会迁移，新卡计划需重新核对。",
-        "明确支持：Google Pay"
-      ],
       "cautions": [
         "核验方案：Standard Mastercard 实体＋虚拟",
         "来源未能确认中国大陆居民当前申请资格，不将全球消费范围当作可申请范围",
@@ -11394,34 +10019,7 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-05。",
       "cardFee": "有条件",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "集卡 · 对应卡片资料",
-          "url": "https://card.lengziyu.cn/card/solflare"
-        },
-        {
-          "label": "官方网站",
-          "url": "https://www.solflare.com/crypto-card/"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://help.solflare.com/en/articles/12866865-funding-and-using-your-solflare-card"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://help.solflare.com/en/articles/12890985-understanding-solflare-card-foreign-exchange-fx-fees"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://ranked.plus/_serverFn/be96b738cf59ba8bfd779130d0163fee84df1cd2bac1a3e48f4d947f51db71b9"
-        }
-      ],
       "kycRequirements": {
         "idCard": "待确认",
         "passport": "待确认",
@@ -11438,7 +10036,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Cash App Card",
     "net": "Visa",
     "img": "cards/mkt-cash-app.webp",
-    "remote": "/card-art/CASH.APP-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -11450,12 +10047,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "标准卡免费",
       "kyc": "KYC",
       "applyUrl": "https://cash.app/card",
-      "highlights": [
-        "免费 Visa 借记卡，无隐藏费用",
-        "Boosts 即时商户折扣",
-        "可通过 Bitcoin offers 赚比特币",
-        "满足 Cash App Green 条件可报销 ATM 费等"
-      ],
       "cautions": [
         "外币交易收 3%",
         "ATM 取现 $2.50 + 运营方费用",
@@ -11518,7 +10109,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -11527,7 +10117,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "TopNod Card（TopNod × UR 联名 Mastercard）",
     "net": "Mastercard",
     "img": "cards/mkt-topnod.webp",
-    "remote": "/card-art/TOPNOD-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -11539,12 +10128,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "无发卡费（第三方）",
       "kyc": "未公开",
       "applyUrl": "https://ur.app/blog/announcements/ur-topnod",
-      "highlights": [
-        "在 TopNod 钱包内直接把数字资产与链上收益转为可消费法币",
-        "不需交出资产托管权",
-        "USDC 与 USD 1:1 兑换、零费用（第三方）",
-        "2026-03-30 宣布推出"
-      ],
       "cautions": [
         "跨币种消费可能有 0–2% 外汇费（第三方）",
         "不支持 ATM 取现（第三方）",
@@ -11602,7 +10185,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -11611,7 +10193,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Ripio Card",
     "net": "Visa",
     "img": "cards/mkt-ripio.webp",
-    "remote": "/card-art/RIPIO-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -11624,12 +10205,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡与实体卡免费",
       "kyc": "KYC",
       "applyUrl": "https://www.ripio.com/es/productos/cripto-card",
-      "highlights": [
-        "可用加密货币或比索支付",
-        "返现以 USDT、BTC 或 ETH 发放",
-        "可在 ATM、超市、加油站提取现金",
-        "虚拟卡即时可用"
-      ],
       "cautions": [
         "返现有每月 ARS 50,000 上限",
         "主要面向阿根廷用户",
@@ -11683,7 +10258,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -11692,7 +10266,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "OrbitX Card（Neo / Lux）",
     "net": "Visa",
     "img": "cards/mkt-orbitx.webp",
-    "remote": "/card-art/ORBITX-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -11704,12 +10277,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Neo 实体塑料卡 $100",
       "kyc": "未公开",
       "applyUrl": "https://orbitxpay.com/individual",
-      "highlights": [
-        "Neo 为 Visa Platinum，Lux 为 Visa Signature",
-        "稳定币抵押在非托管钱包中，额度按抵押计算",
-        "USDT/USDC，支持 Polygon、Base（Solana、Tron 即将支持）",
-        "充值免费，Neo 日消费上限 $50,000"
-      ],
       "cautions": [
         "非美元消费外汇费 Neo 2% / Lux 1%",
         "ATM：基础 ATM 费 + 2% + $2，Neo 日限 $500",
@@ -11767,7 +10334,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -11776,7 +10342,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Mercuryo Spend Card",
     "net": "Mastercard",
     "img": "cards/mkt-mercuryo-spend.webp",
-    "remote": "/card-art/MERCURYO-CARD2.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -11790,10 +10355,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://mercuryo.io/explore/announcements/cryptopowered-freedom-starts-with-spend-mercuryo-launches-spend-card-compatible-with-ledger",
       "status": "已关闭",
-      "highlights": [
-        "曾与 Ledger Live 集成，从硬件钱包生态直接消费",
-        "停运前无发卡费"
-      ],
       "cautions": [
         "Spend 卡项目已终止：卡片最后可用日 2026-07-10，账户 2026-07-11 关闭",
         "剩余余额需联系 Paynetics（support@paynetics.digital）提供欧盟银行账户退款，可能扣除关闭费用"
@@ -11842,7 +10403,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -11851,7 +10411,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Ruvo Card",
     "net": "Visa",
     "img": "cards/mkt-ruvo.webp",
-    "remote": "/card-art/RUVO-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -11862,12 +10421,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "开户与账户维护免费",
       "kyc": "未公开",
       "applyUrl": "https://ruvo.com/cards",
-      "highlights": [
-        "美元消费无 IOF、无外汇加价",
-        "可用 BRL（Pix）、USD 或加密货币充值，后台转为数字美元",
-        "支持 Apple Pay / Google Pay",
-        "余额担保型信用卡，额度等于账户余额"
-      ],
       "cautions": [
         "非美元消费收 1% + 汇率",
         "USDT 兑换 USD/BRL：个人 0.5%、企业 0.3%",
@@ -11921,7 +10474,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -11930,7 +10482,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Fuse Card",
     "net": "Visa",
     "img": "cards/mkt-fuse.webp",
-    "remote": "/card-art/FUSE-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -11942,12 +10493,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "无发卡费",
       "kyc": "KYC",
       "applyUrl": "https://fusewallet.com/support/fuse-visa-card",
-      "highlights": [
-        "无充值费、无刷卡交易费",
-        "智能账户强制日限额（最高 $2,000），保护卡内余额",
-        "可添加至 Apple Pay",
-        "主账户与卡账户分离，提回主账户有 5 分钟安全锁"
-      ],
       "cautions": [
         "不支持 ATM 取现",
         "移动 USDC 可能产生 Solana 网络费；ACH/SEPA 等法币通道约 $1（第三方）",
@@ -12009,7 +10554,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -12018,7 +10562,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "CoinW Card",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-coinw.webp",
-    "remote": "/card-art/COINW-CARD.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -12031,12 +10574,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "促销期免发卡费",
       "kyc": "KYC",
       "applyUrl": "https://www.coinw.com/crypto-card",
-      "highlights": [
-        "5 分钟申请并开始消费",
-        "支持 Apple Pay、Google Pay、Samsung Pay",
-        "有虚拟卡与实体卡多种选择",
-        "官网称 170+ 国家、5,000 万商户可用"
-      ],
       "cautions": [
         "充值费：实体卡约 2%、虚拟卡约 1.5%（第三方）",
         "实体卡 ATM 每次 $5（第三方）",
@@ -12094,7 +10631,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -12103,7 +10639,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Zoomex Card",
     "net": "Mastercard",
     "img": "cards/mkt-zoomex.webp",
-    "remote": "/card-art/ZOOMEX-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -12115,11 +10650,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免发卡费",
       "kyc": "未公开",
       "applyUrl": "https://www.zoomex.com/en/card",
-      "highlights": [
-        "多币种虚拟卡，与卡余额同币种消费免费",
-        "资金由受 FINMA 监管的瑞士机构 UR 持有（第三方）",
-        "免发卡费、无年费"
-      ],
       "cautions": [
         "跨币种消费收 1% 外汇费 + Mastercard 兑换成本",
         "仅虚拟卡，不支持 ATM",
@@ -12177,7 +10707,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -12186,7 +10715,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "MiniPay Card",
     "net": "Visa",
     "img": "cards/mkt-minipay.webp",
-    "remote": "/card-art/MINIPAY-CRAD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -12198,13 +10726,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "无月费、无年费",
       "kyc": "未公开",
       "applyUrl": "https://minipay.to/card",
-      "highlights": [
-        "自托管：余额留在钱包内，付款时才扣款",
-        "消费返现 5%（以数字黄金 XAUt 或 USDC 发放）",
-        "支持 Apple Pay / Google Pay 非接触支付",
-        "支持 USDT、USDC、mUSD 直接消费，多链充值免手续费",
-        "无订阅、无质押、无等级门槛"
-      ],
       "cautions": [
         "仅限部分 EEA、非洲、拉美、东南亚市场的合格用户",
         "自 2026-09-25 起返现每月封顶 100 美元，部分商户类别不计返现",
@@ -12259,7 +10780,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -12268,7 +10788,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Xverse Card",
     "net": "Mastercard",
     "img": "cards/mkt-xverse.webp",
-    "remote": "/card-art/XVERSE-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -12279,12 +10798,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://xverse.app/card/waitlist",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "与 Xverse Cash 稳定币余额直连消费",
-        "可自动以 BTC 抵押借 USDC 消费，无需卖出比特币",
-        "资产保留在自托管钱包内",
-        "官方称将可在 Visa 或 Mastercard 受理处使用"
-      ],
       "cautions": [
         "目前仅限候补名单，首批（founding cohort）候补名单已于 2026 年 7 月底前截止",
         "费率、返现、地区和 KYC 细节均未公开",
@@ -12330,7 +10843,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -12339,7 +10851,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "BenPay Card",
     "net": "",
     "img": "cards/mkt-benpay.webp",
-    "remote": "/card-art/BENPAY-CARD.webp",
     "tags": [
       "U卡",
       "自托管"
@@ -12350,13 +10861,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "三种卡均为零年费",
       "kyc": "证件",
       "applyUrl": "https://www.benpay.com/card",
-      "highlights": [
-        "自托管，钱包签名授权卡片访问",
-        "单卡额度起步 20 万美元",
-        "10+ 条链 USDT/USDC 直接充提",
-        "官方博客称可绑定 Apple Pay、Google Pay、支付宝、微信支付",
-        "余额自动链上生息，按日结算"
-      ],
       "cautions": [
         "三档卡费率结构不同：Alpha 免充值费、Sigma 免年费、Delta 免消费费（仍有授权费）",
         "收益来自链上策略，存在智能合约风险",
@@ -12406,7 +10910,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -12415,7 +10918,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Trade Republic Card",
     "net": "Visa",
     "img": "cards/mkt-trade-republic.webp",
-    "remote": "/card-art/TRADE-REPUBLIC-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -12428,12 +10930,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费",
       "kyc": "未公开",
       "applyUrl": "https://traderepublic.com/card",
-      "highlights": [
-        "1% Saveback 自动投资股票/ETF/加密",
-        "外币消费及境外 ATM 无换汇费",
-        "Round-up 零钱自动投资",
-        "账户未用余额可获利息"
-      ],
       "cautions": [
         "Saveback 每月封顶 15 欧元，且需维持每月 50 欧元定投",
         "ATM 单笔取现低于 100 欧元收 1 欧元",
@@ -12496,7 +10992,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -12505,7 +11000,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "GEME × KOLO Partner Card",
     "net": "Visa",
     "img": "cards/mkt-geme.webp",
-    "remote": "/card-art/GEME-CARD.webp",
     "tags": [
       "U卡",
       "Visa"
@@ -12516,12 +11010,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "GEME 官网称虚拟卡免费（FREE…",
       "kyc": "KYC",
       "applyUrl": "https://gemewallet.com/en",
-      "highlights": [
-        "GEME 官网宣传可免费申请虚拟卡",
-        "可用 BTC、ETH、USDT、USDC 等多种加密资产消费，付款时实时换汇",
-        "Kolo 宣称 USDT、USDC、EURC 消费 0% 加价",
-        "支持 Apple Pay / Google Pay"
-      ],
       "cautions": [
         "GEME 本身是钱包，实际发卡与资金处理由 Kolo 负责，卡内资金托管方式未明确",
         "返现比例、限额、ATM 等细节以 Kolo 为准，GEME 端未单独公布",
@@ -12575,7 +11063,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     }
   },
   {
@@ -12583,7 +11070,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Coin98 Fusion Card",
     "net": "Visa",
     "img": "cards/mkt-coin98-fusion.webp",
-    "remote": "/card-art/COIN98-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -12595,13 +11081,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "一次性开卡费（用 USDT/USDC…",
       "kyc": "护照",
       "applyUrl": "https://docs.coin98.com/products/physical-cards/fusion-card/visa-card",
-      "highlights": [
-        "在 Coin98 Super Wallet 内开卡与充值",
-        "支持 Apple Pay / Google Pay",
-        "可在 ATM 取现，单日上限 SGD 10,000",
-        "12 个月滚动消费额度 SGD 200,000",
-        "卡与手机号绑定，丢失钱包助记词也可继续消费"
-      ],
       "cautions": [
         "每笔充值收 1% 手续费（Coin98 与 DCS）",
         "ATM 取现每笔收 1% 或 SGD 5（取高者）",
@@ -12660,7 +11139,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -12669,7 +11147,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Firma Card",
     "net": "Mastercard",
     "img": "cards/mkt-firma.webp",
-    "remote": "/card-art/FIRMA-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -12680,11 +11157,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://firma.cash",
       "status": "无法确认",
-      "highlights": [
-        "自托管，稳定币 1:1 现金储备支持",
-        "基于 eCash UTXO 架构，转账免 Gas、即时结算",
-        "支持 CHF、EUR、USD 三种稳定币"
-      ],
       "cautions": [
         "eCash 官方 2026-07 公告称支付卡属于“未来版本”功能，尚未上线",
         "官网目前主推企业账户，未找到卡片产品页",
@@ -12726,7 +11198,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -12735,7 +11206,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "DogPay Card",
     "net": "Visa",
     "img": "cards/mkt-dogpay.webp",
-    "remote": "/card-art/DOGPAY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -12746,12 +11216,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "官方博客（2025）称虚拟卡开卡 5…",
       "kyc": "KYC",
       "applyUrl": "https://dogpay.com/us/cards",
-      "highlights": [
-        "虚拟卡 + 实体卡，线上线下均可用",
-        "USDT 充值后在 App 内兑换入卡",
-        "符合条件可绑定 Apple Pay / Google Pay",
-        "官方列举可用于 ChatGPT、Midjourney、Netflix、Google Ads、Meta 广告等"
-      ],
       "cautions": [
         "官方博客称 USDT 充值入卡收 1% 手续费",
         "可用性取决于地区、KYC、账户审核与发卡方规则",
@@ -12805,7 +11269,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -12814,7 +11277,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Cartão Bipa",
     "net": "Mastercard",
     "img": "cards/mkt-bipa.webp",
-    "remote": "/card-art/BIPA-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -12825,12 +11287,6 @@ export const U_CARDS: UCardItem[] = [
       "cashback": "0%",
       "kyc": "KYC",
       "applyUrl": "https://produtos.bipa.app/cartao-bitcoin",
-      "highlights": [
-        "信用卡或预付卡两种模式",
-        "可用雷亚尔、BTC 或 USDT 作为担保获得额度",
-        "消费返比特币（Satsback）",
-        "返现比例随订阅计划提升"
-      ],
       "cautions": [
         "以雷亚尔消费，BTC/USDT 仅作担保或余额，并非直接以加密支付",
         "高返现需付费订阅计划",
@@ -12880,7 +11336,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -12889,7 +11344,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Whop Cards",
     "net": "Visa",
     "img": "cards/mkt-whop.webp",
-    "remote": "/card-art/WHOP.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -12901,12 +11355,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "官方称无额外费用（No extra fe…",
       "kyc": "KYC",
       "applyUrl": "https://docs.whop.com/whop-finance/cards",
-      "highlights": [
-        "直接花 Whop 平台余额，无需提现到银行",
-        "待结算（pending）余额也可即时用于刷卡",
-        "可为员工发卡并设置单卡限额",
-        "支持 Apple Pay / Google Wallet"
-      ],
       "cautions": [
         "主要面向 Whop 平台上的商家/创作者",
         "美国仅部分州支持，另有不支持国家清单",
@@ -12956,7 +11404,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -12965,7 +11412,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "TakeCard",
     "net": "Visa",
     "img": "cards/mkt-takenos.webp",
-    "remote": "/card-art/TAKENOS-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -12977,12 +11423,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡激活 5 美元",
       "kyc": "未公开",
       "applyUrl": "https://takenos.com/tarjeta-internacional",
-      "highlights": [
-        "美元计价，美元消费 1:1 无汇率调整",
-        "适合线上订阅、购物、旅行",
-        "面向接收海外收入的拉美自由职业者",
-        "实体卡可 ATM 取现"
-      ],
       "cautions": [
         "每笔消费收 1% 手续费",
         "非美元消费按 Visa 当日汇率换算",
@@ -13045,7 +11485,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -13054,7 +11493,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Hana Card",
     "net": "Mastercard",
     "img": "cards/mkt-hana.webp",
-    "remote": "/card-art/HANA-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -13066,12 +11504,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "第三方整理称无开卡费",
       "kyc": "未公开",
       "applyUrl": "https://www.hanawallet.io/",
-      "highlights": [
-        "非托管多链钱包，私钥用户自持",
-        "虚拟 Mastercard，可用 USDC 消费",
-        "支持 Apple Pay / Google Pay",
-        "澳洲发卡可在海外使用"
-      ],
       "cautions": [
         "目前仅澳大利亚开放，其他国家为候补名单（第三方整理）",
         "第三方整理称非美元商户交易收 1.5%",
@@ -13129,7 +11561,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -13138,7 +11569,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "MXI Card",
     "net": "Mastercard",
     "img": "cards/mkt-mxi.webp",
-    "remote": "/card-art/MXI-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard"
@@ -13148,12 +11578,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://apps.apple.com/us/app/mxi/id6755379177",
       "status": "无法确认",
-      "highlights": [
-        "App 内提供即时虚拟卡（Smart Virtual Card）",
-        "提供美元虚拟银行账户，可收 ACH/电汇",
-        "支持 USDC 稳定币收付",
-        "官方称覆盖 100+ 国家"
-      ],
       "cautions": [
         "卡组织、发卡方、费率均未公开",
         "早期白皮书中的 MXI 加密借记卡概念与当前产品不同",
@@ -13203,7 +11627,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     }
   },
   {
@@ -13211,7 +11634,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "UR Card",
     "net": "Mastercard",
     "img": "cards/mkt-ur.webp",
-    "remote": "/card-art/UR-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -13223,12 +11645,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://ur.app",
       "status": "无法确认",
-      "highlights": [
-        "瑞士个人 IBAN，支持 EUR、USD、CHF、CNH、SGD、JPY、HKD 等 7 种货币",
-        "以同币种余额消费不收 FX 费（第三方整理）",
-        "官方称可加入 Apple Pay、Google Pay 等",
-        "可通过 SWIFT/SEPA/SIC 及链上法币代币出入金"
-      ],
       "cautions": [
         "第三方（CryptoCardHub 2026-08）称新用户注册暂停、加密-法币兑换暂停",
         "官网已转向 B2B 基础设施定位",
@@ -13291,7 +11707,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -13300,7 +11715,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "NBS Card（Neobankless Visa Infinite）",
     "net": "Visa",
     "img": "cards/mkt-neobankless.webp",
-    "remote": "/card-art/NEOBANKLESS-CARD2.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -13310,12 +11724,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "NBS Card（Neobankless Visa Infinite）",
       "kyc": "KYC",
       "applyUrl": "https://www.neobankless.com",
-      "highlights": [
-        "美元全球账户，官方称 IOF 为零",
-        "Visa Infinite 卡",
-        "消费返现以美股/黄金形式发放",
-        "钱包层自托管（基于 Privy 技术），支持 PIX 与 USDC 互换"
-      ],
       "cautions": [
         "自托管仅指钱包层，NBS 仍可因合规/风控冻结账户或拦截交易",
         "用户丢失凭证后 NBS 无法恢复资产",
@@ -13365,7 +11773,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -13374,7 +11781,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Bit2Me Card",
     "net": "Mastercard",
     "img": "cards/mkt-bit2me.webp",
-    "remote": "/card-art/BIT2ME-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -13387,12 +11793,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费",
       "kyc": "KYC",
       "applyUrl": "https://bit2me.com/card",
-      "highlights": [
-        "可绑定加密钱包或欧元钱包消费",
-        "加密消费返 B2M，最高 7%",
-        "支持 Apple Pay / Google Pay（免费）",
-        "无月费、无注销费"
-      ],
       "cautions": [
         "加密钱包消费每笔收 0.95%",
         "非欧元 SEPA 币种 1.75%，全球其他币种 2%",
@@ -13455,7 +11855,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -13464,7 +11863,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Blackcat Card",
     "net": "Mastercard",
     "img": "cards/mkt-blackcat.webp",
-    "remote": "/card-art/BLACKCAT-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -13476,12 +11874,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "发卡免费、标准寄送免费",
       "kyc": "未公开",
       "applyUrl": "https://blackcat.app/cards",
-      "highlights": [
-        "欧元 IBAN 账户 + 实体卡/虚拟卡",
-        "内置 BTC、ETH、USDT 买卖与收发",
-        "可绑定 Apple Pay / Google Pay",
-        "可按名字偏好自选印名（True Name）"
-      ],
       "cautions": [
         "本质是欧元卡，加密需先在 App 内兑换",
         "ATM 每月仅 €200 内免费",
@@ -13535,7 +11927,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -13544,7 +11935,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "BonkX Card",
     "net": "Visa",
     "img": "cards/mkt-bonkx.webp",
-    "remote": "/card-art/BONKX-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -13556,12 +11946,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://www.bonkx.io",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "虚拟卡即时开通，实体卡为 Visa Infinite",
-        "Visa Infinite 权益：航班延误、购物保障、延保、租车险、礼宾",
-        "可用法币或加密充值",
-        "会员可每年暂停 60 天不收费"
-      ],
       "cautions": [
         "目前为有限访问的 Beta/候补名单",
         "以加密资产作抵押，价格下跌可能触发清算",
@@ -13611,7 +11995,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -13620,7 +12003,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "UPay Card",
     "net": "Visa",
     "img": "cards/mkt-upay.webp",
-    "remote": "/card-art/UPAY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -13630,12 +12012,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "UPay Card",
       "kyc": "未公开",
       "applyUrl": "https://upay.com/",
-      "highlights": [
-        "支持 BTC、ETH、USDT 消费，实时换汇",
-        "虚拟卡与实体卡可选",
-        "支持 Apple Pay / Google Pay",
-        "实体卡可 ATM 取现"
-      ],
       "cautions": [
         "实体卡非美元交易收 2% 货币转换费",
         "ATM 取现收 1%，日限 $2,000、月限 $10,000",
@@ -13697,7 +12073,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -13706,7 +12081,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "WhiteBIT Nóva Card",
     "net": "Visa",
     "img": "cards/mkt-whitebit.webp",
-    "remote": "/card-art/WHITEBIT-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -13718,12 +12092,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "EUR 卡无月费",
       "kyc": "KYC",
       "applyUrl": "https://whitebit.com/crypto-card",
-      "highlights": [
-        "官网宣传最高 10% 类别返现（BTC/WBT）",
-        "EUR 卡无月费、无开卡/闲置/注销费",
-        "可自选 3 个返现类别",
-        "有 EUR 卡和 USD 卡两种"
-      ],
       "cautions": [
         "返现每月封顶 €25/$25",
         "EUR 卡交易费最高 1%；ATM 欧洲经济区内 €3，区外 €3 + 2.2%",
@@ -13778,7 +12146,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -13787,7 +12154,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Hurupay（现 Kolan）Virtual Card",
     "net": "Visa",
     "img": "cards/mkt-hurupay.webp",
-    "remote": "/card-art/HURUPAY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -13797,12 +12163,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Hurupay（现 Kolan）Virtual Card",
       "kyc": "未公开",
       "applyUrl": "https://kolan.xyz",
-      "highlights": [
-        "收 USD/EUR/GBP，余额以稳定币持有",
-        "数秒生成虚拟 Visa 卡",
-        "可通过本地银行账户、Apple Pay 或加密入金",
-        "同一余额可交易加密、永续合约、预测市场"
-      ],
       "cautions": [
         "hurupay.com 现已跳转为 Kolan，品牌已变更",
         "卡费率未公开",
@@ -13856,7 +12216,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -13865,7 +12224,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "CoinUp UP Card",
     "net": "Mastercard",
     "img": "cards/mkt-coinup.webp",
-    "remote": "/card-art/COINUP.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -13875,12 +12233,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "CoinUp UP Card",
       "kyc": "KYC",
       "applyUrl": "https://www.coinup.io/global/u-card/landing",
-      "highlights": [
-        "App 内申请虚拟 Mastercard",
-        "USDT 充值即时转为美元余额",
-        "可用于线上订阅与移动支付",
-        "官方称使用美国优质 BIN"
-      ],
       "cautions": [
         "仅部分地区开放",
         "费率未公开",
@@ -13930,7 +12282,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -13939,7 +12290,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Tonhub Card",
     "net": "Visa",
     "img": "cards/mkt-tonhub.webp",
-    "remote": "/card-art/TONHUB-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -13949,12 +12299,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Tonhub Card",
       "kyc": "KYC",
       "applyUrl": "https://gettonhub.com/",
-      "highlights": [
-        "Visa 借记卡直连非托管 TON 钱包，私钥自持",
-        "Tonhub 先用自有储备垫付，交易成功后才扣用户资产",
-        "可用 Ledger 硬件钱包管理",
-        "智能合约经 Trail of Bits 审计，支持紧急链上提取"
-      ],
       "cautions": [
         "仅限欧盟居民",
         "具体费率未在官网页面列出",
@@ -14008,7 +12352,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -14017,7 +12360,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "E Money Card",
     "net": "Mastercard",
     "img": "cards/mkt-emoney.webp",
-    "remote": "/card-art/EMONEY-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -14029,12 +12371,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "一次性订阅费 $99（USDT/US…",
       "kyc": "证件",
       "applyUrl": "https://docs.emoney.network/e-money-card-faqs",
-      "highlights": [
-        "USDT、USDC、eEUR 作抵押消费",
-        "无年费，E Money 不收单笔交易费",
-        "香港本地交易 0%",
-        "App 内下单与管理"
-      ],
       "cautions": [
         "一次性 $99 开卡费",
         "抵押注入费 0.5%；负余额按 40% 年利率计息",
@@ -14093,7 +12429,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -14102,7 +12437,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "belo Mastercard / belo Visa LUX",
     "net": "Mastercard",
     "img": "cards/mkt-belo.webp",
-    "remote": "/card-art/BELO-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -14115,12 +12449,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "发卡 0、寄送 0",
       "kyc": "未公开",
       "applyUrl": "https://www.belo.app/ar/tarjeta-internacional",
-      "highlights": [
-        "Mastercard 可直接用 ARS、USD、USDT、USDC、BTC、ETH 支付，无需事先兑换",
-        "另有美元计价的 Visa LUX 卡",
-        "零发卡费、零维护费",
-        "线上线下全球可用"
-      ],
       "cautions": [
         "国际交易最低收 0.30 USD₮，部分数字商品/游戏商户最低 0.40 USD₮",
         "ATM 取现 3%（最低 0.50 USD₮）",
@@ -14182,7 +12510,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -14191,7 +12518,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Endl Card",
     "net": "Visa",
     "img": "cards/mkt-endl.webp",
-    "remote": "/card-art/ENDL-CARD.webp",
     "tags": [
       "U卡",
       "Visa"
@@ -14200,12 +12526,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Endl Card",
       "kyc": "KYC",
       "applyUrl": "https://www.endl.io/",
-      "highlights": [
-        "法币或 USDT/USDC 充值",
-        "团队卡可设消费限额与管控",
-        "Visa 受理处可用",
-        "另有个人卡（国际/美国消费者条款）"
-      ],
       "cautions": [
         "稳定币卡模式以关联钱包作抵押，消费额度受抵押价值限制",
         "企业条款规定未付款项逾期 1 天即可清算抵押",
@@ -14251,7 +12571,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     }
   },
   {
@@ -14259,7 +12578,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Rapidz Card",
     "net": "Visa",
     "img": "cards/mkt-rapidz.webp",
-    "remote": "/card-art/RAPIDZ-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -14269,12 +12587,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Rapidz Card",
       "kyc": "未公开",
       "applyUrl": "https://www.rapidz.money",
-      "highlights": [
-        "法币与稳定币余额均可消费",
-        "虚拟卡与实体卡",
-        "支持商户消费与 ATM 取现（视情况）",
-        "Rapidz Pay 钱包内管理"
-      ],
       "cautions": [
         "费率表在帮助中心，但本次无法获取具体数字",
         "发卡方、适用地区未公开"
@@ -14323,7 +12635,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -14332,7 +12643,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Slush Card",
     "net": "",
     "img": "cards/mkt-slush.webp",
-    "remote": "/card-art/SLUSH-CARD.webp",
     "tags": [
       "U卡",
       "自托管"
@@ -14342,12 +12652,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://slush.app/card",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "直接用 Slush 钱包余额消费，无需卖出资产",
-        "可用 Sui 上抵押型 DeFi 信用额度",
-        "虚拟卡与实体卡，可 ATM、线下、线上使用",
-        "支持 Apple Pay / Google Pay（Finextra 报道）"
-      ],
       "cautions": [
         "2026-05 宣布，截至 10 月官网仍显示“Coming soon”候补名单",
         "首批候补仅面向美国用户",
@@ -14401,7 +12705,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -14410,7 +12713,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "ZAR Card",
     "net": "Visa",
     "img": "cards/mkt-zap.webp",
-    "remote": "/card-art/ZAR-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -14421,12 +12723,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "开户免费、虚拟卡免费",
       "kyc": "未公开",
       "applyUrl": "https://www.zar.app/save-spend",
-      "highlights": [
-        "虚拟卡免费，Visa 受理处可用",
-        "官方称无境外交易费",
-        "可通过银行转账、线下商户现金或稳定币充值",
-        "美元由 Circle 发行（USDC）"
-      ],
       "cautions": [
         "实体卡仍在逐国推出",
         "功能因国家而异，以 App 显示为准",
@@ -14484,7 +12780,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -14493,7 +12788,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "nsave Card（Visa Platinum / Visa Infinite）",
     "net": "Visa",
     "img": "cards/mkt-nsave.webp",
-    "remote": "/card-art/NSAVE-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -14506,12 +12800,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Platinum 一次性 $1.99…",
       "kyc": "KYC",
       "applyUrl": "https://www.nsave.com/cards",
-      "highlights": [
-        "美元虚拟 Visa 卡，支持 Apple Pay / Google Pay",
-        "两档卡都含购物保障、延保、价格保障、租车险",
-        "Infinite 档另有机场贵宾室折扣、旅行意外险、行李险、Visa 礼宾",
-        "一次付费，无月费年费"
-      ],
       "cautions": [
         "非美元消费收 1.5% 外汇费（定价页）；卡条款列有最高 3% 的外汇/跨境费",
         "仅虚拟卡，暂不能同时持有两张卡",
@@ -14569,7 +12857,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -14578,7 +12865,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Avalanche Card",
     "net": "Visa",
     "img": "cards/mkt-avalanche.webp",
-    "remote": "/card-art/AVALANCHE-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -14590,10 +12876,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.avalanchecard.com/",
-      "highlights": [
-        "Avalanche生态Rain支持的Visa消费卡，以数字资产提供消费资金",
-        "明确支持：Apple Pay、Google Pay"
-      ],
       "cautions": [
         "核验方案：Standard Visa 实体＋虚拟",
         "官网明确将 Mainland China 居民列入不能申请名单；此为居住地限制，不据此扩大为所有中国籍人士。",
@@ -14667,32 +12949,9 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-05。",
       "cashback": "无",
       "status": "中国大陆暂不支持申请",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "集卡 · 对应卡片资料",
-          "url": "https://card.lengziyu.cn/card/avalanche"
-        },
-        {
-          "label": "官方网站",
-          "url": "https://www.avalanchecard.com/"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://legal.avalanchecard.com/legal/avalanche-card-international-card-agreement-94211945"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://ranked.plus/_serverFn/be96b738cf59ba8bfd779130d0163fee84df1cd2bac1a3e48f4d947f51db71b9"
-        }
-      ]
-    },
+      },
     "custody": "自托管"
   },
   {
@@ -14700,7 +12959,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Exodus Pay Card",
     "net": "Visa",
     "img": "cards/mkt-exodus.webp",
-    "remote": "/card-art/EXODUS-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -14712,12 +12970,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "第三方整理称美国无开卡费",
       "kyc": "未公开",
       "applyUrl": "https://www.exodus.com/pay",
-      "highlights": [
-        "私钥存于设备，自托管消费 USD 稳定币",
-        "Visa 受理处及 Apple Pay 均可支付",
-        "手机号转账免费",
-        "Exodus 为美股上市公司"
-      ],
       "cautions": [
         "2026-04 起先在美国推出，全球扩展计划在 2026 年晚些时候",
         "第三方整理称不支持 ATM 取现",
@@ -14779,7 +13031,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -14788,7 +13039,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Fold Bitcoin Credit Card",
     "net": "Visa",
     "img": "cards/mkt-fold.webp",
-    "remote": "/card-art/FOLD-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -14799,12 +13049,6 @@ export const U_CARDS: UCardItem[] = [
       "cashback": "1.5%",
       "kyc": "KYC",
       "applyUrl": "https://foldapp.com/credit-card",
-      "highlights": [
-        "不封顶 1.5% 比特币返现",
-        "最高 4% 比特币返现",
-        "即时开通并加入 Apple Pay / Google Pay",
-        "可用比特币还信用卡账单"
-      ],
       "cautions": [
         "额外奖励仅限每月前 $2,000 消费",
         "返现账户余额上限 $10,000，需提出后才能继续累积",
@@ -14859,7 +13103,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -14868,7 +13111,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Raycash Card",
     "net": "Mastercard",
     "img": "cards/mkt-raycash.webp",
-    "remote": "/card-art/REYCASH-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -14879,11 +13121,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://www.raycash.xyz/",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "自托管 USDC/USDT 账户",
-        "主打隐私（机密稳定币）",
-        "官方称可直接用稳定币余额在 Mastercard 受理处消费，无需先兑换"
-      ],
       "cautions": [
         "官方仅宣布“A card is coming”，尚未正式发卡",
         "费率、限额、发卡方、地区均未公开"
@@ -14924,7 +13161,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -14933,7 +13169,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "CoinJar Card",
     "net": "Mastercard",
     "img": "cards/mkt-coinjar.webp",
-    "remote": "/card-art/COINJAR-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -14946,11 +13181,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.coinjar.com/au/card",
-      "highlights": [
-        "澳大利亚CoinJar余额自动转换消费的Mastercard预付卡",
-        "每消费1澳元获得1 CoinJar Reward Point；1%消费手续费以积分回赠，不能宣称现金手续费全免",
-        "明确支持：Apple Pay、Google Pay"
-      ],
       "cautions": [
         "核验方案：澳大利亚 Mastercard 实体＋虚拟",
         "当前官网Card条目明确available in Australia only；本卡AU申请计划不向大陆居民开放",
@@ -15028,35 +13258,8 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-08。",
       "status": "中国大陆暂不支持申请",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "CoinJar 澳洲身份验证材料",
-          "url": "https://support.coinjar.com/hc/en-au/articles/4403569046297-Identity-verification-requirements"
-        },
-        {
-          "label": "集卡 · 对应卡片资料",
-          "url": "https://card.lengziyu.cn/card/coinjar"
-        },
-        {
-          "label": "官方网站",
-          "url": "https://www.coinjar.com/au/card"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://www.coinjar.com/au/fees"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://www.coinjar.com/au/home"
-        }
-      ]
-    },
+      },
     "custody": "托管"
   },
   {
@@ -15064,7 +13267,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "EB1 Card",
     "net": "Visa",
     "img": "cards/mkt-eb1.webp",
-    "remote": "/card-art/EB1-CARD.webp",
     "tags": [
       "U卡",
       "Visa"
@@ -15074,12 +13276,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://www.eb1.io/memberships",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "Gold、Platinum、Black（仅邀请）三档会员",
-        "签账卡（实体+数字），美元计价，支持 Apple Pay / Google Pay",
-        "支持稳定币，App 内即时换成法币",
-        "高档位提供礼宾、私人旅行、私人航空协调等服务"
-      ],
       "cautions": [
         "官网显示 App“Coming Q3 2026”，目前为抢先体验阶段",
         "签账卡需按期结清，可能需加密资产抵押",
@@ -15142,7 +13338,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     }
   },
   {
@@ -15150,7 +13345,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Pyra Card",
     "net": "Visa",
     "img": "cards/mkt-pyra.webp",
-    "remote": "/card-art/PYRA-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -15162,10 +13356,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "不适用",
       "applyUrl": "https://www.pyra.fi/",
       "status": "已关闭",
-      "highlights": [
-        "曾以超额抵押 DeFi 借贷实现不卖币消费",
-        "曾提供资产生息与 Visa 卡消费"
-      ],
       "cautions": [
         "受 Drift 漏洞事件重创，官方宣布停止运营",
         "已停止新注册，所有现有卡片已注销",
@@ -15227,7 +13417,6 @@ export const U_CARDS: UCardItem[] = [
           "unsupported"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -15236,7 +13425,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Binance Card",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-binance.webp",
-    "remote": "/card-art/BINANCE-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard"
@@ -15247,12 +13435,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "无年费",
       "kyc": "KYC",
       "applyUrl": "https://www.binance.com/en/cards",
-      "highlights": [
-        "直接用 Binance 资金账户的加密资产消费",
-        "巴西最高 3% 返现",
-        "每月 2 次免费 ATM 取现",
-        "无年费"
-      ],
       "cautions": [
         "仅部分国家可用，不支持美国、英国、EEA",
         "加密转换费 0.9%，外汇费 2%（新西兰 3%）",
@@ -15315,7 +13497,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -15324,7 +13505,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Grey Virtual Card",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-grey.webp",
-    "remote": "/card-art/GREY-CARD.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -15337,12 +13517,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Visa 卡一次性 $5",
       "kyc": "未公开",
       "applyUrl": "https://grey.co/cards",
-      "highlights": [
-        "无维护费、交易费、充值费",
-        "Visa 卡直接扣美元钱包，无需单独充值",
-        "日消费上限 $10,000",
-        "适合线上订阅与海外支付"
-      ],
       "cautions": [
         "非美国商户/App 可能产生 2% + $0.50 的跨境费（由商户或处理方收取）",
         "Mastercard 单笔充值 $2–$2,500",
@@ -15400,7 +13574,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -15409,7 +13582,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Rizon Card",
     "net": "Visa",
     "img": "cards/mkt-rizon.webp",
-    "remote": "/card-art/RIZON-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -15420,13 +13592,6 @@ export const U_CARDS: UCardItem[] = [
       "cashback": "2.5%",
       "kyc": "KYC",
       "applyUrl": "https://www.getrizon.com/card",
-      "highlights": [
-        "虚拟卡、实体卡、金属卡三种",
-        "官网宣传 2.5% 返现 + RizPoints",
-        "支持 Apple Pay / Google Pay",
-        "实体卡可全球 ATM 取现",
-        "官方称非托管"
-      ],
       "cautions": [
         "费率表未在卡片页公开",
         "借记卡，仅能消费可用余额",
@@ -15480,7 +13645,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -15489,7 +13653,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "SecondFi Card",
     "net": "Visa",
     "img": "cards/mkt-secondfi.webp",
-    "remote": "/card-art/SECONDFI-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -15500,11 +13663,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://kb.secondfi.io/en/category/secondfi-card-wt1f1d/",
       "status": "已停止发卡",
-      "highlights": [
-        "自托管，用 Base 链 USDC/USDT/EURC 消费",
-        "支持 Apple Pay / Google Pay",
-        "曾与 Slash 合作在日本推出 Cardano Card"
-      ],
       "cautions": [
         "官方宣布卡片项目于 2026-11-30 关闭，此后所有卡注销",
         "需在关闭前花完卡内余额",
@@ -15554,7 +13712,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -15563,7 +13720,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "UltimoPay Platinum Visa Debit Card",
     "net": "Visa",
     "img": "cards/mkt-ultimopay.webp",
-    "remote": "/card-art/ULTIMOPAY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -15575,11 +13731,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "开卡 $600（其中 $150 计入…",
       "kyc": "未公开",
       "applyUrl": "https://ultimopay.io/debit-card/",
-      "highlights": [
-        "Platinum Visa 借记卡",
-        "可用加密钱包资金充值",
-        "支持 ATM 取现"
-      ],
       "cautions": [
         "开卡费 $600，门槛高",
         "钱包资金入卡 72 小时内免费，当日到账收 1%",
@@ -15634,7 +13785,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -15643,7 +13793,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Meow Global Cards",
     "net": "Visa",
     "img": "cards/mkt-meow.webp",
-    "remote": "/card-art/MEOW-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -15653,12 +13802,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Meow Global Cards",
       "kyc": "KYC",
       "applyUrl": "https://www.meow.com/cards",
-      "highlights": [
-        "无限量发行虚拟卡与实体卡",
-        "可按商户、类别、金额、时间设限",
-        "提供 Cards API 程序化发卡",
-        "可从 USDC/USDT 稳定币余额充值"
-      ],
       "cautions": [
         "仅面向企业，需审核并开立抵押账户",
         "为商用预付借记卡，非个人卡",
@@ -15708,7 +13851,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -15717,7 +13859,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Based Visa Card（HYPE / Based Gold）",
     "net": "Visa",
     "img": "cards/mkt-based.webp",
-    "remote": "/card-art/BASED-CARD.webp",
     "tags": [
       "U卡",
       "Visa"
@@ -15729,12 +13870,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "无开卡费",
       "kyc": "护照",
       "applyUrl": "https://basedapp.gitbook.io/docs/card/card-types",
-      "highlights": [
-        "Gold 档 0% 外汇加价、4% 返现",
-        "HYPE/Gold 含 Claude、ChatGPT 订阅返还",
-        "支持 Solana、Arbitrum、Polygon、Hyperliquid 充值，零充值费",
-        "支持 Apple Pay / Google Pay"
-      ],
       "cautions": [
         "必须质押 $BASED：HYPE 1 万枚、Gold 10 万枚，锁定 21 天；发起解押后所有权益停止",
         "非稳定币自动兑换收 1%",
@@ -15797,7 +13932,6 @@ export const U_CARDS: UCardItem[] = [
           "supported"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     }
   },
   {
@@ -15805,7 +13939,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Spenda Virtual Card",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-spenda.webp",
-    "remote": "/card-art/SPENDA-CARD.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -15816,12 +13949,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "美元卡免费开卡（官方博客）",
       "kyc": "未公开",
       "applyUrl": "https://spenda.africa/",
-      "highlights": [
-        "美元 Visa/Mastercard 虚拟卡免费",
-        "另有本地 Verve 奈拉卡",
-        "加密资产即时兑换入卡",
-        "支持 USDT/USDC 多链转出"
-      ],
       "cautions": [
         "美元卡日限 $10,000，需保持最低 $1 余额",
         "充值费与汇率在付款前显示，未公开固定费率",
@@ -15879,7 +14006,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -15888,7 +14014,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Nexo Card",
     "net": "Mastercard",
     "img": "cards/mkt-nexo.webp",
-    "remote": "/card-art/NEXO-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -15901,12 +14026,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡需账户至少 $50 即可激活",
       "kyc": "需完成身份验证",
       "applyUrl": "https://nexo.com/eea/crypto-card",
-      "highlights": [
-        "信用/借记一键切换，信用模式无需卖币",
-        "最高 2% 加密返现",
-        "支持 Apple Pay / Google Pay",
-        "按等级每月免费 ATM 额度最高 €2,000"
-      ],
       "cautions": [
         "仅限 EEA、英国等欧洲合格国家居民",
         "外汇费：工作日 EEA/英国/瑞士 0.2%、其他 2%；周末 0.7% / 2.5%",
@@ -15969,7 +14088,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -15978,7 +14096,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Exa Card",
     "net": "Visa",
     "img": "cards/mkt-exa.webp",
-    "remote": "/card-art/EXA-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -15990,12 +14107,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "无开卡费",
       "kyc": "KYC",
       "applyUrl": "https://www.exactly.app/exa-card",
-      "highlights": [
-        "自托管，智能合约实现消费与借贷",
-        "Pay Now 直接扣余额，或分期最多 9 期（每 28 天）",
-        "分期利率在购买时固定",
-        "无开卡费、月费、年费"
-      ],
       "cautions": [
         "非美元交易 1.5% 外汇费（含在汇率中）",
         "借款可能收发起费（计入分期利息）",
@@ -16049,7 +14160,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -16058,7 +14168,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Tarjeta fiwind",
     "net": "Mastercard",
     "img": "cards/mkt-fiwind.webp",
-    "remote": "/card-art/FIWIND-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -16068,11 +14177,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Tarjeta fiwind",
       "kyc": "KYC",
       "applyUrl": "https://www.fiwind.io/pagos",
-      "highlights": [
-        "可用 ARS、USD 或加密资产付款",
-        "100% 虚拟卡，可绑定 Apple Pay / Google Pay",
-        "线上及线下非接触可用"
-      ],
       "cautions": [
         "仅限持阿根廷 DNI 用户",
         "用加密或美元支付会占用每月操作限额",
@@ -16130,7 +14234,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -16139,7 +14242,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Shakepay Card",
     "net": "Visa",
     "img": "cards/mkt-shakepay.webp",
-    "remote": "/card-art/SHAKEPAY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -16152,12 +14254,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费（需完成完整验证）",
       "kyc": "KYC",
       "applyUrl": "https://shakepay.com/card",
-      "highlights": [
-        "消费返比特币 1%–1.5%",
-        "无激活费、无最低余额",
-        "按等级降低外汇费（Blue 0%）",
-        "可用 Apple Pay / Google Pay"
-      ],
       "cautions": [
         "非加元交易外汇费：Base 3%、Bright 1.5%、Blue 0%",
         "单笔/单日上限 CAD 5,000，月 CAD 50,000，不可提额",
@@ -16220,7 +14316,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -16229,7 +14324,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Mobilum Card",
     "net": "Mastercard",
     "img": "cards/mkt-mobilum.webp",
-    "remote": "/card-art/MOBILUM-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -16242,12 +14336,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://www.mobilum.com/en/cards",
       "status": "无法确认",
-      "highlights": [
-        "支持 EUR、USD、PLN",
-        "虚拟卡与实体卡",
-        "可加入 Apple Pay / Google Pay",
-        "提供交易所/钱包白标联名卡方案"
-      ],
       "cautions": [
         "官网卡片页目前主推 B2B 白标方案，个人卡可申请状态不明",
         "第三方整理称充值 1.5%、跨境最高 2.5%",
@@ -16301,7 +14389,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -16310,7 +14397,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Offramp Card",
     "net": "Visa",
     "img": "cards/mkt-offramp.webp",
-    "remote": "/card-art/OFFRAMP-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -16322,10 +14408,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "不适用",
       "applyUrl": "https://www.offramp.xyz/cards",
       "status": "已关闭",
-      "highlights": [
-        "曾提供 Deel、Upwork、Fiverr 美元收款账户",
-        "曾提供虚拟卡与实体卡"
-      ],
       "cautions": [
         "官方宣布停止运营：2026-07-01 停止实体卡新订单",
         "2026-07-31 起实体卡和虚拟卡停止消费",
@@ -16388,7 +14470,6 @@ export const U_CARDS: UCardItem[] = [
           "unsupported"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -16397,7 +14478,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Tap Card",
     "net": "Mastercard",
     "img": "cards/mkt-tap.webp",
-    "remote": "/card-art/TAP-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -16410,12 +14490,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费",
       "kyc": "KYC",
       "applyUrl": "https://www.withtap.com/",
-      "highlights": [
-        "加密与法币一体账户",
-        "虚拟卡免费即时发放",
-        "高等级会员外汇费为 0",
-        "免费 ATM 额度（多数等级 €500/月）"
-      ],
       "cautions": [
         "外汇费：Essential/Plus/Prime 1.5%、Premier 1%、Platinum/Prestige 免费（第三方整理）",
         "超出免费额度 ATM 收 2%",
@@ -16478,7 +14552,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -16487,7 +14560,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Extsy Card",
     "net": "Visa",
     "img": "cards/mkt-extsy.webp",
-    "remote": "/card-art/EXTSY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -16500,9 +14572,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://extsy.com",
       "status": "已关闭",
-      "highlights": [
-        "曾宣传为支持 Apple Pay / Google Pay 的虚拟 Visa 卡"
-      ],
       "cautions": [
         "第三方报道称 Extsy 宣布分阶段关停，并在 2026 年 1 月前退还预售款",
         "官网 extsy.com 目前跳转至 /lander 占位页",
@@ -16545,7 +14614,6 @@ export const U_CARDS: UCardItem[] = [
           "unsupported"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -16554,7 +14622,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "AnomaPay Card",
     "net": "Mastercard",
     "img": "cards/mkt-anomapay.webp",
-    "remote": "/card-art/ANOMAPAY-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard"
@@ -16564,11 +14631,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://anomapay.app/",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "AnomaPay 支持 USDC、USDT、ETH 等资产的隐私（shielded）转账",
-        "覆盖 Ethereum、BNB Chain、Arbitrum、Monad、Stable 等链",
-        "卡片候补名单已开放"
-      ],
       "cautions": [
         "卡片仅为候补名单阶段，未公布上线日期",
         "费率、BIN、托管方式、地区均未公开",
@@ -16614,7 +14676,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     }
   },
   {
@@ -16622,7 +14683,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Brighty Card",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-brighty.webp",
-    "remote": "/card-art/BRIGHTY-CARD.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -16635,12 +14695,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡开卡 €2.99（按计划有免费…",
       "kyc": "KYC",
       "applyUrl": "https://brighty.app/en",
-      "highlights": [
-        "欧洲 IBAN + 加密账户一体",
-        "USDC 返现，Pro 加速类别最高 1.75%",
-        "近即时加密充值",
-        "稳定币生息"
-      ],
       "cautions": [
         "超出每月免费额度的兑换收 0.4%–0.6%（按计划）",
         "Visa 外币交易收 2%（官方博客）",
@@ -16694,7 +14748,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -16703,7 +14756,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "DiCard（DigiFinex USD 加密卡）",
     "net": "Mastercard",
     "img": "cards/mkt-dicard.webp",
-    "remote": "/card-art/DICARD-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -16714,12 +14766,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Lite 与 Premier 开卡费…",
       "kyc": "KYC",
       "applyUrl": "https://www.digifinex.com/zh-hk/n/card",
-      "highlights": [
-        "USDT 充值的美元 Mastercard 虚拟卡",
-        "支持 Apple Pay 与支付宝（官方公告）",
-        "Premier 单日限额 $50,000",
-        "两档卡可选"
-      ],
       "cautions": [
         "每笔交易费：Lite $0.25、Premier $0.50",
         "充值费：前 5 笔 0.3%，之后 1.3%",
@@ -16778,7 +14824,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -16787,7 +14832,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Fasset Card",
     "net": "Visa",
     "img": "cards/mkt-fasset.webp",
-    "remote": "/card-art/FASSET-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -16798,12 +14842,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡一次性 9.99 USDT（申…",
       "kyc": "未公开",
       "applyUrl": "https://fasset.com/fasset-card/",
-      "highlights": [
-        "当前充值、消费、提回钱包、注销均免费",
-        "Visa 受理处均可使用",
-        "日消费限额 $10,000，可申请提额",
-        "App 内管理"
-      ],
       "cautions": [
         "非美元消费有外汇成本（条款列 1.1% 外汇费 + 最高 1.1% 跨境费）",
         "单笔充值/提回 1–5,000 USDT",
@@ -16861,7 +14899,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -16870,7 +14907,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "NoOnes Virtual Visa Card",
     "net": "Visa",
     "img": "cards/mkt-noones.webp",
-    "remote": "/card-art/NOONES-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -16882,9 +14918,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "不适用",
       "applyUrl": "https://noones.com/buy-visa-card",
       "status": "已关闭",
-      "highlights": [
-        "曾支持 USDT 充值、Apple Pay / Google Pay 消费"
-      ],
       "cautions": [
         "NoOnes 官方宣布平台逐步关闭（Winding Down）",
         "NoOnes Visa 卡于 2026-08-17 当周关闭，平台转为仅可提现",
@@ -16946,7 +14979,6 @@ export const U_CARDS: UCardItem[] = [
           "unsupported"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -16955,7 +14987,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Busha Virtual USD Card",
     "net": "Visa",
     "img": "cards/mkt-busha.webp",
-    "remote": "/card-art/BUSHA-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -16967,11 +14998,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "一次性 $2 开卡费",
       "kyc": "KYC",
       "applyUrl": "https://busha.io/",
-      "highlights": [
-        "直接从 USD、USDT、USDC 余额消费",
-        "开卡仅 $2，无充值费和月费",
-        "适合国际线上 Visa 支付"
-      ],
       "cautions": [
         "不支持奈拉支付",
         "不支持 Apple Pay / Google Pay 与 ATM 取现（第三方整理）",
@@ -17029,7 +15055,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -17038,7 +15063,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "CL Card（compatible with Ledger）",
     "net": "Mastercard",
     "img": "cards/mkt-ledger.webp",
-    "remote": "/card-art/LEDGER-CL-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -17051,12 +15075,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费（第三方整理）",
       "kyc": "未公开",
       "applyUrl": "https://shop.ledger.com/pages/cl-card-crypto-card",
-      "highlights": [
-        "1% 加密返现（BTC/USDC/USDT）",
-        "与 Ledger Wallet 集成，可从硬件钱包转入资金",
-        "可消费加密或作为抵押",
-        "外币消费无 FX 加价（第三方整理）"
-      ],
       "cautions": [
         "用加密资产消费有约 2% 兑换/消费费，抵消返现（第三方整理）",
         "ATM：境内 €2.50，境外 €3 + 1.5%（EU/UK 费率表，第三方整理）",
@@ -17118,7 +15136,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -17127,7 +15144,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Gate Card",
     "net": "Visa",
     "img": "cards/mkt-gate.webp",
-    "remote": "/card-art/GATE-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -17140,11 +15156,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.gate.com/card",
-      "highlights": [
-        "Gate Pay余额关联的Classic Visa，独立保留消费、换汇、小额和ATM收费。",
-        "返现随活动及等级变化，未将旧首发促销作为长期权益",
-        "明确支持：Google Pay"
-      ],
       "cautions": [
         "核验方案：Classic 实体卡",
         "依据Gate平台总体地区限制（包含中国大陆及香港）保守判为本卡大陆不支持；Classic专属FAQ仍要求以申请流程国家选项确认资格，不声称取得独立卡专属禁用名单",
@@ -17222,35 +15233,8 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-05。",
       "status": "中国大陆暂不支持申请",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "集卡 · 对应卡片资料",
-          "url": "https://card.lengziyu.cn/card/gate"
-        },
-        {
-          "label": "官方网站",
-          "url": "https://www.gate.com/card"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://www.gate.com/help/gatecard/gcd1213/50034"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://miniapp.gate.com/help/guide/faq/40959"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://www.gate.com/help/gatecard/gcd1213/50053/faq-gate-card-classic-platinum-card"
-        }
-      ]
-    },
+      },
     "custody": "托管"
   },
   {
@@ -17258,7 +15242,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "THORWallet Card",
     "net": "Mastercard",
     "img": "cards/mkt-thorwallet.webp",
-    "remote": "/card-art/THORWALLET-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -17271,12 +15254,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Basic 虚拟卡 $5 一次性（有…",
       "kyc": "需验证",
       "applyUrl": "https://www.thorwallet.org/cards",
-      "highlights": [
-        "钱包资产自托管，按需充值到卡",
-        "Basic/Premium 充值费 0%",
-        "可在 175+ 国家（含美国）使用",
-        "Swiss IBAN 方案提供个人瑞士 IBAN 与 SEPA"
-      ],
       "cautions": [
         "Basic/Premium 外汇加价 1.5%，Swiss IBAN 1%",
         "ATM 取现国内 $1、国际 $5；Swiss IBAN 不支持 ATM",
@@ -17339,7 +15316,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -17348,7 +15324,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Deblock Card",
     "net": "Visa",
     "img": "cards/mkt-deblock.webp",
-    "remote": "/card-art/DEBLOCK-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -17361,12 +15336,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "借记卡每年 1 张免费（Premiu…",
       "kyc": "未公开",
       "applyUrl": "https://deblock.com",
-      "highlights": [
-        "欧元账户与加密钱包一体",
-        "支持 Apple Pay / Google Pay（免费）",
-        "Premium/Native 最高 1% 返现",
-        "可用 NFT 定制卡面（Premium/Native）"
-      ],
       "cautions": [
         "卡充值每月 €2,000 内免费，超出 0.5%",
         "欧元区他行 ATM：Standard 每月 1 次或 €100 内免费，超出 1%",
@@ -17429,7 +15398,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -17438,7 +15406,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Utorg Crypto Card",
     "net": "Visa",
     "img": "cards/mkt-utorg-crypto.webp",
-    "remote": "/card-art/UTORG-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -17449,12 +15416,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "官方称无月费",
       "kyc": "证件",
       "applyUrl": "https://utorg.com/crypto-card",
-      "highlights": [
-        "官方称为首张非托管加密卡，私钥自持",
-        "约 5 分钟获得虚拟卡",
-        "支持 Google Pay / Apple Pay",
-        "月限额最高 €30,000"
-      ],
       "cautions": [
         "卡片仅面向 EEA 国家",
         "“零手续费”为限时政策；条款提及非欧元可能有 1% 转换费及网络费",
@@ -17512,7 +15473,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -17521,7 +15481,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Bitpanda Card",
     "net": "Visa",
     "img": "cards/mkt-bitpanda.webp",
-    "remote": "/card-art/BITPANDA-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -17534,11 +15493,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费",
       "kyc": "需要 KYC",
       "applyUrl": "https://www.bitpanda.com/en/card",
-      "highlights": [
-        "Bitpanda账户内加密资产／金属即时转EUR消费的Visa借记卡",
-        "用合资格加密资产消费1%；stablecoin、法币、金属等不返现，特定MCC同样排除",
-        "明确支持：Apple Pay、Google Pay"
-      ],
       "cautions": [
         "核验方案：Eurozone Visa 实体＋虚拟",
         "官网要求verified Bitpanda且Eurozone resident；该计划不对仅大陆居住身份直接开放",
@@ -17616,31 +15570,8 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；交叉核验：可可鸭 U卡指南；核验日期 2026-10-10；来源资料日期 2026-10-08。",
       "status": "中国大陆暂不支持申请",
-      "references": [
-        {
-          "label": "可可鸭 U卡指南",
-          "url": "https://card.coucouya.com/"
-        },
-        {
-          "label": "Bitpanda Card 资格与补卡费用",
-          "url": "https://support.bitpanda.com/hc/en-us/articles/360018933120-What-is-the-Bitpanda-Card-and-what-are-its-benefits"
-        },
-        {
-          "label": "集卡 · 对应卡片资料",
-          "url": "https://card.lengziyu.cn/card/bitpanda"
-        },
-        {
-          "label": "官方网站",
-          "url": "https://www.bitpanda.com/en/card"
-        },
-        {
-          "label": "公开资料与费用依据",
-          "url": "https://ranked.plus/_serverFn/be96b738cf59ba8bfd779130d0163fee84df1cd2bac1a3e48f4d947f51db71b9"
-        }
-      ]
-    },
+      },
     "custody": "托管"
   },
   {
@@ -17648,7 +15579,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "El Dorado International Dollar Card",
     "net": "Visa",
     "img": "cards/mkt-el-dorado.webp",
-    "remote": "/card-art/ELDORADO-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -17661,12 +15591,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "一次性 3.99 USDT（帮助中心…",
       "kyc": "KYC",
       "applyUrl": "https://eldorado.io/en/card",
-      "highlights": [
-        "美国发行的美元 Visa 卡，美元标价直接美元支付",
-        "支持 Apple Pay / Google Pay",
-        "可通过 ACH/电汇、USDT（Arbitrum/Tron）或 80+ 本地支付方式充值",
-        "适合订阅、广告、游戏、旅行"
-      ],
       "cautions": [
         "不向美国居民提供",
         "按国家和商户类别有消费限制",
@@ -17720,7 +15644,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -17729,7 +15652,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Stealf Card",
     "net": "Visa",
     "img": "cards/mkt-stealf.webp",
-    "remote": "/card-art/STEALF-CARD.webp",
     "tags": [
       "U卡",
       "Visa"
@@ -17739,11 +15661,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://stealf.xyz/",
       "status": "无法确认",
-      "highlights": [
-        "两层架构：合规稳定币支付账户 + 自托管隐私钱包",
-        "隐私转账由 Umbra / Arcium 提供",
-        "官网称可在柜台刷卡消费"
-      ],
       "cautions": [
         "第三方整理称 Visa 卡、SEPA、法币出入金尚未开放",
         "官网 FAQ 未公布卡片费率与上线时间",
@@ -17785,7 +15702,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     }
   },
   {
@@ -17793,7 +15709,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Crydit Visa Card",
     "net": "Visa",
     "img": "cards/mkt-crydit.webp",
-    "remote": "/card-art/CRYDIT-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -17805,12 +15720,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "第三方整理：虚拟卡开卡 $199",
       "kyc": "需完整 KYC",
       "applyUrl": "https://www.crydit.com/card/visa",
-      "highlights": [
-        "加密/稳定币即时换法币在 Visa 受理处消费",
-        "虚拟卡与实体卡",
-        "主打大额支付",
-        "资金由 Cobo、Ceffu 第三方托管"
-      ],
       "cautions": [
         "开卡费较高（第三方整理 $199）",
         "第三方整理：充值 1%、每笔 0.8 USDT + 1.5%、ATM 2.5%",
@@ -17864,7 +15773,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -17873,7 +15781,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Trustee Plus Crypto Card",
     "net": "Visa",
     "img": "cards/mkt-trustee.webp",
-    "remote": "/card-art/TRUSTEE-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -17886,12 +15793,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "开卡费 10 美元（官方费率页）",
       "kyc": "KYC",
       "applyUrl": "https://trustee.io/cryptocard/",
-      "highlights": [
-        "线上/线下消费手续费 0%",
-        "支持 USDC/USDT 充值，消费时按 Visa 汇率自动换汇",
-        "支持 Apple Pay / Google Pay",
-        "每月交易限额 30,000 美元"
-      ],
       "cautions": [
         "充值卡余额收取 0.5% 手续费",
         "目前不支持 ATM 取现",
@@ -17950,7 +15851,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -17959,7 +15859,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Kem Card",
     "net": "Visa",
     "img": "cards/mkt-kem.webp",
-    "remote": "/card-art/KEM-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -17971,12 +15870,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费（虚拟卡即时开通",
       "kyc": "KYC",
       "applyUrl": "https://kemapp.io/en/blog/card",
-      "highlights": [
-        "官方称为首张由 Tether 支持的卡，以 USDT 为主要消费币种",
-        "无开卡费、无月费、无最低余额",
-        "可添加到 Apple Pay / Google Pay",
-        "App 内可将黄金、加密货币、美元余额兑换为 USDT 后消费"
-      ],
       "cautions": [
         "FAQ 写明所有线上/线下消费收取 1% 交易费",
         "博客称提供实体卡，但 FAQ 写“仅提供数字卡”，说法不一致",
@@ -18030,7 +15923,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -18039,7 +15931,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Bitrefill Card",
     "net": "Visa",
     "img": "cards/mkt-bitrefill.webp",
-    "remote": "/card-art/BITREFILL-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -18051,12 +15942,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡和实体卡均免费",
       "kyc": "KYC",
       "applyUrl": "https://www.bitrefill.com/card/",
-      "highlights": [
-        "无需质押、无锁仓、无月费",
-        "支持 BTC、ETH、USDT、USDC、BNB 等充值",
-        "Bitrefill 不收外汇费（Visa 网络费可能另计）",
-        "可通过 SEPA 提现为欧元"
-      ],
       "cautions": [
         "充值换汇收取 1.99% 手续费",
         "仅限欧盟/EEA 部分国家居民申请",
@@ -18118,7 +16003,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -18127,7 +16011,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "CEX.IO Card",
     "net": "Mastercard",
     "img": "cards/mkt-cex-io.webp",
-    "remote": "/card-art/CEX.IO-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -18140,10 +16023,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://support.cex.io/en/articles/13460417-important-cex-io-card-update",
       "status": "已停止发卡",
-      "highlights": [
-        "CEX.IO 表示正在迁移至新的发卡合作方",
-        "交易所账户余额不受卡片停用影响"
-      ],
       "cautions": [
         "自 2026-02-03 起卡片无法用于线上/线下支付",
         "新卡申请与发卡已暂停，恢复时间未公布",
@@ -18206,7 +16085,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -18215,7 +16093,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "CoinZoom Visa Crypto Debit Card",
     "net": "Visa",
     "img": "cards/mkt-coinzoom.webp",
-    "remote": "/card-art/COINZOOM-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -18228,12 +16105,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费",
       "kyc": "KYC",
       "applyUrl": "https://www.coinzoom.com/en/cards/",
-      "highlights": [
-        "持有 ZOOM 越多返现越高，最高 5%",
-        "国内外 ATM/柜台取现 CoinZoom 不收费",
-        "补卡免费",
-        "返现在消费结算后（通常次日）发放"
-      ],
       "cautions": [
         "用加密货币消费需 1.49% 兑换费",
         "高档返现需持有大量 ZOOM 代币，存在币价风险",
@@ -18288,7 +16159,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -18297,7 +16167,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Osmosis Pay Card",
     "net": "Visa",
     "img": "cards/mkt-osmosis-pay.webp",
-    "remote": "/card-art/OSMOSIS-PAY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -18310,9 +16179,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://pay.osmosis.zone/",
       "status": "已关闭",
-      "highlights": [
-        "原本可在 Osmosis 钱包中直接为卡充值并消费"
-      ],
       "cautions": [
         "2026-07-08 起停止充值与新申请",
         "2026-08-07 为最后消费日，8 月 8 日卡片注销",
@@ -18366,7 +16232,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -18375,7 +16240,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Holyheld Card",
     "net": "Mastercard",
     "img": "cards/mkt-holyheld.webp",
-    "remote": "/card-art/HOLYHELD-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -18388,11 +16252,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://holyheld.com/pricing/individual",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "加密资产留在用户自己的钱包，Holyheld 称不托管加密资产",
-        "返现以 USDC 链上领取",
-        "同时提供 IBAN/法币出入金服务"
-      ],
       "cautions": [
         "个人账户目前需申请邀请",
         "官网未公布卡片外汇、ATM 等具体费用",
@@ -18438,7 +16297,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -18447,7 +16305,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Zypto Premium Visa Card",
     "net": "Visa",
     "img": "cards/mkt-zypto.webp",
-    "remote": "/card-art/ZYPTO-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -18459,11 +16316,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡无创建费",
       "kyc": "KYC",
       "applyUrl": "https://zypto.com/personal/crypto-cards/",
-      "highlights": [
-        "虚拟卡 KYC 后即时开通",
-        "无月费、无激活费",
-        "实体卡 1 个工作日内寄出，通常 5–14 个工作日送达"
-      ],
       "cautions": [
         "加密货币充值收 3%",
         "每笔交易收 $0.30",
@@ -18521,7 +16373,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -18530,7 +16381,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "KazePay Card",
     "net": "",
     "img": "cards/mkt-kazepay.webp",
-    "remote": "/card-art/KAZEPAY-CARD.webp",
     "tags": [
       "U卡",
       "托管"
@@ -18539,11 +16389,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "KazePay Card",
       "kyc": "KYC",
       "applyUrl": "https://kazepay.com/",
-      "highlights": [
-        "KazePay 不收消费交易费",
-        "仅支持 USDT / USDC 充值",
-        "虚拟卡数量不限；实体卡最多 5 张，有效期 5 年"
-      ],
       "cautions": [
         "实体卡充值 2%，虚拟卡充值 1.8%–2.2%",
         "实体卡不支持 Apple Pay / Google Pay；虚拟卡视卡种而定",
@@ -18606,7 +16451,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -18615,7 +16459,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Plutus Card",
     "net": "Visa",
     "img": "cards/mkt-plutus.webp",
-    "remote": "/card-art/PLUTUS-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -18628,12 +16471,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费",
       "kyc": "未公开",
       "applyUrl": "https://www.plutus.it/plans",
-      "highlights": [
-        "3%–9% PLU 返现",
-        "附带 1–3 个商户 Perk 返现",
-        "本币消费免手续费",
-        "14 天免费试用"
-      ],
       "cautions": [
         "必须付费订阅才可获得返现",
         "非本币消费与 ATM 取现均收 2.5%",
@@ -18692,7 +16529,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -18701,7 +16537,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "TP Card（TokenPocket 卡）",
     "net": "Mastercard",
     "img": "cards/mkt-tp.webp",
-    "remote": "/card-art/TP-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -18715,12 +16550,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://card.tokenpocket.pro/",
       "status": "已停止发卡",
-      "highlights": [
-        "线上/线下消费 TP Card 不收交易费",
-        "无年费",
-        "帮助中心提供 Apple Pay、Google Pay、微信支付、支付宝绑定教程",
-        "普通用户月限额 $100,000"
-      ],
       "cautions": [
         "加密货币充值收 0.5%–1%",
         "依赖 Fiat24：Fiat24 自 2026-07 起暂停加密充值与新用户开户",
@@ -18775,7 +16604,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -18784,7 +16612,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Wayex Crypto Visa Card",
     "net": "Visa",
     "img": "cards/mkt-wayex.webp",
-    "remote": "/card-art/WAYEX-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -18797,11 +16624,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "数字卡免费",
       "kyc": "KYC",
       "applyUrl": "https://www.wayex.com/au/card/",
-      "highlights": [
-        "可用加密货币或 AUD 余额消费",
-        "Wayex 不收外汇费与 ATM 费",
-        "用加密货币消费的兑换费按 30 天交易量从 0.40% 降至 0%"
-      ],
       "cautions": [
         "加密货币消费有 0.40% 起的兑换费",
         "主要面向澳大利亚用户",
@@ -18863,7 +16685,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -18872,7 +16693,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Moonwell Card",
     "net": "Visa",
     "img": "cards/mkt-moonwell.webp",
-    "remote": "/card-art/MOONWELL-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -18883,11 +16703,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://docs.moonwell.fi/moonwell/moonwell-overview/moonwell-card",
       "status": "已关闭",
-      "highlights": [
-        "原支持从 Base 钱包加载 USDC 消费",
-        "原支持以 Base 资产抵押借出 USDC 消费",
-        "原支持 Apple Pay / Google Pay"
-      ],
       "cautions": [
         "2026-07-08 起停止充值和发新卡",
         "2026-08-08 卡片注销",
@@ -18941,7 +16756,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -18950,7 +16764,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Fiat24 Mastercard Debit",
     "net": "Mastercard",
     "img": "cards/mkt-fiat24.webp",
-    "remote": "/card-art/FIAT24-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -18964,12 +16777,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "护照",
       "applyUrl": "https://docs.fiat24.com/products/pricing-for-individuals",
       "status": "已停止发卡",
-      "highlights": [
-        "每个账户配瑞士 IBAN",
-        "支持 EUR、CHF、USD、RMB 多币种余额",
-        "按账户档位加密充值费 1% / 0.5% / 0.25%",
-        "各档月限额 $30,000"
-      ],
       "cautions": [
         "2026-07-14 起暂停加密货币充值",
         "2026-07 起暂停新客户开户，恢复时间未公布",
@@ -19023,7 +16830,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -19032,7 +16838,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Nebeus Card",
     "net": "Mastercard",
     "img": "cards/mkt-nebeus.webp",
-    "remote": "/card-art/NEBEUS-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -19045,11 +16850,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://nebeus.com/nebeus-card",
       "status": "已停止发卡",
-      "highlights": [
-        "原支持用 BTC、ETH、稳定币及 EUR/GBP/USD 消费",
-        "原 ATM 每月取现上限 2,000 EUR/USD/GBP",
-        "Nebeus 称已获西班牙 CNMV MiCA 授权"
-      ],
       "cautions": [
         "发卡方 Quicko 的支付牌照于 2026-01-21 被波兰 KNF 撤销",
         "Quicko 卡项目自 2026-02-03 起停止支付",
@@ -19099,7 +16899,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -19108,7 +16907,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Bitstack Card",
     "net": "Visa",
     "img": "cards/mkt-bitstack.webp",
-    "remote": "/card-art/BITSTACK-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -19121,12 +16919,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Standard 14.97 €（含…",
       "kyc": "未公开",
       "applyUrl": "https://www.bitstack-app.com/carte?c=EUR",
-      "highlights": [
-        "比特币返现 Stackback",
-        "每月外币消费 1,000 € 内免费",
-        "每月 200 € 或 5 次内取现免费",
-        "与欧元余额挂钩，可在所有 Visa 商户和 ATM 使用"
-      ],
       "cautions": [
         "外币消费超出 1,000 €/月后约 1%",
         "取现超额后每笔 1 €起或 1%",
@@ -19184,7 +16976,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -19193,7 +16984,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "BitPay Card",
     "net": "Mastercard",
     "img": "cards/mkt-bitpay.webp",
-    "remote": "/card-art/BITPAY-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -19206,9 +16996,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "证件",
       "applyUrl": "https://bitpay.com/",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "BitPay App 仍提供加密货币支付账单等服务"
-      ],
       "cautions": [
         "新用户申请已暂停，仅提供候补名单",
         "无公布的重新上线时间",
@@ -19270,7 +17057,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -19279,7 +17065,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "imToken Card（Fiat24）",
     "net": "Mastercard",
     "img": "cards/mkt-imtoken.webp",
-    "remote": "/card-art/IMTOKEN-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -19293,12 +17078,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://token.im/blog/en-us/articles/42087086799897-imToken-Card-Fiat24-is-Here-Easy-Application-No-Hassles",
       "status": "已停止发卡",
-      "highlights": [
-        "支持 USD、EUR、CHF、RMB 多币种，配瑞士 IBAN",
-        "无外汇费、无换汇费、无交易费、无年费",
-        "可绑定 Apple Pay、Google Pay、Samsung Pay、微信支付、支付宝",
-        "官方列出可订阅 ChatGPT、App Store、Netflix 等"
-      ],
       "cautions": [
         "代币充值收 1%",
         "Fiat24 维护期间加密充值仍暂停（2026-07-30 更新），卡片消费正常",
@@ -19353,7 +17132,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -19362,7 +17140,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Onboard Flex Card",
     "net": "Visa",
     "img": "cards/mkt-onboard.webp",
-    "remote": "/card-art/ONBOARD-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -19375,12 +17152,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "首张卡免费",
       "kyc": "KYC",
       "applyUrl": "https://onboard.xyz",
-      "highlights": [
-        "美元计价虚拟卡，美元交易免费",
-        "可用本地法币或 USDT/USDC 充值",
-        "支持 Apple Pay / Google Wallet，无额外费用",
-        "卡内余额可免费提回现金或稳定币"
-      ],
       "cautions": [
         "充值卡收 1.25%（Tron 另加 $1.25，Ethereum 另加 $0.10）",
         "非美元及跨境美元交易收 $0.30 + 1.5%",
@@ -19442,7 +17213,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -19451,7 +17221,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Backpack Card（Platinum Debit）",
     "net": "Mastercard",
     "img": "cards/mkt-backpack.webp",
-    "remote": "/card-art/STARRYBLU-PLATINUM.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -19462,11 +17231,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://backpack.app/",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "Mastercard 铂金借记卡",
-        "从 Backpack Exchange 余额扣款",
-        "据社区实测支持 Apple Pay / Google Pay"
-      ],
       "cautions": [
         "目前为封闭内测，未公开上线",
         "费率、返现、发卡方、ATM 条款均未公布",
@@ -19512,7 +17276,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -19521,7 +17284,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "BiyaPay 速捷卡（虚拟卡）",
     "net": "Visa",
     "img": "cards/mkt-biyapay.webp",
-    "remote": "/card-art/biyapay-visa-official.png",
     "tags": [
       "U卡",
       "Visa",
@@ -19534,11 +17296,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "开卡费每张 $2",
       "kyc": "KYC",
       "applyUrl": "https://www.biyapay.com/zh/virtualcard/apply",
-      "highlights": [
-        "无年费，开卡费低",
-        "单次充值 $5–$2,000",
-        "可用 USDT 等数字资产充值"
-      ],
       "cautions": [
         "充值费 1.8%，每笔交易另收 $0.5",
         "退款收 2% 处理费",
@@ -19571,7 +17328,6 @@ export const U_CARDS: UCardItem[] = [
           "不支持美国；其他地区以官网为准"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。",
       "kycRequirements": {
         "idCard": "待确认",
         "passport": "需要",
@@ -19588,7 +17344,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Hyperbeat Pay Card",
     "net": "Visa",
     "img": "cards/mkt-hyperbeat.webp",
-    "remote": "/card-art/ucard/hyperbeat-concept-ai.png",
     "tags": [
       "U卡",
       "Visa",
@@ -19601,12 +17356,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费（第三方资料）",
       "kyc": "KYC",
       "applyUrl": "https://docs.hyperbeat.org/liquid-banking/hyperbeat-pay",
-      "highlights": [
-        "Direct Pay（现金）与 Credit（抵押借贷）两种模式",
-        "连接 HyperEVM 智能钱包，资产留在链上",
-        "可从交易收益或金库收益中消费",
-        "虚拟卡与实体卡均可在 Visa 商户使用"
-      ],
       "cautions": [
         "信用模式借款即刻计息且存在清算风险",
         "非美元消费外汇费 0.4%–1%（第三方资料）",
@@ -19665,7 +17414,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -19674,7 +17422,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "UU Wallet Visa Platinum 预付卡",
     "net": "Visa",
     "img": "cards/mkt-uuwallet.webp",
-    "remote": "/card-art/ucard/uuwallet-concept-ai.png",
     "tags": [
       "U卡",
       "Visa",
@@ -19686,12 +17433,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡开卡费 $10（2026-05…",
       "kyc": "必须 KYC",
       "applyUrl": "https://www.uuwallet.com/",
-      "highlights": [
-        "仅支持 USDT 充值，官方称无充值手续费",
-        "充值 2–10 分钟到账",
-        "官方称可用于支付宝、微信（香港）、拼多多、淘宝、PayPal、ChatGPT 等",
-        "可绑定 Google Pay、Samsung Pay"
-      ],
       "cautions": [
         "预付卡不可透支",
         "销卡后余额 3–5 个工作日退回钱包",
@@ -19741,7 +17482,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -19750,7 +17490,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "DPT Oxygen（Visa Platinum）",
     "net": "Visa",
     "img": "cards/mkt-dpt-oxygen.webp",
-    "remote": "/card-art/DPT-OXYGEN-CARD.png",
     "tags": [
       "U卡",
       "Visa",
@@ -19763,12 +17502,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡 $10",
       "kyc": "KYC",
       "applyUrl": "https://dpt.xyz/",
-      "highlights": [
-        "美元消费免费",
-        "USDC/USDT 充值免费，余额直接用于刷卡",
-        "支持 Apple Pay / Google Pay",
-        "含最高 $500,000 旅行意外险及 Visa Luxury Hotel Collection 权益"
-      ],
       "cautions": [
         "非美元消费外汇费 0%–2%（视币种）",
         "ATM 取现 2%，另有可能的外汇附加费与 ATM 运营方费用",
@@ -19826,7 +17559,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -19835,7 +17567,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Jam Card",
     "net": "",
     "img": "cards/mkt-jam.webp",
-    "remote": "/card-art/JAM-CARD.webp",
     "tags": [
       "U卡",
       "自托管"
@@ -19846,12 +17577,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "据第三方资料开卡约 $21",
       "kyc": "KYC",
       "applyUrl": "https://jamcard.io/",
-      "highlights": [
-        "非托管 Jam 钱包，GasFree（无需 TRX）",
-        "支持 Apple Pay / Google Pay",
-        "官网标称单日可消费最高 $250,000",
-        "30 秒开户"
-      ],
       "cautions": [
         "据第三方测算充值成本约 4.2% + Gas",
         "非美元消费外汇费约 2.5%（第三方资料）",
@@ -19910,7 +17635,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -19919,7 +17643,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "HEVN Card",
     "net": "",
     "img": "cards/mkt-hevn.webp",
-    "remote": "/card-art/HEVN-CARD.webp",
     "tags": [
       "U卡",
       "托管"
@@ -19929,11 +17652,6 @@ export const U_CARDS: UCardItem[] = [
       "cashback": "无",
       "kyc": "KYC",
       "applyUrl": "https://gethevn.com",
-      "highlights": [
-        "面向企业：可发美元商务卡、设置限额、实时追踪",
-        "宣传卡片消费 0% 外汇费",
-        "可与 SWIFT/ACH/SEPA/UAE FTS 账户统一管理"
-      ],
       "cautions": [
         "主要面向企业（尤其阿联酋自贸区公司），非个人 U 卡",
         "卡片开卡费、ATM 等费用未公开"
@@ -19964,7 +17682,6 @@ export const U_CARDS: UCardItem[] = [
           "面向企业客户；美国、欧盟、阿联酋业务为主"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -19973,7 +17690,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Cashi Card",
     "net": "Visa",
     "img": "cards/mkt-cashi.webp",
-    "remote": "/card-art/CASHI-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -19986,12 +17702,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡免费",
       "kyc": "需身份验证",
       "applyUrl": "https://cashi.com/",
-      "highlights": [
-        "USDT/USDC 入金，几分钟内获得虚拟 Visa 卡",
-        "返现以美元消费额度发放",
-        "可加入 Google Pay 线下支付",
-        "还可持有 BTC、ETH、SOL"
-      ],
       "cautions": [
         "2026-08-11 起处于公测阶段",
         "Apple Pay 与实体卡要到正式上线才提供",
@@ -20045,7 +17755,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -20054,7 +17763,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Paybis Card",
     "net": "",
     "img": "cards/mkt-paybis.webp",
-    "remote": "/card-art/PAYBIS-CARD.webp",
     "tags": [
       "U卡",
       "托管"
@@ -20064,9 +17772,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://paybis.com/",
       "status": "无法确认",
-      "highlights": [
-        "Paybis 是成熟的加密货币买卖平台（官网称覆盖 180 个国家）"
-      ],
       "cautions": [
         "官网“Get a card”步骤标注为“Soon”，未见正式卡片产品页",
         "2017 年曾宣布推出借记卡，但目前无公开费率与申请入口"
@@ -20103,7 +17808,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -20112,7 +17816,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Pulsar Money Card",
     "net": "Visa",
     "img": "cards/mkt-pulsar.webp",
-    "remote": "/card-art/PULSAR-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -20125,12 +17828,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "需身份验证",
       "applyUrl": "https://pulsar.money/",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "USDT/USDC 1:1 充值美元余额，EURC 1:1 充值欧元余额，零充值费",
-        "USD/EUR 同币种消费无外汇费",
-        "每月 $200 以内 ATM 取现免费",
-        "可选 DeFi 收益（最高约 6% APY，浮动）"
-      ],
       "cautions": [
         "其他币种消费收 1% 外汇费",
         "超出免费额度的 ATM 取现收 2%",
@@ -20193,7 +17890,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -20202,7 +17898,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Reah Card",
     "net": "Visa",
     "img": "cards/mkt-reah.webp",
-    "remote": "/card-art/REAH-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -20212,12 +17907,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Reah Card",
       "kyc": "未公开",
       "applyUrl": "https://reah.com",
-      "highlights": [
-        "0% 购物年利率",
-        "抵押品留在用户钱包，Reah 称不托管资产",
-        "提供美国个人、国际个人和美国企业卡项目",
-        "可在 Visa 商户使用"
-      ],
       "cautions": [
         "非美元消费外汇费 2.5%，跨境交易每笔 $0.30",
         "Reah 可通过智能合约清算抵押品",
@@ -20268,7 +17957,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -20277,7 +17965,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Mine Card（mine.financial）",
     "net": "Mastercard",
     "img": "cards/mkt-mine.webp",
-    "remote": "/card-art/MINE-CARD.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -20287,12 +17974,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Mine Card（mine.financial）",
       "kyc": "未公开",
       "applyUrl": "https://mine.financial/",
-      "highlights": [
-        "个人 CHF/EUR IBAN，入账自动结算为 USDC 存入自托管钱包",
-        "Mastercard 可在 175+ 国家使用",
-        "首日即支持 Apple Pay / Google Pay",
-        "可选通过 Aave V3 的非托管收益（默认关闭）"
-      ],
       "cautions": [
         "官网未公开卡片费率、外汇费与 ATM 规则",
         "名称易与美国 Mine（原 Fizz）信用建设卡混淆，后者已于 2026-05-07 关闭",
@@ -20338,7 +18019,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -20347,7 +18027,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Keyflo Card",
     "net": "",
     "img": "cards/mkt-keyflo.webp",
-    "remote": "/card-art/KEYFLO-CARD.webp",
     "tags": [
       "U卡",
       "自托管"
@@ -20357,10 +18036,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://keyflo.app/",
       "status": "无法确认",
-      "highlights": [
-        "可在 Telegram、WhatsApp、Discord 聊天中直接发送 USDC / EURC",
-        "官方 LinkedIn 帖子提及提供可随处消费的加密卡"
-      ],
       "cautions": [
         "官网未公开卡片的卡组织、费率、发卡方与申请条件",
         "卡片信息仅见于官方社媒零星提及"
@@ -20401,7 +18076,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -20410,7 +18084,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Veera Card",
     "net": "Visa",
     "img": "cards/mkt-veera.webp",
-    "remote": "/card-art/VEERA-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -20421,11 +18094,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://waitlist.veera.com/",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "使用链上余额消费，不经中心化托管",
-        "提供虚拟卡与实体卡",
-        "支持 Apple Pay / Google Pay（第三方资料）"
-      ],
       "cautions": [
         "目前仅开放候补名单，且名额紧张",
         "官方未公开费率与发卡方",
@@ -20475,7 +18143,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -20484,7 +18151,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Fasqon Crypto Card",
     "net": "",
     "img": "cards/mkt-fasqon.webp",
-    "remote": "/card-art/FASQON-CARD.webp",
     "tags": [
       "U卡",
       "托管"
@@ -20494,12 +18160,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://fasqon.com/",
       "status": "无法确认",
-      "highlights": [
-        "加密货币一键消费，无需手动兑换",
-        "配专属 IBAN",
-        "支持 Apple Pay / Google Pay",
-        "可用 $FSQN 支付与质押获得收益"
-      ],
       "cautions": [
         "官方路线图显示实体卡将在后续阶段推出，当前可用性不明",
         "费率与发卡方未公开",
@@ -20553,7 +18213,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -20562,7 +18221,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Bringin Bitcoin Debit Card",
     "net": "Visa",
     "img": "cards/mkt-bringin.webp",
-    "remote": "/card-art/BRINGIN-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -20575,12 +18233,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡与实体卡均免费",
       "kyc": "KYC",
       "applyUrl": "https://bringin.app/bitcoin-debit-cards",
-      "highlights": [
-        "每次使用 0 费用、0% 外汇费",
-        "可无限创建虚拟卡，含一次性卡",
-        "支持 SEPA、链上 BTC、Lightning 入金",
-        "支持 Google Pay（Apple Pay 即将推出）"
-      ],
       "cautions": [
         "需支付年费",
         "BTC 兑欧元收 1% 手续费，另有小幅加价",
@@ -20638,7 +18290,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -20647,7 +18298,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Lydian Card",
     "net": "Visa",
     "img": "cards/mkt-lydian.webp",
-    "remote": "/card-art/LYDIAN-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -20658,12 +18308,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "无年费",
       "kyc": "未公开",
       "applyUrl": "https://cards.lydian.com/",
-      "highlights": [
-        "Visa Platinum 权益：购物保障、延长保修、旅行权益",
-        "USDT / USDC 原生充值，其他资产可一键兑换",
-        "支持 Apple Pay / Google Pay",
-        "实体卡与即时虚拟卡"
-      ],
       "cautions": [
         "官网仅称“按次计费”，具体费率未公开",
         "权益因地区与项目条款而异"
@@ -20712,7 +18356,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -20721,7 +18364,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Wirex One Card",
     "net": "Visa",
     "img": "cards/mkt-wirex-one.webp",
-    "remote": "/card-art/WirexOne-Card.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -20734,12 +18376,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Base 仅虚拟卡",
       "kyc": "未公开",
       "applyUrl": "https://www.wirexapp.com/stablecoin-and-crypto-card",
-      "highlights": [
-        "所有档位免外汇费",
-        "官方称全球 ATM 取现免费",
-        "高档位可获 ChatGPT、Claude 等订阅 50% 返还",
-        "支持 SEPA、ACH、Faster Payments 收付款"
-      ],
       "cautions": [
         "高返现需持有大量 WPAY 代币",
         "低档实体卡运费需自付",
@@ -20801,7 +18437,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -20810,7 +18445,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Alien Card",
     "net": "Visa",
     "img": "cards/mkt-alien.webp",
-    "remote": "/card-art/ALIEN-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -20820,11 +18454,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Alien Card",
       "kyc": "KYC",
       "applyUrl": "https://alien.org/",
-      "highlights": [
-        "由持牌机构 Wirex 发行，走 Visa 网络",
-        "与 Alien App 内余额关联",
-        "可在 Visa 商户与 ATM 使用"
-      ],
       "cautions": [
         "Alien 仅为推荐方与技术接口，不是发卡方",
         "费用、限额、可用地区取决于 Wirex 账户与所在地区",
@@ -20882,7 +18511,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -20891,7 +18519,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "MoneyGram Card",
     "net": "Visa",
     "img": "cards/mkt-moneygram.webp",
-    "remote": "/card-art/MONEYGRAM-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -20901,11 +18528,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "MoneyGram Card",
       "kyc": "KYC",
       "applyUrl": "https://www.moneygram.com/",
-      "highlights": [
-        "持有 USDC 支持的美元余额，可在 Visa 商户消费",
-        "可转给自己并在 MoneyGram 网点领取当地货币现金",
-        "数字卡可加入手机钱包"
-      ],
       "cautions": [
         "首发仅限哥伦比亚，其他市场将陆续开放",
         "实体卡与 ATM 取现计划后续推出",
@@ -20963,7 +18585,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -20972,7 +18593,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Easy Card（uEasyCard）",
     "net": "Visa",
     "img": "cards/mkt-easy.webp",
-    "remote": "/card-art/EASY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -20983,11 +18603,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://ueasycard.com/",
       "status": "无法确认",
-      "highlights": [
-        "虚拟卡与金属卡，多币种",
-        "支持 26+ 法币与加密货币互转",
-        "多司法辖区账户"
-      ],
       "cautions": [
         "官网未公开卡组织、发卡方与费率",
         "合伙人计划含多达 9 级推荐层级，需谨慎辨别",
@@ -21037,7 +18652,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -21046,7 +18660,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Ethena Pay Spend Card",
     "net": "Visa",
     "img": "cards/mkt-ethena-pay.webp",
-    "remote": "/card-art/ETHENA-PAY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -21059,12 +18672,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡、补卡、激活均免费",
       "kyc": "未公开",
       "applyUrl": "https://pay.ethena.fi/",
-      "highlights": [
-        "美元消费零费用，无跨境费，Ethena 不加汇率差价",
-        "返现无总额上限",
-        "账户余额默认可获最高 6% 收益",
-        "无最低余额、无闲置费"
-      ],
       "cautions": [
         "非美元交易由卡组织收取约 1% 外汇费（原样转嫁）",
         "ATM（如可用）$1 + 0.65%",
@@ -21127,7 +18734,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -21136,7 +18742,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Qbit 量子卡",
     "net": "Visa",
     "img": "cards/mkt-qbit.webp",
-    "remote": "/card-art/QBIT-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -21147,11 +18752,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Qbit 自发卡 0 元/张",
       "kyc": "KYC",
       "applyUrl": "https://www.qbitnetwork.com/",
-      "highlights": [
-        "可批量开卡，适合广告投放、SaaS 订阅等企业支出",
-        "支持储值卡与额度卡两种模式",
-        "提供开发者 API 开卡"
-      ],
       "cautions": [
         "主要面向企业客户，非个人 U 卡",
         "交易费、外汇费等未在公开页面集中列出",
@@ -21201,7 +18801,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -21210,7 +18809,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "XSPA Card",
     "net": "Visa",
     "img": "cards/mkt-xspa.webp",
-    "remote": "/card-art/XSPA-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -21221,12 +18819,6 @@ export const U_CARDS: UCardItem[] = [
       "cashback": "无",
       "kyc": "KYC",
       "applyUrl": "https://xspa.ai/card.html",
-      "highlights": [
-        "官网宣称 0% 充值费",
-        "支持 USDT、USDC 等充值，刷卡时实时转为法币",
-        "家庭套餐最多 5 张关联卡",
-        "官网称支持 200+ 国家"
-      ],
       "cautions": [
         "第三方资料称卡片交易收 2.5%",
         "开卡费与外汇费未在官网明示",
@@ -21284,7 +18876,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -21293,7 +18884,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Girin Card",
     "net": "Visa",
     "img": "cards/mkt-girin.webp",
-    "remote": "/card-art/GIRIN-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -21304,12 +18894,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://inblog.ai/girineng/140574",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "官方称首张 XRPL 原生自托管卡",
-        "可用 XRP 或 RLUSD 消费，消费时转换为法币",
-        "计划支持 Google Pay、Samsung Pay",
-        "提供虚拟卡与实体卡"
-      ],
       "cautions": [
         "目前为候补/预注册阶段",
         "费率、资格与持卡条款尚未正式公布"
@@ -21358,7 +18942,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -21367,7 +18950,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Wallbit Visa Card",
     "net": "Visa",
     "img": "cards/mkt-wallbit.webp",
-    "remote": "/card-art/WALLBIT-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -21380,12 +18962,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "一次性激活费 $5",
       "kyc": "KYC",
       "applyUrl": "https://www.wallbit.io/en/card",
-      "highlights": [
-        "美元消费无手续费",
-        "支持 Apple Pay / Google Pay",
-        "USD、EUR、USDC、USDT 入金免费",
-        "可在 180+ 国家使用"
-      ],
       "cautions": [
         "非美元消费 Visa 收 2% 外汇费",
         "部分拉美国家本币取款有 $0.35 固定费加汇率成本",
@@ -21443,7 +19019,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -21452,7 +19027,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Gluon Card",
     "net": "Visa",
     "img": "cards/mkt-gluon.webp",
-    "remote": "/card-art/GLUON-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -21463,11 +19037,6 @@ export const U_CARDS: UCardItem[] = [
       "annualFee": "无月费",
       "kyc": "KYC",
       "applyUrl": "https://gluon.money/",
-      "highlights": [
-        "在 Visa 商户刷卡，商户以当地货币收款",
-        "支持 Apple Pay / Google Pay（第三方资料）",
-        "验证通常几分钟内完成"
-      ],
       "cautions": [
         "非基础币种消费收约 1.5% 外汇费",
         "抵押品价值跌破欠款时可能被清算（第三方资料）",
@@ -21525,7 +19094,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -21534,7 +19102,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Global Nova Card（MuseWallet）",
     "net": "Visa",
     "img": "cards/mkt-global-nova-card.webp",
-    "remote": "/card-art/NOVA-GLOBAL-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -21545,11 +19112,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "需用 USDT/USDC 支付开卡费",
       "kyc": "KYC",
       "applyUrl": "https://www.musewallet.io/download",
-      "highlights": [
-        "官网称 0% 充值费",
-        "可用于在线订阅、购物、出行及绑定电子钱包",
-        "单卡每日交易上限 $500,000"
-      ],
       "cautions": [
         "MuseWallet 卡交易费 1.5%",
         "在香港和欧盟以外消费或取现可能产生银行与卡组织跨境费",
@@ -21611,7 +19173,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -21620,7 +19181,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Elite Nova Card（MuseWallet 实体卡）",
     "net": "Visa",
     "img": "cards/mkt-elite-nova-card.webp",
-    "remote": "/card-art/NOVA-ELITE-PHYSICAL-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -21632,11 +19192,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "需用 USDT/USDC 支付开卡费",
       "kyc": "KYC",
       "applyUrl": "https://www.musewallet.io/download",
-      "highlights": [
-        "实体卡支持 POS 刷卡、NFC 与 ATM 取现",
-        "官网称 0% 充值费",
-        "每日 ATM 取现上限 $500,000"
-      ],
       "cautions": [
         "交易费 1.5%，ATM 取现 1.5% + ATM 运营方费用",
         "香港和欧盟以外消费或取现可能产生跨境费",
@@ -21698,7 +19253,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -21707,7 +19261,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "BeeXpay Card",
     "net": "Mastercard",
     "img": "cards/mkt-beexpay.webp",
-    "remote": "/card-art/BEEXPAY-CARD-20260907.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -21719,11 +19272,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡 $10",
       "kyc": "KYC",
       "applyUrl": "https://beexpay.app/",
-      "highlights": [
-        "支持 BTC、ETH、USDT、BNB 等 50 多种加密货币",
-        "虚拟卡几分钟内可用",
-        "支持 Apple Pay / Google Pay"
-      ],
       "cautions": [
         "充值费：无 KYC 4%、有 KYC 2.5%",
         "每笔交易 $0.25–$0.50，其他币种 1.5%–2%",
@@ -21782,7 +19330,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -21791,7 +19338,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Kraken Card（Krak Card）",
     "net": "Mastercard",
     "img": "cards/mkt-kraken.webp",
-    "remote": "/card-art/KRAKEN-CARD-20260829.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -21804,12 +19350,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "免费",
       "kyc": "KYC",
       "applyUrl": "https://www.kraken.com/features/crypto-card",
-      "highlights": [
-        "无交易费、外汇费、Kraken ATM 费",
-        "600+ 种加密与法币资产可直接消费",
-        "支持 Apple Pay / Google Pay",
-        "可设置资产消费顺序、屏蔽特定资产"
-      ],
       "cautions": [
         "用加密货币消费存在浮动点差",
         "ATM 运营方可能收费",
@@ -21871,7 +19411,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。",
       "kycRequirements": {
         "idCard": "待确认",
         "passport": "待确认",
@@ -21888,7 +19427,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Winity Card",
     "net": "Visa",
     "img": "cards/mkt-winity.webp",
-    "remote": "/card-art/WINITY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -21901,12 +19439,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Exclusive 虚拟卡 KYC …",
       "kyc": "护照",
       "applyUrl": "https://www.winity.life/exclusive",
-      "highlights": [
-        "USDT/USDC 充值 0 手续费",
-        "官方称 187+ 国家可用",
-        "KYC 通常几分钟完成，人工审核 1–2 个工作日",
-        "提供虚拟卡与实体卡"
-      ],
       "cautions": [
         "余额需至少 $25 才能交易，<$25 的交易收 $0.10",
         "WCO 及其他非稳定币充值/兑换收 5%",
@@ -21943,7 +19475,6 @@ export const U_CARDS: UCardItem[] = [
           "187+ 国家（受限国家除外）"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -21952,7 +19483,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Stablecard by Western Union",
     "net": "Visa",
     "img": "cards/mkt-western-union-stablecard.webp",
-    "remote": "/card-art/WU.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -21962,12 +19492,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Stablecard by Western Union",
       "kyc": "KYC",
       "applyUrl": "https://www.westernunion.com/global/en/digital-assets-stablecard.html",
-      "highlights": [
-        "以 Western Union 自有稳定币 USDPT（Solana）为抵押消费",
-        "可在 Visa ATM 取当地货币，或到 Western Union 网点取现",
-        "可将 Western Union 汇款直接转入卡中",
-        "无信用审查、无最低余额"
-      ],
       "cautions": [
         "2026-08-04 上线时覆盖 37 个市场，可用性视当地规定",
         "费率尚未完整公开",
@@ -22017,7 +19541,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -22026,7 +19549,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Tevau Card",
     "net": "Visa",
     "img": "cards/mkt-tevau.webp",
-    "remote": "/card-art/TEVAU-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -22039,12 +19561,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "一次性开卡费：虚拟卡 $20",
       "kyc": "证件",
       "applyUrl": "https://www.tevau.co/card/",
-      "highlights": [
-        "支持 Apple Pay / Google Pay",
-        "非 ATM 单日限额最高 $3,000,000",
-        "金属卡每月 2 次、金卡每月 5 次充值费减半",
-        "官方称支持 200+ 国家"
-      ],
       "cautions": [
         "充值费 1%",
         "美元交易每笔 $0.2 + 0.5%，外币交易 1.2%",
@@ -22107,7 +19623,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -22116,7 +19631,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Stack Card",
     "net": "Visa",
     "img": "cards/mkt-stack.webp",
-    "remote": "/card-art/STACK-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -22129,12 +19643,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "第三方资料称虚拟卡免费",
       "kyc": "KYC",
       "applyUrl": "https://stack.one/",
-      "highlights": [
-        "注册即得虚拟卡，另可申请实体卡",
-        "支持 Apple Pay / Google Pay",
-        "合格消费 1.5% 返现",
-        "附美元与欧元账户，可收款和汇回本地"
-      ],
       "cautions": [
         "余额由持牌合作方托管",
         "外汇与 ATM 费用未在官网明示",
@@ -22184,7 +19692,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -22193,7 +19700,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Startale Card",
     "net": "Visa",
     "img": "cards/mkt-startale.webp",
-    "remote": "/card-art/STARTALE-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -22204,11 +19710,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://startale.com/en/blog/startale-card-waitlist",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "基于 Soneium 的自托管卡",
-        "合格资产可在消费前继续生息",
-        "返现以 USDSC 发放"
-      ],
       "cautions": [
         "2026-07-13 发布，目前仅开放候补名单",
         "地区、时间与条款将视当地监管而定"
@@ -22253,7 +19754,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -22262,7 +19762,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Privacy Gateway Card",
     "net": "Visa",
     "img": "cards/mkt-privacy-gateway.webp",
-    "remote": "/card-art/PRIVACY-GATEWAY-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -22275,12 +19774,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "一次性 $60（2026 年 5 折…",
       "kyc": "KYC",
       "applyUrl": "https://privacygateway.io/prepaid-cards",
-      "highlights": [
-        "无需 KYC，即时发卡",
-        "美元消费 0% 手续费",
-        "支持 Google Pay 与 3DS",
-        "支持 BTC、XMR、LTC、SOL、ETH、USDT/USDC 等充值"
-      ],
       "cautions": [
         "充值费 3.5%",
         "每月消费上限 $10,000",
@@ -22335,7 +19828,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -22344,7 +19836,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Peanut Card",
     "net": "Visa",
     "img": "cards/mkt-peanut.webp",
-    "remote": "/card-art/PEANUT-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -22356,12 +19847,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "无开卡费",
       "kyc": "KYC",
       "applyUrl": "https://peanut.me/en/help/peanut-card",
-      "highlights": [
-        "无开卡费、月费、年费",
-        "同币种消费不加收费用",
-        "可用 Apple Pay / Google Pay（视地区）",
-        "超出卡额度的资金留在用户 Passkey 控制的 Arbitrum 钱包中"
-      ],
       "cautions": [
         "非美元消费按 Visa 汇率并加收 1% 国际服务费",
         "仅卡额度部分作为抵押锁定",
@@ -22415,7 +19900,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -22424,7 +19908,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Oppi Wallet Card",
     "net": "Mastercard",
     "img": "cards/mkt-oppiwallet.webp",
-    "remote": "/card-art/OPPIWALLET.webp",
     "tags": [
       "U卡",
       "Mastercard",
@@ -22437,12 +19920,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡激活 $10（返还 $5 至卡…",
       "kyc": "未公开",
       "applyUrl": "https://oppiwallet.com/en/virtual-crypto-card",
-      "highlights": [
-        "钱包私钥保存在本地，按需向卡充值",
-        "支持 BTC、ETH、USDT、USDC 等充值",
-        "可加入 Apple Pay / Google Pay",
-        "可创建多张虚拟卡"
-      ],
       "cautions": [
         "非美元消费外汇费 2%–2.5%",
         "ATM 与限额未公开",
@@ -22500,7 +19977,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -22509,7 +19985,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "MP Card（MPChat）",
     "net": "Visa",
     "img": "cards/mkt-mpchat.webp",
-    "remote": "/card-art/MPCHAT.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -22520,11 +19995,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://mp.net/pay",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "USDT/USDC 存入后转入卡片，在线及线下消费",
-        "提供虚拟卡与实体卡（含 ATM 取现）",
-        "可在 App 内设置限额、冻结卡片"
-      ],
       "cautions": [
         "MP Pay 页面目前为“Request Early Access”",
         "卡组织、费率、发卡方均未公开",
@@ -22574,7 +20044,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -22583,7 +20052,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Lumo Debit Card",
     "net": "",
     "img": "cards/mkt-lumo.webp",
-    "remote": "/card-art/LUMO-CARD.webp",
     "tags": [
       "U卡",
       "自托管"
@@ -22593,11 +20061,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "Basic 免费",
       "kyc": "未公开",
       "applyUrl": "https://lumowallet.com/debit-card",
-      "highlights": [
-        "默认直接从钱包可用资产扣款，无需先充值",
-        "支持 Apple Pay / Google Pay（视地区）",
-        "Pro 卡支持 USDT、BNB、ETH、BTC、SOL 充值"
-      ],
       "cautions": [
         "Basic 卡非本币消费 1.75%（1% + Lumo 0.75%）",
         "充值及其他卡费仅在 App 内显示",
@@ -22647,7 +20110,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -22656,7 +20118,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Kripicard",
     "net": "",
     "img": "cards/mkt-kripi.webp",
-    "remote": "/card-art/KRIPICARD.webp",
     "tags": [
       "U卡",
       "托管"
@@ -22668,12 +20129,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "开卡费 $5（可按量协商）+ 处理费…",
       "kyc": "分级 KYC",
       "applyUrl": "https://home.kripicard.com/",
-      "highlights": [
-        "支持 Apple Pay、Google Pay、Samsung Pay",
-        "无授权费、无外汇费",
-        "卡片有效期 5 年，可无限开卡",
-        "适合广告投放、电商、订阅"
-      ],
       "cautions": [
         "充值费 4%",
         "BIN 自动分配，无法指定卡组织",
@@ -22735,7 +20190,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -22744,7 +20198,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Kolan Card",
     "net": "Visa",
     "img": "cards/mkt-kolan.webp",
-    "remote": "/card-art/KOLAN-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -22754,11 +20207,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Kolan Card",
       "kyc": "未公开",
       "applyUrl": "https://kolan.xyz/",
-      "highlights": [
-        "几秒内生成虚拟卡，在 Visa 商户使用",
-        "可接收 USD、EUR、GBP 并以稳定币持有",
-        "同一余额可用于交易加密货币和预测市场"
-      ],
       "cautions": [
         "卡片条款称以商业用途为主，非商业交易可能被拦截",
         "条款提及抵押品价值下跌可能被清算",
@@ -22808,7 +20256,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -22817,7 +20264,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Kite Stable Card",
     "net": "Visa",
     "img": "cards/mkt-kite.webp",
-    "remote": "/card-art/KITE-CARD.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -22831,12 +20277,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "KYC",
       "applyUrl": "https://www.kiteapp.xyz/",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "无年费、无开卡费",
-        "美元消费免费",
-        "支持 Google Pay，可扫描本地二维码用 USDC/USDT 付款",
-        "钱包密钥多方分片，可随时导出私钥"
-      ],
       "cautions": [
         "官网卡片模块仍标注“Coming soon”",
         "非美元消费 1.8%",
@@ -22898,7 +20338,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -22907,7 +20346,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Interlace Infinity Card",
     "net": "Visa / Mastercard",
     "img": "cards/mkt-interlace-infinity.webp",
-    "remote": "/card-art/INTERLACE.webp",
     "tags": [
       "U卡",
       "Visa / Mastercard",
@@ -22917,12 +20355,6 @@ export const U_CARDS: UCardItem[] = [
       "name": "Interlace Infinity Card",
       "kyc": "KYC",
       "applyUrl": "https://www.interlace.money/infinity-cards",
-      "highlights": [
-        "可用 USDC / USDT 充值",
-        "支持 PayPal、Apple Pay、Google Pay、支付宝",
-        "覆盖 180+ 国家和地区、40+ 币种",
-        "支持无限量批量发卡与 API 管理"
-      ],
       "cautions": [
         "主要面向企业客户",
         "费率（交易、跨境、外汇、ATM 等）仅通过 API 查询，未公开",
@@ -22976,7 +20408,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     },
     "custody": "托管"
   },
@@ -22985,7 +20416,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "defi.com Card",
     "net": "Visa",
     "img": "cards/mkt-defi-com.webp",
-    "remote": "/card-art/DEFI.COM_.webp",
     "tags": [
       "U卡",
       "Visa",
@@ -22996,11 +20426,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://defi.com/",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "直接从账户扣 USDC，在 Visa 商户消费",
-        "虚拟卡 + 实体卡，支持 Apple Pay / Google Pay",
-        "官方称兑换与外汇零费用"
-      ],
       "cautions": [
         "目前为候补名单，2026 年 Q4 分批开放早期访问",
         "可用性与资格因国家而异",
@@ -23058,7 +20483,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：low；核查日期 2026-10-09。"
     },
     "custody": "自托管"
   },
@@ -23067,7 +20491,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "Brave Rewards Card",
     "net": "",
     "img": "cards/mkt-brave-rewards.webp",
-    "remote": "/card-art/BRAVE-CARD.webp",
     "tags": [
       "U卡"
     ],
@@ -23077,11 +20500,6 @@ export const U_CARDS: UCardItem[] = [
       "kyc": "未公开",
       "applyUrl": "https://brave.com/card-waitlist/",
       "status": "邀请制或候补名单",
-      "highlights": [
-        "消费、浏览与余额均可获得 BAT 奖励",
-        "计划提供虚拟卡与实体卡",
-        "早期注册可获首发优惠"
-      ],
       "cautions": [
         "尚未上线，发卡方与卡组织未公布",
         "资格取决于所在国家",
@@ -23131,7 +20549,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：medium；核查日期 2026-10-09。"
     }
   },
   {
@@ -23139,7 +20556,6 @@ export const U_CARDS: UCardItem[] = [
     "brand": "MEXC 全球卡（MEXC Global Card）",
     "net": "Visa",
     "img": "cards/mkt-mexc.webp",
-    "remote": "/card-art/MEXC-CARD.webp",
     "tags": [
       "U卡",
       "Visa"
@@ -23151,13 +20567,6 @@ export const U_CARDS: UCardItem[] = [
       "cardFee": "虚拟卡开卡费标准 20 USD",
       "kyc": "KYC",
       "applyUrl": "https://www.mexc.com/zh-MY/buy-crypto/mexc-card",
-      "highlights": [
-        "最高 10% USDT 返现",
-        "Visa 汇率无外汇加价",
-        "单笔限额 80,000 USD、单日 1,000,000 USD",
-        "卡余额可参与专属理财，宣传 7% APR",
-        "支持 Apple Pay / Google Pay"
-      ],
       "cautions": [
         "每笔交易收 1% 交易费（2026-08-31 至 09-30 限时免收）",
         "返现等级取决于交易所 VVIP 等级而非刷卡额，且有月上限",
@@ -23220,7 +20629,6 @@ export const U_CARDS: UCardItem[] = [
           "conditional"
         ]
       ],
-      "note": "资料可信度：high；核查日期 2026-10-09。"
     },
     "custody": "托管"
   }

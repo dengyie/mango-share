@@ -18,12 +18,9 @@ export interface UCardDetail {
   statusNote?: string;
   kyc: string;
   applyUrl: string;
-  highlights: string[];
   cautions: string[];
   specs: [string, string][];
   platforms?: [string, PlatformSupportStatus][];
-  note: string;
-  references?: { label: string; url: string }[];
   status?: string;
   kycRequirements?: KycRequirements;
   inviteCode?: string;
@@ -37,8 +34,6 @@ export interface UCardItem {
   net: 'Visa' | 'Mastercard' | 'Visa / Mastercard' | string;
   custody?: '自托管' | '托管' | '自托管（USDC 卡）/ 托管（EUR 卡）' | string;
   img: string;
-  remote?: string;
-  imageSource?: string;
   tags: string[];
   variantGroup?: string;
   variantLabel?: string;
