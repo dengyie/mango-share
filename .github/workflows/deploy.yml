@@ -129,6 +129,20 @@ jobs:
           rm -rf "$backup"
           echo "Origin update completed for $(git rev-parse --short HEAD) at $(date -u +%FT%TZ)"
 
+      - name: Purge Cloudflare edge cache
+        if: env.BUILD_SPA == 'true'
+        # HTML now carries short edge caching (max-age=120); a release must
+        # not wait out the TTL. Token is scoped to Cache Purge on this zone
+        # only (mangoshare-ci-purge), far narrower than the account key.
+        run: |
+          code=$(curl -sS --max-time 15 -o /tmp/purge.json -w '%{http_code}' \
+            -X POST "https://api.cloudflare.com/client/v4/zones/${{ secrets.CF_ZONE_ID }}/purge_cache" \
+            -H "Authorization: Bearer ${{ secrets.CF_PURGE_API_TOKEN }}" \
+            -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}') || code=000
+          cat /tmp/purge.json || true
+          [ "$code" = "200" ] || { echo "CF purge failed (HTTP $code); new HTML may take up to 2 min to propagate" >&2; exit 1; }
+
       - name: Verify production
         run: |
           # This is an external availability check, not proof of the revision
