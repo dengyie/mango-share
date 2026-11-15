@@ -392,8 +392,11 @@ func (s *Server) handleLogin(w http.ResponseWriter, r *http.Request) {
 		writeError(w, http.StatusBadRequest, "请输入邮箱与密码")
 		return
 	}
-	if !s.rl.allow("login:ip:"+ip, loginIPFailures, loginIPWindow) ||
-		!s.rl.allow("login:acct:"+email, loginAcctFailures, loginIPWindow) {
+	// login:* keys count failures only: admission counting would lock
+	// shared NAT IPs (office/family) out for normal successful logins.
+	// The check is fail-closed: an over-limit key refuses even before the
+	// next attempt can be evaluated.
+	if rlExceeded(s, "login:ip:"+ip, loginIPFailures) || rlExceeded(s, "login:acct:"+email, loginAcctFailures) {
 		writeError(w, http.StatusTooManyRequests, "尝试过于频繁，请稍后再试")
 		return
 	}
@@ -402,6 +405,7 @@ func (s *Server) handleLogin(w http.ResponseWriter, r *http.Request) {
 	if err != nil {
 		if errors.Is(err, errNotFound) {
 			s.failLogin(email, req.Password)
+			s.noteLoginFail("login:ip:"+ip, "login:acct:"+email)
 			writeError(w, http.StatusUnauthorized, "邮箱或密码错误")
 			return
 		}
@@ -409,10 +413,12 @@ func (s *Server) handleLogin(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	if !checkPassword(u.PasswordHash, req.Password) {
+		s.noteLoginFail("login:ip:"+ip, "login:acct:"+email)
 		writeError(w, http.StatusUnauthorized, "邮箱或密码错误")
 		return
 	}
 	s.rl.reset("login:acct:" + email)
+	s.rl.reset("login:ip:" + ip)
 	token, err := s.st.createSession(u.ID, s.cfg.TokenTTL)
 	if err != nil {
 		writeError(w, http.StatusInternalServerError, "服务暂时不可用，请稍后再试")

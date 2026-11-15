@@ -27,6 +27,12 @@ func main() {
 	}
 	defer st.close()
 
+	// Expired sessions / email codes are only deleted on explicit logout or
+	// verify; without this janitor the DB grows forever.
+	janCtx, janStop := context.WithCancel(context.Background())
+	defer janStop()
+	st.startJanitor(janCtx, 6*time.Hour, logger)
+
 	var mailer Mailer
 	switch {
 	case cfg.OneMailAPI != "" && cfg.OneMailToken != "":

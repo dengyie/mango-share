@@ -4,7 +4,9 @@ name: Deploy to Production
 # Migrated 2026-11-12 from nl-vps (LeaseWeb, repeatedly starved by host CPU steal).
 # Frontend webroot: /var/www/mangoshare (nginx loopback :18923 behind CF tunnel).
 # Blog (blog/ subdirectory, Astro) publishes to /var/www/mangoshare/blog/.
-# Daily rebuild also refreshes the blog's build-time GitHub project data.
+# Daily rebuild also refreshes the blog's build-time GitHub project data —
+# scheduled runs build and publish the blog only; the SPA is static between
+# pushes.
 on:
   push:
     branches: [main]
@@ -24,6 +26,11 @@ jobs:
   deploy:
     if: github.ref == 'refs/heads/main'
     runs-on: ubuntu-latest
+    # Daily cron exists only to refresh the blog's build-time GitHub project
+    # data; the SPA is static and unchanged — don't churn it. Push/dispatch
+    # builds both.
+    env:
+      BUILD_SPA: ${{ github.event_name != 'schedule' }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -38,10 +45,19 @@ jobs:
             blog/package-lock.json
 
       - name: Build SPA
+        if: env.BUILD_SPA == 'true'
         run: |
           npm ci
           npm test
           npm run build
+
+      - name: Setup Node (blog only, scheduled run)
+        if: env.BUILD_SPA != 'true'
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: blog/package-lock.json
 
       - name: Build blog
         run: |
@@ -99,8 +115,13 @@ jobs:
             exit "$rc"
           }
           trap rollback EXIT
-          # SPA webroot；排除 blog/，博客由下面第二条 rsync 单独发布，防 --delete 互删
-          rsync -az --delete --exclude '/blog' -e "ssh -F $HOME/.ssh/config" dist/ lh-target:/var/www/mangoshare/
+          # SPA webroot；排除 blog/，博客由下面第二条 rsync 单独发布，防 --delete 互删。
+          # 每日定时只刷博客数据，SPA 产物未变，跳过第一条避免整站 churn。
+          if [ "$BUILD_SPA" = "true" ]; then
+            rsync -az --delete --exclude '/blog' -e "ssh -F $HOME/.ssh/config" dist/ lh-target:/var/www/mangoshare/
+          else
+            echo "Scheduled blog-only deploy: SPA rsync skipped"
+          fi
           rsync -az --delete -e "ssh -F $HOME/.ssh/config" blog/dist/ lh-target:/var/www/mangoshare/blog/
           ssh -F $HOME/.ssh/config lh-target 'sudo -n /usr/sbin/nginx -t && sudo -n /usr/bin/systemctl reload nginx'
           trap - EXIT

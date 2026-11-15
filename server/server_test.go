@@ -377,6 +377,35 @@ func TestLoginWrongPasswordAndRateLimit(t *testing.T) {
 	}
 }
 
+// Successful logins must not consume failure attempts: a shared NAT IP
+// (office/family) doing normal logins should never get locked out.
+func TestLoginSuccessDoesNotCountTowardRateLimit(t *testing.T) {
+	ts, mailer := newTestServer(t)
+	email := "nat@example.com"
+	registerUser(t, ts, mailer, email, "correct-password")
+
+	// 3x success then 1x failure, repeated past the failure limit: only the
+	// failures count, so we must stay under 429 throughout.
+	failures := 0
+	for round := 0; round < loginAcctFailures+5; round++ {
+		for i := 0; i < 3; i++ {
+			status, _ := doJSON(t, ts, "POST", "/api/auth/login", "", map[string]string{"email": email, "password": "correct-password"})
+			if status != http.StatusOK {
+				t.Fatalf("round %d success login status = %d (successes must not burn attempts)", round, status)
+			}
+		}
+		status, _ := doJSON(t, ts, "POST", "/api/auth/login", "", map[string]string{"email": email, "password": "wrong-pass"})
+		if status == http.StatusTooManyRequests {
+			failures++
+		} else if status != http.StatusUnauthorized {
+			t.Fatalf("round %d failure login status = %d", round, status)
+		}
+	}
+	if failures != 0 {
+		t.Fatalf("got %d premature 429s with < %d total failures", failures, loginAcctFailures)
+	}
+}
+
 func TestResetPasswordRevokesSessions(t *testing.T) {
 	ts, mailer := newTestServer(t)
 	email := "reset@example.com"

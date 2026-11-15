@@ -1,9 +1,11 @@
 package main
 
 import (
+	"context"
 	"crypto/subtle"
 	"database/sql"
 	"errors"
+	"log"
 	"os"
 	"path/filepath"
 	"time"
@@ -302,6 +304,37 @@ WHERE s.token_hash = ?`, hash)
 func (s *store) deleteSessionByHash(hash string) error {
 	_, err := s.db.Exec(`DELETE FROM sessions WHERE token_hash = ?`, hash)
 	return err
+}
+
+// purgeExpired drops expired sessions and email codes. Rows are otherwise
+// only deleted on explicit logout/verify, so an idle DB grows forever with
+// 30-day-token sessions and stale codes.
+func (s *store) purgeExpired() error {
+	now := time.Now().Unix()
+	if _, err := s.db.Exec(`DELETE FROM sessions WHERE expires_at < ?`, now); err != nil {
+		return err
+	}
+	_, err := s.db.Exec(`DELETE FROM email_codes WHERE expires_at < ?`, now)
+	return err
+}
+
+// startJanitor purges expired rows on a fixed interval until ctx is
+// cancelled; failures are logged and retried next tick.
+func (s *store) startJanitor(ctx context.Context, every time.Duration, logger *log.Logger) {
+	go func() {
+		ticker := time.NewTicker(every)
+		defer ticker.Stop()
+		for {
+			select {
+			case <-ctx.Done():
+				return
+			case <-ticker.C:
+				if err := s.purgeExpired(); err != nil {
+					logger.Printf("purge expired rows: %v", err)
+				}
+			}
+		}
+	}()
 }
 
 func (s *store) revokeSessions(userID int64) error {

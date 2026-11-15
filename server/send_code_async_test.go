@@ -329,7 +329,8 @@ func (failingCodeMailer) SendCode(context.Context, string, string, string) error
 	return errors.New("delivery failed")
 }
 
-// Admission must stay bounded even when every rate-limit key is still live.
+// At capacity the limiter evicts the oldest bucket instead of rejecting:
+// one attacker holding maxRLBuckets alive keys must not 429 new users.
 func TestQueueRateLimiterBoundsLiveKeys(t *testing.T) {
 	rl := newRateLimiter()
 	for i := 0; i < maxRLBuckets; i++ {
@@ -337,10 +338,18 @@ func TestQueueRateLimiterBoundsLiveKeys(t *testing.T) {
 			t.Fatal("premature rejection")
 		}
 	}
-	if rl.allow("overflow", 1, time.Hour) {
-		t.Fatal("admitted key beyond bound")
+	if !rl.allow("overflow", 1, time.Hour) {
+		t.Fatal("new key rejected at capacity; want oldest-eviction")
 	}
 	if len(rl.buckets) != maxRLBuckets {
 		t.Fatalf("unbounded buckets: %d", len(rl.buckets))
+	}
+	// The evicted victim is the oldest bucket (ip:0); it starts a fresh window.
+	if !rl.allow("ip:0", 1, time.Hour) {
+		t.Fatal("evicted oldest key should have been admitted as new")
+	}
+	// A mid-stream key that was never evicted keeps its consumed attempt.
+	if rl.allow("ip:5", 1, time.Hour) {
+		t.Fatal("live key's window was lost")
 	}
 }
