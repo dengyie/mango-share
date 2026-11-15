@@ -46,6 +46,7 @@ const AccountPanel = lazy(() =>
 import { FluidContourBackdrop } from './components/awesome-ui/FluidContourBackdrop';
 import { AnimatedCounter } from './components/awesome-ui/AnimatedCounter';
 import { UiIcon } from './components/awesome-ui/UiIcon';
+import { FaIcon, FaIconName } from './components/awesome-ui/FaIcon';
 
 const BACKDROP_INK: [number, number, number] = [0.16, 0.20, 0.18];
 const BACKDROP_PAPER: [number, number, number] = [0.98, 0.98, 0.96];
@@ -89,50 +90,51 @@ const AccountFooterLink: React.FC<{ onOpen: () => void }> = ({ onOpen }) => {
         onClick={onOpen}
         title="登录 / 注册 / 我的服务"
       >
-        <i className="fa-solid fa-user-shield opacity-75 mr-1 text-[11px]" />
+        <FaIcon name="user-shield" className="opacity-75 mr-1" size={11} />
         <span>{user ? `用户中心 · ${user.displayName || user.email}` : '登录 / 注册'}</span>
       </button>
     </p>
   );
 };
 
-// Tab-specific monochrome trust avatar icons matching the Swiss aesthetic
-const TAB_TRUST_ICONS: Record<TabType, { icon: string; title: string }[]> = {
+// Tab-specific monochrome trust avatar icons matching the Swiss aesthetic.
+// Values are FaIcon names (inlined Font Awesome glyphs — no cdnjs dependency).
+const TAB_TRUST_ICONS: Record<TabType, { icon: FaIconName; title: string }[]> = {
   'u-cards': [
-      { icon: 'fa-brands fa-cc-visa', title: 'Visa 国际清算网络' },
-      { icon: 'fa-brands fa-cc-mastercard', title: 'Mastercard 国际清算网络' },
-      { icon: 'fa-brands fa-bitcoin', title: 'Bitcoin 原生加密网络' },
-      { icon: 'fa-brands fa-ethereum', title: 'Ethereum 智能合约生态' },
+      { icon: 'cc-visa', title: 'Visa 国际清算网络' },
+      { icon: 'cc-mastercard', title: 'Mastercard 国际清算网络' },
+      { icon: 'bitcoin', title: 'Bitcoin 原生加密网络' },
+      { icon: 'ethereum', title: 'Ethereum 智能合约生态' },
     ],
     'sim-cards': [
-      { icon: 'fa-solid fa-sim-card', title: '实体 SIM / 电子 eSIM' },
-      { icon: 'fa-solid fa-tower-broadcast', title: '全球蜂窝基站覆盖' },
-      { icon: 'fa-solid fa-globe', title: '跨国无缝漫游' },
-      { icon: 'fa-solid fa-comment-sms', title: '国内免费接收短信' },
+      { icon: 'sim-card', title: '实体 SIM / 电子 eSIM' },
+      { icon: 'tower-broadcast', title: '全球蜂窝基站覆盖' },
+      { icon: 'globe', title: '跨国无缝漫游' },
+      { icon: 'comment-sms', title: '国内免费接收短信' },
     ],
     'ai-hub': [
-      { icon: 'fa-solid fa-brain', title: '大语言模型认知中枢' },
-      { icon: 'fa-solid fa-wand-magic-sparkles', title: '生成式 AI 智能体' },
-      { icon: 'fa-solid fa-robot', title: '多模型 API 聚合调度' },
-      { icon: 'fa-solid fa-bolt', title: '低延迟公网高速节点' },
+      { icon: 'brain', title: '大语言模型认知中枢' },
+      { icon: 'wand-magic-sparkles', title: '生成式 AI 智能体' },
+      { icon: 'robot', title: '多模型 API 聚合调度' },
+      { icon: 'bolt', title: '低延迟公网高速节点' },
     ],
     'credit-cards': [
-      { icon: 'fa-brands fa-cc-amex', title: 'American Express 顶级运通' },
-      { icon: 'fa-brands fa-cc-visa', title: 'Visa 经典卡组织' },
-      { icon: 'fa-brands fa-cc-mastercard', title: 'Mastercard 极速清算' },
-      { icon: 'fa-brands fa-apple-pay', title: 'Apple Pay 便捷绑卡支付' },
+      { icon: 'cc-amex', title: 'American Express 顶级运通' },
+      { icon: 'cc-visa', title: 'Visa 经典卡组织' },
+      { icon: 'cc-mastercard', title: 'Mastercard 极速清算' },
+      { icon: 'apple-pay', title: 'Apple Pay 便捷绑卡支付' },
     ],
     'perks': [
-      { icon: 'fa-solid fa-gift', title: '高价值精选羊毛福利' },
-      { icon: 'fa-solid fa-cloud', title: '全球云基础设施' },
-      { icon: 'fa-brands fa-github', title: 'GitHub 开发者开源生态' },
-      { icon: 'fa-solid fa-server', title: '永久免费算力与 VPS' },
+      { icon: 'gift', title: '高价值精选羊毛福利' },
+      { icon: 'cloud', title: '全球云基础设施' },
+      { icon: 'github', title: 'GitHub 开发者开源生态' },
+      { icon: 'server', title: '永久免费算力与 VPS' },
     ],
     'account': [
-      { icon: 'fa-solid fa-user-shield', title: '管理员身份认证' },
-      { icon: 'fa-solid fa-key', title: 'API 站点登录令牌' },
-      { icon: 'fa-solid fa-server', title: 'API 站点管理后台' },
-      { icon: 'fa-solid fa-sliders', title: '公益站拓扑配置' },
+      { icon: 'user-shield', title: '管理员身份认证' },
+      { icon: 'key', title: 'API 站点登录令牌' },
+      { icon: 'server', title: 'API 站点管理后台' },
+      { icon: 'sliders', title: '公益站拓扑配置' },
     ],
   };
 
@@ -329,7 +331,7 @@ export const App: React.FC = () => {
             {TAB_TRUST_ICONS[currentTab].map((item, idx) => (
               <span key={`${currentTab}-${idx}`} className="trust-avatar" title={item.title}>
                 <span>
-                  <i className={item.icon} />
+                  <FaIcon name={item.icon} />
                 </span>
               </span>
             ))}
@@ -364,7 +366,7 @@ export const App: React.FC = () => {
               className={`pill ${currentTab === 'u-cards' ? 'active' : ''}`}
               onClick={() => handleTabChange('u-cards')}
             >
-              <i className="fa-brands fa-bitcoin opacity-75 mr-1 text-[11px]" />
+              <FaIcon name="bitcoin" className="opacity-75 mr-1" size={11} />
               <span>加密货币卡</span>
               <span className="pill-badge">{U_CARDS.length}</span>
             </button>
@@ -374,7 +376,7 @@ export const App: React.FC = () => {
               className={`pill ${currentTab === 'sim-cards' ? 'active' : ''}`}
               onClick={() => handleTabChange('sim-cards')}
             >
-              <i className="fa-solid fa-sim-card opacity-75 mr-1 text-[11px]" />
+              <FaIcon name="sim-card" className="opacity-75 mr-1" size={11} />
               <span>电话卡 / eSIM</span>
               <span className="pill-badge">{SIM_CARDS.length}</span>
             </button>
@@ -384,7 +386,7 @@ export const App: React.FC = () => {
               className={`pill ${currentTab === 'ai-hub' ? 'active' : ''}`}
               onClick={() => handleTabChange('ai-hub')}
             >
-              <i className="fa-solid fa-wand-magic-sparkles opacity-75 mr-1 text-[11px]" />
+              <FaIcon name="wand-magic-sparkles" className="opacity-75 mr-1" size={11} />
               <span>AI 公益站</span>
               <span className="pill-badge">{aiStationCount}</span>
             </button>
@@ -394,7 +396,7 @@ export const App: React.FC = () => {
               className={`pill ${currentTab === 'credit-cards' ? 'active' : ''}`}
               onClick={() => handleTabChange('credit-cards')}
             >
-              <i className="fa-regular fa-credit-card opacity-75 mr-1 text-[11px]" />
+              <FaIcon name="credit-card" className="opacity-75 mr-1" size={11} />
               <span>全球信用卡</span>
               <span className="pill-badge">{CREDIT_CARDS.length}</span>
             </button>
@@ -404,14 +406,14 @@ export const App: React.FC = () => {
               className={`pill ${currentTab === 'perks' ? 'active' : ''}`}
               onClick={() => handleTabChange('perks')}
             >
-              <i className="fa-solid fa-gift opacity-75 mr-1 text-[11px]" />
+              <FaIcon name="gift" className="opacity-75 mr-1" size={11} />
               <span>羊毛福利</span>
               <span className="pill-badge">{PERKS.length}</span>
             </button>
 
             {/* 博客是独立静态站（/blog/），整页跳转而非 hash tab */}
             <a className="pill" href="/blog/">
-              <i className="fa-solid fa-feather opacity-75 mr-1 text-[11px]" />
+              <FaIcon name="feather" className="opacity-75 mr-1" size={11} />
               <span>博客</span>
             </a>
 
