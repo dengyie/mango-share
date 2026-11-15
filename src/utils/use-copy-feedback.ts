@@ -18,7 +18,7 @@ export function useCopyFeedback<T>(scope: unknown) {
 
   const copy = useCallback(async (text: string, value: T) => {
     const request = ++generation.current;
-    let success = false;
+    let success: boolean;
     try {
       success = await copyToClipboard(text);
     } catch {

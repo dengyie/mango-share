@@ -276,6 +276,9 @@ export const FluidContourBackdrop: React.FC<FluidContourBackdropProps> = ({
     } catch {
       // Graceful fallback if WebGL is unavailable
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps -- effect reads only the destructured
+    // scalars (ir..pb); the color props are caller-stable constants, and putting
+    // the array props themselves here would restart WebGL on every parent render.
   }, [ir, ig, ib, pr, pg, pb, speed, interactive]);
 
   return (

@@ -13,7 +13,7 @@ interface AiStationModalProps {
   apiEndpoint?: string;
 }
 
-export const AiStationModal: React.FC<AiStationModalProps> = ({ station, onClose, apiEndpoint }) => {
+export const AiStationModal: React.FC<AiStationModalProps> = ({ station, onClose }) => {
   const [copied, setCopied] = useState(false);
   const [channelCopied, setChannelCopied] = useState(false);
   const [shareCopied, setShareCopied] = useState(false);

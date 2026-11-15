@@ -1,14 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import { CreditCardItem as CreditCardItemType } from '../../types/credit-card';
 import { CreditCardItem } from './CreditCardItem';
-import { CreditCardModal } from './CreditCardModal';
 import { UiIcon } from '../awesome-ui/UiIcon';
 
 interface CreditCardGridProps {
   cards: CreditCardItemType[];
   searchQuery?: string;
   onSearchChange?: (val: string) => void;
-  onSelectCard?: (card: CreditCardItemType) => void;
+  onSelectCard: (card: CreditCardItemType) => void;
 }
 
 export const CreditCardGrid: React.FC<CreditCardGridProps> = ({
@@ -18,7 +17,6 @@ export const CreditCardGrid: React.FC<CreditCardGridProps> = ({
   onSelectCard,
 }) => {
   const [selectedTag, setSelectedTag] = useState<string>('全部');
-  const [selectedCard, setSelectedCard] = useState<CreditCardItemType | null>(null);
 
   const tags = ['全部', '美国', '香港', '新加坡', '免年费', '0% FTF', '新手/护照可办'] as const;
 
@@ -87,19 +85,12 @@ export const CreditCardGrid: React.FC<CreditCardGridProps> = ({
             <CreditCardItem
               key={card.id}
               card={card}
-              onSelect={(c) => (onSelectCard ? onSelectCard(c) : setSelectedCard(c))}
+              onSelect={(c) => onSelectCard(c)}
             />
           ))}
         </div>
       )}
 
-      {/* Detail Modal (fallback if not handled by parent) */}
-      {!onSelectCard && (
-        <CreditCardModal
-          card={selectedCard}
-          onClose={() => setSelectedCard(null)}
-        />
-      )}
     </div>
   );
 };

@@ -1,7 +1,6 @@
 import React, { useMemo, useState } from 'react';
 import { AiStationItem as AiStationItemType } from '../../types/ai-station';
 import { AiStationItem } from './AiStationItem';
-import { AiStationModal } from './AiStationModal';
 import { UiIcon } from '../awesome-ui/UiIcon';
 
 interface AiStationGridProps {
@@ -14,7 +13,7 @@ interface AiStationGridProps {
   apiModelCount: number;
   searchQuery: string;
   onSearchChange?: (q: string) => void;
-  onSelectStation?: (station: AiStationItemType) => void;
+  onSelectStation: (station: AiStationItemType) => void;
 }
 
 /**
@@ -34,7 +33,6 @@ export const AiStationGrid: React.FC<AiStationGridProps> = ({
   onSelectStation,
 }) => {
   const [selectedTag, setSelectedTag] = useState<string>('全部');
-  const [selectedStation, setSelectedStation] = useState<AiStationItemType | null>(null);
 
   const filteredStations = useMemo(() => {
     let result = stations;
@@ -123,7 +121,7 @@ export const AiStationGrid: React.FC<AiStationGridProps> = ({
           <AiStationItem
             key={station.id}
             station={station}
-            onSelect={(s) => (onSelectStation ? onSelectStation(s) : setSelectedStation(s))}
+            onSelect={(s) => onSelectStation(s)}
           />
         ))}
       </div>
@@ -133,14 +131,6 @@ export const AiStationGrid: React.FC<AiStationGridProps> = ({
         没有符合条件的 AI 公益站节点，换个关键词或筛选标签试试
       </p>
 
-      {/* Detail Modal (fallback if not handled by parent) */}
-      {!onSelectStation && (
-        <AiStationModal
-          station={selectedStation}
-          onClose={() => setSelectedStation(null)}
-          apiEndpoint={apiEndpoint}
-        />
-      )}
     </div>
   );
 };

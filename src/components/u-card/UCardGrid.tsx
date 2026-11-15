@@ -271,6 +271,8 @@ export const UCardGrid: React.FC<UCardGridProps> = ({
     kycPassport,
     kycAddressProof,
     kycOverseasPhone,
+    firstIndexBySlug,
+    sourceIndex,
   ]);
 
   const INITIAL_BATCH = 48;

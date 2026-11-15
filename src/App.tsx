@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, useRef } from 'react';
+import React, { useState, useEffect, useCallback, useRef, lazy, Suspense } from 'react';
 import { TabType } from './types/common';
 import { UCardItem as UCardItemType } from './types/u-card';
 import { SimCardItem as SimCardItemType } from './types/sim-card';
@@ -13,18 +13,35 @@ import { CREDIT_CARDS } from './data/credit-cards';
 import { PERKS } from './data/perks';
 
 import { UCardGrid } from './components/u-card/UCardGrid';
-import { UCardModal } from './components/u-card/UCardModal';
 import { SimCardGrid } from './components/sim-card/SimCardGrid';
-import { SimCardModal } from './components/sim-card/SimCardModal';
 import { AiStationGrid } from './components/ai-hub/AiStationGrid';
-import { AiStationModal } from './components/ai-hub/AiStationModal';
-import { AccountPanel } from './components/account/AccountPanel';
 import { CreditCardGrid } from './components/credit-card/CreditCardGrid';
-import { CreditCardModal } from './components/credit-card/CreditCardModal';
 import { PerkGrid } from './components/perk/PerkGrid';
-import { PerkModal } from './components/perk/PerkModal';
 import { useAiHubData } from './hooks/useAiHubData';
 import { UserAccountProvider, useUserAccount } from './hooks/useUserAccount';
+
+// Detail modals and the account panel (with its admin consoles) are the
+// heavy tail of the bundle; users only open one at a time. All modals
+// return null when closed, so they render nothing until first opened and
+// their code splits into separate chunks fetched on demand.
+const UCardModal = lazy(() =>
+  import('./components/u-card/UCardModal').then((m) => ({ default: m.UCardModal }))
+);
+const SimCardModal = lazy(() =>
+  import('./components/sim-card/SimCardModal').then((m) => ({ default: m.SimCardModal }))
+);
+const AiStationModal = lazy(() =>
+  import('./components/ai-hub/AiStationModal').then((m) => ({ default: m.AiStationModal }))
+);
+const CreditCardModal = lazy(() =>
+  import('./components/credit-card/CreditCardModal').then((m) => ({ default: m.CreditCardModal }))
+);
+const PerkModal = lazy(() =>
+  import('./components/perk/PerkModal').then((m) => ({ default: m.PerkModal }))
+);
+const AccountPanel = lazy(() =>
+  import('./components/account/AccountPanel').then((m) => ({ default: m.AccountPanel }))
+);
 
 import { FluidContourBackdrop } from './components/awesome-ui/FluidContourBackdrop';
 import { AnimatedCounter } from './components/awesome-ui/AnimatedCounter';
@@ -32,6 +49,15 @@ import { UiIcon } from './components/awesome-ui/UiIcon';
 
 const BACKDROP_INK: [number, number, number] = [0.16, 0.20, 0.18];
 const BACKDROP_PAPER: [number, number, number] = [0.98, 0.98, 0.96];
+
+// Deep-link ids resolve on exact id/slug only. A substring fallback would
+// make `#/u-cards?card=a` open the first brand containing "a" — shared
+// links must be deterministic. (In-page search covers fuzzy lookup.)
+export const byDeepLink = <T extends { id?: string; slug?: string }>(
+  items: T[],
+  cardId: string
+): T | null =>
+  items.find((it) => it.slug === cardId || it.id === cardId) ?? null;
 
 function parseHashLocation() {
   if (typeof window === 'undefined') {
@@ -70,6 +96,46 @@ const AccountFooterLink: React.FC<{ onOpen: () => void }> = ({ onOpen }) => {
   );
 };
 
+// Tab-specific monochrome trust avatar icons matching the Swiss aesthetic
+const TAB_TRUST_ICONS: Record<TabType, { icon: string; title: string }[]> = {
+  'u-cards': [
+      { icon: 'fa-brands fa-cc-visa', title: 'Visa 国际清算网络' },
+      { icon: 'fa-brands fa-cc-mastercard', title: 'Mastercard 国际清算网络' },
+      { icon: 'fa-brands fa-bitcoin', title: 'Bitcoin 原生加密网络' },
+      { icon: 'fa-brands fa-ethereum', title: 'Ethereum 智能合约生态' },
+    ],
+    'sim-cards': [
+      { icon: 'fa-solid fa-sim-card', title: '实体 SIM / 电子 eSIM' },
+      { icon: 'fa-solid fa-tower-broadcast', title: '全球蜂窝基站覆盖' },
+      { icon: 'fa-solid fa-globe', title: '跨国无缝漫游' },
+      { icon: 'fa-solid fa-comment-sms', title: '国内免费接收短信' },
+    ],
+    'ai-hub': [
+      { icon: 'fa-solid fa-brain', title: '大语言模型认知中枢' },
+      { icon: 'fa-solid fa-wand-magic-sparkles', title: '生成式 AI 智能体' },
+      { icon: 'fa-solid fa-robot', title: '多模型 API 聚合调度' },
+      { icon: 'fa-solid fa-bolt', title: '低延迟公网高速节点' },
+    ],
+    'credit-cards': [
+      { icon: 'fa-brands fa-cc-amex', title: 'American Express 顶级运通' },
+      { icon: 'fa-brands fa-cc-visa', title: 'Visa 经典卡组织' },
+      { icon: 'fa-brands fa-cc-mastercard', title: 'Mastercard 极速清算' },
+      { icon: 'fa-brands fa-apple-pay', title: 'Apple Pay 便捷绑卡支付' },
+    ],
+    'perks': [
+      { icon: 'fa-solid fa-gift', title: '高价值精选羊毛福利' },
+      { icon: 'fa-solid fa-cloud', title: '全球云基础设施' },
+      { icon: 'fa-brands fa-github', title: 'GitHub 开发者开源生态' },
+      { icon: 'fa-solid fa-server', title: '永久免费算力与 VPS' },
+    ],
+    'account': [
+      { icon: 'fa-solid fa-user-shield', title: '管理员身份认证' },
+      { icon: 'fa-solid fa-key', title: 'API 站点登录令牌' },
+      { icon: 'fa-solid fa-server', title: 'API 站点管理后台' },
+      { icon: 'fa-solid fa-sliders', title: '公益站拓扑配置' },
+    ],
+  };
+
 export const App: React.FC = () => {
   // Tab state synced with URL hash (supporting query parameters)
   const [currentTab, setCurrentTab] = useState<TabType>(() => parseHashLocation().tab);
@@ -85,16 +151,14 @@ export const App: React.FC = () => {
 
   const findAiStation = useCallback(
     (cardId: string): AiStationItemType | null =>
-      stationsRef.current.find(
-        (s) => s.id === cardId || s.name.toLowerCase().includes(cardId.toLowerCase())
-      ) || null,
+      stationsRef.current.find((s) => s.id === cardId) || null,
     []
   );
 
   const [selectedUCard, setSelectedUCard] = useState<UCardItemType | null>(() => {
     const { tab, cardId } = parseHashLocation();
     if (tab === 'u-cards' && cardId) {
-      return U_CARDS.find((c) => c.slug === cardId || c.brand.toLowerCase().includes(cardId.toLowerCase())) || null;
+      return byDeepLink(U_CARDS, cardId);
     }
     return null;
   });
@@ -102,7 +166,7 @@ export const App: React.FC = () => {
   const [selectedSimCard, setSelectedSimCard] = useState<SimCardItemType | null>(() => {
     const { tab, cardId } = parseHashLocation();
     if (tab === 'sim-cards' && cardId) {
-      return SIM_CARDS.find((c) => c.id === cardId || c.name.toLowerCase().includes(cardId.toLowerCase())) || null;
+      return byDeepLink(SIM_CARDS, cardId);
     }
     return null;
   });
@@ -113,9 +177,7 @@ export const App: React.FC = () => {
   const [selectedAiStation, setSelectedAiStation] = useState<AiStationItemType | null>(() => {
     const { tab, cardId } = parseHashLocation();
     if (tab === 'ai-hub' && cardId) {
-      return stationsRef.current.find(
-        (s) => s.id === cardId || s.name.toLowerCase().includes(cardId.toLowerCase())
-      ) || null;
+      return findAiStation(cardId);
     }
     return null;
   });
@@ -123,7 +185,7 @@ export const App: React.FC = () => {
   const [selectedCreditCard, setSelectedCreditCard] = useState<CreditCardItemType | null>(() => {
     const { tab, cardId } = parseHashLocation();
     if (tab === 'credit-cards' && cardId) {
-      return CREDIT_CARDS.find((c) => c.id === cardId || c.name.toLowerCase().includes(cardId.toLowerCase())) || null;
+      return byDeepLink(CREDIT_CARDS, cardId);
     }
     return null;
   });
@@ -131,7 +193,7 @@ export const App: React.FC = () => {
   const [selectedPerk, setSelectedPerk] = useState<PerkItemType | null>(() => {
     const { tab, cardId } = parseHashLocation();
     if (tab === 'perks' && cardId) {
-      return PERKS.find((p) => p.id === cardId || p.name.toLowerCase().includes(cardId.toLowerCase())) || null;
+      return byDeepLink(PERKS, cardId);
     }
     return null;
   });
@@ -188,11 +250,11 @@ export const App: React.FC = () => {
     const handleHashChange = () => {
       const { tab, cardId } = parseHashLocation();
       setCurrentTab(tab);
-      setSelectedUCard(tab === 'u-cards' && cardId ? (U_CARDS.find((c) => c.slug === cardId || c.brand.toLowerCase().includes(cardId.toLowerCase())) || null) : null);
-      setSelectedSimCard(tab === 'sim-cards' && cardId ? (SIM_CARDS.find((c) => c.id === cardId || c.name.toLowerCase().includes(cardId.toLowerCase())) || null) : null);
+      setSelectedUCard(tab === 'u-cards' && cardId ? byDeepLink(U_CARDS, cardId) : null);
+      setSelectedSimCard(tab === 'sim-cards' && cardId ? byDeepLink(SIM_CARDS, cardId) : null);
       setSelectedAiStation(tab === 'ai-hub' && cardId ? findAiStation(cardId) : null);
-      setSelectedCreditCard(tab === 'credit-cards' && cardId ? (CREDIT_CARDS.find((c) => c.id === cardId || c.name.toLowerCase().includes(cardId.toLowerCase())) || null) : null);
-      setSelectedPerk(tab === 'perks' && cardId ? (PERKS.find((p) => p.id === cardId || p.name.toLowerCase().includes(cardId.toLowerCase())) || null) : null);
+      setSelectedCreditCard(tab === 'credit-cards' && cardId ? byDeepLink(CREDIT_CARDS, cardId) : null);
+      setSelectedPerk(tab === 'perks' && cardId ? byDeepLink(PERKS, cardId) : null);
     };
 
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -249,49 +311,9 @@ export const App: React.FC = () => {
     }
   })();
 
-  // Tab-specific monochrome trust avatar icons matching the Swiss aesthetic
-  const TAB_TRUST_ICONS: Record<TabType, { icon: string; title: string }[]> = {
-    'u-cards': [
-      { icon: 'fa-brands fa-cc-visa', title: 'Visa 国际清算网络' },
-      { icon: 'fa-brands fa-cc-mastercard', title: 'Mastercard 国际清算网络' },
-      { icon: 'fa-brands fa-bitcoin', title: 'Bitcoin 原生加密网络' },
-      { icon: 'fa-brands fa-ethereum', title: 'Ethereum 智能合约生态' },
-    ],
-    'sim-cards': [
-      { icon: 'fa-solid fa-sim-card', title: '实体 SIM / 电子 eSIM' },
-      { icon: 'fa-solid fa-tower-broadcast', title: '全球蜂窝基站覆盖' },
-      { icon: 'fa-solid fa-globe', title: '跨国无缝漫游' },
-      { icon: 'fa-solid fa-comment-sms', title: '国内免费接收短信' },
-    ],
-    'ai-hub': [
-      { icon: 'fa-solid fa-brain', title: '大语言模型认知中枢' },
-      { icon: 'fa-solid fa-wand-magic-sparkles', title: '生成式 AI 智能体' },
-      { icon: 'fa-solid fa-robot', title: '多模型 API 聚合调度' },
-      { icon: 'fa-solid fa-bolt', title: '低延迟公网高速节点' },
-    ],
-    'credit-cards': [
-      { icon: 'fa-brands fa-cc-amex', title: 'American Express 顶级运通' },
-      { icon: 'fa-brands fa-cc-visa', title: 'Visa 经典卡组织' },
-      { icon: 'fa-brands fa-cc-mastercard', title: 'Mastercard 极速清算' },
-      { icon: 'fa-brands fa-apple-pay', title: 'Apple Pay 便捷绑卡支付' },
-    ],
-    'perks': [
-      { icon: 'fa-solid fa-gift', title: '高价值精选羊毛福利' },
-      { icon: 'fa-solid fa-cloud', title: '全球云基础设施' },
-      { icon: 'fa-brands fa-github', title: 'GitHub 开发者开源生态' },
-      { icon: 'fa-solid fa-server', title: '永久免费算力与 VPS' },
-    ],
-    'account': [
-      { icon: 'fa-solid fa-user-shield', title: '管理员身份认证' },
-      { icon: 'fa-solid fa-key', title: 'API 站点登录令牌' },
-      { icon: 'fa-solid fa-server', title: 'API 站点管理后台' },
-      { icon: 'fa-solid fa-sliders', title: '公益站拓扑配置' },
-    ],
-  };
 
   return (
     <UserAccountProvider>
-      {/* Dynamic WebGL Simplex Noise Contour Backdrop */}
       <FluidContourBackdrop
         inkColor={BACKDROP_INK}
         paperColor={BACKDROP_PAPER}
@@ -516,22 +538,24 @@ export const App: React.FC = () => {
           )}
 
           {currentTab === 'account' && (
-            <AccountPanel
-              endpoint={hub.endpoint}
-              onEndpointChange={hub.handleEndpointChange}
-              isLoading={hub.isLoading}
-              error={hub.error}
-              statusData={hub.statusData}
-              models={hub.models}
-              stations={hub.stations}
-              onRefresh={hub.refresh}
-              onPersistStations={hub.persistStations}
-              onResetStations={hub.resetStations}
-              isAdmin={hub.isAdmin}
-              adminSession={hub.adminSession}
-              onLogin={hub.handleAdminLogin}
-              onLogout={hub.handleAdminLogout}
-            />
+            <Suspense fallback={null}>
+              <AccountPanel
+                endpoint={hub.endpoint}
+                onEndpointChange={hub.handleEndpointChange}
+                isLoading={hub.isLoading}
+                error={hub.error}
+                statusData={hub.statusData}
+                models={hub.models}
+                stations={hub.stations}
+                onRefresh={hub.refresh}
+                onPersistStations={hub.persistStations}
+                onResetStations={hub.resetStations}
+                isAdmin={hub.isAdmin}
+                adminSession={hub.adminSession}
+                onLogin={hub.handleAdminLogin}
+                onLogout={hub.handleAdminLogout}
+              />
+            </Suspense>
           )}
         </main>
 
@@ -545,36 +569,38 @@ export const App: React.FC = () => {
           </p>
         </footer>
 
-        {/* Detail Modals for all tabs */}
-        <UCardModal
-          card={selectedUCard}
-          onClose={() => handleSelectUCard(null)}
-          allCards={U_CARDS}
-          onSelectVariant={(slug) => {
-            const match = U_CARDS.find((c) => c.slug === slug);
-            if (match) handleSelectUCard(match);
-          }}
-        />
+        {/* Detail Modals for all tabs — lazy chunks, fetched on first open */}
+        <Suspense fallback={null}>
+          <UCardModal
+            card={selectedUCard}
+            onClose={() => handleSelectUCard(null)}
+            allCards={U_CARDS}
+            onSelectVariant={(slug) => {
+              const match = U_CARDS.find((c) => c.slug === slug);
+              if (match) handleSelectUCard(match);
+            }}
+          />
 
-        <SimCardModal
-          card={selectedSimCard}
-          onClose={() => handleSelectSimCard(null)}
-        />
+          <SimCardModal
+            card={selectedSimCard}
+            onClose={() => handleSelectSimCard(null)}
+          />
 
-        <AiStationModal
-          station={selectedAiStation}
-          onClose={() => handleSelectAiStation(null)}
-        />
+          <AiStationModal
+            station={selectedAiStation}
+            onClose={() => handleSelectAiStation(null)}
+          />
 
-        <CreditCardModal
-          card={selectedCreditCard}
-          onClose={() => handleSelectCreditCard(null)}
-        />
+          <CreditCardModal
+            card={selectedCreditCard}
+            onClose={() => handleSelectCreditCard(null)}
+          />
 
-        <PerkModal
-          perk={selectedPerk}
-          onClose={() => handleSelectPerk(null)}
-        />
+          <PerkModal
+            perk={selectedPerk}
+            onClose={() => handleSelectPerk(null)}
+          />
+        </Suspense>
 
         {/* Floating Back to Top Button */}
         <button

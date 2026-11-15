@@ -1,14 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import { PerkItem as PerkItemType } from '../../types/perk';
 import { PerkItem } from './PerkItem';
-import { PerkModal } from './PerkModal';
 import { UiIcon } from '../awesome-ui/UiIcon';
 
 interface PerkGridProps {
   perks: PerkItemType[];
   searchQuery?: string;
   onSearchChange?: (val: string) => void;
-  onSelectPerk?: (perk: PerkItemType) => void;
+  onSelectPerk: (perk: PerkItemType) => void;
 }
 
 export const PerkGrid: React.FC<PerkGridProps> = ({
@@ -18,7 +17,6 @@ export const PerkGrid: React.FC<PerkGridProps> = ({
   onSelectPerk,
 }) => {
   const [selectedTag, setSelectedTag] = useState<string>('全部');
-  const [selectedPerk, setSelectedPerk] = useState<PerkItemType | null>(null);
 
   const tags = ['全部', '永久云资源', '开发利器', '免费域名/网络', '出海金融', '免信用卡/极简'] as const;
 
@@ -87,19 +85,12 @@ export const PerkGrid: React.FC<PerkGridProps> = ({
             <PerkItem
               key={perk.id}
               perk={perk}
-              onSelect={(p) => (onSelectPerk ? onSelectPerk(p) : setSelectedPerk(p))}
+              onSelect={(p) => onSelectPerk(p)}
             />
           ))}
         </div>
       )}
 
-      {/* Detail Modal (fallback if not handled by parent) */}
-      {!onSelectPerk && (
-        <PerkModal
-          perk={selectedPerk}
-          onClose={() => setSelectedPerk(null)}
-        />
-      )}
     </div>
   );
 };

@@ -171,7 +171,7 @@ export async function fetchApiStationConfig(
         }
         return null as string[] | null;
       })
-      .catch(async (pricingErr: unknown) => {
+      .catch(async () => {
         // Fallback with an independent timeout budget: the shared controller may
         // already be aborted by the time we get here (e.g. slow pricing endpoint).
         if (controller.signal.aborted) {
@@ -238,7 +238,7 @@ export function applyApiModelsToStations(apiModels: string[], stations: AiStatio
   const cats = categorizeApiModels(apiModels);
 
   return stations.map((s) => {
-    let freshModels: string[] = [];
+    let freshModels: string[]; // every branch below assigns it
 
     if (s.id === 'yiming') {
       freshModels = [
@@ -599,7 +599,10 @@ export function parseNewApiChannelsJson(rawJson: string): AiStationItem[] {
   try {
     parsed = JSON.parse(rawJson);
   } catch (err: any) {
-    throw new Error(`JSON 解析失败: ${err?.message || '请检查格式是否有效'}`);
+    const wrapped = new Error(`JSON 解析失败: ${err?.message || '请检查格式是否有效'}`);
+    // ES2020 lib lacks ErrorOptions typing; assign cause dynamically.
+    (wrapped as Error & { cause?: unknown }).cause = err;
+    throw wrapped;
   }
 
   // Handle { success: true, data: [...] } envelope from New API API responses
@@ -728,9 +731,6 @@ function channelCategory(type: number): AiStationItem['category'] {
   return 'Gateway';
 }
 
-function healthFromStatus(status: number): AiStationItem['healthState'] {
-  return status === 1 ? 'online' : status === 2 ? 'degraded' : 'offline';
-}
 
 export interface MergedStationResult {
   stations: AiStationItem[];

@@ -31,10 +31,10 @@ describe('admin restore race', () => {
     expect(hub.isAdmin).toBe(true);
   });
   it('ignores late verification after logout', async () => {
-    let hub = render(); h.effects[0]();
-    hub = render(); hub.handleAdminLogout();
+    render(); h.effects[0]();
+    const after = render(); after.handleAdminLogout();
     h.resolve!('valid'); await Promise.resolve();
-    hub = render();
+    const hub = render();
     expect(h.stored).toBeNull(); expect(hub.adminSession).toBeNull(); expect(hub.isAdmin).toBe(false);
   });
 });

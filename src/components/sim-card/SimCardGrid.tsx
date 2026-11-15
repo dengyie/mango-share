@@ -1,14 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import { SimCardItem as SimCardItemType } from '../../types/sim-card';
 import { SimCardItem } from './SimCardItem';
-import { SimCardModal } from './SimCardModal';
 import { UiIcon } from '../awesome-ui/UiIcon';
 
 interface SimCardGridProps {
   cards: SimCardItemType[];
   searchQuery: string;
   onSearchChange?: (q: string) => void;
-  onSelectCard?: (card: SimCardItemType) => void;
+  onSelectCard: (card: SimCardItemType) => void;
 }
 
 export const SimCardGrid: React.FC<SimCardGridProps> = ({
@@ -18,7 +17,6 @@ export const SimCardGrid: React.FC<SimCardGridProps> = ({
   onSelectCard,
 }) => {
   const [selectedTag, setSelectedTag] = useState<string>('全部');
-  const [selectedCard, setSelectedCard] = useState<SimCardItemType | null>(null);
 
   const filteredCards = useMemo(() => {
     let result = cards;
@@ -88,7 +86,7 @@ export const SimCardGrid: React.FC<SimCardGridProps> = ({
           <SimCardItem
             key={card.id}
             card={card}
-            onSelect={(c) => (onSelectCard ? onSelectCard(c) : setSelectedCard(c))}
+            onSelect={(c) => onSelectCard(c)}
           />
         ))}
       </div>
@@ -98,13 +96,6 @@ export const SimCardGrid: React.FC<SimCardGridProps> = ({
         没有符合条件的电话卡，换个关键词或筛选标签试试
       </p>
 
-      {/* Detail Modal (fallback if not handled by parent) */}
-      {!onSelectCard && (
-        <SimCardModal
-          card={selectedCard}
-          onClose={() => setSelectedCard(null)}
-        />
-      )}
     </div>
   );
 };

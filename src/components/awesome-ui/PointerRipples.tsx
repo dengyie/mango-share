@@ -1198,7 +1198,6 @@ export const PointerRipples: React.FC<PointerRipplesProps> = ({
 
     // Check accessibility & coarse pointer
     const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)");
-    const coarsePointer = window.matchMedia("(pointer: coarse)");
     if (reduceMotion.matches) return;
 
     let engine: FluidSimulationEngine | null = null;
@@ -1223,7 +1222,7 @@ export const PointerRipples: React.FC<PointerRipplesProps> = ({
         maxPixelRatio,
       });
       engine.setVisible(!document.hidden);
-    } catch (e) {
+    } catch {
       // Graceful fallback when WebGL / float extensions unavailable
       return;
     }

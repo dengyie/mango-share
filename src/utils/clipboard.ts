@@ -9,7 +9,7 @@ export async function copyToClipboard(text: string): Promise<boolean> {
       await navigator.clipboard.writeText(text);
       return true;
     }
-  } catch (err) {
+  } catch {
     // Fall back to execCommand
   }
 
@@ -24,7 +24,7 @@ export async function copyToClipboard(text: string): Promise<boolean> {
     textArea.focus();
     textArea.select();
     return document.execCommand('copy');
-  } catch (err) {
+  } catch {
     return false;
   } finally {
     // Never leak the offscreen textarea, even when execCommand throws

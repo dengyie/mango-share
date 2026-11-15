@@ -48,6 +48,7 @@ jobs:
         if: env.BUILD_SPA == 'true'
         run: |
           npm ci
+          npm run lint
           npm test
           npm run build
 

@@ -1,7 +1,7 @@
 import React, { useMemo, useState } from 'react';
 import { AiStationItem as AiStationItemType } from '../../types/ai-station';
 import { ApiStationStatus } from '../../types/api-sync';
-import type { AccountUser, MyItemEntry, MyItemStatus, MyItemType } from '../../types/account';
+import type { AccountUser, MyItemEntry, MyItemType } from '../../types/account';
 import { analyzeTopology } from '../../utils/api-station-sync';
 import {
   AdminSession,
@@ -31,8 +31,6 @@ interface AccountPanelProps {
   onLogin: (session: AdminSession) => void;
   onLogout: () => void;
 }
-
-type GuestMode = 'login' | 'register' | 'forgot';
 
 /**
  * 用户中心。一个登录入口，按账号区分界面：
