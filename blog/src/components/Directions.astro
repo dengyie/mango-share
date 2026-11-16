@@ -3,6 +3,7 @@
 import { SITE } from '../site.config';
 import { withBase } from '../lib/base';
 import { getCategories } from '../lib/github';
+import Icon from './Icon.astro';
 
 const counts = new Map((await getCategories()).map((c) => [c.id, c.count]));
 const cards = SITE.directions.map((d) => {
@@ -20,11 +21,14 @@ const cards = SITE.directions.map((d) => {
     cards.map((d) => (
       <a class="direction" href={d.href}>
         <span class="direction-icon" aria-hidden="true">
-          {d.icon}
+          <Icon name={d.icon} size={26} />
         </span>
         <h3>{d.title}</h3>
         <p>{d.text}</p>
-        <span class="direction-cta">{d.cta} →</span>
+        <span class="direction-cta">
+          {d.cta}
+          <Icon name="arrow-right" size={14} />
+        </span>
       </a>
     ))
   }

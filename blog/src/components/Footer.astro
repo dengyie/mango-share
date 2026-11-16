@@ -1,13 +1,18 @@
 ---
 import { SITE } from '../site.config';
 import { withBase } from '../lib/base';
+import Icon from './Icon.astro';
 
 const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer">
   <div class="container footer-inner">
-    <span>© {year} {SITE.author} · {SITE.title} · Built with ☕ & 🥭</span>
+    <span class="built-with">
+      © {year} {SITE.author} · {SITE.title} · Built with
+      <Icon name="coffee" size={14} strokeWidth={1.6} /> &
+      <img src={withBase('/icon.svg')} alt="Little Lighthouse" width="14" height="14" />
+    </span>
     <span class="footer-links">
       <a href={withBase('/rss.xml')}>RSS</a>
       <a href={`https://github.com/${SITE.github}`}>GitHub</a>

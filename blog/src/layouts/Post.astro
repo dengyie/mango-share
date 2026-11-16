@@ -3,6 +3,7 @@ import type { MarkdownHeading } from 'astro';
 import Base from './Base.astro';
 import TagList from '../components/TagList.astro';
 import PostList from '../components/PostList.astro';
+import Icon from '../components/Icon.astro';
 import { formatDate, postUrl, readingMinutes, summary, tagsOf, type Post } from '../lib/posts';
 
 interface Props {
@@ -64,13 +65,17 @@ const toc = headings.filter((h) => h.depth === 2 || h.depth === 3);
       <nav class="post-nav" aria-label="上一篇和下一篇">
         {prev && (
           <a class="prev" href={postUrl(prev)}>
-            <small>← 上一篇</small>
+            <small>
+              <Icon name="arrow-left" size={13} /> 上一篇
+            </small>
             <span>{prev.data.title}</span>
           </a>
         )}
         {next && (
           <a class="next" href={postUrl(next)}>
-            <small>下一篇 →</small>
+            <small>
+              下一篇 <Icon name="arrow-right" size={13} />
+            </small>
             <span>{next.data.title}</span>
           </a>
         )}

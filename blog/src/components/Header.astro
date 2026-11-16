@@ -9,7 +9,9 @@ const path = Astro.url.pathname;
 
 <header class="site-header">
   <div class="container header-inner">
-    <a href={withBase('/')} class="wordmark"><span aria-hidden="true">🥭</span> {SITE.author}</a>
+    <a href={withBase('/')} class="wordmark">
+      <img src={withBase('/icon.svg')} alt="" width="22" height="22" /> {SITE.author}
+    </a>
     <nav aria-label="主导航">
       {
         SITE.nav.map((item) => (

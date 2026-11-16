@@ -142,11 +142,20 @@ main.container {
 }
 
 .wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
   font-family: var(--serif);
   font-size: 1.15rem;
   font-weight: 700;
   text-decoration: none;
   white-space: nowrap;
+}
+
+.wordmark img {
+  display: block;
+  width: 1.3rem;
+  height: 1.3rem;
 }
 
 .site-header nav {
@@ -188,6 +197,17 @@ main.container {
   color: var(--accent);
 }
 
+/* 图标跟随当前主题：暗色亮太阳（点击换亮色），亮色亮月亮 */
+.theme-toggle .theme-icon {
+  display: none;
+  line-height: 0;
+}
+
+[data-theme='dark'] .theme-toggle .theme-icon-dark,
+[data-theme='light'] .theme-toggle .theme-icon-light {
+  display: block;
+}
+
 .site-footer {
   border-top: 1px solid var(--line);
   font-size: 0.85rem;
@@ -209,6 +229,17 @@ main.container {
 
 .footer-links a {
   text-decoration: none;
+}
+
+.built-with {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.built-with svg,
+.built-with img {
+  display: block;
 }
 
 @media (max-width: 560px) {
@@ -396,6 +427,9 @@ main.container {
 }
 
 .stars {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.28rem;
   font: 0.8rem var(--mono);
   color: var(--accent);
   white-space: nowrap;
@@ -511,7 +545,9 @@ main.container {
 }
 
 .post-nav small {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   font: 0.78rem var(--mono);
   color: var(--muted);
 }
@@ -730,6 +766,11 @@ main.container {
   transform: translateY(-1px);
 }
 
+/* 外链按钮尾部的 ↗ 图标弱化为次要色 */
+.btn .btn-ext {
+  color: var(--muted);
+}
+
 .btn.primary {
   border-color: transparent;
   background: var(--grad);
@@ -880,6 +921,7 @@ main.container {
 .stat b {
   font: 700 1.9rem/1.1 var(--mono);
   color: var(--accent);
+  font-variant-numeric: tabular-nums;
 }
 
 .stat small {
@@ -922,6 +964,9 @@ main.container {
 
 .band-head > a {
   flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   font-size: 0.92rem;
   color: var(--muted);
   text-decoration: none;
@@ -944,6 +989,7 @@ main.container {
 }
 
 .direction {
+  position: relative;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
@@ -961,9 +1007,42 @@ main.container {
   transform: translateY(-2px);
 }
 
+/* SpotlightGlareCard（awesome-ui-kit）博客裁剪版：纯 CSS 渐变跟随指针，
+   位置由 Index 页的一段共享 pointermove 脚本写入 --mx/--my。
+   仅 hover 设备生效；reduced-motion 时不渲染。 */
+.direction::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    9rem circle at var(--mx, 50%) var(--my, 50%),
+    rgba(255, 255, 255, 0.09),
+    transparent 65%
+  );
+  opacity: 0;
+  transition: opacity 0.3s;
+  pointer-events: none;
+}
+
+.direction:hover::after {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce), (hover: none) {
+  .direction::after {
+    display: none;
+  }
+}
+
 .direction-icon {
   font-size: 1.7rem;
   line-height: 1;
+  color: var(--accent);
+}
+
+.direction-icon svg {
+  display: block;
 }
 
 .direction h3 {
@@ -980,6 +1059,9 @@ main.container {
 }
 
 .direction-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
   margin-top: 0.5rem;
   font-size: 0.85rem;
   font-weight: 600;

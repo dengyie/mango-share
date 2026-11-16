@@ -1,5 +1,6 @@
 ---
 import type { Repo } from '../lib/github';
+import Icon from './Icon.astro';
 
 interface Props {
   repo: Repo;
@@ -24,7 +25,11 @@ const search = [repo.name, repo.description, repo.language, ...repo.topics].filt
 <a class="project-card" href={repo.url} data-cat={repo.category} data-search={search}>
   <div class="project-head">
     <h3>{repo.name}</h3>
-    {repo.stars > 0 && <span class="stars">★ {repo.stars}</span>}
+    {repo.stars > 0 && (
+      <span class="stars">
+        <Icon name="star" size={13} strokeWidth={1.6} /> {repo.stars}
+      </span>
+    )}
   </div>
   <p>{repo.description ?? '暂无描述'}</p>
   <div class="project-meta">

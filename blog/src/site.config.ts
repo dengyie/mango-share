@@ -1,9 +1,11 @@
 // 站点配置：改文案、导航、方向卡片、项目分类、技能，只需要改这里
 // 字段说明见 docs/DEVELOPMENT.md 第 4.3 节
 import { withBase } from './lib/base';
+import type { IconName } from './lib/icons';
 
 export interface Direction {
-  icon: string;
+  /** Icon.astro 的图标名（Tabler 风格描边 SVG，构建时内联，不用 emoji） */
+  icon: IconName;
   title: string;
   text: string;
   /** 链到 /projects/?cat=<category>，并显示该分类的项目数 */
@@ -46,10 +48,10 @@ export const SITE = {
 
   // ---------- 我在折腾什么（首页 + 关于页） ----------
   directions: [
-    { icon: '🤖', title: '自动化 & 逆向', text: '浏览器自动化、CDP、验证码、各类平台机器人', category: 'automation' },
-    { icon: '🌐', title: '网络工具', text: '代理网关、DNS-over-HTTPS、分流诊断、网盘直链加速', category: 'network' },
-    { icon: '🐧', title: 'Linux / VPS 折腾党', text: '自托管一切，Cloudflare 重度用户', href: withBase('/about/#skills'), cta: '看看我的工具箱' },
-    { icon: '🧠', title: '深度 AI 依赖患者', text: 'LLM 网关、Agent 编排、AI 创作工具，什么模型都爱用', category: 'ai' },
+    { icon: 'tool', title: '自动化 & 逆向', text: '浏览器自动化、CDP、验证码、各类平台机器人', category: 'automation' },
+    { icon: 'globe', title: '网络工具', text: '代理网关、DNS-over-HTTPS、分流诊断、网盘直链加速', category: 'network' },
+    { icon: 'terminal', title: 'Linux / VPS 折腾党', text: '自托管一切，Cloudflare 重度用户', href: withBase('/about/#skills'), cta: '看看我的工具箱' },
+    { icon: 'sparkles', title: '深度 AI 依赖患者', text: 'LLM 网关、Agent 编排、AI 创作工具，什么模型都爱用', category: 'ai' },
   ] as Direction[],
 
   // ---------- 项目分类（项目页 tab） ----------

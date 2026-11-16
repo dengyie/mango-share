@@ -5,6 +5,7 @@ import Hero from '../components/Hero.astro';
 import Directions from '../components/Directions.astro';
 import PostList from '../components/PostList.astro';
 import ProjectCard from '../components/ProjectCard.astro';
+import Icon from '../components/Icon.astro';
 import { getPosts } from '../lib/posts';
 import { getFeaturedRepos, getRepos } from '../lib/github';
 import { SITE } from '../site.config';
@@ -23,7 +24,7 @@ const [featured, repos] = await Promise.all([getFeaturedRepos(), getRepos()]);
           <h2>我在折腾什么</h2>
           <p class="band-sub">开源开发者，一个爱折腾的工具人</p>
         </div>
-        <a href={withBase('/about/')}>更多关于我 →</a>
+        <a href={withBase('/about/')}>更多关于我 <Icon name="arrow-right" size={14} /></a>
       </div>
       <Directions />
     </div>
@@ -38,7 +39,7 @@ const [featured, repos] = await Promise.all([getFeaturedRepos(), getRepos()]);
               <h2>精选项目</h2>
               <p class="band-sub">最受欢迎 & 最近在做的</p>
             </div>
-            <a href={withBase('/projects/')}>全部 {repos.length} 个项目 →</a>
+            <a href={withBase('/projects/')}>全部 {repos.length} 个项目 <Icon name="arrow-right" size={14} /></a>
           </div>
           <div class="project-grid">
             {featured.map((repo) => (
@@ -57,7 +58,7 @@ const [featured, repos] = await Promise.all([getFeaturedRepos(), getRepos()]);
           <h2>最新笔记</h2>
           <p class="band-sub">写代码时的笔记和思考</p>
         </div>
-        <a href={withBase('/posts/')}>全部文章 →</a>
+        <a href={withBase('/posts/')}>全部文章 <Icon name="arrow-right" size={14} /></a>
       </div>
       <div class="home-posts">
         <PostList posts={posts} withSummary />
@@ -71,10 +72,32 @@ const [featured, repos] = await Promise.all([getFeaturedRepos(), getRepos()]);
         <h2>一起折腾？</h2>
         <p>欢迎在 GitHub 上提 Issue、PR，或者直接来聊聊</p>
         <div class="btns">
-          <a class="btn primary" href={`https://github.com/${SITE.github}`}>github.com/{SITE.github} ↗</a>
-          <a class="btn" href={withBase('/rss.xml')}>订阅 RSS</a>
+          <a class="btn primary" href={`https://github.com/${SITE.github}`}>
+            <Icon name="brand-github" size={16} /> github.com/{SITE.github}
+            <Icon name="external-link" size={13} class="btn-ext" />
+          </a>
+          <a class="btn" href={withBase('/rss.xml')}>
+            <Icon name="rss" size={15} /> 订阅 RSS
+          </a>
         </div>
       </div>
     </div>
   </section>
 </Base>
+
+<script is:inline>
+  // 方向卡片的镜面高光（awesome-ui-kit SpotlightGlareCard 博客裁剪版）：
+  // 事件委托到容器，把指针位置写进 --mx/--my，渐变本体在 CSS .direction::after。
+  // 仅 hover 设备 + 允许动态效果时生效。
+  (function () {
+    var wrap = document.querySelector('.directions');
+    if (!wrap || matchMedia('(hover: none), (prefers-reduced-motion: reduce)').matches) return;
+    wrap.addEventListener('pointermove', function (e) {
+      var card = e.target.closest('.direction');
+      if (!card) return;
+      var rect = card.getBoundingClientRect();
+      card.style.setProperty('--mx', ((e.clientX - rect.left) / rect.width).toFixed(3) * 100 + '%');
+      card.style.setProperty('--my', ((e.clientY - rect.top) / rect.height).toFixed(3) * 100 + '%');
+    });
+  })();
+</script>
